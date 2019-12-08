@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Bundle xmlns="urn:uiosp-bundle-manifest-2.0" Name="Parking.Test" SymbolicName="Parking.Test" Version="1.0.0.0" InitializedState="Active">
+  <Activator Type="Parking.Test.Activator" Policy="Immediate" />
+  <Runtime>
+    <Assembly Path="bin\Parking.Test.dll" Share="false" MultipleVersions="false" />
+  </Runtime>
+    <Extension Point="Parking.ControlPanel">
+    <Menu Text="Parking.FeePlugInTest" ToolTip=" 测试(F11)" OperaterType="100" Icon="测试.png" Class="Parking.FeePlugInTest.FeePlugInTestFrm" />
+  </Extension>
+</Bundle>

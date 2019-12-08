@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Bundle xmlns="urn:uiosp-bundle-manifest-2.0" SymbolicName="Parking.ChargeDetails" Name="Parking.ChargeDetails" Version="1.0.0.0" InitializedState="Active">
+  <Activator Type="Parking.ChargeDetails.Activator"/>
+  <Runtime>
+    <Assembly Path="bin\Parking.ChargeDetails.dll"/>
+  </Runtime>
+  <Extension Point="Parking.MultiTab">
+    <Menu Text="Parking.ChargeDetails" ToolTip="收费详情" Icon="" Class="Parking.ChargeDetails.ChargeDetails" />
+  </Extension>
+</Bundle>

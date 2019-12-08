@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Bundle xmlns="urn:uiosp-bundle-manifest-2.0" Name="Parking.RecognitionStatistics" SymbolicName="Parking.RecognitionStatistics" Version="1.0.0.0" InitializedState="Active" StartLevel="30">
+  <Activator Type="Parking.RecognitionStatistics.Activator" Policy="Immediate" />
+  <Runtime>
+    <Assembly Path="bin\Parking.RecognitionStatistics.dll" Share="false" MultipleVersions="false" />
+  </Runtime>
+  <Extension Point="Parking.MultiTab">
+    <Menu Text="Parking.RecognitionStatistics" ToolTip="识别率统计" Icon="Parking.RecognitionStatistics.Resources.shell.png" Class="Parking.RecognitionStatistics.RecognitionStatistics" />
+  </Extension>
+</Bundle>

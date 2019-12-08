@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Bundle xmlns="urn:uiosp-bundle-manifest-2.0" Name="Parking.OperatorInfo" SymbolicName="Parking.OperatorInfo" Version="1.0.0.0" InitializedState="Active">
+  <Activator Type="Parking.OperatorInfo.Activator" Policy="Immediate" />
+  <Runtime>
+    <Assembly Path="bin\Parking.OperatorInfo.dll" Share="false" MultipleVersions="false" />
+  </Runtime>
+  <Extension Point="Parking.WorkBench">
+    <Menu Text="Parking.OperatorInfo" ToolTip="OperatorInfo" Icon="UIShell.WinFormAppCenterPlugin.Resources.shell.png" Class="Parking.OperatorInfo.Operator" />
+  </Extension>
+</Bundle>

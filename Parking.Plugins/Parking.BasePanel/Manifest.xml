@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Bundle xmlns="urn:uiosp-bundle-manifest-2.0" SymbolicName="Parking.BasePanel" Name="Parking.BasePanel" Version="1.0.0.0" InitializedState="Active">
+  <Activator Type="Parking.BasePanel.Activator"/>
+  <Runtime>
+    <Assembly Path="bin\Parking.BasePanel.dll"/>
+  </Runtime>
+  <Extension Point="UIShell.Applications">
+		<Application Title="Parking.BasePanel" ToolTip="Parking.BasePanel" Icon="Parking.BasePanel.Resources.shell.png">
+			<Menu Text="UserControl1" ToolTip="UserControl1" Icon="Parking.BasePanel.Resources.shell.png" Class="Parking.BasePanel.UserControl1"/>
+			<Menu Text="Form1" ToolTip="Form1" Icon="Parking.BasePanel.Resources.shell.png" Class="Parking.BasePanel.Form1"/>
+		</Application>
+	</Extension>
+</Bundle>

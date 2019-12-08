@@ -1,0 +1,353 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{77925CCF-F593-4123-8234-59703AA16EA0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Parking.Core</RootNamespace>
+    <AssemblyName>Parking.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\CompileDirectory\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac">
+      <HintPath>..\Packages\Autofac\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.SpeechLib">
+      <HintPath>..\Packages\Comm\Interop.SpeechLib.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="LitJson">
+      <HintPath>..\Packages\WeiXin\LitJson.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\Packages\Comm\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Packages\Comm\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="SevenZipSharp">
+      <HintPath>..\Packages\Comm\SevenZipSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIShell.OSGi, Version=1.2.2.5, Culture=neutral, PublicKeyToken=c86472448ee87261, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Packages\OSGI\UIShell.OSGi.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Caching\ICacheManager.cs" />
+    <Compile Include="Caching\MemoryCacheManager.cs" />
+    <Compile Include="ChargeStandard\Subsection.cs" />
+    <Compile Include="Common\CommHelper.cs" />
+    <Compile Include="Common\ConfigHelper.cs" />
+    <Compile Include="Common\FileHandler.cs" />
+    <Compile Include="Common\HashManager.cs" />
+    <Compile Include="Configuration\ParkingConfig.cs" />
+    <Compile Include="ControlEventArgs\DataArrivedEventArgs.cs" />
+    <Compile Include="ControlEventArgs\DeviceStateChangedEventArgs.cs" />
+    <Compile Include="DataProcessing\DataProcessing.cs" />
+    <Compile Include="DataProcessing\ThreadMessageTransact.cs" />
+    <Compile Include="DataProcessing\ThreadNetworkInterface.cs" />
+    <Compile Include="Enum\enumAuthenticationType.cs" />
+    <Compile Include="Enum\enumCardType.cs" />
+    <Compile Include="Enum\enumCarType.cs" />
+    <Compile Include="Enum\enumChannelType.cs" />
+    <Compile Include="Enum\enumChargeStandardType.cs" />
+    <Compile Include="Enum\enumChargeType.cs" />
+    <Compile Include="Enum\enumCheckPointType.cs" />
+    <Compile Include="Enum\enumDeviceType.cs" />
+    <Compile Include="Enum\enumDevType.cs" />
+    <Compile Include="Enum\enumEBodyType.cs" />
+    <Compile Include="Enum\enumEventType.cs" />
+    <Compile Include="Enum\enumFlowType.cs" />
+    <Compile Include="Enum\enumOpenType.cs" />
+    <Compile Include="Enum\enumOperaterType.cs" />
+    <Compile Include="Enum\enumPayMethod.cs" />
+    <Compile Include="Enum\enumPreferentialType.cs" />
+    <Compile Include="Enum\enumProductLine.cs" />
+    <Compile Include="Enum\enumReleaseType.cs" />
+    <Compile Include="Enum\enumRoadGateType.cs" />
+    <Compile Include="Enum\enumSpeechType.cs" />
+    <Compile Include="Enum\enumTemplateType.cs" />
+    <Compile Include="Enum\enumTemporaryBilling.cs" />
+    <Compile Include="Enum\enumVoiceTemp.cs" />
+    <Compile Include="Extension\ExtensionArgs.cs" />
+    <Compile Include="Extension\ExtensionContainer.cs" />
+    <Compile Include="GlobalEnvironment.cs" />
+    <Compile Include="Infrastructure\AppDomainTypeFinder.cs" />
+    <Compile Include="Infrastructure\DependencyManagement\ContainerManager.cs" />
+    <Compile Include="Infrastructure\DependencyManagement\IDependencyRegistrar.cs" />
+    <Compile Include="Infrastructure\EngineContext.cs" />
+    <Compile Include="Infrastructure\IEngine.cs" />
+    <Compile Include="Infrastructure\IStartupTask.cs" />
+    <Compile Include="Infrastructure\ITypeFinder.cs" />
+    <Compile Include="Infrastructure\LonixEngine.cs" />
+    <Compile Include="Infrastructure\LonixTypeFinder.cs" />
+    <Compile Include="Infrastructure\Singleton.cs" />
+    <Compile Include="Interface\ICamera.cs" />
+    <Compile Include="Interface\IChannel.cs" />
+    <Compile Include="Interface\IChargeStandard.cs" />
+    <Compile Include="Interface\ICheck.cs" />
+    <Compile Include="Interface\IControlPanel.cs" />
+    <Compile Include="Interface\IDataUpLoad.cs" />
+    <Compile Include="Interface\IDiscount.cs" />
+    <Compile Include="Interface\ILEDScreen.cs" />
+    <Compile Include="Interface\IPayMethod.cs" />
+    <Compile Include="Interface\IRecordConvert.cs" />
+    <Compile Include="Log4Net\LogHelper.cs" />
+    <Compile Include="LonixException.cs" />
+    <Compile Include="Model\BAS_SYSTEM_DATA_DICT.cs" />
+    <Compile Include="Model\BAS_SYSTEM_USER.cs" />
+    <Compile Include="Model\CODE_GENERATE.cs" />
+    <Compile Include="Model\COMMON_MODULE_SORT.cs" />
+    <Compile Include="Model\CR_ACCESS_PERMISSION_CENTER_INFO.cs" />
+    <Compile Include="Model\CR_ACCESS_PERMISSION_INFO.cs" />
+    <Compile Include="Model\CR_BUSINESS_OPERATION_LOG.cs" />
+    <Compile Include="Model\CR_CENTRAL_CHARGE.cs" />
+    <Compile Include="Model\CR_CHARGES_LOG.cs" />
+    <Compile Include="Model\CR_INOUT_RECODE.cs" />
+    <Compile Include="Model\CR_INOUT_RECODE_ARCHIVE.cs" />
+    <Compile Include="Model\CR_INOUT_RECODE_IMG.cs" />
+    <Compile Include="Model\CR_LICENSE_ANALYSIS_CORRECTION.cs" />
+    <Compile Include="Model\CR_LICENSE_CORRECT_RECORD.cs" />
+    <Compile Include="Model\CR_ORDER_RECORD_DETAILS.cs" />
+    <Compile Include="Model\CR_ORDER_RECORD_INFO.cs" />
+    <Compile Include="Model\CR_OWNER_SPACE_INFO.cs" />
+    <Compile Include="Model\CR_PARKING_LOG.cs" />
+    <Compile Include="Model\CR_PARK_EXCHANGE.cs" />
+    <Compile Include="Model\CR_PREFERENTIAL_INFO.cs" />
+    <Compile Include="Model\CR_PREFERENTIAL_PHYSICAL.cs" />
+    <Compile Include="Model\CR_PREFERENTIAL_POLICIES.cs" />
+    <Compile Include="Model\CR_PREFERENTIAL_POLICIES_DETAIL.cs" />
+    <Compile Include="Model\CR_PREFERENTIAL_RECORD.cs" />
+    <Compile Include="Model\CR_TRAFFIC_PERMIT_INFO.cs" />
+    <Compile Include="Model\CR_TRAFFIC_PERMIT_TYPE.cs" />
+    <Compile Include="Model\Entity\CarInSideInfo.cs" />
+    <Compile Include="Model\Entity\CRPreferentialDetails.cs" />
+    <Compile Include="Model\Entity\IssueInfo.cs" />
+    <Compile Include="Model\Entity\OwnerInfo.cs" />
+    <Compile Include="Model\EXT_PROPERTY_COSTS.cs" />
+    <Compile Include="Model\FN_LAYOUT_MAIN.cs" />
+    <Compile Include="Model\FN_LAYOUT_PARAM_CONFIG.cs" />
+    <Compile Include="Model\FN_LAYOUT_SUBJECT.cs" />
+    <Compile Include="Model\FN_MODEL_UI_MANAGER.cs" />
+    <Compile Include="Model\FN_MONITOR_UPDATE_INFO.cs" />
+    <Compile Include="Model\FN_MONITOR_VERSION_INFO.cs" />
+    <Compile Include="Model\FN_PLUGIN_INFO.cs" />
+    <Compile Include="Model\FN_WORKSTATION_UI_CONFIG.cs" />
+    <Compile Include="Model\HttpModel\CalendarInfo.cs" />
+    <Compile Include="Model\HttpModel\Img.cs" />
+    <Compile Include="Model\HttpModel\INRECORDALL.cs" />
+    <Compile Include="Model\HttpModel\OUTRECORDALL.cs" />
+    <Compile Include="Model\HttpModel\PropertyExpend.cs" />
+    <Compile Include="Model\HttpModel\returnData.cs" />
+    <Compile Include="Model\HttpModel\returnUserInfo.cs" />
+    <Compile Include="Model\HttpModel\UserInfo.cs" />
+    <Compile Include="Model\HttpModel\WorkingDays.cs" />
+    <Compile Include="Model\PBA_CHARGE_INFO.cs" />
+    <Compile Include="Model\PBA_CHARGE_STANDARD_INFO.cs" />
+    <Compile Include="Model\PBA_DEVICE_MANAGER.cs" />
+    <Compile Include="Model\PBA_EQUIPMENT_MANAGEMENT.cs" />
+    <Compile Include="Model\PBA_EXTERNAL_DEVICE.cs" />
+    <Compile Include="Model\PBA_EXTERNAL_DEVICE_PARAM_SETTINGS.cs" />
+    <Compile Include="Model\PBA_HAND_DEVICE.cs" />
+    <Compile Include="Model\PBA_IDENTITY_ENTITY_STORAGE.cs" />
+    <Compile Include="Model\PBA_MERCHANT_INFO.cs" />
+    <Compile Include="Model\PBA_OWNER_INFO.cs" />
+    <Compile Include="Model\PBA_OWNER_ORGANIZATION.cs" />
+    <Compile Include="Model\PBA_OWNER_VEHICLE_INFO.cs" />
+    <Compile Include="Model\PBA_PARKING_ORGANIZATION_INFO.cs" />
+    <Compile Include="Model\PBA_PARKING_PARAM_SETTINGS.cs" />
+    <Compile Include="Model\PBA_PARKING_SPACE_MANAGER.cs" />
+    <Compile Include="Model\PBA_PARKING_SPACE_TYPE.cs" />
+    <Compile Include="Model\PBA_SUB_ORDER_INFO.cs" />
+    <Compile Include="Model\PBA_SUB_ORDER_RECORD_INFO.cs" />
+    <Compile Include="Model\PBA_TRAFFIC_DEVICE.cs" />
+    <Compile Include="Model\PBA_VOICE_TEMPLATE.cs" />
+    <Compile Include="Model\PL_ACCESS_RIGHTS_MANAGERS.cs" />
+    <Compile Include="Model\PL_ARTIFICIAL_PROCESSING_IMG.cs" />
+    <Compile Include="Model\PL_ARTIFICIAL_PROCESSING_LOG.cs" />
+    <Compile Include="Model\PL_BLACK_WHITE_MANAGER.cs" />
+    <Compile Include="Model\PL_CHARGETYPE_SUBJECTS.cs" />
+    <Compile Include="Model\PL_SUBJECTS_TABLE.cs" />
+    <Compile Include="Model\UP_DATA_INTERACTION_PERMISSIONS.cs" />
+    <Compile Include="Model\UP_DYNAMIC_PARAMETERS_DICT.cs" />
+    <Compile Include="Model\UP_LOG_FlowingWater.cs" />
+    <Compile Include="Model\UP_LOG_RECEIVE_MESSAGE.cs" />
+    <Compile Include="Model\UP_LOG_SEND_MESSAGE.cs" />
+    <Compile Include="Model\UP_MSG_TYPE_DICT_INFO.cs" />
+    <Compile Include="Model\UP_SEND_MESSAGE.cs" />
+    <Compile Include="Model\UP_TMP_RECEIVE_MESSAGE.cs" />
+    <Compile Include="Model\UP_TMP_SEND_MESSAGE.cs" />
+    <Compile Include="Model\WF_FlowChart.cs" />
+    <Compile Include="Model\WF_FlowProcess.cs" />
+    <Compile Include="Model\WF_ProcessNode.cs" />
+    <Compile Include="Oragnization\Area.cs" />
+    <Compile Include="Oragnization\CarTypeMap.cs" />
+    <Compile Include="Oragnization\Channel.cs" />
+    <Compile Include="Oragnization\ChargMap.cs" />
+    <Compile Include="Oragnization\Equipment.cs" />
+    <Compile Include="Oragnization\LedInfoMap.cs" />
+    <Compile Include="Oragnization\LicenseCorrect.cs" />
+    <Compile Include="Oragnization\OragnizationBase.cs" />
+    <Compile Include="Oragnization\Park.cs" />
+    <Compile Include="Oragnization\RecognitioResult.cs" />
+    <Compile Include="Oragnization\WorkStation.cs" />
+    <Compile Include="OSGI\WinShellApplication.cs" />
+    <Compile Include="Phone\EBodyType.cs" />
+    <Compile Include="Phone\SendPhoneMessage.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Record\DataUploadEventArgs.cs" />
+    <Compile Include="Record\DataUploadRecord.cs" />
+    <Compile Include="Record\ProcessRecord.cs" />
+    <Compile Include="Record\RecordBase.cs" />
+    <Compile Include="Structs\LED_BASICCONFIG_STRUCT.cs" />
+    <Compile Include="Structs\LED_NETCONFIG_STRUCT.cs" />
+    <Compile Include="Structs\LED_PARAMETER_STRUCT.cs" />
+    <Compile Include="Structs\ROADGATE_INFO_STRUCT.cs" />
+    <Compile Include="Structs\ROADGATE_NETCONFIG_STRUCT.cs" />
+    <Compile Include="Structs\VOICE_PARAMETER_STRUCT.cs" />
+    <Compile Include="UserControl\BaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserControl\BaseForm.Designer.cs">
+      <DependentUpon>BaseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\BasePanel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserControl\BasePanel.Designer.cs">
+      <DependentUpon>BasePanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\CarControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControl\CarControl.Designer.cs">
+      <DependentUpon>CarControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\CarNo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControl\CarNo.Designer.cs">
+      <DependentUpon>CarNo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\ControlButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControl\ControlButton.Designer.cs">
+      <DependentUpon>ControlButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\G5MessageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserControl\G5MessageBox.Designer.cs">
+      <DependentUpon>G5MessageBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\MonitorWindow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControl\MonitorWindow.Designer.cs">
+      <DependentUpon>MonitorWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\PagingControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControl\PagingControl.Designer.cs">
+      <DependentUpon>PagingControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\ProvinceFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserControl\ProvinceFrm.Designer.cs">
+      <DependentUpon>ProvinceFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\RoadGate.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControl\RoadGate.Designer.cs">
+      <DependentUpon>RoadGate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\Win32.cs" />
+    <Compile Include="WeiXin\Lib\Config.cs" />
+    <Compile Include="WeiXin\Lib\Data.cs" />
+    <Compile Include="WeiXin\Lib\HttpService.cs" />
+    <Compile Include="WeiXin\Lib\WxPayApi.cs" />
+    <Compile Include="WeiXin\MicroPay.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="UserControl\BaseForm.resx">
+      <DependentUpon>BaseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl\BasePanel.resx">
+      <DependentUpon>BasePanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl\CarControl.resx">
+      <DependentUpon>CarControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl\CarNo.resx">
+      <DependentUpon>CarNo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl\ControlButton.resx">
+      <DependentUpon>ControlButton.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl\G5MessageBox.resx">
+      <DependentUpon>G5MessageBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl\MonitorWindow.resx">
+      <DependentUpon>MonitorWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl\PagingControl.resx">
+      <DependentUpon>PagingControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl\ProvinceFrm.resx">
+      <DependentUpon>ProvinceFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl\RoadGate.resx">
+      <DependentUpon>RoadGate.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

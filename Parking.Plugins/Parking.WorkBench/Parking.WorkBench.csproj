@@ -1,0 +1,217 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4A388A63-2EBA-45F0-B7B4-2124A8B1D634}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Parking.WorkBench</RootNamespace>
+    <AssemblyName>Parking.WorkBench</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\CompileDirectory\plugins\Parking.WorkBench\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac">
+      <HintPath>..\..\Packages\Autofac\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\..\Packages\Comm\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIShell.OSGi, Version=1.2.2.5, Culture=neutral, PublicKeyToken=c86472448ee87261, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Packages\OSGI\UIShell.OSGi.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Activator.cs" />
+    <Compile Include="Channel\ChannelEngine.cs" />
+    <Compile Include="ChargeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChargeForm.designer.cs">
+      <DependentUpon>ChargeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CheckPoint\CheckPointBase.cs" />
+    <Compile Include="CheckPoint\GenerateOrderCheck.cs" />
+    <Compile Include="CheckPoint\InCheckPoint\InStockCheck.cs" />
+    <Compile Include="CheckPoint\InCheckPoint\IsInAuthenticationCheck.cs" />
+    <Compile Include="CheckPoint\InCheckPoint\IsInSideCheck.cs" />
+    <Compile Include="CheckPoint\InCheckPoint\OpenInConfirmGateCheck.cs" />
+    <Compile Include="CheckPoint\OpenGateCheck.cs" />
+    <Compile Include="CheckPoint\OutCheckPoint\ChargingCheck.cs" />
+    <Compile Include="CheckPoint\OutCheckPoint\IsOutAuthenticationCheck.cs" />
+    <Compile Include="CheckPoint\OutCheckPoint\IsOutSideCheck.cs" />
+    <Compile Include="CheckPoint\OutCheckPoint\OutStockCheck.cs" />
+    <Compile Include="CheckPoint\OutCheckPoint\SaveDiscountsCheck.cs" />
+    <Compile Include="CheckPoint\OutCheckPoint\ShowChargeCheck.cs" />
+    <Compile Include="CheckPoint\PlateCorrectonCheck.cs" />
+    <Compile Include="CheckPoint\ShowRecordCheck.cs" />
+    <Compile Include="ConfirmGateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfirmGateForm.designer.cs">
+      <DependentUpon>ConfirmGateForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DependencyRegistrar.cs" />
+    <Compile Include="Discount\CashDiscount.cs" />
+    <Compile Include="Discount\ManualDiscount.cs" />
+    <Compile Include="Discount\PercentageDiscount.cs" />
+    <Compile Include="ExtensionContainer.cs" />
+    <Compile Include="HandReleaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HandReleaseForm.designer.cs">
+      <DependentUpon>HandReleaseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LockForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LockForm.designer.cs">
+      <DependentUpon>LockForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LockFormPanel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LockFormPanel.designer.cs">
+      <DependentUpon>LockFormPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OccupyRecordInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OccupyRecordInfo.designer.cs">
+      <DependentUpon>OccupyRecordInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OrderListInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrderListInfo.designer.cs">
+      <DependentUpon>OrderListInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PaymentMethod\AliPayMethod.cs" />
+    <Compile Include="PaymentMethod\BasePayMethod.cs" />
+    <Compile Include="PaymentMethod\WeiXinMethod.cs" />
+    <Compile Include="PlateCorrectionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PlateCorrectionForm.designer.cs">
+      <DependentUpon>PlateCorrectionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RecordConvert\HandReleaseConvert.cs" />
+    <Compile Include="RecordConvert\PlatRecordConvert.cs" />
+    <Compile Include="RecordConvert\RecordConvertBase.cs" />
+    <Compile Include="RecordConvert\UnlicensedCarCovert.cs" />
+    <Compile Include="UnlicensedCarsEnter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UnlicensedCarsEnter.designer.cs">
+      <DependentUpon>UnlicensedCarsEnter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WorkBench.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WorkBench.Designer.cs">
+      <DependentUpon>WorkBench.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Manifest.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ChargeForm.resx">
+      <DependentUpon>ChargeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConfirmGateForm.resx">
+      <DependentUpon>ConfirmGateForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HandReleaseForm.resx">
+      <DependentUpon>HandReleaseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LockForm.resx">
+      <DependentUpon>LockForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LockFormPanel.resx">
+      <DependentUpon>LockFormPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OccupyRecordInfo.resx">
+      <DependentUpon>OccupyRecordInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrderListInfo.resx">
+      <DependentUpon>OrderListInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PlateCorrectionForm.resx">
+      <DependentUpon>PlateCorrectionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UnlicensedCarsEnter.resx">
+      <DependentUpon>UnlicensedCarsEnter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkBench.resx">
+      <DependentUpon>WorkBench.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Parking.Core\Parking.Core.csproj">
+      <Project>{77925CCF-F593-4123-8234-59703AA16EA0}</Project>
+      <Name>Parking.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Parking.ChargeStandard\Parking.ChargeStandard.csproj">
+      <Project>{81E901F1-99A9-4E54-83ED-FD26FF9543DF}</Project>
+      <Name>Parking.ChargeStandard</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Parking.DBService\Parking.DBService.csproj">
+      <Project>{F71C70AB-0928-4FA2-9A34-E44107E6A82E}</Project>
+      <Name>Parking.DBService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Parking.Drives\Parking.Drives.csproj">
+      <Project>{36809070-F658-4355-88AE-296C05A0EF47}</Project>
+      <Name>Parking.Drives</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

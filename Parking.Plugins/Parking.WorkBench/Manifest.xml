@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Bundle xmlns="urn:uiosp-bundle-manifest-2.0" Name="Parking.WorkBench" SymbolicName="Parking.WorkBench" Version="1.0.0.0" InitializedState="Active">
+  <Activator Type="Parking.WorkBench.Activator" Policy="Immediate" />
+  <Runtime>
+    <Assembly Path="bin\Parking.WorkBench.dll" Share="false" MultipleVersions="false" />
+  </Runtime>
+  <Extension Point="PageFlowService.PageNode">
+    <PageNode Name="LoginPage" Priority="10" Value="Parking.WorkBench.LoginForm" />
+    <PageNode Name="MainPage" Priority="10" Value="Parking.WorkBench.WorkBench" />
+  </Extension>
+</Bundle>

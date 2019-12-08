@@ -1,0 +1,250 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F71C70AB-0928-4FA2-9A34-E44107E6A82E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Parking.DBService</RootNamespace>
+    <AssemblyName>Parking.DBService</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\CompileDirectory\plugins\Parking.DBService\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIShell.OSGi, Version=1.2.2.5, Culture=neutral, PublicKeyToken=c86472448ee87261, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Packages\OSGI\UIShell.OSGi.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Activator.cs" />
+    <Compile Include="BLL\BAS_SYSTEM_DATA_DICT.cs" />
+    <Compile Include="BLL\BAS_SYSTEM_USER.cs" />
+    <Compile Include="BLL\CODE_GENERATE.cs" />
+    <Compile Include="BLL\COMMON_MODULE_SORT.cs" />
+    <Compile Include="BLL\CR_ACCESS_PERMISSION_CENTER_INFO.cs" />
+    <Compile Include="BLL\CR_ACCESS_PERMISSION_INFO.cs" />
+    <Compile Include="BLL\CR_BUSINESS_OPERATION_LOG.cs" />
+    <Compile Include="BLL\CR_CENTRAL_CHARGE.cs" />
+    <Compile Include="BLL\CR_CHARGES_LOG.cs" />
+    <Compile Include="BLL\CR_INOUT_RECODE.cs" />
+    <Compile Include="BLL\CR_INOUT_RECODE_ARCHIVE.cs" />
+    <Compile Include="BLL\CR_INOUT_RECODE_IMG.cs" />
+    <Compile Include="BLL\CR_LICENSE_ANALYSIS_CORRECTION.cs" />
+    <Compile Include="BLL\CR_LICENSE_CORRECT_RECORD.cs" />
+    <Compile Include="BLL\CR_ORDER_RECORD_DETAILS.cs" />
+    <Compile Include="BLL\CR_ORDER_RECORD_INFO.cs" />
+    <Compile Include="BLL\CR_OWNER_SPACE_INFO.cs" />
+    <Compile Include="BLL\CR_PARKING_LOG.cs" />
+    <Compile Include="BLL\CR_PARK_EXCHANGE.cs" />
+    <Compile Include="BLL\CR_PREFERENTIAL_INFO.cs" />
+    <Compile Include="BLL\CR_PREFERENTIAL_PHYSICAL.cs" />
+    <Compile Include="BLL\CR_PREFERENTIAL_POLICIES.cs" />
+    <Compile Include="BLL\CR_PREFERENTIAL_POLICIES_DETAIL.cs" />
+    <Compile Include="BLL\CR_PREFERENTIAL_RECORD.cs" />
+    <Compile Include="BLL\CR_TRAFFIC_PERMIT_INFO.cs" />
+    <Compile Include="BLL\CR_TRAFFIC_PERMIT_TYPE.cs" />
+    <Compile Include="BLL\EXT_PROPERTY_COSTS.cs" />
+    <Compile Include="BLL\FN_LAYOUT_MAIN.cs" />
+    <Compile Include="BLL\FN_LAYOUT_PARAM_CONFIG.cs" />
+    <Compile Include="BLL\FN_LAYOUT_SUBJECT.cs" />
+    <Compile Include="BLL\FN_MODEL_UI_MANAGER.cs" />
+    <Compile Include="BLL\FN_MONITOR_UPDATE_INFO.cs" />
+    <Compile Include="BLL\FN_MONITOR_VERSION_INFO.cs" />
+    <Compile Include="BLL\FN_PLUGIN_INFO.cs" />
+    <Compile Include="BLL\FN_WORKSTATION_UI_CONFIG.cs" />
+    <Compile Include="BLL\PBA_CHARGE_INFO.cs" />
+    <Compile Include="BLL\PBA_CHARGE_STANDARD_INFO.cs" />
+    <Compile Include="BLL\PBA_DEVICE_MANAGER.cs" />
+    <Compile Include="BLL\PBA_EQUIPMENT_MANAGEMENT.cs" />
+    <Compile Include="BLL\PBA_EXTERNAL_DEVICE.cs" />
+    <Compile Include="BLL\PBA_EXTERNAL_DEVICE_PARAM_SETTINGS.cs" />
+    <Compile Include="BLL\PBA_HAND_DEVICE.cs" />
+    <Compile Include="BLL\PBA_IDENTITY_ENTITY_STORAGE.cs" />
+    <Compile Include="BLL\PBA_MERCHANT_INFO.cs" />
+    <Compile Include="BLL\PBA_OWNER_INFO.cs" />
+    <Compile Include="BLL\PBA_OWNER_ORGANIZATION.cs" />
+    <Compile Include="BLL\PBA_OWNER_VEHICLE_INFO.cs" />
+    <Compile Include="BLL\PBA_PARKING_ORGANIZATION_INFO.cs" />
+    <Compile Include="BLL\PBA_PARKING_PARAM_SETTINGS.cs" />
+    <Compile Include="BLL\PBA_PARKING_SPACE_MANAGER.cs" />
+    <Compile Include="BLL\PBA_PARKING_SPACE_TYPE.cs" />
+    <Compile Include="BLL\PBA_SUB_ORDER_INFO.cs" />
+    <Compile Include="BLL\PBA_SUB_ORDER_RECORD_INFO.cs" />
+    <Compile Include="BLL\PBA_TRAFFIC_DEVICE.cs" />
+    <Compile Include="BLL\PBA_VOICE_TEMPLATE.cs" />
+    <Compile Include="BLL\PL_ACCESS_RIGHTS_MANAGERS.cs" />
+    <Compile Include="BLL\PL_ARTIFICIAL_PROCESSING_IMG.cs" />
+    <Compile Include="BLL\PL_ARTIFICIAL_PROCESSING_LOG.cs" />
+    <Compile Include="BLL\PL_BLACK_WHITE_MANAGER.cs" />
+    <Compile Include="BLL\PL_CHARGETYPE_SUBJECTS.cs" />
+    <Compile Include="BLL\PL_SUBJECTS_TABLE.cs" />
+    <Compile Include="BLL\System_DbHelper.cs" />
+    <Compile Include="BLL\UP_DATA_INTERACTION_PERMISSIONS.cs" />
+    <Compile Include="BLL\UP_DYNAMIC_PARAMETERS_DICT.cs" />
+    <Compile Include="BLL\UP_LOG_RECEIVE_MESSAGE.cs" />
+    <Compile Include="BLL\UP_LOG_SEND_MESSAGE.cs" />
+    <Compile Include="BLL\UP_MSG_TYPE_DICT_INFO.cs" />
+    <Compile Include="BLL\UP_SEND_MESSAGE.cs" />
+    <Compile Include="BLL\UP_TMP_RECEIVE_MESSAGE.cs" />
+    <Compile Include="BLL\UP_TMP_SEND_MESSAGE.cs" />
+    <Compile Include="BLL\WF_FlowChart.cs" />
+    <Compile Include="BLL\WF_FlowProcess.cs" />
+    <Compile Include="BLL\WF_ProcessNode.cs" />
+    <Compile Include="DAL\BAS_SYSTEM_DATA_DICT.cs" />
+    <Compile Include="DAL\BAS_SYSTEM_USER.cs" />
+    <Compile Include="DAL\CODE_GENERATE.cs" />
+    <Compile Include="DAL\COMMON_MODULE_SORT.cs" />
+    <Compile Include="DAL\CR_ACCESS_PERMISSION_CENTER_INFO.cs" />
+    <Compile Include="DAL\CR_ACCESS_PERMISSION_INFO.cs" />
+    <Compile Include="DAL\CR_BUSINESS_OPERATION_LOG.cs" />
+    <Compile Include="DAL\CR_CENTRAL_CHARGE.cs" />
+    <Compile Include="DAL\CR_CHARGES_LOG.cs" />
+    <Compile Include="DAL\CR_INOUT_RECODE.cs" />
+    <Compile Include="DAL\CR_INOUT_RECODE_ARCHIVE.cs" />
+    <Compile Include="DAL\CR_INOUT_RECODE_IMG.cs" />
+    <Compile Include="DAL\CR_LICENSE_ANALYSIS_CORRECTION.cs" />
+    <Compile Include="DAL\CR_LICENSE_CORRECT_RECORD.cs" />
+    <Compile Include="DAL\CR_ORDER_RECORD_DETAILS.cs" />
+    <Compile Include="DAL\CR_ORDER_RECORD_INFO.cs" />
+    <Compile Include="DAL\CR_OWNER_SPACE_INFO.cs" />
+    <Compile Include="DAL\CR_PARKING_LOG.cs" />
+    <Compile Include="DAL\CR_PARK_EXCHANGE.cs" />
+    <Compile Include="DAL\CR_PREFERENTIAL_INFO.cs" />
+    <Compile Include="DAL\CR_PREFERENTIAL_PHYSICAL.cs" />
+    <Compile Include="DAL\CR_PREFERENTIAL_POLICIES.cs" />
+    <Compile Include="DAL\CR_PREFERENTIAL_POLICIES_DETAIL.cs" />
+    <Compile Include="DAL\CR_PREFERENTIAL_RECORD.cs" />
+    <Compile Include="DAL\CR_TRAFFIC_PERMIT_INFO.cs" />
+    <Compile Include="DAL\CR_TRAFFIC_PERMIT_TYPE.cs" />
+    <Compile Include="DAL\EXT_PROPERTY_COSTS.cs" />
+    <Compile Include="DAL\FN_LAYOUT_MAIN.cs" />
+    <Compile Include="DAL\FN_LAYOUT_PARAM_CONFIG.cs" />
+    <Compile Include="DAL\FN_LAYOUT_SUBJECT.cs" />
+    <Compile Include="DAL\FN_MODEL_UI_MANAGER.cs" />
+    <Compile Include="DAL\FN_MONITOR_UPDATE_INFO.cs" />
+    <Compile Include="DAL\FN_MONITOR_VERSION_INFO.cs" />
+    <Compile Include="DAL\FN_PLUGIN_INFO.cs" />
+    <Compile Include="DAL\FN_WORKSTATION_UI_CONFIG.cs" />
+    <Compile Include="DAL\PBA_CHARGE_INFO.cs" />
+    <Compile Include="DAL\PBA_CHARGE_STANDARD_INFO.cs" />
+    <Compile Include="DAL\PBA_DEVICE_MANAGER.cs" />
+    <Compile Include="DAL\PBA_EQUIPMENT_MANAGEMENT.cs" />
+    <Compile Include="DAL\PBA_EXTERNAL_DEVICE.cs" />
+    <Compile Include="DAL\PBA_EXTERNAL_DEVICE_PARAM_SETTINGS.cs" />
+    <Compile Include="DAL\PBA_HAND_DEVICE.cs" />
+    <Compile Include="DAL\PBA_IDENTITY_ENTITY_STORAGE.cs" />
+    <Compile Include="DAL\PBA_MERCHANT_INFO.cs" />
+    <Compile Include="DAL\PBA_OWNER_INFO.cs" />
+    <Compile Include="DAL\PBA_OWNER_ORGANIZATION.cs" />
+    <Compile Include="DAL\PBA_OWNER_VEHICLE_INFO.cs" />
+    <Compile Include="DAL\PBA_PARKING_ORGANIZATION_INFO.cs" />
+    <Compile Include="DAL\PBA_PARKING_PARAM_SETTINGS.cs" />
+    <Compile Include="DAL\PBA_PARKING_SPACE_MANAGER.cs" />
+    <Compile Include="DAL\PBA_PARKING_SPACE_TYPE.cs" />
+    <Compile Include="DAL\PBA_SUB_ORDER_INFO.cs" />
+    <Compile Include="DAL\PBA_SUB_ORDER_RECORD_INFO.cs" />
+    <Compile Include="DAL\PBA_TRAFFIC_DEVICE.cs" />
+    <Compile Include="DAL\PBA_VOICE_TEMPLATE.cs" />
+    <Compile Include="DAL\PL_ACCESS_RIGHTS_MANAGERS.cs" />
+    <Compile Include="DAL\PL_ARTIFICIAL_PROCESSING_IMG.cs" />
+    <Compile Include="DAL\PL_ARTIFICIAL_PROCESSING_LOG.cs" />
+    <Compile Include="DAL\PL_BLACK_WHITE_MANAGER.cs" />
+    <Compile Include="DAL\PL_CHARGETYPE_SUBJECTS.cs" />
+    <Compile Include="DAL\PL_SUBJECTS_TABLE.cs" />
+    <Compile Include="DAL\System_DbHelper.cs" />
+    <Compile Include="DAL\UP_DATA_INTERACTION_PERMISSIONS.cs" />
+    <Compile Include="DAL\UP_DYNAMIC_PARAMETERS_DICT.cs" />
+    <Compile Include="DAL\UP_LOG_RECEIVE_MESSAGE.cs" />
+    <Compile Include="DAL\UP_LOG_SEND_MESSAGE.cs" />
+    <Compile Include="DAL\UP_MSG_TYPE_DICT_INFO.cs" />
+    <Compile Include="DAL\UP_SEND_MESSAGE.cs" />
+    <Compile Include="DAL\UP_TMP_RECEIVE_MESSAGE.cs" />
+    <Compile Include="DAL\UP_TMP_SEND_MESSAGE.cs" />
+    <Compile Include="DAL\WF_FlowChart.cs" />
+    <Compile Include="DAL\WF_FlowProcess.cs" />
+    <Compile Include="DAL\WF_ProcessNode.cs" />
+    <Compile Include="DBUtility\DbHelperSQL.cs" />
+    <Compile Include="IBLL\IBAS_SYSTEM_DATA_DICT.cs" />
+    <Compile Include="IBLL\IBAS_SYSTEM_USER.cs" />
+    <Compile Include="IBLL\ICR_ACCESS_PERMISSION_INFO.cs" />
+    <Compile Include="IBLL\ICR_CHARGES_LOG.cs" />
+    <Compile Include="IBLL\ICR_INOUT_RECODE.cs" />
+    <Compile Include="IBLL\ICR_INOUT_RECODE_ARCHIVE.cs" />
+    <Compile Include="IBLL\ICR_INOUT_RECODE_IMG.cs" />
+    <Compile Include="IBLL\ICR_LICENSE_CORRECT_RECORD.cs" />
+    <Compile Include="IBLL\ICR_ORDER_RECORD_DETAILS.cs" />
+    <Compile Include="IBLL\ICR_ORDER_RECORD_INFO.cs" />
+    <Compile Include="IBLL\ICR_PARK_EXCHANGE.cs" />
+    <Compile Include="IBLL\ICR_PREFERENTIAL_PHYSICAL.cs" />
+    <Compile Include="IBLL\ICR_PREFERENTIAL_RECORD.cs" />
+    <Compile Include="IBLL\ICR_TRAFFIC_PERMIT_INFO.cs" />
+    <Compile Include="IBLL\IFN_LAYOUT_MAIN.cs" />
+    <Compile Include="IBLL\IFN_LAYOUT_SUBJECT.cs" />
+    <Compile Include="IBLL\IFN_MODEL_UI_MANAGER.cs" />
+    <Compile Include="IBLL\IFN_MONITOR_UPDATE_INFO.cs" />
+    <Compile Include="IBLL\IFN_MONITOR_VERSION_INFO.cs" />
+    <Compile Include="IBLL\IFN_PLUGIN_INFO.cs" />
+    <Compile Include="IBLL\IFN_WORKSTATION_UI_CONFIG.cs" />
+    <Compile Include="IBLL\IPBA_CHARGE_INFO.cs" />
+    <Compile Include="IBLL\IPBA_OWNER_INFO.cs" />
+    <Compile Include="IBLL\IPBA_OWNER_ORGANIZATION.cs" />
+    <Compile Include="IBLL\IPBA_PARKING_ORGANIZATION_INFO.cs" />
+    <Compile Include="IBLL\IPBA_PARKING_PARAM_SETTINGS.cs" />
+    <Compile Include="IBLL\IPBA_PARKING_SPACE_MANAGER.cs" />
+    <Compile Include="IBLL\IPBA_VOICE_TEMPLATE.cs" />
+    <Compile Include="IBLL\IPL_ACCESS_RIGHTS_MANAGERS.cs" />
+    <Compile Include="IBLL\IPL_BLACK_WHITE_MANAGER.cs" />
+    <Compile Include="IBLL\ISystem_DbHelper.cs" />
+    <Compile Include="IBLL\IUP_LOG_FlowingWater.cs" />
+    <Compile Include="IBLL\IUP_SEND_MESSAGE.cs" />
+    <Compile Include="IBLL\IWF_FlowProcess.cs" />
+    <Compile Include="IBLL\IWF_ProcessNode.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Manifest.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Parking.Core\Parking.Core.csproj">
+      <Project>{77925CCF-F593-4123-8234-59703AA16EA0}</Project>
+      <Name>Parking.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

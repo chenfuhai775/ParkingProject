@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{36809070-F658-4355-88AE-296C05A0EF47}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Parking.Drives</RootNamespace>
+    <AssemblyName>Parking.Drives</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\CompileDirectory\plugins\Parking.Drives\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net">
+      <HintPath>..\..\Packages\Comm\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIShell.OSGi, Version=1.2.2.5, Culture=neutral, PublicKeyToken=c86472448ee87261, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Packages\OSGI\UIShell.OSGi.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Activator.cs" />
+    <Compile Include="Cameras\CameraBase.cs" />
+    <Compile Include="Cameras\ZS\CVzClientSDK.cs" />
+    <Compile Include="Cameras\ZS\ZSCamera.cs" />
+    <Compile Include="Cameras\ZS\ZSCameraManage.cs" />
+    <Compile Include="Cameras\ZXII\ipcsdk.cs" />
+    <Compile Include="Cameras\ZXII\ZXIICamera.cs" />
+    <Compile Include="Cameras\ZXII\ZXIICameraManage.cs" />
+    <Compile Include="ControlPanel\LNKControlPanelManage.cs" />
+    <Compile Include="ControlPanel\LNK\DevInstanceMgr.cs" />
+    <Compile Include="ControlPanel\LNK\LNK_BARRIER_ISDK_X64.cs" />
+    <Compile Include="ControlPanel\LNK\LNK_BARRIER_ISDK_X86.cs" />
+    <Compile Include="ControlPanel\LNK\LNK_LED_ISDK_X64.cs" />
+    <Compile Include="ControlPanel\LNK\LNK_LED_ISDK_X86.cs" />
+    <Compile Include="ControlPanel\LNK\lnk_sdk_interface.cs" />
+    <Compile Include="ControlPanel\LNK\LNX_SDK_Operation_X64.cs" />
+    <Compile Include="ControlPanel\LNK\LNX_SDK_Operation_X86.cs" />
+    <Compile Include="DataArrivedEventHandler.cs" />
+    <Compile Include="DeviceMonitorEventArgs.cs" />
+    <Compile Include="DeviceMonitorEventHandler.cs" />
+    <Compile Include="ICE_CameraInfo.cs" />
+    <Compile Include="ICE_OSDAttr_S.cs" />
+    <Compile Include="ice_uart.cs" />
+    <Compile Include="ICE_UART_PARAM.cs" />
+    <Compile Include="ICE_VBR_RESULT_S.cs" />
+    <Compile Include="ICE_VDC_PICTRUE_INFO_S.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StateChangedEventHandler.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Manifest.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Parking.Core\Parking.Core.csproj">
+      <Project>{77925CCF-F593-4123-8234-59703AA16EA0}</Project>
+      <Name>Parking.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
