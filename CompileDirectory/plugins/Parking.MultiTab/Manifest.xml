@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Bundle xmlns="urn:uiosp-bundle-manifest-2.0" SymbolicName="Parking.MultiTab" Name="Parking.MultiTab" Version="1.0.0.0" InitializedState="Active">
+  <Activator Type="Parking.MultiTab.Activator"/>
+  <Runtime>
+    <Assembly Path="bin\Parking.MultiTab.dll"/>
+  </Runtime>
+  <Extension Point="Parking.WorkBench">
+    <Menu Text="Parking.MultiTab" ToolTip="MultiTab" Icon="UIShell.WinFormAppCenterPlugin.Resources.shell.png" Class="Parking.MultiTab.MultiTabPanel" />
+  </Extension>
+</Bundle>

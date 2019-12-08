@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Bundle xmlns="urn:uiosp-bundle-manifest-2.0" SymbolicName="Parking.RoadGate" Name="Parking.RoadGate" Version="1.0.0.0" InitializedState="Active">
+  <Activator Type="Parking.RoadGate.Activator"/>
+  <Runtime>
+    <Assembly Path="bin\Parking.RoadGate.dll"/>
+  </Runtime>
+  <Extension Point="Parking.WorkBench">
+    <Menu Text="Parking.RoadGate" ToolTip="Parking.RoadGate" Icon="" Class="Parking.RoadGate.RoadGate"/>
+  </Extension>
+  <Extension Point="Parking.BasePanel">
+    <Menu Text="Parking.RoadGate" ToolTip="Parking.RoadGate" Icon="" Class="Parking.RoadGate.RoadGate"/>
+  </Extension>
+</Bundle>

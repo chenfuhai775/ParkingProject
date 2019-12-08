@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Bundle xmlns="urn:uiosp-bundle-manifest-2.0" SymbolicName="Parking.MonitorCenter" Name="Parking.MonitorCenter" Version="1.0.0.0" InitializedState="Active">
+  <Activator Type="Parking.MonitorCenter.Activator"/>
+  <Runtime>
+    <Assembly Path="bin\Parking.MonitorCenter.dll"/>
+  </Runtime>
+  <Extension Point="Parking.WorkBench">
+    <Menu Text="Parking.MonitorCenter" ToolTip="MonitorCenter" Icon="UIShell.WinFormAppCenterPlugin.Resources.shell.png" Class="Parking.MonitorCenter.WatchForm" />
+  </Extension>
+  <Extension Point="Parking.BasePanel">
+    <Menu Text="Parking.MonitorCenter" ToolTip="MonitorCenter" Icon="UIShell.WinFormAppCenterPlugin.Resources.shell.png" Class="Parking.MonitorCenter.WatchForm" />
+  </Extension>
+</Bundle>

@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Bundle xmlns="urn:uiosp-bundle-manifest-2.0" SymbolicName="Parking.OwnerInfo" Name="Parking.OwnerInfo" Version="1.0.0.0" InitializedState="Active">
+  <Activator Type="Parking.OwnerInfo.Activator"/>
+  <Runtime>
+    <Assembly Path="bin\Parking.OwnerInfo.dll"/>
+  </Runtime>
+  <Extension Point="Parking.ControlPanel">
+    <Menu Text="Parking.OwnerInfo" ToolTip="业主信息(F10)" OperaterType="20" Icon="业主信息查询.png" Class="Parking.OwnerInfo.OwnerInfo" />
+  </Extension>
+</Bundle>

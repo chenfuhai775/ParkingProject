@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Bundle xmlns="urn:uiosp-bundle-manifest-2.0" SymbolicName="Parking.ChargeStandard" Name="Parking.ChargeStandard" Version="1.0.0.0" InitializedState="Active">
+  <Activator Type="Parking.ChargeStandard.Activator"/>
+  <Runtime>
+    <Assembly Path="bin\Parking.ChargeStandard.dll"/>
+  </Runtime>
+  <Extension Point="UIShell.Applications">
+		<Application Title="Parking.ChargeStandard" ToolTip="Parking.ChargeStandard" Icon="Parking.ChargeStandard.Resources.shell.png">
+			<Menu Text="UserControl1" ToolTip="UserControl1" Icon="Parking.ChargeStandard.Resources.shell.png" Class="Parking.ChargeStandard.UserControl1"/>
+			<Menu Text="Form1" ToolTip="Form1" Icon="Parking.ChargeStandard.Resources.shell.png" Class="Parking.ChargeStandard.Form1"/>
+		</Application>
+	</Extension>
+</Bundle>

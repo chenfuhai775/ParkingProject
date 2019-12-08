@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Bundle xmlns="urn:uiosp-bundle-manifest-2.0" SymbolicName="Parking.Drives" Name="Parking.Drives" Version="1.0.0.0" InitializedState="Active">
+  <Activator Type="Parking.Drives.Activator"/>
+  <Runtime>
+    <Assembly Path="bin\Parking.Drives.dll" Share="true"/>
+  </Runtime>
+</Bundle>
