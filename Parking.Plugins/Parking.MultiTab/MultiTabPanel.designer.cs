@@ -37,6 +37,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.Name = "MultiTabPanel";
             this.Size = new System.Drawing.Size(584, 284);
+            this.Load += new System.EventHandler(this.MultiTabPanel_Load);
             this.ResumeLayout(false);
 
         }

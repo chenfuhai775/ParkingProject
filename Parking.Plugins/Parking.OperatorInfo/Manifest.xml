@@ -4,7 +4,7 @@
   <Runtime>
     <Assembly Path="bin\Parking.OperatorInfo.dll" Share="false" MultipleVersions="false" />
   </Runtime>
-  <Extension Point="Parking.WorkBench">
+  <Extension Point="Parking.BasePanel">
     <Menu Text="Parking.OperatorInfo" ToolTip="OperatorInfo" Icon="UIShell.WinFormAppCenterPlugin.Resources.shell.png" Class="Parking.OperatorInfo.Operator" />
   </Extension>
 </Bundle>

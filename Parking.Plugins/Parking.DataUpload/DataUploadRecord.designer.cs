@@ -47,6 +47,8 @@
             // 
             // dgDataUploadRecord
             // 
+            this.dgDataUploadRecord.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgDataUploadRecord.BackgroundColor = System.Drawing.Color.White;
             this.dgDataUploadRecord.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgDataUploadRecord.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgDataUploadRecord.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {

@@ -1,35 +1,29 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using Parking.Core;
 using System.Windows.Forms;
 using Parking.Core.Infrastructure;
 using Parking.DBService.IBLL;
-using Parking.Core.Model;
 using Parking.Core.Common;
-using System.Configuration;
+using System.Drawing;
 
 namespace Parking.WorkBench
 {
-    public partial class LoginForm : Form
+    public partial class LoginForm : BaseForm
     {
         public LoginForm()
         {
             InitializeComponent();
         }
 
-        private void btnOK_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void LoginForm_Load(object sender, EventArgs e)
         {
+            tbUserName.AutoSize = false;
+            tbUserName.Height = 35;
+            tbPwd.AutoSize = false;
+            tbPwd.Height = 35;
+
             this.picOK.Image = new System.Drawing.Bitmap(GlobalEnvironment.BasePath + @"\image\bnt.png");
+            this.panel1.BackgroundImage = Image.FromFile(GlobalEnvironment.BasePath + @"\image\login.jpg");
         }
         /// <summary>
         /// 登录
@@ -55,10 +49,10 @@ namespace Parking.WorkBench
                 }
                 ICR_PARK_EXCHANGE bllRecord = EngineContext.Current.Resolve<ICR_PARK_EXCHANGE>();
                 var model = bllRecord.GetModelByAccount(this.tbUserName.Text.Trim(), GlobalEnvironment.LocalUserInfo.WORKSTATION_NO);
-                //if (null == model)
-                //{
-                //    bllRecord.Add(GlobalEnvironment.LocalUserInfo);
-                //}
+                if (null == model)
+                {
+                    bllRecord.Add(GlobalEnvironment.LocalUserInfo);
+                }
                 this.DialogResult = DialogResult.OK;    //返回一个登录成功的对话框状态
                 this.Close();   //关闭登录窗口
             }

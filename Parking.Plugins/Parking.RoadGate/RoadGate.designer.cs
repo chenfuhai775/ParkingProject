@@ -86,6 +86,7 @@
             this.picGate.Location = new System.Drawing.Point(3, 8);
             this.picGate.Name = "picGate";
             this.picGate.Size = new System.Drawing.Size(163, 78);
+            this.picGate.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picGate.TabIndex = 0;
             this.picGate.TabStop = false;
             // 
@@ -97,6 +98,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "RoadGate";
             this.Size = new System.Drawing.Size(225, 100);
+            this.Load += new System.EventHandler(this.RoadGate_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);

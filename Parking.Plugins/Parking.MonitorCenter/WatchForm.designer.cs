@@ -39,6 +39,7 @@
             this.picMonitor.Location = new System.Drawing.Point(0, 0);
             this.picMonitor.Name = "picMonitor";
             this.picMonitor.Size = new System.Drawing.Size(150, 150);
+            this.picMonitor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picMonitor.TabIndex = 0;
             this.picMonitor.TabStop = false;
             // 
@@ -48,6 +49,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.picMonitor);
             this.Name = "WatchForm";
+            this.Load += new System.EventHandler(this.WatchForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picMonitor)).EndInit();
             this.ResumeLayout(false);
 

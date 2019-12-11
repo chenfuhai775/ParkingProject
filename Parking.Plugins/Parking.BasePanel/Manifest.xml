@@ -4,10 +4,7 @@
   <Runtime>
     <Assembly Path="bin\Parking.BasePanel.dll"/>
   </Runtime>
-  <Extension Point="UIShell.Applications">
-		<Application Title="Parking.BasePanel" ToolTip="Parking.BasePanel" Icon="Parking.BasePanel.Resources.shell.png">
-			<Menu Text="UserControl1" ToolTip="UserControl1" Icon="Parking.BasePanel.Resources.shell.png" Class="Parking.BasePanel.UserControl1"/>
-			<Menu Text="Form1" ToolTip="Form1" Icon="Parking.BasePanel.Resources.shell.png" Class="Parking.BasePanel.Form1"/>
-		</Application>
-	</Extension>
+  <Extension Point="Parking.WorkBench">
+    <Menu Text="Parking.BasePanel" ToolTip="Parking.BasePanel" Icon="" Class="Parking.BasePanel.BaseControl"/>
+  </Extension>
 </Bundle>

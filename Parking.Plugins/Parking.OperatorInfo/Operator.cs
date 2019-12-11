@@ -30,6 +30,7 @@ namespace Parking.OperatorInfo
         }
         private void Operator_Load(object sender, EventArgs e)
         {
+            this.picOper.Image = new System.Drawing.Bitmap(GlobalEnvironment.BasePath + @"\image\person.png");
             ////////////////////////////////////////////////注册消息总线事件///////////////////////////////////////////
             ThreadMessageTransact.Instance.OnMessageBroadcast += new ThreadMessageTransact.OnMessageBroadcastEventHandler(Instance_OnMessageBroadcast);
             this.timer1.Interval = 1000;

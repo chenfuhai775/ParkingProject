@@ -152,6 +152,7 @@
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "G5MessageBox";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "G5MessageBox";
             this.Load += new System.EventHandler(this.G5MessageBox_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.MessageBox_Paint);

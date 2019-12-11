@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.tbCarNo = new Parking.Controls.CarNo();
             this.cbChannelCode = new System.Windows.Forms.ComboBox();
             this.cmbCarType = new System.Windows.Forms.ComboBox();
             this.lbInOutTime = new System.Windows.Forms.Label();
@@ -38,7 +39,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnOK = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
-            this.tbCarNo = new Parking.Controls.CarNo();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,6 +57,14 @@
             this.groupBox1.Size = new System.Drawing.Size(384, 183);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
+            // 
+            // tbCarNo
+            // 
+            this.tbCarNo.CarNO = "";
+            this.tbCarNo.Location = new System.Drawing.Point(90, 56);
+            this.tbCarNo.Name = "tbCarNo";
+            this.tbCarNo.Size = new System.Drawing.Size(291, 40);
+            this.tbCarNo.TabIndex = 8;
             // 
             // cbChannelCode
             // 
@@ -121,31 +129,31 @@
             // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(229, 259);
+            this.btnOK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(156)))), ((int)(((byte)(230)))));
+            this.btnOK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOK.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Bold);
+            this.btnOK.ForeColor = System.Drawing.Color.White;
+            this.btnOK.Location = new System.Drawing.Point(203, 247);
             this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(75, 23);
+            this.btnOK.Size = new System.Drawing.Size(99, 40);
             this.btnOK.TabIndex = 2;
             this.btnOK.Text = "确定";
-            this.btnOK.UseVisualStyleBackColor = true;
+            this.btnOK.UseVisualStyleBackColor = false;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(333, 259);
+            this.btnClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(156)))), ((int)(((byte)(230)))));
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Bold);
+            this.btnClose.ForeColor = System.Drawing.Color.White;
+            this.btnClose.Location = new System.Drawing.Point(307, 247);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(75, 23);
+            this.btnClose.Size = new System.Drawing.Size(99, 40);
             this.btnClose.TabIndex = 3;
             this.btnClose.Text = "关闭";
-            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // tbCarNo
-            // 
-            this.tbCarNo.CarNO = "";
-            this.tbCarNo.Location = new System.Drawing.Point(90, 56);
-            this.tbCarNo.Name = "tbCarNo";
-            this.tbCarNo.Size = new System.Drawing.Size(291, 40);
-            this.tbCarNo.TabIndex = 8;
             // 
             // HandReleaseForm
             // 
@@ -156,6 +164,7 @@
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.groupBox1);
             this.Name = "HandReleaseForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "HandReleaseForm";
             this.Load += new System.EventHandler(this.HandReleaseForm_Load);
             this.Controls.SetChildIndex(this.groupBox1, 0);

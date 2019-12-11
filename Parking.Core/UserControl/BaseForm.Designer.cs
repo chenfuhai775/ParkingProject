@@ -32,8 +32,8 @@
             this.picLogo = new System.Windows.Forms.PictureBox();
             this.picClose = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.timerDBTesting = new System.Windows.Forms.Timer(this.components);
             this.lbTitle = new System.Windows.Forms.Label();
+            this.timerDBTesting = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picClose)).BeginInit();
             this.panel1.SuspendLayout();
@@ -53,8 +53,10 @@
             this.picClose.Location = new System.Drawing.Point(766, 13);
             this.picClose.Name = "picClose";
             this.picClose.Size = new System.Drawing.Size(30, 30);
+            this.picClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picClose.TabIndex = 1;
             this.picClose.TabStop = false;
+            this.picClose.Click += new System.EventHandler(this.picClose_Click);
             // 
             // panel1
             // 
@@ -62,10 +64,12 @@
             this.panel1.Controls.Add(this.lbTitle);
             this.panel1.Controls.Add(this.picClose);
             this.panel1.Controls.Add(this.picLogo);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(861, 80);
             this.panel1.TabIndex = 2;
+            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
             // 
             // lbTitle
             // 
@@ -88,6 +92,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "BaseForm";
             this.Text = "BaseForm";
+            this.Load += new System.EventHandler(this.BaseForm_Load);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.BaseForm_Paint);
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picClose)).EndInit();
             this.panel1.ResumeLayout(false);

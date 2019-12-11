@@ -36,6 +36,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.Name = "MainBoardDevices";
+            this.Load += new System.EventHandler(this.MainBoardDevices_Load);
             this.ResumeLayout(false);
 
         }

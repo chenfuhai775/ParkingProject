@@ -5,6 +5,6 @@
     <Assembly Path="bin\Parking.ChargeDetails.dll"/>
   </Runtime>
   <Extension Point="Parking.MultiTab">
-    <Menu Text="Parking.ChargeDetails" ToolTip="收费详情" Icon="" Class="Parking.ChargeDetails.ChargeDetails" />
+    <Menu Text="Parking.ChargeDetails" ToolTip="收费详情" Icon="Parking.ChargeDetails.Resources.shell.png" Class="Parking.ChargeDetails.ChargeDetails" />
   </Extension>
 </Bundle>

@@ -29,26 +29,26 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.dgMessage = new System.Windows.Forms.DataGridView();
+            this.lbfreeTime = new System.Windows.Forms.Label();
+            this.lbfreePreferentialWay = new System.Windows.Forms.Label();
+            this.lbfreeOvertimeBiling = new System.Windows.Forms.Label();
+            this.lbCumulativeWay = new System.Windows.Forms.Label();
+            this.lbChargeCode = new System.Windows.Forms.Label();
+            this.lbChargeName = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.lbChargeName = new System.Windows.Forms.Label();
-            this.lbChargeCode = new System.Windows.Forms.Label();
-            this.lbCumulativeWay = new System.Windows.Forms.Label();
-            this.lbfreeOvertimeBiling = new System.Windows.Forms.Label();
-            this.lbfreePreferentialWay = new System.Windows.Forms.Label();
-            this.lbfreeTime = new System.Windows.Forms.Label();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.dgMessage = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgMessage)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,21 +61,6 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "基本信息";
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.groupBox1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.dgMessage, 0, 1);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(479, 392);
-            this.tableLayoutPanel1.TabIndex = 1;
             // 
             // panel1
             // 
@@ -115,19 +100,59 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(467, 91);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
-            // dgMessage
+            // lbfreeTime
             // 
-            this.dgMessage.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgMessage.BackgroundColor = System.Drawing.Color.White;
-            this.dgMessage.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgMessage.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dgMessage.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgMessage.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgMessage.Location = new System.Drawing.Point(3, 120);
-            this.dgMessage.Name = "dgMessage";
-            this.dgMessage.RowTemplate.Height = 23;
-            this.dgMessage.Size = new System.Drawing.Size(473, 269);
-            this.dgMessage.TabIndex = 1;
+            this.lbfreeTime.AutoSize = true;
+            this.lbfreeTime.Location = new System.Drawing.Point(329, 60);
+            this.lbfreeTime.Name = "lbfreeTime";
+            this.lbfreeTime.Size = new System.Drawing.Size(35, 12);
+            this.lbfreeTime.TabIndex = 11;
+            this.lbfreeTime.Text = "- - -";
+            // 
+            // lbfreePreferentialWay
+            // 
+            this.lbfreePreferentialWay.AutoSize = true;
+            this.lbfreePreferentialWay.Location = new System.Drawing.Point(96, 60);
+            this.lbfreePreferentialWay.Name = "lbfreePreferentialWay";
+            this.lbfreePreferentialWay.Size = new System.Drawing.Size(35, 12);
+            this.lbfreePreferentialWay.TabIndex = 10;
+            this.lbfreePreferentialWay.Text = "- - -";
+            // 
+            // lbfreeOvertimeBiling
+            // 
+            this.lbfreeOvertimeBiling.AutoSize = true;
+            this.lbfreeOvertimeBiling.Location = new System.Drawing.Point(329, 30);
+            this.lbfreeOvertimeBiling.Name = "lbfreeOvertimeBiling";
+            this.lbfreeOvertimeBiling.Size = new System.Drawing.Size(35, 12);
+            this.lbfreeOvertimeBiling.TabIndex = 9;
+            this.lbfreeOvertimeBiling.Text = "- - -";
+            // 
+            // lbCumulativeWay
+            // 
+            this.lbCumulativeWay.AutoSize = true;
+            this.lbCumulativeWay.Location = new System.Drawing.Point(96, 30);
+            this.lbCumulativeWay.Name = "lbCumulativeWay";
+            this.lbCumulativeWay.Size = new System.Drawing.Size(35, 12);
+            this.lbCumulativeWay.TabIndex = 8;
+            this.lbCumulativeWay.Text = "- - -";
+            // 
+            // lbChargeCode
+            // 
+            this.lbChargeCode.AutoSize = true;
+            this.lbChargeCode.Location = new System.Drawing.Point(329, 0);
+            this.lbChargeCode.Name = "lbChargeCode";
+            this.lbChargeCode.Size = new System.Drawing.Size(35, 12);
+            this.lbChargeCode.TabIndex = 7;
+            this.lbChargeCode.Text = "- - -";
+            // 
+            // lbChargeName
+            // 
+            this.lbChargeName.AutoSize = true;
+            this.lbChargeName.Location = new System.Drawing.Point(96, 0);
+            this.lbChargeName.Name = "lbChargeName";
+            this.lbChargeName.Size = new System.Drawing.Size(35, 12);
+            this.lbChargeName.TabIndex = 6;
+            this.lbChargeName.Text = "- - -";
             // 
             // label1
             // 
@@ -183,59 +208,34 @@
             this.label6.TabIndex = 5;
             this.label6.Text = "免费停车时长";
             // 
-            // lbChargeName
+            // tableLayoutPanel1
             // 
-            this.lbChargeName.AutoSize = true;
-            this.lbChargeName.Location = new System.Drawing.Point(96, 0);
-            this.lbChargeName.Name = "lbChargeName";
-            this.lbChargeName.Size = new System.Drawing.Size(35, 12);
-            this.lbChargeName.TabIndex = 6;
-            this.lbChargeName.Text = "- - -";
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.groupBox1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.dgMessage, 0, 1);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(479, 392);
+            this.tableLayoutPanel1.TabIndex = 1;
             // 
-            // lbChargeCode
+            // dgMessage
             // 
-            this.lbChargeCode.AutoSize = true;
-            this.lbChargeCode.Location = new System.Drawing.Point(329, 0);
-            this.lbChargeCode.Name = "lbChargeCode";
-            this.lbChargeCode.Size = new System.Drawing.Size(35, 12);
-            this.lbChargeCode.TabIndex = 7;
-            this.lbChargeCode.Text = "- - -";
-            // 
-            // lbCumulativeWay
-            // 
-            this.lbCumulativeWay.AutoSize = true;
-            this.lbCumulativeWay.Location = new System.Drawing.Point(96, 30);
-            this.lbCumulativeWay.Name = "lbCumulativeWay";
-            this.lbCumulativeWay.Size = new System.Drawing.Size(35, 12);
-            this.lbCumulativeWay.TabIndex = 8;
-            this.lbCumulativeWay.Text = "- - -";
-            // 
-            // lbfreeOvertimeBiling
-            // 
-            this.lbfreeOvertimeBiling.AutoSize = true;
-            this.lbfreeOvertimeBiling.Location = new System.Drawing.Point(329, 30);
-            this.lbfreeOvertimeBiling.Name = "lbfreeOvertimeBiling";
-            this.lbfreeOvertimeBiling.Size = new System.Drawing.Size(35, 12);
-            this.lbfreeOvertimeBiling.TabIndex = 9;
-            this.lbfreeOvertimeBiling.Text = "- - -";
-            // 
-            // lbfreePreferentialWay
-            // 
-            this.lbfreePreferentialWay.AutoSize = true;
-            this.lbfreePreferentialWay.Location = new System.Drawing.Point(96, 60);
-            this.lbfreePreferentialWay.Name = "lbfreePreferentialWay";
-            this.lbfreePreferentialWay.Size = new System.Drawing.Size(35, 12);
-            this.lbfreePreferentialWay.TabIndex = 10;
-            this.lbfreePreferentialWay.Text = "- - -";
-            // 
-            // lbfreeTime
-            // 
-            this.lbfreeTime.AutoSize = true;
-            this.lbfreeTime.Location = new System.Drawing.Point(329, 60);
-            this.lbfreeTime.Name = "lbfreeTime";
-            this.lbfreeTime.Size = new System.Drawing.Size(35, 12);
-            this.lbfreeTime.TabIndex = 11;
-            this.lbfreeTime.Text = "- - -";
+            this.dgMessage.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgMessage.BackgroundColor = System.Drawing.Color.White;
+            this.dgMessage.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgMessage.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dgMessage.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgMessage.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgMessage.Location = new System.Drawing.Point(3, 120);
+            this.dgMessage.Name = "dgMessage";
+            this.dgMessage.RowTemplate.Height = 23;
+            this.dgMessage.Size = new System.Drawing.Size(473, 269);
+            this.dgMessage.TabIndex = 1;
             // 
             // ChargeDetails
             // 
@@ -245,11 +245,12 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "ChargeDetails";
             this.Size = new System.Drawing.Size(479, 392);
+            this.Load += new System.EventHandler(this.DetailsOfEntryAndExit_Load);
             this.groupBox1.ResumeLayout(false);
-            this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgMessage)).EndInit();
             this.ResumeLayout(false);
 

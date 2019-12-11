@@ -18,7 +18,7 @@ using Parking.Core.Infrastructure;
 
 namespace Parking.WorkBench
 {
-    public partial class PlateCorrectionForm : BasePanel
+    public partial class PlateCorrectionForm : BaseForm
     {
         private ProcessRecord recordInfo;
         public PlateCorrectionForm(ProcessRecord record)

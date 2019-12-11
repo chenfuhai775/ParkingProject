@@ -32,6 +32,7 @@ namespace Parking.MonitorCenter
         /// <param name="e"></param>
         private void WatchForm_Load(object sender, EventArgs e)
         {
+            this.picMonitor.Image = new Bitmap(GlobalEnvironment.BasePath + "Image\\noCamera.png");
             var temp = GlobalEnvironment.CurrWorkStationOragnization.Where(x => x.ORGANIZATION_CODE == _Plugin.DEVICE_ID).FirstOrDefault();
             if (null != temp)
                 OpenVideo(temp);

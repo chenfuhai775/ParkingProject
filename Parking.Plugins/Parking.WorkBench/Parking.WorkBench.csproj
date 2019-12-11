@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -194,7 +195,7 @@
       <Name>Parking.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\Parking.ChargeStandard\Parking.ChargeStandard.csproj">
-      <Project>{81E901F1-99A9-4E54-83ED-FD26FF9543DF}</Project>
+      <Project>{81e901f1-99a9-4e54-83ed-fd26ff9543df}</Project>
       <Name>Parking.ChargeStandard</Name>
     </ProjectReference>
     <ProjectReference Include="..\Parking.DBService\Parking.DBService.csproj">

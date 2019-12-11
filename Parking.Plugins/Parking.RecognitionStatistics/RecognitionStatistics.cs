@@ -89,7 +89,6 @@ namespace Parking.RecognitionStatistics
             cbCamera.ValueMember = "ORGANIZATION_CODE";
             cbCamera.DisplayMember = "ORGANIZATION_NAME";
             IsPostBack = false;
-            Chart_HEIGHT = this.picScale.Height - 30;
         }
         #endregion
 
@@ -212,6 +211,7 @@ namespace Parking.RecognitionStatistics
         /// <param name="e"></param>
         private void cbCamera_SelectedIndexChanged(object sender, EventArgs e)
         {
+            Chart_HEIGHT = this.picScale.Height - 30;
             if (!IsPostBack)
                 InitData();
         }

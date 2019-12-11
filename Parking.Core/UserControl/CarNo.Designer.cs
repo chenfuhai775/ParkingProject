@@ -49,6 +49,7 @@
             this.picChangePro.Size = new System.Drawing.Size(15, 30);
             this.picChangePro.TabIndex = 2;
             this.picChangePro.TabStop = false;
+            this.picChangePro.Click += new System.EventHandler(this.picChangePro_Click);
             // 
             // CarNo
             // 
@@ -58,6 +59,8 @@
             this.Controls.Add(this.tbCarNo);
             this.Name = "CarNo";
             this.Size = new System.Drawing.Size(190, 32);
+            this.Load += new System.EventHandler(this.CarNo_Load);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.picChangePro_Paint);
             ((System.ComponentModel.ISupportInitialize)(this.picChangePro)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

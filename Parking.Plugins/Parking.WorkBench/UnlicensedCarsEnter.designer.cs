@@ -158,6 +158,7 @@
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.groupBox1);
             this.Name = "UnlicensedCarsEnter";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UnlicensedCarsEnter";
             this.Load += new System.EventHandler(this.UnlicensedCarsEnter_Load);
             this.Controls.SetChildIndex(this.groupBox1, 0);

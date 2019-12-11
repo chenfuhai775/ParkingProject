@@ -256,6 +256,18 @@ namespace Parking.WorkBench
                 unlicensedCarsEnterForm.ShowDialog();
             }
             /// <summary>
+            /// 无牌车放行出场
+            /// </summary>
+            if (recordInfo.OPERATER_TYPE == enumOperaterType.UnlicensedOut)
+            {
+                DataUploadRecord dataUploadRecord = new DataUploadRecord();
+                dataUploadRecord.REPORTIMG_TIME = DateTime.Now;
+                dataUploadRecord.CHANNEL_TYPE = enumChannelType.chn_out;
+                UnlicensedCarsEnter unlicensedCarsEnterForm = new UnlicensedCarsEnter(dataUploadRecord);
+                unlicensedCarsEnterForm.Title = "无牌车放行出场";
+                unlicensedCarsEnterForm.ShowDialog();
+            }
+            /// <summary>
             /// 退出系统
             /// </summary>
             if (recordInfo.OPERATER_TYPE == enumOperaterType.Quit)

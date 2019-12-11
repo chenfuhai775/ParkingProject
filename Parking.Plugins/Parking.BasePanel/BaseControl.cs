@@ -19,10 +19,6 @@
     public partial class BaseControl : UserControl
     {
         private FN_LAYOUT_SUBJECT _Plugin;
-        private IContainer components = null;
-        private Label lbTitle;
-        private PictureBox picCar;
-        private Panel pLine;
         private int topTitleHeight = 60;
 
         public BaseControl(FN_LAYOUT_SUBJECT pluginInfo)
@@ -35,9 +31,10 @@
         {
             this.picCar.Location = new Point(20, 20);
             this.picCar.Image = new Bitmap(GlobalEnvironment.BasePath + @"\Image\car.png");
-            this.lbTitle.Location = new Point(0x2d, 20);
+            this.lbTitle.Location = new Point(50, 20);
             this.pLine.Location = new Point(20, 50);
             this.pLine.Width = base.Width - 40;
+            this.pLine.Height = 1;
             this.lbTitle.Text = this._Plugin.TITLE;
             ExtensionContainer.Instance.OnExtensionChanged += new ExtensionContainer.OnExtensionChangedEventHandler(this.Instance_OnExtensionChanged);
             ExtensionContainer.Instance.onExtensionChanged();

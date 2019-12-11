@@ -43,10 +43,12 @@
             this.panel1.Controls.Add(this.lbTitle);
             this.panel1.Controls.Add(this.picClose);
             this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(457, 40);
             this.panel1.TabIndex = 0;
+            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
             // 
             // lbTitle
             // 
@@ -67,6 +69,7 @@
             this.picClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picClose.TabIndex = 1;
             this.picClose.TabStop = false;
+            this.picClose.Click += new System.EventHandler(this.picClose_Click);
             // 
             // pictureBox1
             // 
@@ -87,6 +90,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "BasePanel";
             this.Text = "BasePanel";
+            this.Load += new System.EventHandler(this.BasePanel_Load);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.BasePanel_Paint);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picClose)).EndInit();

@@ -4,7 +4,7 @@
   <Runtime>
     <Assembly Path="bin\Parking.RemainingUnit.dll"/>
   </Runtime>
-  <Extension Point="Parking.WorkBench">
+  <Extension Point="Parking.BasePanel">
     <Menu Text="Parking.RemainingUnit" ToolTip="余位统计" Icon="UIShell.WinFormAppCenterPlugin.Resources.shell.png" Class="Parking.RemainingUnit.RemainingUnit" />
   </Extension>
 </Bundle>

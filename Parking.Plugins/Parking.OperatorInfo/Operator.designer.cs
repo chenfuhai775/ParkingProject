@@ -40,11 +40,13 @@
             this.lbLoginTime = new System.Windows.Forms.Label();
             this.lbChargeAmount = new System.Windows.Forms.Label();
             this.lbDiscountAmount = new System.Windows.Forms.Label();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.picOper = new System.Windows.Forms.PictureBox();
             this.lbTimer = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picOper)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -69,6 +71,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.picOper, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 63);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -199,14 +202,29 @@
             this.lbDiscountAmount.Text = "- - -";
             this.lbDiscountAmount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // picOper
+            // 
+            this.picOper.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.picOper.Location = new System.Drawing.Point(3, 3);
+            this.picOper.Name = "picOper";
+            this.picOper.Size = new System.Drawing.Size(119, 204);
+            this.picOper.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picOper.TabIndex = 1;
+            this.picOper.TabStop = false;
+            // 
             // lbTimer
             // 
+            this.lbTimer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lbTimer.AutoSize = true;
-            this.lbTimer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbTimer.Font = new System.Drawing.Font("宋体", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbTimer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.lbTimer.Location = new System.Drawing.Point(3, 0);
             this.lbTimer.Name = "lbTimer";
             this.lbTimer.Size = new System.Drawing.Size(419, 60);
             this.lbTimer.TabIndex = 1;
+            this.lbTimer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Operator
             // 
@@ -215,11 +233,13 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "Operator";
             this.Size = new System.Drawing.Size(425, 296);
+            this.Load += new System.EventHandler(this.Operator_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picOper)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -239,5 +259,6 @@
         private System.Windows.Forms.Label lbDiscountAmount;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label lbTimer;
+        private System.Windows.Forms.PictureBox picOper;
     }
 }

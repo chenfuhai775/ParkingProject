@@ -40,6 +40,8 @@
             this.picLogo.Size = new System.Drawing.Size(48, 48);
             this.picLogo.TabIndex = 0;
             this.picLogo.TabStop = false;
+            this.picLogo.MouseLeave += new System.EventHandler(this.picLogo_MouseLeave);
+            this.picLogo.MouseMove += new System.Windows.Forms.MouseEventHandler(this.picLogo_MouseMove);
             // 
             // lbTitle
             // 
@@ -51,6 +53,8 @@
             this.lbTitle.Size = new System.Drawing.Size(35, 19);
             this.lbTitle.TabIndex = 1;
             this.lbTitle.Text = "- - -";
+            this.lbTitle.MouseLeave += new System.EventHandler(this.lbTitle_MouseLeave);
+            this.lbTitle.MouseMove += new System.Windows.Forms.MouseEventHandler(this.lbTitle_MouseMove);
             // 
             // ControlButton
             // 
@@ -61,6 +65,9 @@
             this.Controls.Add(this.picLogo);
             this.Name = "ControlButton";
             this.Size = new System.Drawing.Size(128, 80);
+            this.Load += new System.EventHandler(this.ControlButton_Load);
+            this.MouseLeave += new System.EventHandler(this.ControlButton_MouseLeave);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ControlButton_MouseMove);
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

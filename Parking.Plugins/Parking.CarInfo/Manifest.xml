@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Bundle xmlns="urn:uiosp-bundle-manifest-2.0" Name="Parking.CarInfo" SymbolicName="Parking.CarInfo" Version="1.0.0.0" InitializedState="Active">
+  <Activator Type="Parking.CarInfo.Activator" Policy="Immediate" />
+  <Runtime>
+    <Assembly Path="bin\Parking.CarInfo.dll" Share="false" MultipleVersions="false" />
+  </Runtime>
+  <Extension Point="Parking.BasePanel">
+    <Menu Text="Parking.CarInfo" ToolTip="车辆信息" Icon="退出.png" Class="Parking.CarInfo.CarInformation" />
+  </Extension>
+</Bundle>

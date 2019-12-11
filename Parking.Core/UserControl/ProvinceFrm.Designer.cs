@@ -57,6 +57,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ProvinceFrm";
             this.Text = "ProvinceFrm";
+            this.Load += new System.EventHandler(this.ProvinceFrm_Load);
             this.ResumeLayout(false);
 
         }

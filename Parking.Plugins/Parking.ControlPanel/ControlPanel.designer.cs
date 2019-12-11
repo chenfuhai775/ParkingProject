@@ -38,6 +38,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(171)))), ((int)(((byte)(230)))));
             this.Name = "ControlPanel";
+            this.Load += new System.EventHandler(this.ControlPanel_Load);
             this.ResumeLayout(false);
 
         }

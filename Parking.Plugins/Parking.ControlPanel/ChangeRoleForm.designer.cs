@@ -37,13 +37,13 @@
             this.lbTotalTime = new System.Windows.Forms.Label();
             this.lbPerMoney = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lbLocalUser = new System.Windows.Forms.Label();
+            this.tbPwd = new System.Windows.Forms.TextBox();
+            this.tbChangeRole = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.tbChangeRole = new System.Windows.Forms.TextBox();
-            this.tbPwd = new System.Windows.Forms.TextBox();
-            this.lbLocalUser = new System.Windows.Forms.Label();
             this.btnOK = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
@@ -137,6 +137,47 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "操作员信息";
             // 
+            // lbLocalUser
+            // 
+            this.lbLocalUser.AutoSize = true;
+            this.lbLocalUser.Location = new System.Drawing.Point(295, 54);
+            this.lbLocalUser.Name = "lbLocalUser";
+            this.lbLocalUser.Size = new System.Drawing.Size(35, 12);
+            this.lbLocalUser.TabIndex = 11;
+            this.lbLocalUser.Text = "- - -";
+            // 
+            // tbPwd
+            // 
+            this.tbPwd.Location = new System.Drawing.Point(298, 150);
+            this.tbPwd.Name = "tbPwd";
+            this.tbPwd.Size = new System.Drawing.Size(100, 21);
+            this.tbPwd.TabIndex = 14;
+            // 
+            // tbChangeRole
+            // 
+            this.tbChangeRole.Location = new System.Drawing.Point(297, 99);
+            this.tbChangeRole.Name = "tbChangeRole";
+            this.tbChangeRole.Size = new System.Drawing.Size(100, 21);
+            this.tbChangeRole.TabIndex = 13;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(214, 159);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(65, 12);
+            this.label7.TabIndex = 12;
+            this.label7.Text = "用户密码：";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(214, 108);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(77, 12);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "换班操作员：";
+            // 
             // pictureBox2
             // 
             this.pictureBox2.Location = new System.Drawing.Point(21, 44);
@@ -154,65 +195,32 @@
             this.label5.TabIndex = 10;
             this.label5.Text = "当前操作员：";
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(214, 108);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(77, 12);
-            this.label6.TabIndex = 11;
-            this.label6.Text = "换班操作员：";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(214, 159);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(65, 12);
-            this.label7.TabIndex = 12;
-            this.label7.Text = "用户密码：";
-            // 
-            // tbChangeRole
-            // 
-            this.tbChangeRole.Location = new System.Drawing.Point(297, 99);
-            this.tbChangeRole.Name = "tbChangeRole";
-            this.tbChangeRole.Size = new System.Drawing.Size(100, 21);
-            this.tbChangeRole.TabIndex = 13;
-            // 
-            // tbPwd
-            // 
-            this.tbPwd.Location = new System.Drawing.Point(298, 150);
-            this.tbPwd.Name = "tbPwd";
-            this.tbPwd.Size = new System.Drawing.Size(100, 21);
-            this.tbPwd.TabIndex = 14;
-            // 
-            // lbLocalUser
-            // 
-            this.lbLocalUser.AutoSize = true;
-            this.lbLocalUser.Location = new System.Drawing.Point(295, 54);
-            this.lbLocalUser.Name = "lbLocalUser";
-            this.lbLocalUser.Size = new System.Drawing.Size(35, 12);
-            this.lbLocalUser.TabIndex = 11;
-            this.lbLocalUser.Text = "- - -";
-            // 
             // btnOK
             // 
+            this.btnOK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(156)))), ((int)(((byte)(230)))));
+            this.btnOK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOK.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Bold);
+            this.btnOK.ForeColor = System.Drawing.Color.White;
             this.btnOK.Location = new System.Drawing.Point(240, 446);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(103, 34);
             this.btnOK.TabIndex = 11;
             this.btnOK.Text = "确定";
-            this.btnOK.UseVisualStyleBackColor = true;
+            this.btnOK.UseVisualStyleBackColor = false;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
             // btnClose
             // 
+            this.btnClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(156)))), ((int)(((byte)(230)))));
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Bold);
+            this.btnClose.ForeColor = System.Drawing.Color.White;
             this.btnClose.Location = new System.Drawing.Point(383, 446);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(89, 34);
             this.btnClose.TabIndex = 12;
             this.btnClose.Text = "关闭";
-            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // ChangeRoleForm

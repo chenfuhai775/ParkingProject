@@ -4,9 +4,6 @@
   <Runtime>
     <Assembly Path="bin\Parking.CarInformation.dll" Share="false" MultipleVersions="false" />
   </Runtime>
-  <Extension Point="Parking.WorkBench">
-    <Menu Text="Parking.CarInformation" ToolTip="车辆信息" Icon="退出.png" Class="Parking.CarInformation.CarInformation" />
-  </Extension>
   <Extension Point="Parking.BasePanel">
     <Menu Text="Parking.CarInformation" ToolTip="车辆信息" Icon="退出.png" Class="Parking.CarInformation.CarInformation" />
   </Extension>

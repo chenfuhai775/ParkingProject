@@ -37,6 +37,7 @@
             this.ClientSize = new System.Drawing.Size(861, 559);
             this.Name = "WorkBench";
             this.Text = "WorkBench";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Workbench_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.WorkBench_KeyDown);
             this.Resize += new System.EventHandler(this.WorkBench_Resize);

@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.lbInOutTime = new System.Windows.Forms.Label();
+            this.lbChannelName = new System.Windows.Forms.Label();
             this.lbCarNo = new System.Windows.Forms.Label();
+            this.lbInOutTime = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnOK = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.lbChannelName = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,35 +54,25 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             // 
-            // label1
+            // lbChannelName
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.Location = new System.Drawing.Point(18, 39);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(90, 22);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "车牌号码：";
+            this.lbChannelName.AutoSize = true;
+            this.lbChannelName.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbChannelName.Location = new System.Drawing.Point(119, 129);
+            this.lbChannelName.Name = "lbChannelName";
+            this.lbChannelName.Size = new System.Drawing.Size(41, 22);
+            this.lbChannelName.TabIndex = 5;
+            this.lbChannelName.Text = "- - -";
             // 
-            // label2
+            // lbCarNo
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label2.Location = new System.Drawing.Point(18, 84);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(90, 22);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "入场时间：";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label3.Location = new System.Drawing.Point(18, 129);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(90, 22);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "通道名称：";
+            this.lbCarNo.AutoSize = true;
+            this.lbCarNo.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbCarNo.Location = new System.Drawing.Point(119, 39);
+            this.lbCarNo.Name = "lbCarNo";
+            this.lbCarNo.Size = new System.Drawing.Size(41, 22);
+            this.lbCarNo.TabIndex = 4;
+            this.lbCarNo.Text = "- - -";
             // 
             // lbInOutTime
             // 
@@ -94,15 +84,35 @@
             this.lbInOutTime.TabIndex = 3;
             this.lbInOutTime.Text = "- - -";
             // 
-            // lbCarNo
+            // label3
             // 
-            this.lbCarNo.AutoSize = true;
-            this.lbCarNo.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lbCarNo.Location = new System.Drawing.Point(119, 39);
-            this.lbCarNo.Name = "lbCarNo";
-            this.lbCarNo.Size = new System.Drawing.Size(41, 22);
-            this.lbCarNo.TabIndex = 4;
-            this.lbCarNo.Text = "- - -";
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label3.Location = new System.Drawing.Point(18, 129);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(90, 22);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "通道名称：";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label2.Location = new System.Drawing.Point(18, 84);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(90, 22);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "入场时间：";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label1.Location = new System.Drawing.Point(18, 39);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(90, 22);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "车牌号码：";
             // 
             // btnOK
             // 
@@ -132,16 +142,6 @@
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // lbChannelName
-            // 
-            this.lbChannelName.AutoSize = true;
-            this.lbChannelName.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lbChannelName.Location = new System.Drawing.Point(119, 129);
-            this.lbChannelName.Name = "lbChannelName";
-            this.lbChannelName.Size = new System.Drawing.Size(41, 22);
-            this.lbChannelName.TabIndex = 5;
-            this.lbChannelName.Text = "- - -";
-            // 
             // ConfirmGateForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -152,9 +152,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "ConfirmGateForm";
             this.Text = "ConfirmGateForm";
-            this.Controls.SetChildIndex(this.groupBox1, 0);
-            this.Controls.SetChildIndex(this.btnOK, 0);
-            this.Controls.SetChildIndex(this.button2, 0);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ConfirmGateForm_FormClosed);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
