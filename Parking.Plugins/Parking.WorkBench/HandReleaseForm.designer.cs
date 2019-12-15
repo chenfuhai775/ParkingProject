@@ -63,7 +63,7 @@
             this.tbCarNo.CarNO = "";
             this.tbCarNo.Location = new System.Drawing.Point(90, 56);
             this.tbCarNo.Name = "tbCarNo";
-            this.tbCarNo.Size = new System.Drawing.Size(291, 40);
+            this.tbCarNo.Size = new System.Drawing.Size(190, 30);
             this.tbCarNo.TabIndex = 8;
             // 
             // cbChannelCode
@@ -167,9 +167,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "HandReleaseForm";
             this.Load += new System.EventHandler(this.HandReleaseForm_Load);
-            this.Controls.SetChildIndex(this.groupBox1, 0);
-            this.Controls.SetChildIndex(this.btnOK, 0);
-            this.Controls.SetChildIndex(this.btnClose, 0);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

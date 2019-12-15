@@ -186,9 +186,9 @@
             this.ClientSize = new System.Drawing.Size(569, 369);
             this.Controls.Add(this.tabControl1);
             this.Name = "FeePlugInTestFrm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FeePlugInTestForm";
             this.Load += new System.EventHandler(this.FeePlugInTestFrm_Load);
-            this.Controls.SetChildIndex(this.tabControl1, 0);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();

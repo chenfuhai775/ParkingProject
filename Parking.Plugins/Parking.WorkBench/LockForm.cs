@@ -15,7 +15,7 @@ using System.Configuration;
 
 namespace Parking.WorkBench
 {
-    public partial class LockForm : Form
+    public partial class LockForm : BasePanel
     {
         LockFormPanel LockPanel;
         public LockForm(LockFormPanel panel)

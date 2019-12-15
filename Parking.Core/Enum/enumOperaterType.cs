@@ -5,103 +5,103 @@
     public enum enumOperaterType
     {
         /// <summary>
-        /// 锁?屏¨￠
+        /// 锁屏
         /// </summary>
         LockForm = 0,
         /// <summary>
-        /// 退a?出?
+        /// 退出
         /// </summary>
         Quit = 1,
         /// <summary>
-        /// 手o?工?è放¤?行D入¨?场?
+        /// 手工放行入场
         /// </summary>
         HandReleaseIn = 2,
         /// <summary>
-        /// 手o?工?è放¤?行D出?场?
+        /// 手工放行出场
         /// </summary>
         HandReleaseOut = 3,
         /// <summary>
-        /// 无T牌?车|ì放¤?行D入¨?场?
+        /// 无牌车放行入场
         /// </summary>
         UnlicensedIn = 4,
         /// <summary>
-        /// 无T牌?车|ì放¤?行D出?场?
+        /// 无牌车放行出场
         /// </summary>
         UnlicensedOut = 5,
         /// <summary>
-        /// 显?示o?场?内¨2车|ì信?息?é
+        /// 显示场内车信息
         /// </summary>
         ShowInSideForm = 6,
         /// <summary>
-        /// 显?示o?收o?费¤?框¨°
+        /// 显示收费框
         /// </summary>
         ShowCharge = 7,
         /// <summary>
-        /// 显?示o?出?入¨?场?记?录?
+        /// 显示出入场记录
         /// </summary>
         ShowRecord = 8,
         /// <summary>
-        /// 显?示o?车|ì牌?矫?正y
+        /// 显示车牌矫正
         /// </summary>
         PlateCorrection = 9,
         /// <summary>
-        /// 显?示o?确¨?¤认¨?开a闸?é框¨°
+        /// 显示确认开闸框
         /// </summary>
         OpenInConfirmGate = 10,
         /// <summary>
-        /// 开a闸?é
+        /// 开闸
         /// </summary>
         OpenGate = 11,
         /// <summary>
-        /// 换?班?¨¤开a始o?
+        /// 换班开始
         /// </summary>
         ShowChangeRoleForm = 12,
         /// <summary>
-        /// 显?示o?中D央?缴¨|费¤?框¨°
+        /// 显示中央缴费框
         /// </summary>
         CentralPayment = 13,
         /// <summary>
-        /// 遗°?失o?ì卡?§放¤?行D
+        /// 遗失卡放行
         /// </summary>
         LostCardRelease = 14,
         /// <summary>
-        /// 换?班?¨¤完a¨o成¨|
+        /// 换班完成
         /// </summary>
         ChangeRole = 15,
         /// <summary>
-        /// 识o?别àe事o?件t
+        /// 识别事件
         /// </summary>
         RecognitionEvent = 16,
         /// <summary>
-        /// 中D央?缴¨|费¤?成¨|功|
+        /// 中央缴费成功
         /// </summary>
         CentralPaySuccess = 17,
         /// <summary>
-        /// 出?场?
+        /// 出场
         /// </summary>
         OutSuccessed = 18,
         /// <summary>
-        /// 切D换?数oy据Y网a?格?
+        /// 切换数据网格
         /// </summary>
         SwitchdataGrid = 19,
         /// <summary>
-        /// 用??户?ì信?息?é查¨|询?￥
+        /// 用户信息查询
         /// </summary>
         QueryUserIfno = 20,
         /// <summary>
-        /// 显?示o?收o?费¤?信?息?é
+        /// 显示收费信息
         /// </summary>
         ShowChargeInfo = 21,
         /// <summary>
-        /// 显?示o?车|ì辆￠?登ì?记?信?息?é
+        /// 显示车辆登记信息
         /// </summary>
         NoCarNoIn = 22,
         /// <summary>
-        /// 显?示o?车|ì辆￠?登ì?记?信?息?é
+        /// 显示车辆登记信息
         /// </summary>
         NoCarNoOut = 23,
         /// <summary>
-        /// 测a试o?
+        /// 测试
         /// </summary>
         FeePlugInTest = 100,
     }

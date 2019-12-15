@@ -55,6 +55,7 @@
             this.picOK.Size = new System.Drawing.Size(100, 27);
             this.picOK.TabIndex = 2;
             this.picOK.TabStop = false;
+            this.picOK.Click += new System.EventHandler(this.picOK_Click);
             // 
             // LockForm
             // 
@@ -65,7 +66,9 @@
             this.Controls.Add(this.tbPwd);
             this.Controls.Add(this.tbUserName);
             this.Name = "LockForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LockForm";
+            this.Load += new System.EventHandler(this.LockForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picOK)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

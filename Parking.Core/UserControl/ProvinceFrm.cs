@@ -38,7 +38,7 @@ namespace Parking.Controls
                 btn.ForeColor = Color.Gray;
                 btn.Location = getBigLocation(j, 70, 37);
                 btn.Click += new EventHandler(btn_Click);
-                this.panel2.Controls.Add(btn);
+                this.panel1.Controls.Add(btn);
                 j++;
             }
             foreach (string s in Provinces)
@@ -54,7 +54,7 @@ namespace Parking.Controls
                 btn.ForeColor = Color.Gray;
                 btn.Location = getLocation(i, 45, 31);
                 btn.Click += new EventHandler(btn_Click);
-                this.panel1.Controls.Add(btn);
+                this.panel2.Controls.Add(btn);
                 i++;
             }
             Button btnDelete = new Button();
@@ -68,7 +68,7 @@ namespace Parking.Controls
             btnDelete.ForeColor = Color.Gray;
             btnDelete.Location = new Point(205, 108);
             btnDelete.Click += new EventHandler(btnDelete_Click);
-            this.panel1.Controls.Add(btnDelete);
+            this.panel2.Controls.Add(btnDelete);
         }
         private void btn_Click(object sender, EventArgs args)
         {

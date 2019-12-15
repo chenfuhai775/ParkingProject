@@ -199,11 +199,9 @@
             this.Controls.Add(this.pCarPic);
             this.Controls.Add(this.pagingControl);
             this.Name = "CentralPaymentForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CentralPaymentForm";
             this.Load += new System.EventHandler(this.CarInSideForm_Load);
-            this.Controls.SetChildIndex(this.pagingControl, 0);
-            this.Controls.SetChildIndex(this.pCarPic, 0);
-            this.Controls.SetChildIndex(this.groupBox1, 0);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

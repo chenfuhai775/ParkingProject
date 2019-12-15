@@ -58,7 +58,7 @@
             this.Controls.Add(this.picChangePro);
             this.Controls.Add(this.tbCarNo);
             this.Name = "CarNo";
-            this.Size = new System.Drawing.Size(190, 32);
+            this.Size = new System.Drawing.Size(190, 30);
             this.Load += new System.EventHandler(this.CarNo_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.picChangePro_Paint);
             ((System.ComponentModel.ISupportInitialize)(this.picChangePro)).EndInit();

@@ -41,6 +41,7 @@
             this.Opacity = 0.6D;
             this.Text = "LockFormPanel";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.LockFormPanel_Load);
             this.ResumeLayout(false);
 
         }

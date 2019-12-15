@@ -58,6 +58,7 @@
             this.tbPwd.Size = new System.Drawing.Size(240, 35);
             this.tbPwd.TabIndex = 1;
             this.tbPwd.UseSystemPasswordChar = true;
+            this.tbPwd.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbPwd_KeyDown);
             // 
             // picOK
             // 

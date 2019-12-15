@@ -51,13 +51,14 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(239)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(480, 194);
+            this.ClientSize = new System.Drawing.Size(451, 195);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ProvinceFrm";
             this.Text = "ProvinceFrm";
             this.Load += new System.EventHandler(this.ProvinceFrm_Load);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.ProvinceFrm_Paint);
             this.ResumeLayout(false);
 
         }
