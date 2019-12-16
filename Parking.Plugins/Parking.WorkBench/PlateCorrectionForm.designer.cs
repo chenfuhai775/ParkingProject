@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.carNo = new Parking.Controls.CarNo();
             this.lbChannelName = new System.Windows.Forms.Label();
             this.lbCarNo = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -36,7 +37,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.btnOK = new System.Windows.Forms.Button();
-            this.carNo = new Parking.Controls.CarNo();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,6 +53,14 @@
             this.groupBox1.Size = new System.Drawing.Size(432, 175);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
+            // 
+            // carNo
+            // 
+            this.carNo.CarNO = "";
+            this.carNo.Location = new System.Drawing.Point(124, 84);
+            this.carNo.Name = "carNo";
+            this.carNo.Size = new System.Drawing.Size(190, 30);
+            this.carNo.TabIndex = 6;
             // 
             // lbChannelName
             // 
@@ -112,9 +120,9 @@
             this.button2.ForeColor = System.Drawing.Color.White;
             this.button2.Location = new System.Drawing.Point(307, 235);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(120, 50);
+            this.button2.Size = new System.Drawing.Size(100, 40);
             this.button2.TabIndex = 7;
-            this.button2.Text = "取消校正";
+            this.button2.Text = "取消";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.btnCancel_Click);
             // 
@@ -126,19 +134,11 @@
             this.btnOK.ForeColor = System.Drawing.Color.White;
             this.btnOK.Location = new System.Drawing.Point(179, 235);
             this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(120, 50);
+            this.btnOK.Size = new System.Drawing.Size(100, 40);
             this.btnOK.TabIndex = 6;
-            this.btnOK.Text = "确定校正";
+            this.btnOK.Text = "确定";
             this.btnOK.UseVisualStyleBackColor = false;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
-            // 
-            // carNo
-            // 
-            this.carNo.CarNO = "";
-            this.carNo.Location = new System.Drawing.Point(124, 84);
-            this.carNo.Name = "carNo";
-            this.carNo.Size = new System.Drawing.Size(291, 40);
-            this.carNo.TabIndex = 6;
             // 
             // PlateCorrectionForm
             // 
@@ -150,9 +150,6 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "PlateCorrectionForm";
             this.Text = "PlateCorrectionForm";
-            this.Controls.SetChildIndex(this.groupBox1, 0);
-            this.Controls.SetChildIndex(this.btnOK, 0);
-            this.Controls.SetChildIndex(this.button2, 0);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

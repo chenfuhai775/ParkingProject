@@ -57,6 +57,7 @@ namespace Parking.Core
             if (ShowClose)
                 this.picClose.Location = new Point(this.Width - 30, 10);
             this.picClose.Image = new System.Drawing.Bitmap(GlobalEnvironment.BasePath + @"\image\close.png");
+            this.picLogo.Image = new System.Drawing.Bitmap(GlobalEnvironment.BasePath + @"\image\title.png");
         }
 
         private void picClose_Click(object sender, EventArgs e)

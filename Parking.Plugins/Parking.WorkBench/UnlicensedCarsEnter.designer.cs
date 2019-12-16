@@ -47,11 +47,11 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(307, 238);
+            this.button2.Location = new System.Drawing.Point(322, 238);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(120, 50);
+            this.button2.Size = new System.Drawing.Size(100, 40);
             this.button2.TabIndex = 10;
-            this.button2.Text = "取消";
+            this.button2.Text = "关闭";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.btnCancel_Click);
             // 
@@ -61,9 +61,9 @@
             this.btnOK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOK.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnOK.ForeColor = System.Drawing.Color.White;
-            this.btnOK.Location = new System.Drawing.Point(179, 238);
+            this.btnOK.Location = new System.Drawing.Point(216, 238);
             this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(120, 50);
+            this.btnOK.Size = new System.Drawing.Size(100, 40);
             this.btnOK.TabIndex = 9;
             this.btnOK.Text = "确定";
             this.btnOK.UseVisualStyleBackColor = false;
@@ -80,23 +80,28 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 50);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(432, 175);
+            this.groupBox1.Size = new System.Drawing.Size(410, 175);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             // 
             // cbChannelCode
             // 
+            this.cbChannelCode.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.cbChannelCode.FormattingEnabled = true;
             this.cbChannelCode.Location = new System.Drawing.Point(140, 130);
             this.cbChannelCode.Name = "cbChannelCode";
-            this.cbChannelCode.Size = new System.Drawing.Size(121, 20);
+            this.cbChannelCode.Size = new System.Drawing.Size(140, 24);
             this.cbChannelCode.TabIndex = 7;
             // 
             // txtPhone
             // 
+            this.txtPhone.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPhone.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtPhone.Location = new System.Drawing.Point(140, 39);
             this.txtPhone.Name = "txtPhone";
-            this.txtPhone.Size = new System.Drawing.Size(100, 21);
+            this.txtPhone.Size = new System.Drawing.Size(118, 26);
             this.txtPhone.TabIndex = 6;
             // 
             // label4
@@ -153,7 +158,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(457, 294);
+            this.ClientSize = new System.Drawing.Size(434, 292);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.groupBox1);
@@ -161,9 +166,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UnlicensedCarsEnter";
             this.Load += new System.EventHandler(this.UnlicensedCarsEnter_Load);
-            this.Controls.SetChildIndex(this.groupBox1, 0);
-            this.Controls.SetChildIndex(this.btnOK, 0);
-            this.Controls.SetChildIndex(this.button2, 0);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

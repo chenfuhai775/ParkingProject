@@ -1,20 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Windows.Forms;
 using Parking.Core;
-using Parking.Core.DataProcessing;
+using System.Windows.Forms;
 using Parking.Core.Enum;
 using Parking.Core.Record;
 using Parking.Core.Common;
 using Parking.Core.Interface;
 using Parking.Core.Infrastructure;
 using Parking.Core.Oragnization;
-using System.Text.RegularExpressions;
-using Parking.DBService.IBLL;
 
 namespace Parking.WorkBench
 {

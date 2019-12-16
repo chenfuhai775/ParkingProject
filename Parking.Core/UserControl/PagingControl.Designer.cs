@@ -46,42 +46,58 @@
             // 
             // btnFirst
             // 
+            this.btnFirst.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(156)))), ((int)(((byte)(230)))));
+            this.btnFirst.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFirst.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnFirst.ForeColor = System.Drawing.Color.White;
             this.btnFirst.Location = new System.Drawing.Point(34, 4);
             this.btnFirst.Name = "btnFirst";
             this.btnFirst.Size = new System.Drawing.Size(75, 23);
             this.btnFirst.TabIndex = 0;
             this.btnFirst.Text = "首页";
-            this.btnFirst.UseVisualStyleBackColor = true;
+            this.btnFirst.UseVisualStyleBackColor = false;
             this.btnFirst.Click += new System.EventHandler(this.btnFirst_Click);
             // 
             // btnPrevious
             // 
-            this.btnPrevious.Location = new System.Drawing.Point(145, 4);
+            this.btnPrevious.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(156)))), ((int)(((byte)(230)))));
+            this.btnPrevious.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrevious.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnPrevious.ForeColor = System.Drawing.Color.White;
+            this.btnPrevious.Location = new System.Drawing.Point(138, 4);
             this.btnPrevious.Name = "btnPrevious";
             this.btnPrevious.Size = new System.Drawing.Size(75, 23);
             this.btnPrevious.TabIndex = 1;
             this.btnPrevious.Text = "上一页";
-            this.btnPrevious.UseVisualStyleBackColor = true;
+            this.btnPrevious.UseVisualStyleBackColor = false;
             this.btnPrevious.Click += new System.EventHandler(this.btnPrevious_Click);
             // 
             // btnNext
             // 
-            this.btnNext.Location = new System.Drawing.Point(236, 4);
+            this.btnNext.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(156)))), ((int)(((byte)(230)))));
+            this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNext.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnNext.ForeColor = System.Drawing.Color.White;
+            this.btnNext.Location = new System.Drawing.Point(242, 4);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(75, 23);
             this.btnNext.TabIndex = 2;
             this.btnNext.Text = "下一页";
-            this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.UseVisualStyleBackColor = false;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
             // btnLast
             // 
+            this.btnLast.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(156)))), ((int)(((byte)(230)))));
+            this.btnLast.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLast.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnLast.ForeColor = System.Drawing.Color.White;
             this.btnLast.Location = new System.Drawing.Point(346, 4);
             this.btnLast.Name = "btnLast";
             this.btnLast.Size = new System.Drawing.Size(75, 23);
             this.btnLast.TabIndex = 3;
             this.btnLast.Text = "尾页";
-            this.btnLast.UseVisualStyleBackColor = true;
+            this.btnLast.UseVisualStyleBackColor = false;
             this.btnLast.Click += new System.EventHandler(this.btnLast_Click);
             // 
             // label1
@@ -96,6 +112,7 @@
             // lbCurrPage
             // 
             this.lbCurrPage.AutoSize = true;
+            this.lbCurrPage.ForeColor = System.Drawing.Color.Red;
             this.lbCurrPage.Location = new System.Drawing.Point(515, 9);
             this.lbCurrPage.Name = "lbCurrPage";
             this.lbCurrPage.Size = new System.Drawing.Size(11, 12);
@@ -114,6 +131,7 @@
             // lbPageCount
             // 
             this.lbPageCount.AutoSize = true;
+            this.lbPageCount.ForeColor = System.Drawing.Color.Red;
             this.lbPageCount.Location = new System.Drawing.Point(549, 9);
             this.lbPageCount.Name = "lbPageCount";
             this.lbPageCount.Size = new System.Drawing.Size(11, 12);
@@ -141,6 +159,7 @@
             // lbPageSize
             // 
             this.lbPageSize.AutoSize = true;
+            this.lbPageSize.ForeColor = System.Drawing.Color.Red;
             this.lbPageSize.Location = new System.Drawing.Point(672, 10);
             this.lbPageSize.Name = "lbPageSize";
             this.lbPageSize.Size = new System.Drawing.Size(11, 12);
@@ -159,6 +178,7 @@
             // lbRecordCount
             // 
             this.lbRecordCount.AutoSize = true;
+            this.lbRecordCount.ForeColor = System.Drawing.Color.Red;
             this.lbRecordCount.Location = new System.Drawing.Point(757, 9);
             this.lbRecordCount.Name = "lbRecordCount";
             this.lbRecordCount.Size = new System.Drawing.Size(11, 12);
