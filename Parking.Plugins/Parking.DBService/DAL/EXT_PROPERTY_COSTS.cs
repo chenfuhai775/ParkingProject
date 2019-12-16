@@ -37,9 +37,9 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select count(1) from EXT_PROPERTY_COSTS");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			return DbHelperSQL.Exists(strSql.ToString(),parameters);
@@ -55,15 +55,15 @@ namespace Parking.DBService.DAL
 			strSql.Append("insert into EXT_PROPERTY_COSTS(");
 			strSql.Append("ROOM,REMARK,PAY_MONTH,CREATE_TIME,UPDATE_TIME,ID,PAY_FLAG)");
 			strSql.Append(" values (");
-			strSql.Append("SQL2012ROOM,SQL2012REMARK,SQL2012PAY_MONTH,SQL2012CREATE_TIME,SQL2012UPDATE_TIME,SQL2012ID,SQL2012PAY_FLAG)");
+			strSql.Append("@ROOM,@REMARK,@PAY_MONTH,@CREATE_TIME,@UPDATE_TIME,@ID,@PAY_FLAG)");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ROOM", SqlDbType.VarChar,100),
-					new SqlParameter("SQL2012REMARK", SqlDbType.VarChar,1000),
-					new SqlParameter("SQL2012PAY_MONTH", SqlDbType.VarChar,100),
-					new SqlParameter("SQL2012CREATE_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012UPDATE_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012PAY_FLAG", SqlDbType.Int,4)};
+					new SqlParameter("@ROOM", SqlDbType.VarChar,100),
+					new SqlParameter("@REMARK", SqlDbType.VarChar,1000),
+					new SqlParameter("@PAY_MONTH", SqlDbType.VarChar,100),
+					new SqlParameter("@CREATE_TIME", SqlDbType.DateTime),
+					new SqlParameter("@UPDATE_TIME", SqlDbType.DateTime),
+					new SqlParameter("@ID", SqlDbType.VarChar,32),
+					new SqlParameter("@PAY_FLAG", SqlDbType.Int,4)};
 			parameters[0].Value = model.ROOM;
 			parameters[1].Value = model.REMARK;
 			parameters[2].Value = model.PAY_MONTH;
@@ -89,21 +89,21 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("update EXT_PROPERTY_COSTS set ");
-			strSql.Append("ROOM=SQL2012ROOM,");
-			strSql.Append("REMARK=SQL2012REMARK,");
-			strSql.Append("PAY_MONTH=SQL2012PAY_MONTH,");
-			strSql.Append("CREATE_TIME=SQL2012CREATE_TIME,");
-			strSql.Append("UPDATE_TIME=SQL2012UPDATE_TIME,");
-			strSql.Append("PAY_FLAG=SQL2012PAY_FLAG");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append("ROOM=@ROOM,");
+			strSql.Append("REMARK=@REMARK,");
+			strSql.Append("PAY_MONTH=@PAY_MONTH,");
+			strSql.Append("CREATE_TIME=@CREATE_TIME,");
+			strSql.Append("UPDATE_TIME=@UPDATE_TIME,");
+			strSql.Append("PAY_FLAG=@PAY_FLAG");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ROOM", SqlDbType.VarChar,100),
-					new SqlParameter("SQL2012REMARK", SqlDbType.VarChar,1000),
-					new SqlParameter("SQL2012PAY_MONTH", SqlDbType.VarChar,100),
-					new SqlParameter("SQL2012CREATE_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012UPDATE_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012PAY_FLAG", SqlDbType.Int,4),
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)};
+					new SqlParameter("@ROOM", SqlDbType.VarChar,100),
+					new SqlParameter("@REMARK", SqlDbType.VarChar,1000),
+					new SqlParameter("@PAY_MONTH", SqlDbType.VarChar,100),
+					new SqlParameter("@CREATE_TIME", SqlDbType.DateTime),
+					new SqlParameter("@UPDATE_TIME", SqlDbType.DateTime),
+					new SqlParameter("@PAY_FLAG", SqlDbType.Int,4),
+					new SqlParameter("@ID", SqlDbType.VarChar,32)};
 			parameters[0].Value = model.ROOM;
 			parameters[1].Value = model.REMARK;
 			parameters[2].Value = model.PAY_MONTH;
@@ -131,9 +131,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("delete from EXT_PROPERTY_COSTS ");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
@@ -174,9 +174,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select  top 1 ROOM,REMARK,PAY_MONTH,CREATE_TIME,UPDATE_TIME,ID,PAY_FLAG from EXT_PROPERTY_COSTS ");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			Parking.Core.Model.EXT_PROPERTY_COSTS model=new Parking.Core.Model.EXT_PROPERTY_COSTS();
@@ -322,13 +322,13 @@ namespace Parking.DBService.DAL
 		public DataSet GetList(int PageSize,int PageIndex,string strWhere)
 		{
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012tblName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012fldName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012PageSize", SqlDbType.Int),
-					new SqlParameter("SQL2012PageIndex", SqlDbType.Int),
-					new SqlParameter("SQL2012IsReCount", SqlDbType.Bit),
-					new SqlParameter("SQL2012OrderType", SqlDbType.Bit),
-					new SqlParameter("SQL2012strWhere", SqlDbType.VarChar,1000),
+					new SqlParameter("@tblName", SqlDbType.VarChar, 255),
+					new SqlParameter("@fldName", SqlDbType.VarChar, 255),
+					new SqlParameter("@PageSize", SqlDbType.Int),
+					new SqlParameter("@PageIndex", SqlDbType.Int),
+					new SqlParameter("@IsReCount", SqlDbType.Bit),
+					new SqlParameter("@OrderType", SqlDbType.Bit),
+					new SqlParameter("@strWhere", SqlDbType.VarChar,1000),
 					};
 			parameters[0].Value = "EXT_PROPERTY_COSTS";
 			parameters[1].Value = "ID";

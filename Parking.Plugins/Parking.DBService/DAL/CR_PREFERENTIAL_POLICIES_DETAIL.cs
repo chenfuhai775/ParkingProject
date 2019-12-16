@@ -37,9 +37,9 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select count(1) from CR_PREFERENTIAL_POLICIES_DETAIL");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			return DbHelperSQL.Exists(strSql.ToString(),parameters);
@@ -55,13 +55,13 @@ namespace Parking.DBService.DAL
 			strSql.Append("insert into CR_PREFERENTIAL_POLICIES_DETAIL(");
 			strSql.Append("ID,POLICIES_CODE,CR_PREFERENTIAL_ID,IS_COMBINATION,CR_LEVEL)");
 			strSql.Append(" values (");
-			strSql.Append("SQL2012ID,SQL2012POLICIES_CODE,SQL2012CR_PREFERENTIAL_ID,SQL2012IS_COMBINATION,SQL2012CR_LEVEL)");
+			strSql.Append("@ID,@POLICIES_CODE,@CR_PREFERENTIAL_ID,@IS_COMBINATION,@CR_LEVEL)");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012POLICIES_CODE", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012CR_PREFERENTIAL_ID", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012IS_COMBINATION", SqlDbType.Int,4),
-					new SqlParameter("SQL2012CR_LEVEL", SqlDbType.Int,4)};
+					new SqlParameter("@ID", SqlDbType.VarChar,32),
+					new SqlParameter("@POLICIES_CODE", SqlDbType.VarChar,50),
+					new SqlParameter("@CR_PREFERENTIAL_ID", SqlDbType.VarChar,50),
+					new SqlParameter("@IS_COMBINATION", SqlDbType.Int,4),
+					new SqlParameter("@CR_LEVEL", SqlDbType.Int,4)};
 			parameters[0].Value = model.ID;
 			parameters[1].Value = model.POLICIES_CODE;
 			parameters[2].Value = model.CR_PREFERENTIAL_ID;
@@ -85,17 +85,17 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("update CR_PREFERENTIAL_POLICIES_DETAIL set ");
-			strSql.Append("POLICIES_CODE=SQL2012POLICIES_CODE,");
-			strSql.Append("CR_PREFERENTIAL_ID=SQL2012CR_PREFERENTIAL_ID,");
-			strSql.Append("IS_COMBINATION=SQL2012IS_COMBINATION,");
-			strSql.Append("CR_LEVEL=SQL2012CR_LEVEL");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append("POLICIES_CODE=@POLICIES_CODE,");
+			strSql.Append("CR_PREFERENTIAL_ID=@CR_PREFERENTIAL_ID,");
+			strSql.Append("IS_COMBINATION=@IS_COMBINATION,");
+			strSql.Append("CR_LEVEL=@CR_LEVEL");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012POLICIES_CODE", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012CR_PREFERENTIAL_ID", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012IS_COMBINATION", SqlDbType.Int,4),
-					new SqlParameter("SQL2012CR_LEVEL", SqlDbType.Int,4),
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)};
+					new SqlParameter("@POLICIES_CODE", SqlDbType.VarChar,50),
+					new SqlParameter("@CR_PREFERENTIAL_ID", SqlDbType.VarChar,50),
+					new SqlParameter("@IS_COMBINATION", SqlDbType.Int,4),
+					new SqlParameter("@CR_LEVEL", SqlDbType.Int,4),
+					new SqlParameter("@ID", SqlDbType.VarChar,32)};
 			parameters[0].Value = model.POLICIES_CODE;
 			parameters[1].Value = model.CR_PREFERENTIAL_ID;
 			parameters[2].Value = model.IS_COMBINATION;
@@ -121,9 +121,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("delete from CR_PREFERENTIAL_POLICIES_DETAIL ");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
@@ -164,9 +164,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select  top 1 ID,POLICIES_CODE,CR_PREFERENTIAL_ID,IS_COMBINATION,CR_LEVEL from CR_PREFERENTIAL_POLICIES_DETAIL ");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			Parking.Core.Model.CR_PREFERENTIAL_POLICIES_DETAIL model=new Parking.Core.Model.CR_PREFERENTIAL_POLICIES_DETAIL();
@@ -304,13 +304,13 @@ namespace Parking.DBService.DAL
 		public DataSet GetList(int PageSize,int PageIndex,string strWhere)
 		{
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012tblName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012fldName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012PageSize", SqlDbType.Int),
-					new SqlParameter("SQL2012PageIndex", SqlDbType.Int),
-					new SqlParameter("SQL2012IsReCount", SqlDbType.Bit),
-					new SqlParameter("SQL2012OrderType", SqlDbType.Bit),
-					new SqlParameter("SQL2012strWhere", SqlDbType.VarChar,1000),
+					new SqlParameter("@tblName", SqlDbType.VarChar, 255),
+					new SqlParameter("@fldName", SqlDbType.VarChar, 255),
+					new SqlParameter("@PageSize", SqlDbType.Int),
+					new SqlParameter("@PageIndex", SqlDbType.Int),
+					new SqlParameter("@IsReCount", SqlDbType.Bit),
+					new SqlParameter("@OrderType", SqlDbType.Bit),
+					new SqlParameter("@strWhere", SqlDbType.VarChar,1000),
 					};
 			parameters[0].Value = "CR_PREFERENTIAL_POLICIES_DETAIL";
 			parameters[1].Value = "ID";

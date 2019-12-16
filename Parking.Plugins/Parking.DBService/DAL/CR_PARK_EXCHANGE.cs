@@ -37,9 +37,9 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select count(1) from CR_PARK_EXCHANGE");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			return DbHelperSQL.Exists(strSql.ToString(),parameters);
@@ -55,20 +55,20 @@ namespace Parking.DBService.DAL
 			strSql.Append("insert into CR_PARK_EXCHANGE(");
 			strSql.Append("ID,USER_ID,USER_ACCOUNT,USER_NAME,LOGIN_TIME,EIXT_TIME,ENTER_NUM,EIXT_NUM,DUE_MONEY,PER_MONEY,WORK_STATUS,WORKSTATION_NO)");
 			strSql.Append(" values (");
-			strSql.Append("SQL2012ID,SQL2012USER_ID,SQL2012USER_ACCOUNT,SQL2012USER_NAME,SQL2012LOGIN_TIME,SQL2012EIXT_TIME,SQL2012ENTER_NUM,SQL2012EIXT_NUM,SQL2012DUE_MONEY,SQL2012PER_MONEY,SQL2012WORK_STATUS,SQL2012WORKSTATION_NO)");
+			strSql.Append("@ID,@USER_ID,@USER_ACCOUNT,@USER_NAME,@LOGIN_TIME,@EIXT_TIME,@ENTER_NUM,@EIXT_NUM,@DUE_MONEY,@PER_MONEY,@WORK_STATUS,@WORKSTATION_NO)");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012USER_ID", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012USER_ACCOUNT", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012USER_NAME", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012LOGIN_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012EIXT_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012ENTER_NUM", SqlDbType.Int,4),
-					new SqlParameter("SQL2012EIXT_NUM", SqlDbType.Int,4),
-					new SqlParameter("SQL2012DUE_MONEY", SqlDbType.Money,8),
-					new SqlParameter("SQL2012PER_MONEY", SqlDbType.Money,8),
-					new SqlParameter("SQL2012WORK_STATUS", SqlDbType.Int,4),
-					new SqlParameter("SQL2012WORKSTATION_NO", SqlDbType.VarChar,50)};
+					new SqlParameter("@ID", SqlDbType.VarChar,32),
+					new SqlParameter("@USER_ID", SqlDbType.VarChar,50),
+					new SqlParameter("@USER_ACCOUNT", SqlDbType.VarChar,50),
+					new SqlParameter("@USER_NAME", SqlDbType.VarChar,50),
+					new SqlParameter("@LOGIN_TIME", SqlDbType.DateTime),
+					new SqlParameter("@EIXT_TIME", SqlDbType.DateTime),
+					new SqlParameter("@ENTER_NUM", SqlDbType.Int,4),
+					new SqlParameter("@EIXT_NUM", SqlDbType.Int,4),
+					new SqlParameter("@DUE_MONEY", SqlDbType.Money,8),
+					new SqlParameter("@PER_MONEY", SqlDbType.Money,8),
+					new SqlParameter("@WORK_STATUS", SqlDbType.Int,4),
+					new SqlParameter("@WORKSTATION_NO", SqlDbType.VarChar,50)};
 			parameters[0].Value = model.ID;
 			parameters[1].Value = model.USER_ID;
 			parameters[2].Value = model.USER_ACCOUNT;
@@ -99,31 +99,31 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("update CR_PARK_EXCHANGE set ");
-			strSql.Append("USER_ID=SQL2012USER_ID,");
-			strSql.Append("USER_ACCOUNT=SQL2012USER_ACCOUNT,");
-			strSql.Append("USER_NAME=SQL2012USER_NAME,");
-			strSql.Append("LOGIN_TIME=SQL2012LOGIN_TIME,");
-			strSql.Append("EIXT_TIME=SQL2012EIXT_TIME,");
-			strSql.Append("ENTER_NUM=SQL2012ENTER_NUM,");
-			strSql.Append("EIXT_NUM=SQL2012EIXT_NUM,");
-			strSql.Append("DUE_MONEY=SQL2012DUE_MONEY,");
-			strSql.Append("PER_MONEY=SQL2012PER_MONEY,");
-			strSql.Append("WORK_STATUS=SQL2012WORK_STATUS,");
-			strSql.Append("WORKSTATION_NO=SQL2012WORKSTATION_NO");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append("USER_ID=@USER_ID,");
+			strSql.Append("USER_ACCOUNT=@USER_ACCOUNT,");
+			strSql.Append("USER_NAME=@USER_NAME,");
+			strSql.Append("LOGIN_TIME=@LOGIN_TIME,");
+			strSql.Append("EIXT_TIME=@EIXT_TIME,");
+			strSql.Append("ENTER_NUM=@ENTER_NUM,");
+			strSql.Append("EIXT_NUM=@EIXT_NUM,");
+			strSql.Append("DUE_MONEY=@DUE_MONEY,");
+			strSql.Append("PER_MONEY=@PER_MONEY,");
+			strSql.Append("WORK_STATUS=@WORK_STATUS,");
+			strSql.Append("WORKSTATION_NO=@WORKSTATION_NO");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012USER_ID", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012USER_ACCOUNT", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012USER_NAME", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012LOGIN_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012EIXT_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012ENTER_NUM", SqlDbType.Int,4),
-					new SqlParameter("SQL2012EIXT_NUM", SqlDbType.Int,4),
-					new SqlParameter("SQL2012DUE_MONEY", SqlDbType.Money,8),
-					new SqlParameter("SQL2012PER_MONEY", SqlDbType.Money,8),
-					new SqlParameter("SQL2012WORK_STATUS", SqlDbType.Int,4),
-					new SqlParameter("SQL2012WORKSTATION_NO", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)};
+					new SqlParameter("@USER_ID", SqlDbType.VarChar,50),
+					new SqlParameter("@USER_ACCOUNT", SqlDbType.VarChar,50),
+					new SqlParameter("@USER_NAME", SqlDbType.VarChar,50),
+					new SqlParameter("@LOGIN_TIME", SqlDbType.DateTime),
+					new SqlParameter("@EIXT_TIME", SqlDbType.DateTime),
+					new SqlParameter("@ENTER_NUM", SqlDbType.Int,4),
+					new SqlParameter("@EIXT_NUM", SqlDbType.Int,4),
+					new SqlParameter("@DUE_MONEY", SqlDbType.Money,8),
+					new SqlParameter("@PER_MONEY", SqlDbType.Money,8),
+					new SqlParameter("@WORK_STATUS", SqlDbType.Int,4),
+					new SqlParameter("@WORKSTATION_NO", SqlDbType.VarChar,50),
+					new SqlParameter("@ID", SqlDbType.VarChar,32)};
 			parameters[0].Value = model.USER_ID;
 			parameters[1].Value = model.USER_ACCOUNT;
 			parameters[2].Value = model.USER_NAME;
@@ -156,9 +156,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("delete from CR_PARK_EXCHANGE ");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
@@ -199,9 +199,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select  top 1 ID,USER_ID,USER_ACCOUNT,USER_NAME,LOGIN_TIME,EIXT_TIME,ENTER_NUM,EIXT_NUM,DUE_MONEY,PER_MONEY,WORK_STATUS,WORKSTATION_NO from CR_PARK_EXCHANGE ");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			Parking.Core.Model.CR_PARK_EXCHANGE model=new Parking.Core.Model.CR_PARK_EXCHANGE();
@@ -367,13 +367,13 @@ namespace Parking.DBService.DAL
 		public DataSet GetList(int PageSize,int PageIndex,string strWhere)
 		{
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012tblName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012fldName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012PageSize", SqlDbType.Int),
-					new SqlParameter("SQL2012PageIndex", SqlDbType.Int),
-					new SqlParameter("SQL2012IsReCount", SqlDbType.Bit),
-					new SqlParameter("SQL2012OrderType", SqlDbType.Bit),
-					new SqlParameter("SQL2012strWhere", SqlDbType.VarChar,1000),
+					new SqlParameter("@tblName", SqlDbType.VarChar, 255),
+					new SqlParameter("@fldName", SqlDbType.VarChar, 255),
+					new SqlParameter("@PageSize", SqlDbType.Int),
+					new SqlParameter("@PageIndex", SqlDbType.Int),
+					new SqlParameter("@IsReCount", SqlDbType.Bit),
+					new SqlParameter("@OrderType", SqlDbType.Bit),
+					new SqlParameter("@strWhere", SqlDbType.VarChar,1000),
 					};
 			parameters[0].Value = "CR_PARK_EXCHANGE";
 			parameters[1].Value = "ID";

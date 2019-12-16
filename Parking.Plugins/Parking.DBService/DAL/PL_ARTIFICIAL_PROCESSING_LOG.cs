@@ -37,9 +37,9 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select count(1) from PL_ARTIFICIAL_PROCESSING_LOG");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			return DbHelperSQL.Exists(strSql.ToString(),parameters);
@@ -55,18 +55,18 @@ namespace Parking.DBService.DAL
 			strSql.Append("insert into PL_ARTIFICIAL_PROCESSING_LOG(");
 			strSql.Append("ID,DEAL_TIME,DEAL_USERID,DEAL_REMARK,DEAL_PLATFORM,CONTROL_EQUIPMENT,DEAL_TYPE,INOUT_RECODE_ID,DEAL_STATUS,CHANNEL_TYPE)");
 			strSql.Append(" values (");
-			strSql.Append("SQL2012ID,SQL2012DEAL_TIME,SQL2012DEAL_USERID,SQL2012DEAL_REMARK,SQL2012DEAL_PLATFORM,SQL2012CONTROL_EQUIPMENT,SQL2012DEAL_TYPE,SQL2012INOUT_RECODE_ID,SQL2012DEAL_STATUS,SQL2012CHANNEL_TYPE)");
+			strSql.Append("@ID,@DEAL_TIME,@DEAL_USERID,@DEAL_REMARK,@DEAL_PLATFORM,@CONTROL_EQUIPMENT,@DEAL_TYPE,@INOUT_RECODE_ID,@DEAL_STATUS,@CHANNEL_TYPE)");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012DEAL_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012DEAL_USERID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012DEAL_REMARK", SqlDbType.VarChar,2000),
-					new SqlParameter("SQL2012DEAL_PLATFORM", SqlDbType.Int,4),
-					new SqlParameter("SQL2012CONTROL_EQUIPMENT", SqlDbType.Int,4),
-					new SqlParameter("SQL2012DEAL_TYPE", SqlDbType.Int,4),
-					new SqlParameter("SQL2012INOUT_RECODE_ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012DEAL_STATUS", SqlDbType.Int,4),
-					new SqlParameter("SQL2012CHANNEL_TYPE", SqlDbType.VarChar,1)};
+					new SqlParameter("@ID", SqlDbType.VarChar,32),
+					new SqlParameter("@DEAL_TIME", SqlDbType.DateTime),
+					new SqlParameter("@DEAL_USERID", SqlDbType.VarChar,32),
+					new SqlParameter("@DEAL_REMARK", SqlDbType.VarChar,2000),
+					new SqlParameter("@DEAL_PLATFORM", SqlDbType.Int,4),
+					new SqlParameter("@CONTROL_EQUIPMENT", SqlDbType.Int,4),
+					new SqlParameter("@DEAL_TYPE", SqlDbType.Int,4),
+					new SqlParameter("@INOUT_RECODE_ID", SqlDbType.VarChar,32),
+					new SqlParameter("@DEAL_STATUS", SqlDbType.Int,4),
+					new SqlParameter("@CHANNEL_TYPE", SqlDbType.VarChar,1)};
 			parameters[0].Value = model.ID;
 			parameters[1].Value = model.DEAL_TIME;
 			parameters[2].Value = model.DEAL_USERID;
@@ -95,27 +95,27 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("update PL_ARTIFICIAL_PROCESSING_LOG set ");
-			strSql.Append("DEAL_TIME=SQL2012DEAL_TIME,");
-			strSql.Append("DEAL_USERID=SQL2012DEAL_USERID,");
-			strSql.Append("DEAL_REMARK=SQL2012DEAL_REMARK,");
-			strSql.Append("DEAL_PLATFORM=SQL2012DEAL_PLATFORM,");
-			strSql.Append("CONTROL_EQUIPMENT=SQL2012CONTROL_EQUIPMENT,");
-			strSql.Append("DEAL_TYPE=SQL2012DEAL_TYPE,");
-			strSql.Append("INOUT_RECODE_ID=SQL2012INOUT_RECODE_ID,");
-			strSql.Append("DEAL_STATUS=SQL2012DEAL_STATUS,");
-			strSql.Append("CHANNEL_TYPE=SQL2012CHANNEL_TYPE");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append("DEAL_TIME=@DEAL_TIME,");
+			strSql.Append("DEAL_USERID=@DEAL_USERID,");
+			strSql.Append("DEAL_REMARK=@DEAL_REMARK,");
+			strSql.Append("DEAL_PLATFORM=@DEAL_PLATFORM,");
+			strSql.Append("CONTROL_EQUIPMENT=@CONTROL_EQUIPMENT,");
+			strSql.Append("DEAL_TYPE=@DEAL_TYPE,");
+			strSql.Append("INOUT_RECODE_ID=@INOUT_RECODE_ID,");
+			strSql.Append("DEAL_STATUS=@DEAL_STATUS,");
+			strSql.Append("CHANNEL_TYPE=@CHANNEL_TYPE");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012DEAL_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012DEAL_USERID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012DEAL_REMARK", SqlDbType.VarChar,2000),
-					new SqlParameter("SQL2012DEAL_PLATFORM", SqlDbType.Int,4),
-					new SqlParameter("SQL2012CONTROL_EQUIPMENT", SqlDbType.Int,4),
-					new SqlParameter("SQL2012DEAL_TYPE", SqlDbType.Int,4),
-					new SqlParameter("SQL2012INOUT_RECODE_ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012DEAL_STATUS", SqlDbType.Int,4),
-					new SqlParameter("SQL2012CHANNEL_TYPE", SqlDbType.VarChar,1),
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)};
+					new SqlParameter("@DEAL_TIME", SqlDbType.DateTime),
+					new SqlParameter("@DEAL_USERID", SqlDbType.VarChar,32),
+					new SqlParameter("@DEAL_REMARK", SqlDbType.VarChar,2000),
+					new SqlParameter("@DEAL_PLATFORM", SqlDbType.Int,4),
+					new SqlParameter("@CONTROL_EQUIPMENT", SqlDbType.Int,4),
+					new SqlParameter("@DEAL_TYPE", SqlDbType.Int,4),
+					new SqlParameter("@INOUT_RECODE_ID", SqlDbType.VarChar,32),
+					new SqlParameter("@DEAL_STATUS", SqlDbType.Int,4),
+					new SqlParameter("@CHANNEL_TYPE", SqlDbType.VarChar,1),
+					new SqlParameter("@ID", SqlDbType.VarChar,32)};
 			parameters[0].Value = model.DEAL_TIME;
 			parameters[1].Value = model.DEAL_USERID;
 			parameters[2].Value = model.DEAL_REMARK;
@@ -146,9 +146,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("delete from PL_ARTIFICIAL_PROCESSING_LOG ");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
@@ -189,9 +189,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select  top 1 ID,DEAL_TIME,DEAL_USERID,DEAL_REMARK,DEAL_PLATFORM,CONTROL_EQUIPMENT,DEAL_TYPE,INOUT_RECODE_ID,DEAL_STATUS,CHANNEL_TYPE from PL_ARTIFICIAL_PROCESSING_LOG ");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			Parking.Core.Model.PL_ARTIFICIAL_PROCESSING_LOG model=new Parking.Core.Model.PL_ARTIFICIAL_PROCESSING_LOG();
@@ -349,13 +349,13 @@ namespace Parking.DBService.DAL
 		public DataSet GetList(int PageSize,int PageIndex,string strWhere)
 		{
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012tblName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012fldName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012PageSize", SqlDbType.Int),
-					new SqlParameter("SQL2012PageIndex", SqlDbType.Int),
-					new SqlParameter("SQL2012IsReCount", SqlDbType.Bit),
-					new SqlParameter("SQL2012OrderType", SqlDbType.Bit),
-					new SqlParameter("SQL2012strWhere", SqlDbType.VarChar,1000),
+					new SqlParameter("@tblName", SqlDbType.VarChar, 255),
+					new SqlParameter("@fldName", SqlDbType.VarChar, 255),
+					new SqlParameter("@PageSize", SqlDbType.Int),
+					new SqlParameter("@PageIndex", SqlDbType.Int),
+					new SqlParameter("@IsReCount", SqlDbType.Bit),
+					new SqlParameter("@OrderType", SqlDbType.Bit),
+					new SqlParameter("@strWhere", SqlDbType.VarChar,1000),
 					};
 			parameters[0].Value = "PL_ARTIFICIAL_PROCESSING_LOG";
 			parameters[1].Value = "ID";

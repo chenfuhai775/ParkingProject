@@ -37,9 +37,9 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select count(1) from PBA_HAND_DEVICE");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,40)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,40)			};
 			parameters[0].Value = ID;
 
 			return DbHelperSQL.Exists(strSql.ToString(),parameters);
@@ -55,19 +55,19 @@ namespace Parking.DBService.DAL
 			strSql.Append("insert into PBA_HAND_DEVICE(");
 			strSql.Append("ID,CREATE_BY,CREATE_TIME,DEVICE_CODE,DEVICE_NAME,LAST_UPDATE_BY,LAST_UPDATE_TIME,MAC_ADDRESS,REMARK,SOFTWARE_VERSION,STATUS)");
 			strSql.Append(" values (");
-			strSql.Append("SQL2012ID,SQL2012CREATE_BY,SQL2012CREATE_TIME,SQL2012DEVICE_CODE,SQL2012DEVICE_NAME,SQL2012LAST_UPDATE_BY,SQL2012LAST_UPDATE_TIME,SQL2012MAC_ADDRESS,SQL2012REMARK,SQL2012SOFTWARE_VERSION,SQL2012STATUS)");
+			strSql.Append("@ID,@CREATE_BY,@CREATE_TIME,@DEVICE_CODE,@DEVICE_NAME,@LAST_UPDATE_BY,@LAST_UPDATE_TIME,@MAC_ADDRESS,@REMARK,@SOFTWARE_VERSION,@STATUS)");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,40),
-					new SqlParameter("SQL2012CREATE_BY", SqlDbType.VarChar,40),
-					new SqlParameter("SQL2012CREATE_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012DEVICE_CODE", SqlDbType.VarChar,40),
-					new SqlParameter("SQL2012DEVICE_NAME", SqlDbType.VarChar,40),
-					new SqlParameter("SQL2012LAST_UPDATE_BY", SqlDbType.VarChar,40),
-					new SqlParameter("SQL2012LAST_UPDATE_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012MAC_ADDRESS", SqlDbType.VarChar,40),
-					new SqlParameter("SQL2012REMARK", SqlDbType.VarChar,2000),
-					new SqlParameter("SQL2012SOFTWARE_VERSION", SqlDbType.VarChar,40),
-					new SqlParameter("SQL2012STATUS", SqlDbType.Int,4)};
+					new SqlParameter("@ID", SqlDbType.VarChar,40),
+					new SqlParameter("@CREATE_BY", SqlDbType.VarChar,40),
+					new SqlParameter("@CREATE_TIME", SqlDbType.DateTime),
+					new SqlParameter("@DEVICE_CODE", SqlDbType.VarChar,40),
+					new SqlParameter("@DEVICE_NAME", SqlDbType.VarChar,40),
+					new SqlParameter("@LAST_UPDATE_BY", SqlDbType.VarChar,40),
+					new SqlParameter("@LAST_UPDATE_TIME", SqlDbType.DateTime),
+					new SqlParameter("@MAC_ADDRESS", SqlDbType.VarChar,40),
+					new SqlParameter("@REMARK", SqlDbType.VarChar,2000),
+					new SqlParameter("@SOFTWARE_VERSION", SqlDbType.VarChar,40),
+					new SqlParameter("@STATUS", SqlDbType.Int,4)};
 			parameters[0].Value = model.ID;
 			parameters[1].Value = model.CREATE_BY;
 			parameters[2].Value = model.CREATE_TIME;
@@ -97,29 +97,29 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("update PBA_HAND_DEVICE set ");
-			strSql.Append("CREATE_BY=SQL2012CREATE_BY,");
-			strSql.Append("CREATE_TIME=SQL2012CREATE_TIME,");
-			strSql.Append("DEVICE_CODE=SQL2012DEVICE_CODE,");
-			strSql.Append("DEVICE_NAME=SQL2012DEVICE_NAME,");
-			strSql.Append("LAST_UPDATE_BY=SQL2012LAST_UPDATE_BY,");
-			strSql.Append("LAST_UPDATE_TIME=SQL2012LAST_UPDATE_TIME,");
-			strSql.Append("MAC_ADDRESS=SQL2012MAC_ADDRESS,");
-			strSql.Append("REMARK=SQL2012REMARK,");
-			strSql.Append("SOFTWARE_VERSION=SQL2012SOFTWARE_VERSION,");
-			strSql.Append("STATUS=SQL2012STATUS");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append("CREATE_BY=@CREATE_BY,");
+			strSql.Append("CREATE_TIME=@CREATE_TIME,");
+			strSql.Append("DEVICE_CODE=@DEVICE_CODE,");
+			strSql.Append("DEVICE_NAME=@DEVICE_NAME,");
+			strSql.Append("LAST_UPDATE_BY=@LAST_UPDATE_BY,");
+			strSql.Append("LAST_UPDATE_TIME=@LAST_UPDATE_TIME,");
+			strSql.Append("MAC_ADDRESS=@MAC_ADDRESS,");
+			strSql.Append("REMARK=@REMARK,");
+			strSql.Append("SOFTWARE_VERSION=@SOFTWARE_VERSION,");
+			strSql.Append("STATUS=@STATUS");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012CREATE_BY", SqlDbType.VarChar,40),
-					new SqlParameter("SQL2012CREATE_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012DEVICE_CODE", SqlDbType.VarChar,40),
-					new SqlParameter("SQL2012DEVICE_NAME", SqlDbType.VarChar,40),
-					new SqlParameter("SQL2012LAST_UPDATE_BY", SqlDbType.VarChar,40),
-					new SqlParameter("SQL2012LAST_UPDATE_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012MAC_ADDRESS", SqlDbType.VarChar,40),
-					new SqlParameter("SQL2012REMARK", SqlDbType.VarChar,2000),
-					new SqlParameter("SQL2012SOFTWARE_VERSION", SqlDbType.VarChar,40),
-					new SqlParameter("SQL2012STATUS", SqlDbType.Int,4),
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,40)};
+					new SqlParameter("@CREATE_BY", SqlDbType.VarChar,40),
+					new SqlParameter("@CREATE_TIME", SqlDbType.DateTime),
+					new SqlParameter("@DEVICE_CODE", SqlDbType.VarChar,40),
+					new SqlParameter("@DEVICE_NAME", SqlDbType.VarChar,40),
+					new SqlParameter("@LAST_UPDATE_BY", SqlDbType.VarChar,40),
+					new SqlParameter("@LAST_UPDATE_TIME", SqlDbType.DateTime),
+					new SqlParameter("@MAC_ADDRESS", SqlDbType.VarChar,40),
+					new SqlParameter("@REMARK", SqlDbType.VarChar,2000),
+					new SqlParameter("@SOFTWARE_VERSION", SqlDbType.VarChar,40),
+					new SqlParameter("@STATUS", SqlDbType.Int,4),
+					new SqlParameter("@ID", SqlDbType.VarChar,40)};
 			parameters[0].Value = model.CREATE_BY;
 			parameters[1].Value = model.CREATE_TIME;
 			parameters[2].Value = model.DEVICE_CODE;
@@ -151,9 +151,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("delete from PBA_HAND_DEVICE ");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,40)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,40)			};
 			parameters[0].Value = ID;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
@@ -194,9 +194,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select  top 1 ID,CREATE_BY,CREATE_TIME,DEVICE_CODE,DEVICE_NAME,LAST_UPDATE_BY,LAST_UPDATE_TIME,MAC_ADDRESS,REMARK,SOFTWARE_VERSION,STATUS from PBA_HAND_DEVICE ");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,40)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,40)			};
 			parameters[0].Value = ID;
 
 			Parking.Core.Model.PBA_HAND_DEVICE model=new Parking.Core.Model.PBA_HAND_DEVICE();
@@ -358,13 +358,13 @@ namespace Parking.DBService.DAL
 		public DataSet GetList(int PageSize,int PageIndex,string strWhere)
 		{
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012tblName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012fldName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012PageSize", SqlDbType.Int),
-					new SqlParameter("SQL2012PageIndex", SqlDbType.Int),
-					new SqlParameter("SQL2012IsReCount", SqlDbType.Bit),
-					new SqlParameter("SQL2012OrderType", SqlDbType.Bit),
-					new SqlParameter("SQL2012strWhere", SqlDbType.VarChar,1000),
+					new SqlParameter("@tblName", SqlDbType.VarChar, 255),
+					new SqlParameter("@fldName", SqlDbType.VarChar, 255),
+					new SqlParameter("@PageSize", SqlDbType.Int),
+					new SqlParameter("@PageIndex", SqlDbType.Int),
+					new SqlParameter("@IsReCount", SqlDbType.Bit),
+					new SqlParameter("@OrderType", SqlDbType.Bit),
+					new SqlParameter("@strWhere", SqlDbType.VarChar,1000),
 					};
 			parameters[0].Value = "PBA_HAND_DEVICE";
 			parameters[1].Value = "ID";

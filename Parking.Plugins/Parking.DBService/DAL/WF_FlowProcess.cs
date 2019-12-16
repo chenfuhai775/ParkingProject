@@ -37,9 +37,9 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select count(1) from WF_FlowProcess");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			return DbHelperSQL.Exists(strSql.ToString(),parameters);
@@ -55,17 +55,17 @@ namespace Parking.DBService.DAL
 			strSql.Append("insert into WF_FlowProcess(");
 			strSql.Append("ID,FlowCode,NodeCode,RecordID,CarNo,UserID,ExecutionTime,Result,Remark)");
 			strSql.Append(" values (");
-			strSql.Append("SQL2012ID,SQL2012FlowCode,SQL2012NodeCode,SQL2012RecordID,SQL2012CarNo,SQL2012UserID,SQL2012ExecutionTime,SQL2012Result,SQL2012Remark)");
+			strSql.Append("@ID,@FlowCode,@NodeCode,@RecordID,@CarNo,@UserID,@ExecutionTime,@Result,@Remark)");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012FlowCode", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012NodeCode", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012RecordID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012CarNo", SqlDbType.VarChar,20),
-					new SqlParameter("SQL2012UserID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012ExecutionTime", SqlDbType.DateTime),
-					new SqlParameter("SQL2012Result", SqlDbType.Bit,1),
-					new SqlParameter("SQL2012Remark", SqlDbType.VarChar,32)};
+					new SqlParameter("@ID", SqlDbType.VarChar,32),
+					new SqlParameter("@FlowCode", SqlDbType.VarChar,32),
+					new SqlParameter("@NodeCode", SqlDbType.VarChar,32),
+					new SqlParameter("@RecordID", SqlDbType.VarChar,32),
+					new SqlParameter("@CarNo", SqlDbType.VarChar,20),
+					new SqlParameter("@UserID", SqlDbType.VarChar,32),
+					new SqlParameter("@ExecutionTime", SqlDbType.DateTime),
+					new SqlParameter("@Result", SqlDbType.Bit,1),
+					new SqlParameter("@Remark", SqlDbType.VarChar,32)};
 			parameters[0].Value = model.ID;
 			parameters[1].Value = model.FlowCode;
 			parameters[2].Value = model.NodeCode;
@@ -93,25 +93,25 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("update WF_FlowProcess set ");
-			strSql.Append("FlowCode=SQL2012FlowCode,");
-			strSql.Append("NodeCode=SQL2012NodeCode,");
-			strSql.Append("RecordID=SQL2012RecordID,");
-			strSql.Append("CarNo=SQL2012CarNo,");
-			strSql.Append("UserID=SQL2012UserID,");
-			strSql.Append("ExecutionTime=SQL2012ExecutionTime,");
-			strSql.Append("Result=SQL2012Result,");
-			strSql.Append("Remark=SQL2012Remark");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append("FlowCode=@FlowCode,");
+			strSql.Append("NodeCode=@NodeCode,");
+			strSql.Append("RecordID=@RecordID,");
+			strSql.Append("CarNo=@CarNo,");
+			strSql.Append("UserID=@UserID,");
+			strSql.Append("ExecutionTime=@ExecutionTime,");
+			strSql.Append("Result=@Result,");
+			strSql.Append("Remark=@Remark");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012FlowCode", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012NodeCode", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012RecordID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012CarNo", SqlDbType.VarChar,20),
-					new SqlParameter("SQL2012UserID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012ExecutionTime", SqlDbType.DateTime),
-					new SqlParameter("SQL2012Result", SqlDbType.Bit,1),
-					new SqlParameter("SQL2012Remark", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)};
+					new SqlParameter("@FlowCode", SqlDbType.VarChar,32),
+					new SqlParameter("@NodeCode", SqlDbType.VarChar,32),
+					new SqlParameter("@RecordID", SqlDbType.VarChar,32),
+					new SqlParameter("@CarNo", SqlDbType.VarChar,20),
+					new SqlParameter("@UserID", SqlDbType.VarChar,32),
+					new SqlParameter("@ExecutionTime", SqlDbType.DateTime),
+					new SqlParameter("@Result", SqlDbType.Bit,1),
+					new SqlParameter("@Remark", SqlDbType.VarChar,32),
+					new SqlParameter("@ID", SqlDbType.VarChar,32)};
 			parameters[0].Value = model.FlowCode;
 			parameters[1].Value = model.NodeCode;
 			parameters[2].Value = model.RecordID;
@@ -141,9 +141,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("delete from WF_FlowProcess ");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
@@ -184,9 +184,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select  top 1 ID,FlowCode,NodeCode,RecordID,CarNo,UserID,ExecutionTime,Result,Remark from WF_FlowProcess ");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			Parking.Core.Model.WF_FlowProcess model=new Parking.Core.Model.WF_FlowProcess();
@@ -347,13 +347,13 @@ namespace Parking.DBService.DAL
 		public DataSet GetList(int PageSize,int PageIndex,string strWhere)
 		{
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012tblName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012fldName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012PageSize", SqlDbType.Int),
-					new SqlParameter("SQL2012PageIndex", SqlDbType.Int),
-					new SqlParameter("SQL2012IsReCount", SqlDbType.Bit),
-					new SqlParameter("SQL2012OrderType", SqlDbType.Bit),
-					new SqlParameter("SQL2012strWhere", SqlDbType.VarChar,1000),
+					new SqlParameter("@tblName", SqlDbType.VarChar, 255),
+					new SqlParameter("@fldName", SqlDbType.VarChar, 255),
+					new SqlParameter("@PageSize", SqlDbType.Int),
+					new SqlParameter("@PageIndex", SqlDbType.Int),
+					new SqlParameter("@IsReCount", SqlDbType.Bit),
+					new SqlParameter("@OrderType", SqlDbType.Bit),
+					new SqlParameter("@strWhere", SqlDbType.VarChar,1000),
 					};
 			parameters[0].Value = "WF_FlowProcess";
 			parameters[1].Value = "ID";

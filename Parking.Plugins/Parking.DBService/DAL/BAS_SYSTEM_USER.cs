@@ -37,9 +37,9 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select count(1) from BAS_SYSTEM_USER");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			return DbHelperSQL.Exists(strSql.ToString(),parameters);
@@ -55,25 +55,25 @@ namespace Parking.DBService.DAL
 			strSql.Append("insert into BAS_SYSTEM_USER(");
 			strSql.Append("ID,USER_ACCOUNT,USER_NAME,PWD,USER_TYPE,STATUS,MOBILE,EMAIL,ADDR,USER_LOGO,REMARK,ORG_ID,CREATE_BY,CREATE_TIME,LAST_UPDATE_BY,LAST_UPDATE_TIME,CREATE_USER_IDS)");
 			strSql.Append(" values (");
-			strSql.Append("SQL2012ID,SQL2012USER_ACCOUNT,SQL2012USER_NAME,SQL2012PWD,SQL2012USER_TYPE,SQL2012STATUS,SQL2012MOBILE,SQL2012EMAIL,SQL2012ADDR,SQL2012USER_LOGO,SQL2012REMARK,SQL2012ORG_ID,SQL2012CREATE_BY,SQL2012CREATE_TIME,SQL2012LAST_UPDATE_BY,SQL2012LAST_UPDATE_TIME,SQL2012CREATE_USER_IDS)");
+			strSql.Append("@ID,@USER_ACCOUNT,@USER_NAME,@PWD,@USER_TYPE,@STATUS,@MOBILE,@EMAIL,@ADDR,@USER_LOGO,@REMARK,@ORG_ID,@CREATE_BY,@CREATE_TIME,@LAST_UPDATE_BY,@LAST_UPDATE_TIME,@CREATE_USER_IDS)");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012USER_ACCOUNT", SqlDbType.VarChar,40),
-					new SqlParameter("SQL2012USER_NAME", SqlDbType.VarChar,40),
-					new SqlParameter("SQL2012PWD", SqlDbType.VarChar,40),
-					new SqlParameter("SQL2012USER_TYPE", SqlDbType.Int,4),
-					new SqlParameter("SQL2012STATUS", SqlDbType.Int,4),
-					new SqlParameter("SQL2012MOBILE", SqlDbType.VarChar,20),
-					new SqlParameter("SQL2012EMAIL", SqlDbType.VarChar,40),
-					new SqlParameter("SQL2012ADDR", SqlDbType.VarChar,200),
-					new SqlParameter("SQL2012USER_LOGO", SqlDbType.VarChar,200),
-					new SqlParameter("SQL2012REMARK", SqlDbType.VarChar,1000),
-					new SqlParameter("SQL2012ORG_ID", SqlDbType.VarChar,40),
-					new SqlParameter("SQL2012CREATE_BY", SqlDbType.VarChar,40),
-					new SqlParameter("SQL2012CREATE_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012LAST_UPDATE_BY", SqlDbType.VarChar,40),
-					new SqlParameter("SQL2012LAST_UPDATE_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012CREATE_USER_IDS", SqlDbType.VarChar,2000)};
+					new SqlParameter("@ID", SqlDbType.VarChar,32),
+					new SqlParameter("@USER_ACCOUNT", SqlDbType.VarChar,40),
+					new SqlParameter("@USER_NAME", SqlDbType.VarChar,40),
+					new SqlParameter("@PWD", SqlDbType.VarChar,40),
+					new SqlParameter("@USER_TYPE", SqlDbType.Int,4),
+					new SqlParameter("@STATUS", SqlDbType.Int,4),
+					new SqlParameter("@MOBILE", SqlDbType.VarChar,20),
+					new SqlParameter("@EMAIL", SqlDbType.VarChar,40),
+					new SqlParameter("@ADDR", SqlDbType.VarChar,200),
+					new SqlParameter("@USER_LOGO", SqlDbType.VarChar,200),
+					new SqlParameter("@REMARK", SqlDbType.VarChar,1000),
+					new SqlParameter("@ORG_ID", SqlDbType.VarChar,40),
+					new SqlParameter("@CREATE_BY", SqlDbType.VarChar,40),
+					new SqlParameter("@CREATE_TIME", SqlDbType.DateTime),
+					new SqlParameter("@LAST_UPDATE_BY", SqlDbType.VarChar,40),
+					new SqlParameter("@LAST_UPDATE_TIME", SqlDbType.DateTime),
+					new SqlParameter("@CREATE_USER_IDS", SqlDbType.VarChar,2000)};
 			parameters[0].Value = model.ID;
 			parameters[1].Value = model.USER_ACCOUNT;
 			parameters[2].Value = model.USER_NAME;
@@ -109,41 +109,41 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("update BAS_SYSTEM_USER set ");
-			strSql.Append("USER_ACCOUNT=SQL2012USER_ACCOUNT,");
-			strSql.Append("USER_NAME=SQL2012USER_NAME,");
-			strSql.Append("PWD=SQL2012PWD,");
-			strSql.Append("USER_TYPE=SQL2012USER_TYPE,");
-			strSql.Append("STATUS=SQL2012STATUS,");
-			strSql.Append("MOBILE=SQL2012MOBILE,");
-			strSql.Append("EMAIL=SQL2012EMAIL,");
-			strSql.Append("ADDR=SQL2012ADDR,");
-			strSql.Append("USER_LOGO=SQL2012USER_LOGO,");
-			strSql.Append("REMARK=SQL2012REMARK,");
-			strSql.Append("ORG_ID=SQL2012ORG_ID,");
-			strSql.Append("CREATE_BY=SQL2012CREATE_BY,");
-			strSql.Append("CREATE_TIME=SQL2012CREATE_TIME,");
-			strSql.Append("LAST_UPDATE_BY=SQL2012LAST_UPDATE_BY,");
-			strSql.Append("LAST_UPDATE_TIME=SQL2012LAST_UPDATE_TIME,");
-			strSql.Append("CREATE_USER_IDS=SQL2012CREATE_USER_IDS");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append("USER_ACCOUNT=@USER_ACCOUNT,");
+			strSql.Append("USER_NAME=@USER_NAME,");
+			strSql.Append("PWD=@PWD,");
+			strSql.Append("USER_TYPE=@USER_TYPE,");
+			strSql.Append("STATUS=@STATUS,");
+			strSql.Append("MOBILE=@MOBILE,");
+			strSql.Append("EMAIL=@EMAIL,");
+			strSql.Append("ADDR=@ADDR,");
+			strSql.Append("USER_LOGO=@USER_LOGO,");
+			strSql.Append("REMARK=@REMARK,");
+			strSql.Append("ORG_ID=@ORG_ID,");
+			strSql.Append("CREATE_BY=@CREATE_BY,");
+			strSql.Append("CREATE_TIME=@CREATE_TIME,");
+			strSql.Append("LAST_UPDATE_BY=@LAST_UPDATE_BY,");
+			strSql.Append("LAST_UPDATE_TIME=@LAST_UPDATE_TIME,");
+			strSql.Append("CREATE_USER_IDS=@CREATE_USER_IDS");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012USER_ACCOUNT", SqlDbType.VarChar,40),
-					new SqlParameter("SQL2012USER_NAME", SqlDbType.VarChar,40),
-					new SqlParameter("SQL2012PWD", SqlDbType.VarChar,40),
-					new SqlParameter("SQL2012USER_TYPE", SqlDbType.Int,4),
-					new SqlParameter("SQL2012STATUS", SqlDbType.Int,4),
-					new SqlParameter("SQL2012MOBILE", SqlDbType.VarChar,20),
-					new SqlParameter("SQL2012EMAIL", SqlDbType.VarChar,40),
-					new SqlParameter("SQL2012ADDR", SqlDbType.VarChar,200),
-					new SqlParameter("SQL2012USER_LOGO", SqlDbType.VarChar,200),
-					new SqlParameter("SQL2012REMARK", SqlDbType.VarChar,1000),
-					new SqlParameter("SQL2012ORG_ID", SqlDbType.VarChar,40),
-					new SqlParameter("SQL2012CREATE_BY", SqlDbType.VarChar,40),
-					new SqlParameter("SQL2012CREATE_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012LAST_UPDATE_BY", SqlDbType.VarChar,40),
-					new SqlParameter("SQL2012LAST_UPDATE_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012CREATE_USER_IDS", SqlDbType.VarChar,2000),
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)};
+					new SqlParameter("@USER_ACCOUNT", SqlDbType.VarChar,40),
+					new SqlParameter("@USER_NAME", SqlDbType.VarChar,40),
+					new SqlParameter("@PWD", SqlDbType.VarChar,40),
+					new SqlParameter("@USER_TYPE", SqlDbType.Int,4),
+					new SqlParameter("@STATUS", SqlDbType.Int,4),
+					new SqlParameter("@MOBILE", SqlDbType.VarChar,20),
+					new SqlParameter("@EMAIL", SqlDbType.VarChar,40),
+					new SqlParameter("@ADDR", SqlDbType.VarChar,200),
+					new SqlParameter("@USER_LOGO", SqlDbType.VarChar,200),
+					new SqlParameter("@REMARK", SqlDbType.VarChar,1000),
+					new SqlParameter("@ORG_ID", SqlDbType.VarChar,40),
+					new SqlParameter("@CREATE_BY", SqlDbType.VarChar,40),
+					new SqlParameter("@CREATE_TIME", SqlDbType.DateTime),
+					new SqlParameter("@LAST_UPDATE_BY", SqlDbType.VarChar,40),
+					new SqlParameter("@LAST_UPDATE_TIME", SqlDbType.DateTime),
+					new SqlParameter("@CREATE_USER_IDS", SqlDbType.VarChar,2000),
+					new SqlParameter("@ID", SqlDbType.VarChar,32)};
 			parameters[0].Value = model.USER_ACCOUNT;
 			parameters[1].Value = model.USER_NAME;
 			parameters[2].Value = model.PWD;
@@ -181,9 +181,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("delete from BAS_SYSTEM_USER ");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
@@ -224,9 +224,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select  top 1 ID,USER_ACCOUNT,USER_NAME,PWD,USER_TYPE,STATUS,MOBILE,EMAIL,ADDR,USER_LOGO,REMARK,ORG_ID,CREATE_BY,CREATE_TIME,LAST_UPDATE_BY,LAST_UPDATE_TIME,CREATE_USER_IDS from BAS_SYSTEM_USER ");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			Parking.Core.Model.BAS_SYSTEM_USER model=new Parking.Core.Model.BAS_SYSTEM_USER();
@@ -412,13 +412,13 @@ namespace Parking.DBService.DAL
 		public DataSet GetList(int PageSize,int PageIndex,string strWhere)
 		{
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012tblName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012fldName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012PageSize", SqlDbType.Int),
-					new SqlParameter("SQL2012PageIndex", SqlDbType.Int),
-					new SqlParameter("SQL2012IsReCount", SqlDbType.Bit),
-					new SqlParameter("SQL2012OrderType", SqlDbType.Bit),
-					new SqlParameter("SQL2012strWhere", SqlDbType.VarChar,1000),
+					new SqlParameter("@tblName", SqlDbType.VarChar, 255),
+					new SqlParameter("@fldName", SqlDbType.VarChar, 255),
+					new SqlParameter("@PageSize", SqlDbType.Int),
+					new SqlParameter("@PageIndex", SqlDbType.Int),
+					new SqlParameter("@IsReCount", SqlDbType.Bit),
+					new SqlParameter("@OrderType", SqlDbType.Bit),
+					new SqlParameter("@strWhere", SqlDbType.VarChar,1000),
 					};
 			parameters[0].Value = "BAS_SYSTEM_USER";
 			parameters[1].Value = "ID";

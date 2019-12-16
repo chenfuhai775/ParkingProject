@@ -37,9 +37,9 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select count(1) from PL_BLACK_WHITE_MANAGER");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			return DbHelperSQL.Exists(strSql.ToString(),parameters);
@@ -55,17 +55,17 @@ namespace Parking.DBService.DAL
 			strSql.Append("insert into PL_BLACK_WHITE_MANAGER(");
 			strSql.Append("UNIQUE_IDENTIFIER,VEHICLE_NO,DATA_TYPE,CREATE_TIME,CREATE_ID,ID,CUSTOMER_ID,REMARK,TAKE_UP_SPACES)");
 			strSql.Append(" values (");
-			strSql.Append("SQL2012UNIQUE_IDENTIFIER,SQL2012VEHICLE_NO,SQL2012DATA_TYPE,SQL2012CREATE_TIME,SQL2012CREATE_ID,SQL2012ID,SQL2012CUSTOMER_ID,SQL2012REMARK,SQL2012TAKE_UP_SPACES)");
+			strSql.Append("@UNIQUE_IDENTIFIER,@VEHICLE_NO,@DATA_TYPE,@CREATE_TIME,@CREATE_ID,@ID,@CUSTOMER_ID,@REMARK,@TAKE_UP_SPACES)");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012UNIQUE_IDENTIFIER", SqlDbType.VarChar,100),
-					new SqlParameter("SQL2012VEHICLE_NO", SqlDbType.VarChar,20),
-					new SqlParameter("SQL2012DATA_TYPE", SqlDbType.Int,4),
-					new SqlParameter("SQL2012CREATE_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012CREATE_ID", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012CUSTOMER_ID", SqlDbType.VarChar,100),
-					new SqlParameter("SQL2012REMARK", SqlDbType.VarChar,1000),
-					new SqlParameter("SQL2012TAKE_UP_SPACES", SqlDbType.Int,4)};
+					new SqlParameter("@UNIQUE_IDENTIFIER", SqlDbType.VarChar,100),
+					new SqlParameter("@VEHICLE_NO", SqlDbType.VarChar,20),
+					new SqlParameter("@DATA_TYPE", SqlDbType.Int,4),
+					new SqlParameter("@CREATE_TIME", SqlDbType.DateTime),
+					new SqlParameter("@CREATE_ID", SqlDbType.VarChar,50),
+					new SqlParameter("@ID", SqlDbType.VarChar,32),
+					new SqlParameter("@CUSTOMER_ID", SqlDbType.VarChar,100),
+					new SqlParameter("@REMARK", SqlDbType.VarChar,1000),
+					new SqlParameter("@TAKE_UP_SPACES", SqlDbType.Int,4)};
 			parameters[0].Value = model.UNIQUE_IDENTIFIER;
 			parameters[1].Value = model.VEHICLE_NO;
 			parameters[2].Value = model.DATA_TYPE;
@@ -93,25 +93,25 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("update PL_BLACK_WHITE_MANAGER set ");
-			strSql.Append("UNIQUE_IDENTIFIER=SQL2012UNIQUE_IDENTIFIER,");
-			strSql.Append("VEHICLE_NO=SQL2012VEHICLE_NO,");
-			strSql.Append("DATA_TYPE=SQL2012DATA_TYPE,");
-			strSql.Append("CREATE_TIME=SQL2012CREATE_TIME,");
-			strSql.Append("CREATE_ID=SQL2012CREATE_ID,");
-			strSql.Append("CUSTOMER_ID=SQL2012CUSTOMER_ID,");
-			strSql.Append("REMARK=SQL2012REMARK,");
-			strSql.Append("TAKE_UP_SPACES=SQL2012TAKE_UP_SPACES");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append("UNIQUE_IDENTIFIER=@UNIQUE_IDENTIFIER,");
+			strSql.Append("VEHICLE_NO=@VEHICLE_NO,");
+			strSql.Append("DATA_TYPE=@DATA_TYPE,");
+			strSql.Append("CREATE_TIME=@CREATE_TIME,");
+			strSql.Append("CREATE_ID=@CREATE_ID,");
+			strSql.Append("CUSTOMER_ID=@CUSTOMER_ID,");
+			strSql.Append("REMARK=@REMARK,");
+			strSql.Append("TAKE_UP_SPACES=@TAKE_UP_SPACES");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012UNIQUE_IDENTIFIER", SqlDbType.VarChar,100),
-					new SqlParameter("SQL2012VEHICLE_NO", SqlDbType.VarChar,20),
-					new SqlParameter("SQL2012DATA_TYPE", SqlDbType.Int,4),
-					new SqlParameter("SQL2012CREATE_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012CREATE_ID", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012CUSTOMER_ID", SqlDbType.VarChar,100),
-					new SqlParameter("SQL2012REMARK", SqlDbType.VarChar,1000),
-					new SqlParameter("SQL2012TAKE_UP_SPACES", SqlDbType.Int,4),
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)};
+					new SqlParameter("@UNIQUE_IDENTIFIER", SqlDbType.VarChar,100),
+					new SqlParameter("@VEHICLE_NO", SqlDbType.VarChar,20),
+					new SqlParameter("@DATA_TYPE", SqlDbType.Int,4),
+					new SqlParameter("@CREATE_TIME", SqlDbType.DateTime),
+					new SqlParameter("@CREATE_ID", SqlDbType.VarChar,50),
+					new SqlParameter("@CUSTOMER_ID", SqlDbType.VarChar,100),
+					new SqlParameter("@REMARK", SqlDbType.VarChar,1000),
+					new SqlParameter("@TAKE_UP_SPACES", SqlDbType.Int,4),
+					new SqlParameter("@ID", SqlDbType.VarChar,32)};
 			parameters[0].Value = model.UNIQUE_IDENTIFIER;
 			parameters[1].Value = model.VEHICLE_NO;
 			parameters[2].Value = model.DATA_TYPE;
@@ -141,9 +141,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("delete from PL_BLACK_WHITE_MANAGER ");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
@@ -184,9 +184,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select  top 1 UNIQUE_IDENTIFIER,VEHICLE_NO,DATA_TYPE,CREATE_TIME,CREATE_ID,ID,CUSTOMER_ID,REMARK,TAKE_UP_SPACES from PL_BLACK_WHITE_MANAGER ");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			Parking.Core.Model.PL_BLACK_WHITE_MANAGER model=new Parking.Core.Model.PL_BLACK_WHITE_MANAGER();
@@ -340,13 +340,13 @@ namespace Parking.DBService.DAL
 		public DataSet GetList(int PageSize,int PageIndex,string strWhere)
 		{
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012tblName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012fldName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012PageSize", SqlDbType.Int),
-					new SqlParameter("SQL2012PageIndex", SqlDbType.Int),
-					new SqlParameter("SQL2012IsReCount", SqlDbType.Bit),
-					new SqlParameter("SQL2012OrderType", SqlDbType.Bit),
-					new SqlParameter("SQL2012strWhere", SqlDbType.VarChar,1000),
+					new SqlParameter("@tblName", SqlDbType.VarChar, 255),
+					new SqlParameter("@fldName", SqlDbType.VarChar, 255),
+					new SqlParameter("@PageSize", SqlDbType.Int),
+					new SqlParameter("@PageIndex", SqlDbType.Int),
+					new SqlParameter("@IsReCount", SqlDbType.Bit),
+					new SqlParameter("@OrderType", SqlDbType.Bit),
+					new SqlParameter("@strWhere", SqlDbType.VarChar,1000),
 					};
 			parameters[0].Value = "PL_BLACK_WHITE_MANAGER";
 			parameters[1].Value = "ID";

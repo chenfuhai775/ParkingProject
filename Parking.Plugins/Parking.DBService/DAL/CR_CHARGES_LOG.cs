@@ -38,9 +38,9 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select count(1) from CR_CHARGES_LOG");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			return DbHelperSQL.Exists(strSql.ToString(),parameters);
@@ -56,36 +56,36 @@ namespace Parking.DBService.DAL
 			strSql.Append("insert into CR_CHARGES_LOG(");
 			strSql.Append("ID,TRAFFIC_PERMIT_TYPE_IDENTITY,TRAFFIC_PERMIT_TYPE,UNIQUE_IDENTIFIER,CHARGE_METHOD,CHARGE_MONEY,CHARGE_TIME,CHARGE_USERID,VEHICLE_NO,BEGIN_TIME,END_TIME,STOP_TIME,IN_CHANNEL_CODE,OUT_CHANNEL_CODE,PARTITION_CODE,BILLING_ADDRESS,PAY_TYPE,CHARGES_EQ_ID,PAY_PLATFORM,OWNER_CODE,SPACE_CODE,REMARK,DUE_MONEY,PRE_MONEY,IN_FIELD_CODE,IN_PARTITION_CODE,OUT_FIELD_CODE,OUT_PARTITION_CODE)");
 			strSql.Append(" values (");
-			strSql.Append("SQL2012ID,SQL2012TRAFFIC_PERMIT_TYPE_IDENTITY,SQL2012TRAFFIC_PERMIT_TYPE,SQL2012UNIQUE_IDENTIFIER,SQL2012CHARGE_METHOD,SQL2012CHARGE_MONEY,SQL2012CHARGE_TIME,SQL2012CHARGE_USERID,SQL2012VEHICLE_NO,SQL2012BEGIN_TIME,SQL2012END_TIME,SQL2012STOP_TIME,SQL2012IN_CHANNEL_CODE,SQL2012OUT_CHANNEL_CODE,SQL2012PARTITION_CODE,SQL2012BILLING_ADDRESS,SQL2012PAY_TYPE,SQL2012CHARGES_EQ_ID,SQL2012PAY_PLATFORM,SQL2012OWNER_CODE,SQL2012SPACE_CODE,SQL2012REMARK,SQL2012DUE_MONEY,SQL2012PRE_MONEY,SQL2012IN_FIELD_CODE,SQL2012IN_PARTITION_CODE,SQL2012OUT_FIELD_CODE,SQL2012OUT_PARTITION_CODE)");
+			strSql.Append("@ID,@TRAFFIC_PERMIT_TYPE_IDENTITY,@TRAFFIC_PERMIT_TYPE,@UNIQUE_IDENTIFIER,@CHARGE_METHOD,@CHARGE_MONEY,@CHARGE_TIME,@CHARGE_USERID,@VEHICLE_NO,@BEGIN_TIME,@END_TIME,@STOP_TIME,@IN_CHANNEL_CODE,@OUT_CHANNEL_CODE,@PARTITION_CODE,@BILLING_ADDRESS,@PAY_TYPE,@CHARGES_EQ_ID,@PAY_PLATFORM,@OWNER_CODE,@SPACE_CODE,@REMARK,@DUE_MONEY,@PRE_MONEY,@IN_FIELD_CODE,@IN_PARTITION_CODE,@OUT_FIELD_CODE,@OUT_PARTITION_CODE)");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012TRAFFIC_PERMIT_TYPE_IDENTITY", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012TRAFFIC_PERMIT_TYPE", SqlDbType.Int,4),
-					new SqlParameter("SQL2012UNIQUE_IDENTIFIER", SqlDbType.VarChar,100),
-					new SqlParameter("SQL2012CHARGE_METHOD", SqlDbType.Int,4),
-					new SqlParameter("SQL2012CHARGE_MONEY", SqlDbType.Decimal,9),
-					new SqlParameter("SQL2012CHARGE_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012CHARGE_USERID", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012VEHICLE_NO", SqlDbType.VarChar,20),
-					new SqlParameter("SQL2012BEGIN_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012END_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012STOP_TIME", SqlDbType.Int,4),
-					new SqlParameter("SQL2012IN_CHANNEL_CODE", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012OUT_CHANNEL_CODE", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012PARTITION_CODE", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012BILLING_ADDRESS", SqlDbType.VarChar,500),
-					new SqlParameter("SQL2012PAY_TYPE", SqlDbType.Int,4),
-					new SqlParameter("SQL2012CHARGES_EQ_ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012PAY_PLATFORM", SqlDbType.Int,4),
-					new SqlParameter("SQL2012OWNER_CODE", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012SPACE_CODE", SqlDbType.VarChar,255),
-					new SqlParameter("SQL2012REMARK", SqlDbType.VarChar,255),
-					new SqlParameter("SQL2012DUE_MONEY", SqlDbType.Decimal,9),
-					new SqlParameter("SQL2012PRE_MONEY", SqlDbType.Decimal,9),
-					new SqlParameter("SQL2012IN_FIELD_CODE", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012IN_PARTITION_CODE", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012OUT_FIELD_CODE", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012OUT_PARTITION_CODE", SqlDbType.VarChar,50)};
+					new SqlParameter("@ID", SqlDbType.VarChar,32),
+					new SqlParameter("@TRAFFIC_PERMIT_TYPE_IDENTITY", SqlDbType.VarChar,32),
+					new SqlParameter("@TRAFFIC_PERMIT_TYPE", SqlDbType.Int,4),
+					new SqlParameter("@UNIQUE_IDENTIFIER", SqlDbType.VarChar,100),
+					new SqlParameter("@CHARGE_METHOD", SqlDbType.Int,4),
+					new SqlParameter("@CHARGE_MONEY", SqlDbType.Decimal,9),
+					new SqlParameter("@CHARGE_TIME", SqlDbType.DateTime),
+					new SqlParameter("@CHARGE_USERID", SqlDbType.VarChar,50),
+					new SqlParameter("@VEHICLE_NO", SqlDbType.VarChar,20),
+					new SqlParameter("@BEGIN_TIME", SqlDbType.DateTime),
+					new SqlParameter("@END_TIME", SqlDbType.DateTime),
+					new SqlParameter("@STOP_TIME", SqlDbType.Int,4),
+					new SqlParameter("@IN_CHANNEL_CODE", SqlDbType.VarChar,50),
+					new SqlParameter("@OUT_CHANNEL_CODE", SqlDbType.VarChar,50),
+					new SqlParameter("@PARTITION_CODE", SqlDbType.VarChar,50),
+					new SqlParameter("@BILLING_ADDRESS", SqlDbType.VarChar,500),
+					new SqlParameter("@PAY_TYPE", SqlDbType.Int,4),
+					new SqlParameter("@CHARGES_EQ_ID", SqlDbType.VarChar,32),
+					new SqlParameter("@PAY_PLATFORM", SqlDbType.Int,4),
+					new SqlParameter("@OWNER_CODE", SqlDbType.VarChar,50),
+					new SqlParameter("@SPACE_CODE", SqlDbType.VarChar,255),
+					new SqlParameter("@REMARK", SqlDbType.VarChar,255),
+					new SqlParameter("@DUE_MONEY", SqlDbType.Decimal,9),
+					new SqlParameter("@PRE_MONEY", SqlDbType.Decimal,9),
+					new SqlParameter("@IN_FIELD_CODE", SqlDbType.VarChar,50),
+					new SqlParameter("@IN_PARTITION_CODE", SqlDbType.VarChar,50),
+					new SqlParameter("@OUT_FIELD_CODE", SqlDbType.VarChar,50),
+					new SqlParameter("@OUT_PARTITION_CODE", SqlDbType.VarChar,50)};
 			parameters[0].Value = model.ID;
 			parameters[1].Value = model.TRAFFIC_PERMIT_TYPE_IDENTITY;
 			parameters[2].Value = model.TRAFFIC_PERMIT_TYPE;
@@ -132,63 +132,63 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("update CR_CHARGES_LOG set ");
-			strSql.Append("TRAFFIC_PERMIT_TYPE_IDENTITY=SQL2012TRAFFIC_PERMIT_TYPE_IDENTITY,");
-			strSql.Append("TRAFFIC_PERMIT_TYPE=SQL2012TRAFFIC_PERMIT_TYPE,");
-			strSql.Append("UNIQUE_IDENTIFIER=SQL2012UNIQUE_IDENTIFIER,");
-			strSql.Append("CHARGE_METHOD=SQL2012CHARGE_METHOD,");
-			strSql.Append("CHARGE_MONEY=SQL2012CHARGE_MONEY,");
-			strSql.Append("CHARGE_TIME=SQL2012CHARGE_TIME,");
-			strSql.Append("CHARGE_USERID=SQL2012CHARGE_USERID,");
-			strSql.Append("VEHICLE_NO=SQL2012VEHICLE_NO,");
-			strSql.Append("BEGIN_TIME=SQL2012BEGIN_TIME,");
-			strSql.Append("END_TIME=SQL2012END_TIME,");
-			strSql.Append("STOP_TIME=SQL2012STOP_TIME,");
-			strSql.Append("IN_CHANNEL_CODE=SQL2012IN_CHANNEL_CODE,");
-			strSql.Append("OUT_CHANNEL_CODE=SQL2012OUT_CHANNEL_CODE,");
-			strSql.Append("PARTITION_CODE=SQL2012PARTITION_CODE,");
-			strSql.Append("BILLING_ADDRESS=SQL2012BILLING_ADDRESS,");
-			strSql.Append("PAY_TYPE=SQL2012PAY_TYPE,");
-			strSql.Append("CHARGES_EQ_ID=SQL2012CHARGES_EQ_ID,");
-			strSql.Append("PAY_PLATFORM=SQL2012PAY_PLATFORM,");
-			strSql.Append("OWNER_CODE=SQL2012OWNER_CODE,");
-			strSql.Append("SPACE_CODE=SQL2012SPACE_CODE,");
-			strSql.Append("REMARK=SQL2012REMARK,");
-			strSql.Append("DUE_MONEY=SQL2012DUE_MONEY,");
-			strSql.Append("PRE_MONEY=SQL2012PRE_MONEY,");
-			strSql.Append("IN_FIELD_CODE=SQL2012IN_FIELD_CODE,");
-			strSql.Append("IN_PARTITION_CODE=SQL2012IN_PARTITION_CODE,");
-			strSql.Append("OUT_FIELD_CODE=SQL2012OUT_FIELD_CODE,");
-			strSql.Append("OUT_PARTITION_CODE=SQL2012OUT_PARTITION_CODE");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append("TRAFFIC_PERMIT_TYPE_IDENTITY=@TRAFFIC_PERMIT_TYPE_IDENTITY,");
+			strSql.Append("TRAFFIC_PERMIT_TYPE=@TRAFFIC_PERMIT_TYPE,");
+			strSql.Append("UNIQUE_IDENTIFIER=@UNIQUE_IDENTIFIER,");
+			strSql.Append("CHARGE_METHOD=@CHARGE_METHOD,");
+			strSql.Append("CHARGE_MONEY=@CHARGE_MONEY,");
+			strSql.Append("CHARGE_TIME=@CHARGE_TIME,");
+			strSql.Append("CHARGE_USERID=@CHARGE_USERID,");
+			strSql.Append("VEHICLE_NO=@VEHICLE_NO,");
+			strSql.Append("BEGIN_TIME=@BEGIN_TIME,");
+			strSql.Append("END_TIME=@END_TIME,");
+			strSql.Append("STOP_TIME=@STOP_TIME,");
+			strSql.Append("IN_CHANNEL_CODE=@IN_CHANNEL_CODE,");
+			strSql.Append("OUT_CHANNEL_CODE=@OUT_CHANNEL_CODE,");
+			strSql.Append("PARTITION_CODE=@PARTITION_CODE,");
+			strSql.Append("BILLING_ADDRESS=@BILLING_ADDRESS,");
+			strSql.Append("PAY_TYPE=@PAY_TYPE,");
+			strSql.Append("CHARGES_EQ_ID=@CHARGES_EQ_ID,");
+			strSql.Append("PAY_PLATFORM=@PAY_PLATFORM,");
+			strSql.Append("OWNER_CODE=@OWNER_CODE,");
+			strSql.Append("SPACE_CODE=@SPACE_CODE,");
+			strSql.Append("REMARK=@REMARK,");
+			strSql.Append("DUE_MONEY=@DUE_MONEY,");
+			strSql.Append("PRE_MONEY=@PRE_MONEY,");
+			strSql.Append("IN_FIELD_CODE=@IN_FIELD_CODE,");
+			strSql.Append("IN_PARTITION_CODE=@IN_PARTITION_CODE,");
+			strSql.Append("OUT_FIELD_CODE=@OUT_FIELD_CODE,");
+			strSql.Append("OUT_PARTITION_CODE=@OUT_PARTITION_CODE");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012TRAFFIC_PERMIT_TYPE_IDENTITY", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012TRAFFIC_PERMIT_TYPE", SqlDbType.Int,4),
-					new SqlParameter("SQL2012UNIQUE_IDENTIFIER", SqlDbType.VarChar,100),
-					new SqlParameter("SQL2012CHARGE_METHOD", SqlDbType.Int,4),
-					new SqlParameter("SQL2012CHARGE_MONEY", SqlDbType.Decimal,9),
-					new SqlParameter("SQL2012CHARGE_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012CHARGE_USERID", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012VEHICLE_NO", SqlDbType.VarChar,20),
-					new SqlParameter("SQL2012BEGIN_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012END_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012STOP_TIME", SqlDbType.Int,4),
-					new SqlParameter("SQL2012IN_CHANNEL_CODE", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012OUT_CHANNEL_CODE", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012PARTITION_CODE", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012BILLING_ADDRESS", SqlDbType.VarChar,500),
-					new SqlParameter("SQL2012PAY_TYPE", SqlDbType.Int,4),
-					new SqlParameter("SQL2012CHARGES_EQ_ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012PAY_PLATFORM", SqlDbType.Int,4),
-					new SqlParameter("SQL2012OWNER_CODE", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012SPACE_CODE", SqlDbType.VarChar,255),
-					new SqlParameter("SQL2012REMARK", SqlDbType.VarChar,255),
-					new SqlParameter("SQL2012DUE_MONEY", SqlDbType.Decimal,9),
-					new SqlParameter("SQL2012PRE_MONEY", SqlDbType.Decimal,9),
-					new SqlParameter("SQL2012IN_FIELD_CODE", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012IN_PARTITION_CODE", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012OUT_FIELD_CODE", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012OUT_PARTITION_CODE", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)};
+					new SqlParameter("@TRAFFIC_PERMIT_TYPE_IDENTITY", SqlDbType.VarChar,32),
+					new SqlParameter("@TRAFFIC_PERMIT_TYPE", SqlDbType.Int,4),
+					new SqlParameter("@UNIQUE_IDENTIFIER", SqlDbType.VarChar,100),
+					new SqlParameter("@CHARGE_METHOD", SqlDbType.Int,4),
+					new SqlParameter("@CHARGE_MONEY", SqlDbType.Decimal,9),
+					new SqlParameter("@CHARGE_TIME", SqlDbType.DateTime),
+					new SqlParameter("@CHARGE_USERID", SqlDbType.VarChar,50),
+					new SqlParameter("@VEHICLE_NO", SqlDbType.VarChar,20),
+					new SqlParameter("@BEGIN_TIME", SqlDbType.DateTime),
+					new SqlParameter("@END_TIME", SqlDbType.DateTime),
+					new SqlParameter("@STOP_TIME", SqlDbType.Int,4),
+					new SqlParameter("@IN_CHANNEL_CODE", SqlDbType.VarChar,50),
+					new SqlParameter("@OUT_CHANNEL_CODE", SqlDbType.VarChar,50),
+					new SqlParameter("@PARTITION_CODE", SqlDbType.VarChar,50),
+					new SqlParameter("@BILLING_ADDRESS", SqlDbType.VarChar,500),
+					new SqlParameter("@PAY_TYPE", SqlDbType.Int,4),
+					new SqlParameter("@CHARGES_EQ_ID", SqlDbType.VarChar,32),
+					new SqlParameter("@PAY_PLATFORM", SqlDbType.Int,4),
+					new SqlParameter("@OWNER_CODE", SqlDbType.VarChar,50),
+					new SqlParameter("@SPACE_CODE", SqlDbType.VarChar,255),
+					new SqlParameter("@REMARK", SqlDbType.VarChar,255),
+					new SqlParameter("@DUE_MONEY", SqlDbType.Decimal,9),
+					new SqlParameter("@PRE_MONEY", SqlDbType.Decimal,9),
+					new SqlParameter("@IN_FIELD_CODE", SqlDbType.VarChar,50),
+					new SqlParameter("@IN_PARTITION_CODE", SqlDbType.VarChar,50),
+					new SqlParameter("@OUT_FIELD_CODE", SqlDbType.VarChar,50),
+					new SqlParameter("@OUT_PARTITION_CODE", SqlDbType.VarChar,50),
+					new SqlParameter("@ID", SqlDbType.VarChar,32)};
 			parameters[0].Value = model.TRAFFIC_PERMIT_TYPE_IDENTITY;
 			parameters[1].Value = model.TRAFFIC_PERMIT_TYPE;
 			parameters[2].Value = model.UNIQUE_IDENTIFIER;
@@ -237,9 +237,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("delete from CR_CHARGES_LOG ");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
@@ -280,9 +280,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select  top 1 ID,TRAFFIC_PERMIT_TYPE_IDENTITY,TRAFFIC_PERMIT_TYPE,UNIQUE_IDENTIFIER,CHARGE_METHOD,CHARGE_MONEY,CHARGE_TIME,CHARGE_USERID,VEHICLE_NO,BEGIN_TIME,END_TIME,STOP_TIME,IN_CHANNEL_CODE,OUT_CHANNEL_CODE,PARTITION_CODE,BILLING_ADDRESS,PAY_TYPE,CHARGES_EQ_ID,PAY_PLATFORM,OWNER_CODE,SPACE_CODE,REMARK,DUE_MONEY,PRE_MONEY,IN_FIELD_CODE,IN_PARTITION_CODE,OUT_FIELD_CODE,OUT_PARTITION_CODE from CR_CHARGES_LOG ");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			Parking.Core.Model.CR_CHARGES_LOG model=new Parking.Core.Model.CR_CHARGES_LOG();
@@ -512,13 +512,13 @@ namespace Parking.DBService.DAL
 		public DataSet GetList(int PageSize,int PageIndex,string strWhere)
 		{
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012tblName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012fldName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012PageSize", SqlDbType.Int),
-					new SqlParameter("SQL2012PageIndex", SqlDbType.Int),
-					new SqlParameter("SQL2012IsReCount", SqlDbType.Bit),
-					new SqlParameter("SQL2012OrderType", SqlDbType.Bit),
-					new SqlParameter("SQL2012strWhere", SqlDbType.VarChar,1000),
+					new SqlParameter("@tblName", SqlDbType.VarChar, 255),
+					new SqlParameter("@fldName", SqlDbType.VarChar, 255),
+					new SqlParameter("@PageSize", SqlDbType.Int),
+					new SqlParameter("@PageIndex", SqlDbType.Int),
+					new SqlParameter("@IsReCount", SqlDbType.Bit),
+					new SqlParameter("@OrderType", SqlDbType.Bit),
+					new SqlParameter("@strWhere", SqlDbType.VarChar,1000),
 					};
 			parameters[0].Value = "CR_CHARGES_LOG";
 			parameters[1].Value = "ID";

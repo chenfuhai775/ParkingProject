@@ -37,9 +37,9 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select count(1) from PBA_EXTERNAL_DEVICE");
-			strSql.Append(" where DEVICE_CODE=SQL2012DEVICE_CODE ");
+			strSql.Append(" where DEVICE_CODE=@DEVICE_CODE ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012DEVICE_CODE", SqlDbType.VarChar,50)			};
+					new SqlParameter("@DEVICE_CODE", SqlDbType.VarChar,50)			};
 			parameters[0].Value = DEVICE_CODE;
 
 			return DbHelperSQL.Exists(strSql.ToString(),parameters);
@@ -55,17 +55,17 @@ namespace Parking.DBService.DAL
 			strSql.Append("insert into PBA_EXTERNAL_DEVICE(");
 			strSql.Append("DEVICE_CODE,DEVICE_NAME,DEVICE_TYPE,DEVICE_NUMBER,IP_ADDRESS,PORT,CREATE_TIME,CREATE_USERID,REMARK)");
 			strSql.Append(" values (");
-			strSql.Append("SQL2012DEVICE_CODE,SQL2012DEVICE_NAME,SQL2012DEVICE_TYPE,SQL2012DEVICE_NUMBER,SQL2012IP_ADDRESS,SQL2012PORT,SQL2012CREATE_TIME,SQL2012CREATE_USERID,SQL2012REMARK)");
+			strSql.Append("@DEVICE_CODE,@DEVICE_NAME,@DEVICE_TYPE,@DEVICE_NUMBER,@IP_ADDRESS,@PORT,@CREATE_TIME,@CREATE_USERID,@REMARK)");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012DEVICE_CODE", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012DEVICE_NAME", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012DEVICE_TYPE", SqlDbType.Int,4),
-					new SqlParameter("SQL2012DEVICE_NUMBER", SqlDbType.Int,4),
-					new SqlParameter("SQL2012IP_ADDRESS", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012PORT", SqlDbType.Int,4),
-					new SqlParameter("SQL2012CREATE_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012CREATE_USERID", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012REMARK", SqlDbType.VarChar,500)};
+					new SqlParameter("@DEVICE_CODE", SqlDbType.VarChar,50),
+					new SqlParameter("@DEVICE_NAME", SqlDbType.VarChar,50),
+					new SqlParameter("@DEVICE_TYPE", SqlDbType.Int,4),
+					new SqlParameter("@DEVICE_NUMBER", SqlDbType.Int,4),
+					new SqlParameter("@IP_ADDRESS", SqlDbType.VarChar,50),
+					new SqlParameter("@PORT", SqlDbType.Int,4),
+					new SqlParameter("@CREATE_TIME", SqlDbType.DateTime),
+					new SqlParameter("@CREATE_USERID", SqlDbType.VarChar,50),
+					new SqlParameter("@REMARK", SqlDbType.VarChar,500)};
 			parameters[0].Value = model.DEVICE_CODE;
 			parameters[1].Value = model.DEVICE_NAME;
 			parameters[2].Value = model.DEVICE_TYPE;
@@ -93,25 +93,25 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("update PBA_EXTERNAL_DEVICE set ");
-			strSql.Append("DEVICE_NAME=SQL2012DEVICE_NAME,");
-			strSql.Append("DEVICE_TYPE=SQL2012DEVICE_TYPE,");
-			strSql.Append("DEVICE_NUMBER=SQL2012DEVICE_NUMBER,");
-			strSql.Append("IP_ADDRESS=SQL2012IP_ADDRESS,");
-			strSql.Append("PORT=SQL2012PORT,");
-			strSql.Append("CREATE_TIME=SQL2012CREATE_TIME,");
-			strSql.Append("CREATE_USERID=SQL2012CREATE_USERID,");
-			strSql.Append("REMARK=SQL2012REMARK");
-			strSql.Append(" where DEVICE_CODE=SQL2012DEVICE_CODE ");
+			strSql.Append("DEVICE_NAME=@DEVICE_NAME,");
+			strSql.Append("DEVICE_TYPE=@DEVICE_TYPE,");
+			strSql.Append("DEVICE_NUMBER=@DEVICE_NUMBER,");
+			strSql.Append("IP_ADDRESS=@IP_ADDRESS,");
+			strSql.Append("PORT=@PORT,");
+			strSql.Append("CREATE_TIME=@CREATE_TIME,");
+			strSql.Append("CREATE_USERID=@CREATE_USERID,");
+			strSql.Append("REMARK=@REMARK");
+			strSql.Append(" where DEVICE_CODE=@DEVICE_CODE ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012DEVICE_NAME", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012DEVICE_TYPE", SqlDbType.Int,4),
-					new SqlParameter("SQL2012DEVICE_NUMBER", SqlDbType.Int,4),
-					new SqlParameter("SQL2012IP_ADDRESS", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012PORT", SqlDbType.Int,4),
-					new SqlParameter("SQL2012CREATE_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012CREATE_USERID", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012REMARK", SqlDbType.VarChar,500),
-					new SqlParameter("SQL2012DEVICE_CODE", SqlDbType.VarChar,50)};
+					new SqlParameter("@DEVICE_NAME", SqlDbType.VarChar,50),
+					new SqlParameter("@DEVICE_TYPE", SqlDbType.Int,4),
+					new SqlParameter("@DEVICE_NUMBER", SqlDbType.Int,4),
+					new SqlParameter("@IP_ADDRESS", SqlDbType.VarChar,50),
+					new SqlParameter("@PORT", SqlDbType.Int,4),
+					new SqlParameter("@CREATE_TIME", SqlDbType.DateTime),
+					new SqlParameter("@CREATE_USERID", SqlDbType.VarChar,50),
+					new SqlParameter("@REMARK", SqlDbType.VarChar,500),
+					new SqlParameter("@DEVICE_CODE", SqlDbType.VarChar,50)};
 			parameters[0].Value = model.DEVICE_NAME;
 			parameters[1].Value = model.DEVICE_TYPE;
 			parameters[2].Value = model.DEVICE_NUMBER;
@@ -141,9 +141,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("delete from PBA_EXTERNAL_DEVICE ");
-			strSql.Append(" where DEVICE_CODE=SQL2012DEVICE_CODE ");
+			strSql.Append(" where DEVICE_CODE=@DEVICE_CODE ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012DEVICE_CODE", SqlDbType.VarChar,50)			};
+					new SqlParameter("@DEVICE_CODE", SqlDbType.VarChar,50)			};
 			parameters[0].Value = DEVICE_CODE;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
@@ -184,9 +184,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select  top 1 DEVICE_CODE,DEVICE_NAME,DEVICE_TYPE,DEVICE_NUMBER,IP_ADDRESS,PORT,CREATE_TIME,CREATE_USERID,REMARK from PBA_EXTERNAL_DEVICE ");
-			strSql.Append(" where DEVICE_CODE=SQL2012DEVICE_CODE ");
+			strSql.Append(" where DEVICE_CODE=@DEVICE_CODE ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012DEVICE_CODE", SqlDbType.VarChar,50)			};
+					new SqlParameter("@DEVICE_CODE", SqlDbType.VarChar,50)			};
 			parameters[0].Value = DEVICE_CODE;
 
 			Parking.Core.Model.PBA_EXTERNAL_DEVICE model=new Parking.Core.Model.PBA_EXTERNAL_DEVICE();
@@ -340,13 +340,13 @@ namespace Parking.DBService.DAL
 		public DataSet GetList(int PageSize,int PageIndex,string strWhere)
 		{
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012tblName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012fldName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012PageSize", SqlDbType.Int),
-					new SqlParameter("SQL2012PageIndex", SqlDbType.Int),
-					new SqlParameter("SQL2012IsReCount", SqlDbType.Bit),
-					new SqlParameter("SQL2012OrderType", SqlDbType.Bit),
-					new SqlParameter("SQL2012strWhere", SqlDbType.VarChar,1000),
+					new SqlParameter("@tblName", SqlDbType.VarChar, 255),
+					new SqlParameter("@fldName", SqlDbType.VarChar, 255),
+					new SqlParameter("@PageSize", SqlDbType.Int),
+					new SqlParameter("@PageIndex", SqlDbType.Int),
+					new SqlParameter("@IsReCount", SqlDbType.Bit),
+					new SqlParameter("@OrderType", SqlDbType.Bit),
+					new SqlParameter("@strWhere", SqlDbType.VarChar,1000),
 					};
 			parameters[0].Value = "PBA_EXTERNAL_DEVICE";
 			parameters[1].Value = "DEVICE_CODE";

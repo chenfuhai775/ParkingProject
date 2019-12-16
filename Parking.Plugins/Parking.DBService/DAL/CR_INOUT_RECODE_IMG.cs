@@ -37,9 +37,9 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select count(1) from CR_INOUT_RECODE_IMG");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			return DbHelperSQL.Exists(strSql.ToString(),parameters);
@@ -55,17 +55,17 @@ namespace Parking.DBService.DAL
 			strSql.Append("insert into CR_INOUT_RECODE_IMG(");
 			strSql.Append("ID,RECODE_ID,VEHICLE_NO,DEV_ID,IMG_URL,IMG_TYPE,CREATE_TIME,CHANNEL_TYPE,CHANNEL_CODE)");
 			strSql.Append(" values (");
-			strSql.Append("SQL2012ID,SQL2012RECODE_ID,SQL2012VEHICLE_NO,SQL2012DEV_ID,SQL2012IMG_URL,SQL2012IMG_TYPE,SQL2012CREATE_TIME,SQL2012CHANNEL_TYPE,SQL2012CHANNEL_CODE)");
+			strSql.Append("@ID,@RECODE_ID,@VEHICLE_NO,@DEV_ID,@IMG_URL,@IMG_TYPE,@CREATE_TIME,@CHANNEL_TYPE,@CHANNEL_CODE)");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012RECODE_ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012CHANNEL_ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012DEV_ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012IMG_URL", SqlDbType.VarChar,200),
-					new SqlParameter("SQL2012IMG_TYPE", SqlDbType.Int,4),
-					new SqlParameter("SQL2012CREATE_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012CHANNEL_TYPE", SqlDbType.VarChar,10),
-					new SqlParameter("SQL2012CHANNEL_CODE", SqlDbType.VarChar,32)};
+					new SqlParameter("@ID", SqlDbType.VarChar,32),
+					new SqlParameter("@RECODE_ID", SqlDbType.VarChar,32),
+					new SqlParameter("@VEHICLE_NO", SqlDbType.VarChar,32),
+					new SqlParameter("@DEV_ID", SqlDbType.VarChar,32),
+					new SqlParameter("@IMG_URL", SqlDbType.VarChar,200),
+					new SqlParameter("@IMG_TYPE", SqlDbType.Int,4),
+					new SqlParameter("@CREATE_TIME", SqlDbType.DateTime),
+					new SqlParameter("@CHANNEL_TYPE", SqlDbType.VarChar,10),
+					new SqlParameter("@CHANNEL_CODE", SqlDbType.VarChar,32)};
 			parameters[0].Value = model.ID;
 			parameters[1].Value = model.RECODE_ID;
 			parameters[2].Value = model.VEHICLE_NO;
@@ -93,25 +93,25 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("update CR_INOUT_RECODE_IMG set ");
-			strSql.Append("RECODE_ID=SQL2012RECODE_ID,");
-			strSql.Append("CHANNEL_ID=SQL2012CHANNEL_ID,");
-			strSql.Append("DEV_ID=SQL2012DEV_ID,");
-			strSql.Append("IMG_URL=SQL2012IMG_URL,");
-			strSql.Append("IMG_TYPE=SQL2012IMG_TYPE,");
-			strSql.Append("CREATE_TIME=SQL2012CREATE_TIME,");
-			strSql.Append("CHANNEL_TYPE=SQL2012CHANNEL_TYPE,");
-			strSql.Append("CHANNEL_CODE=SQL2012CHANNEL_CODE");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append("RECODE_ID=@RECODE_ID,");
+			strSql.Append("VEHICLE_NO=@VEHICLE_NO,");
+			strSql.Append("DEV_ID=@DEV_ID,");
+			strSql.Append("IMG_URL=@IMG_URL,");
+			strSql.Append("IMG_TYPE=@IMG_TYPE,");
+			strSql.Append("CREATE_TIME=@CREATE_TIME,");
+			strSql.Append("CHANNEL_TYPE=@CHANNEL_TYPE,");
+			strSql.Append("CHANNEL_CODE=@CHANNEL_CODE");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012RECODE_ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012CHANNEL_ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012DEV_ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012IMG_URL", SqlDbType.VarChar,200),
-					new SqlParameter("SQL2012IMG_TYPE", SqlDbType.Int,4),
-					new SqlParameter("SQL2012CREATE_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012CHANNEL_TYPE", SqlDbType.VarChar,10),
-					new SqlParameter("SQL2012CHANNEL_CODE", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)};
+					new SqlParameter("@RECODE_ID", SqlDbType.VarChar,32),
+					new SqlParameter("@VEHICLE_NO", SqlDbType.VarChar,32),
+					new SqlParameter("@DEV_ID", SqlDbType.VarChar,32),
+					new SqlParameter("@IMG_URL", SqlDbType.VarChar,200),
+					new SqlParameter("@IMG_TYPE", SqlDbType.Int,4),
+					new SqlParameter("@CREATE_TIME", SqlDbType.DateTime),
+					new SqlParameter("@CHANNEL_TYPE", SqlDbType.VarChar,10),
+					new SqlParameter("@CHANNEL_CODE", SqlDbType.VarChar,32),
+					new SqlParameter("@ID", SqlDbType.VarChar,32)};
 			parameters[0].Value = model.RECODE_ID;
 			parameters[1].Value = model.VEHICLE_NO;
 			parameters[2].Value = model.DEV_ID;
@@ -141,9 +141,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("delete from CR_INOUT_RECODE_IMG ");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
@@ -183,10 +183,10 @@ namespace Parking.DBService.DAL
 		{
 			
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select  top 1 ID,RECODE_ID,CHANNEL_ID,DEV_ID,IMG_URL,IMG_TYPE,CREATE_TIME,CHANNEL_TYPE,CHANNEL_CODE from CR_INOUT_RECODE_IMG ");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append("select  top 1 ID,RECODE_ID,VEHICLE_NO,DEV_ID,IMG_URL,IMG_TYPE,CREATE_TIME,CHANNEL_TYPE,CHANNEL_CODE from CR_INOUT_RECODE_IMG ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			Parking.Core.Model.CR_INOUT_RECODE_IMG model=new Parking.Core.Model.CR_INOUT_RECODE_IMG();
@@ -256,7 +256,7 @@ namespace Parking.DBService.DAL
 		public DataSet GetList(string strWhere)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select ID,RECODE_ID,CHANNEL_ID,DEV_ID,IMG_URL,IMG_TYPE,CREATE_TIME,CHANNEL_TYPE,CHANNEL_CODE ");
+			strSql.Append("select ID,RECODE_ID,VEHICLE_NO,DEV_ID,IMG_URL,IMG_TYPE,CREATE_TIME,CHANNEL_TYPE,CHANNEL_CODE ");
 			strSql.Append(" FROM CR_INOUT_RECODE_IMG ");
 			if(strWhere.Trim()!="")
 			{
@@ -276,7 +276,7 @@ namespace Parking.DBService.DAL
 			{
 				strSql.Append(" top "+Top.ToString());
 			}
-			strSql.Append(" ID,RECODE_ID,CHANNEL_ID,DEV_ID,IMG_URL,IMG_TYPE,CREATE_TIME,CHANNEL_TYPE,CHANNEL_CODE ");
+			strSql.Append(" ID,RECODE_ID,VEHICLE_NO,DEV_ID,IMG_URL,IMG_TYPE,CREATE_TIME,CHANNEL_TYPE,CHANNEL_CODE ");
 			strSql.Append(" FROM CR_INOUT_RECODE_IMG ");
 			if(strWhere.Trim()!="")
 			{
@@ -340,13 +340,13 @@ namespace Parking.DBService.DAL
 		public DataSet GetList(int PageSize,int PageIndex,string strWhere)
 		{
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012tblName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012fldName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012PageSize", SqlDbType.Int),
-					new SqlParameter("SQL2012PageIndex", SqlDbType.Int),
-					new SqlParameter("SQL2012IsReCount", SqlDbType.Bit),
-					new SqlParameter("SQL2012OrderType", SqlDbType.Bit),
-					new SqlParameter("SQL2012strWhere", SqlDbType.VarChar,1000),
+					new SqlParameter("@tblName", SqlDbType.VarChar, 255),
+					new SqlParameter("@fldName", SqlDbType.VarChar, 255),
+					new SqlParameter("@PageSize", SqlDbType.Int),
+					new SqlParameter("@PageIndex", SqlDbType.Int),
+					new SqlParameter("@IsReCount", SqlDbType.Bit),
+					new SqlParameter("@OrderType", SqlDbType.Bit),
+					new SqlParameter("@strWhere", SqlDbType.VarChar,1000),
 					};
 			parameters[0].Value = "CR_INOUT_RECODE_IMG";
 			parameters[1].Value = "ID";

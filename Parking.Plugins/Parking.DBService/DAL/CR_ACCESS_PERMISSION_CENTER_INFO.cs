@@ -37,9 +37,9 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select count(1) from CR_ACCESS_PERMISSION_CENTER_INFO");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,50)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,50)			};
 			parameters[0].Value = ID;
 
 			return DbHelperSQL.Exists(strSql.ToString(),parameters);
@@ -55,11 +55,11 @@ namespace Parking.DBService.DAL
 			strSql.Append("insert into CR_ACCESS_PERMISSION_CENTER_INFO(");
 			strSql.Append("ID,OWNER_CODE,ACCESS_PERMISSION_ID)");
 			strSql.Append(" values (");
-			strSql.Append("SQL2012ID,SQL2012OWNER_CODE,SQL2012ACCESS_PERMISSION_ID)");
+			strSql.Append("@ID,@OWNER_CODE,@ACCESS_PERMISSION_ID)");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012OWNER_CODE", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012ACCESS_PERMISSION_ID", SqlDbType.VarChar,32)};
+					new SqlParameter("@ID", SqlDbType.VarChar,50),
+					new SqlParameter("@OWNER_CODE", SqlDbType.VarChar,50),
+					new SqlParameter("@ACCESS_PERMISSION_ID", SqlDbType.VarChar,32)};
 			parameters[0].Value = model.ID;
 			parameters[1].Value = model.OWNER_CODE;
 			parameters[2].Value = model.ACCESS_PERMISSION_ID;
@@ -81,13 +81,13 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("update CR_ACCESS_PERMISSION_CENTER_INFO set ");
-			strSql.Append("OWNER_CODE=SQL2012OWNER_CODE,");
-			strSql.Append("ACCESS_PERMISSION_ID=SQL2012ACCESS_PERMISSION_ID");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append("OWNER_CODE=@OWNER_CODE,");
+			strSql.Append("ACCESS_PERMISSION_ID=@ACCESS_PERMISSION_ID");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012OWNER_CODE", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012ACCESS_PERMISSION_ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,50)};
+					new SqlParameter("@OWNER_CODE", SqlDbType.VarChar,50),
+					new SqlParameter("@ACCESS_PERMISSION_ID", SqlDbType.VarChar,32),
+					new SqlParameter("@ID", SqlDbType.VarChar,50)};
 			parameters[0].Value = model.OWNER_CODE;
 			parameters[1].Value = model.ACCESS_PERMISSION_ID;
 			parameters[2].Value = model.ID;
@@ -111,9 +111,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("delete from CR_ACCESS_PERMISSION_CENTER_INFO ");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,50)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,50)			};
 			parameters[0].Value = ID;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
@@ -154,9 +154,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select  top 1 ID,OWNER_CODE,ACCESS_PERMISSION_ID from CR_ACCESS_PERMISSION_CENTER_INFO ");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,50)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,50)			};
 			parameters[0].Value = ID;
 
 			Parking.Core.Model.CR_ACCESS_PERMISSION_CENTER_INFO model=new Parking.Core.Model.CR_ACCESS_PERMISSION_CENTER_INFO();
@@ -286,13 +286,13 @@ namespace Parking.DBService.DAL
 		public DataSet GetList(int PageSize,int PageIndex,string strWhere)
 		{
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012tblName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012fldName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012PageSize", SqlDbType.Int),
-					new SqlParameter("SQL2012PageIndex", SqlDbType.Int),
-					new SqlParameter("SQL2012IsReCount", SqlDbType.Bit),
-					new SqlParameter("SQL2012OrderType", SqlDbType.Bit),
-					new SqlParameter("SQL2012strWhere", SqlDbType.VarChar,1000),
+					new SqlParameter("@tblName", SqlDbType.VarChar, 255),
+					new SqlParameter("@fldName", SqlDbType.VarChar, 255),
+					new SqlParameter("@PageSize", SqlDbType.Int),
+					new SqlParameter("@PageIndex", SqlDbType.Int),
+					new SqlParameter("@IsReCount", SqlDbType.Bit),
+					new SqlParameter("@OrderType", SqlDbType.Bit),
+					new SqlParameter("@strWhere", SqlDbType.VarChar,1000),
 					};
 			parameters[0].Value = "CR_ACCESS_PERMISSION_CENTER_INFO";
 			parameters[1].Value = "ID";

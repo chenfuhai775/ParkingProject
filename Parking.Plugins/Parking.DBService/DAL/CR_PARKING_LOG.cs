@@ -37,9 +37,9 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select count(1) from CR_PARKING_LOG");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			return DbHelperSQL.Exists(strSql.ToString(),parameters);
@@ -55,11 +55,11 @@ namespace Parking.DBService.DAL
 			strSql.Append("insert into CR_PARKING_LOG(");
 			strSql.Append("ID,SPACE_CODE,UNIQUE_IDENTIFIER)");
 			strSql.Append(" values (");
-			strSql.Append("SQL2012ID,SQL2012SPACE_CODE,SQL2012UNIQUE_IDENTIFIER)");
+			strSql.Append("@ID,@SPACE_CODE,@UNIQUE_IDENTIFIER)");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012SPACE_CODE", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012UNIQUE_IDENTIFIER", SqlDbType.VarChar,100)};
+					new SqlParameter("@ID", SqlDbType.VarChar,32),
+					new SqlParameter("@SPACE_CODE", SqlDbType.VarChar,50),
+					new SqlParameter("@UNIQUE_IDENTIFIER", SqlDbType.VarChar,100)};
 			parameters[0].Value = model.ID;
 			parameters[1].Value = model.SPACE_CODE;
 			parameters[2].Value = model.UNIQUE_IDENTIFIER;
@@ -81,13 +81,13 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("update CR_PARKING_LOG set ");
-			strSql.Append("SPACE_CODE=SQL2012SPACE_CODE,");
-			strSql.Append("UNIQUE_IDENTIFIER=SQL2012UNIQUE_IDENTIFIER");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append("SPACE_CODE=@SPACE_CODE,");
+			strSql.Append("UNIQUE_IDENTIFIER=@UNIQUE_IDENTIFIER");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012SPACE_CODE", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012UNIQUE_IDENTIFIER", SqlDbType.VarChar,100),
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)};
+					new SqlParameter("@SPACE_CODE", SqlDbType.VarChar,50),
+					new SqlParameter("@UNIQUE_IDENTIFIER", SqlDbType.VarChar,100),
+					new SqlParameter("@ID", SqlDbType.VarChar,32)};
 			parameters[0].Value = model.SPACE_CODE;
 			parameters[1].Value = model.UNIQUE_IDENTIFIER;
 			parameters[2].Value = model.ID;
@@ -111,9 +111,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("delete from CR_PARKING_LOG ");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
@@ -154,9 +154,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select  top 1 ID,SPACE_CODE,UNIQUE_IDENTIFIER from CR_PARKING_LOG ");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			Parking.Core.Model.CR_PARKING_LOG model=new Parking.Core.Model.CR_PARKING_LOG();
@@ -286,13 +286,13 @@ namespace Parking.DBService.DAL
 		public DataSet GetList(int PageSize,int PageIndex,string strWhere)
 		{
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012tblName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012fldName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012PageSize", SqlDbType.Int),
-					new SqlParameter("SQL2012PageIndex", SqlDbType.Int),
-					new SqlParameter("SQL2012IsReCount", SqlDbType.Bit),
-					new SqlParameter("SQL2012OrderType", SqlDbType.Bit),
-					new SqlParameter("SQL2012strWhere", SqlDbType.VarChar,1000),
+					new SqlParameter("@tblName", SqlDbType.VarChar, 255),
+					new SqlParameter("@fldName", SqlDbType.VarChar, 255),
+					new SqlParameter("@PageSize", SqlDbType.Int),
+					new SqlParameter("@PageIndex", SqlDbType.Int),
+					new SqlParameter("@IsReCount", SqlDbType.Bit),
+					new SqlParameter("@OrderType", SqlDbType.Bit),
+					new SqlParameter("@strWhere", SqlDbType.VarChar,1000),
 					};
 			parameters[0].Value = "CR_PARKING_LOG";
 			parameters[1].Value = "ID";

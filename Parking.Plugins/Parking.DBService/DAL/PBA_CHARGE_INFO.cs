@@ -38,9 +38,9 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select count(1) from PBA_CHARGE_INFO");
-			strSql.Append(" where CHARGE_CODE=SQL2012CHARGE_CODE ");
+			strSql.Append(" where CHARGE_CODE=@CHARGE_CODE ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012CHARGE_CODE", SqlDbType.VarChar,50)			};
+					new SqlParameter("@CHARGE_CODE", SqlDbType.VarChar,50)			};
 			parameters[0].Value = CHARGE_CODE;
 
 			return DbHelperSQL.Exists(strSql.ToString(),parameters);
@@ -56,14 +56,14 @@ namespace Parking.DBService.DAL
 			strSql.Append("insert into PBA_CHARGE_INFO(");
 			strSql.Append("CHARGE_CODE,CHARGE_NAME,CHARGE_TYPE,CHARGE_PARAM_CODE,CREATE_TIME,CREATE_USERID)");
 			strSql.Append(" values (");
-			strSql.Append("SQL2012CHARGE_CODE,SQL2012CHARGE_NAME,SQL2012CHARGE_TYPE,SQL2012CHARGE_PARAM_CODE,SQL2012CREATE_TIME,SQL2012CREATE_USERID)");
+			strSql.Append("@CHARGE_CODE,@CHARGE_NAME,@CHARGE_TYPE,@CHARGE_PARAM_CODE,@CREATE_TIME,@CREATE_USERID)");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012CHARGE_CODE", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012CHARGE_NAME", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012CHARGE_TYPE", SqlDbType.Int,4),
-					new SqlParameter("SQL2012CHARGE_PARAM_CODE", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012CREATE_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012CREATE_USERID", SqlDbType.VarChar,50)};
+					new SqlParameter("@CHARGE_CODE", SqlDbType.VarChar,50),
+					new SqlParameter("@CHARGE_NAME", SqlDbType.VarChar,50),
+					new SqlParameter("@CHARGE_TYPE", SqlDbType.Int,4),
+					new SqlParameter("@CHARGE_PARAM_CODE", SqlDbType.VarChar,50),
+					new SqlParameter("@CREATE_TIME", SqlDbType.DateTime),
+					new SqlParameter("@CREATE_USERID", SqlDbType.VarChar,50)};
 			parameters[0].Value = model.CHARGE_CODE;
 			parameters[1].Value = model.CHARGE_NAME;
 			parameters[2].Value = model.CHARGE_TYPE;
@@ -88,19 +88,19 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("update PBA_CHARGE_INFO set ");
-			strSql.Append("CHARGE_NAME=SQL2012CHARGE_NAME,");
-			strSql.Append("CHARGE_TYPE=SQL2012CHARGE_TYPE,");
-			strSql.Append("CHARGE_PARAM_CODE=SQL2012CHARGE_PARAM_CODE,");
-			strSql.Append("CREATE_TIME=SQL2012CREATE_TIME,");
-			strSql.Append("CREATE_USERID=SQL2012CREATE_USERID");
-			strSql.Append(" where CHARGE_CODE=SQL2012CHARGE_CODE ");
+			strSql.Append("CHARGE_NAME=@CHARGE_NAME,");
+			strSql.Append("CHARGE_TYPE=@CHARGE_TYPE,");
+			strSql.Append("CHARGE_PARAM_CODE=@CHARGE_PARAM_CODE,");
+			strSql.Append("CREATE_TIME=@CREATE_TIME,");
+			strSql.Append("CREATE_USERID=@CREATE_USERID");
+			strSql.Append(" where CHARGE_CODE=@CHARGE_CODE ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012CHARGE_NAME", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012CHARGE_TYPE", SqlDbType.Int,4),
-					new SqlParameter("SQL2012CHARGE_PARAM_CODE", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012CREATE_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012CREATE_USERID", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012CHARGE_CODE", SqlDbType.VarChar,50)};
+					new SqlParameter("@CHARGE_NAME", SqlDbType.VarChar,50),
+					new SqlParameter("@CHARGE_TYPE", SqlDbType.Int,4),
+					new SqlParameter("@CHARGE_PARAM_CODE", SqlDbType.VarChar,50),
+					new SqlParameter("@CREATE_TIME", SqlDbType.DateTime),
+					new SqlParameter("@CREATE_USERID", SqlDbType.VarChar,50),
+					new SqlParameter("@CHARGE_CODE", SqlDbType.VarChar,50)};
 			parameters[0].Value = model.CHARGE_NAME;
 			parameters[1].Value = model.CHARGE_TYPE;
 			parameters[2].Value = model.CHARGE_PARAM_CODE;
@@ -127,9 +127,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("delete from PBA_CHARGE_INFO ");
-			strSql.Append(" where CHARGE_CODE=SQL2012CHARGE_CODE ");
+			strSql.Append(" where CHARGE_CODE=@CHARGE_CODE ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012CHARGE_CODE", SqlDbType.VarChar,50)			};
+					new SqlParameter("@CHARGE_CODE", SqlDbType.VarChar,50)			};
 			parameters[0].Value = CHARGE_CODE;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
@@ -170,9 +170,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select  top 1 CHARGE_CODE,CHARGE_NAME,CHARGE_TYPE,CHARGE_PARAM_CODE,CREATE_TIME,CREATE_USERID from PBA_CHARGE_INFO ");
-			strSql.Append(" where CHARGE_CODE=SQL2012CHARGE_CODE ");
+			strSql.Append(" where CHARGE_CODE=@CHARGE_CODE ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012CHARGE_CODE", SqlDbType.VarChar,50)			};
+					new SqlParameter("@CHARGE_CODE", SqlDbType.VarChar,50)			};
 			parameters[0].Value = CHARGE_CODE;
 
 			Parking.Core.Model.PBA_CHARGE_INFO model=new Parking.Core.Model.PBA_CHARGE_INFO();
@@ -314,13 +314,13 @@ namespace Parking.DBService.DAL
 		public DataSet GetList(int PageSize,int PageIndex,string strWhere)
 		{
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012tblName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012fldName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012PageSize", SqlDbType.Int),
-					new SqlParameter("SQL2012PageIndex", SqlDbType.Int),
-					new SqlParameter("SQL2012IsReCount", SqlDbType.Bit),
-					new SqlParameter("SQL2012OrderType", SqlDbType.Bit),
-					new SqlParameter("SQL2012strWhere", SqlDbType.VarChar,1000),
+					new SqlParameter("@tblName", SqlDbType.VarChar, 255),
+					new SqlParameter("@fldName", SqlDbType.VarChar, 255),
+					new SqlParameter("@PageSize", SqlDbType.Int),
+					new SqlParameter("@PageIndex", SqlDbType.Int),
+					new SqlParameter("@IsReCount", SqlDbType.Bit),
+					new SqlParameter("@OrderType", SqlDbType.Bit),
+					new SqlParameter("@strWhere", SqlDbType.VarChar,1000),
 					};
 			parameters[0].Value = "PBA_CHARGE_INFO";
 			parameters[1].Value = "CHARGE_CODE";

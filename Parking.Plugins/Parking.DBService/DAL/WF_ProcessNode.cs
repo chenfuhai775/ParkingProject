@@ -38,9 +38,9 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select count(1) from WF_ProcessNode");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			return DbHelperSQL.Exists(strSql.ToString(),parameters);
@@ -56,22 +56,22 @@ namespace Parking.DBService.DAL
 			strSql.Append("insert into WF_ProcessNode(");
 			strSql.Append("ID,NodeName,NodeCode,FlowID,PreviousNode,NextNode,JumpNode,DeterMine,IsModel,PN_Flag,PN_Sort,Remark,POSITION_X,POSITION_Y)");
 			strSql.Append(" values (");
-			strSql.Append("SQL2012ID,SQL2012NodeName,SQL2012NodeCode,SQL2012FlowID,SQL2012PreviousNode,SQL2012NextNode,SQL2012JumpNode,SQL2012DeterMine,SQL2012IsModel,SQL2012PN_Flag,SQL2012PN_Sort,SQL2012Remark,SQL2012POSITION_X,SQL2012POSITION_Y)");
+			strSql.Append("@ID,@NodeName,@NodeCode,@FlowID,@PreviousNode,@NextNode,@JumpNode,@DeterMine,@IsModel,@PN_Flag,@PN_Sort,@Remark,@POSITION_X,@POSITION_Y)");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012NodeName", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012NodeCode", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012FlowID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012PreviousNode", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012NextNode", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012JumpNode", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012DeterMine", SqlDbType.Bit,1),
-					new SqlParameter("SQL2012IsModel", SqlDbType.Bit,1),
-					new SqlParameter("SQL2012PN_Flag", SqlDbType.Bit,1),
-					new SqlParameter("SQL2012PN_Sort", SqlDbType.Int,4),
-					new SqlParameter("SQL2012Remark", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012POSITION_X", SqlDbType.Decimal,9),
-					new SqlParameter("SQL2012POSITION_Y", SqlDbType.Decimal,9)};
+					new SqlParameter("@ID", SqlDbType.VarChar,32),
+					new SqlParameter("@NodeName", SqlDbType.VarChar,32),
+					new SqlParameter("@NodeCode", SqlDbType.VarChar,32),
+					new SqlParameter("@FlowID", SqlDbType.VarChar,32),
+					new SqlParameter("@PreviousNode", SqlDbType.VarChar,32),
+					new SqlParameter("@NextNode", SqlDbType.VarChar,32),
+					new SqlParameter("@JumpNode", SqlDbType.VarChar,32),
+					new SqlParameter("@DeterMine", SqlDbType.Bit,1),
+					new SqlParameter("@IsModel", SqlDbType.Bit,1),
+					new SqlParameter("@PN_Flag", SqlDbType.Bit,1),
+					new SqlParameter("@PN_Sort", SqlDbType.Int,4),
+					new SqlParameter("@Remark", SqlDbType.VarChar,50),
+					new SqlParameter("@POSITION_X", SqlDbType.Decimal,9),
+					new SqlParameter("@POSITION_Y", SqlDbType.Decimal,9)};
 			parameters[0].Value = model.ID;
 			parameters[1].Value = model.NodeName;
 			parameters[2].Value = model.NodeCode;
@@ -104,35 +104,35 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("update WF_ProcessNode set ");
-			strSql.Append("NodeName=SQL2012NodeName,");
-			strSql.Append("NodeCode=SQL2012NodeCode,");
-			strSql.Append("FlowID=SQL2012FlowID,");
-			strSql.Append("PreviousNode=SQL2012PreviousNode,");
-			strSql.Append("NextNode=SQL2012NextNode,");
-			strSql.Append("JumpNode=SQL2012JumpNode,");
-			strSql.Append("DeterMine=SQL2012DeterMine,");
-			strSql.Append("IsModel=SQL2012IsModel,");
-			strSql.Append("PN_Flag=SQL2012PN_Flag,");
-			strSql.Append("PN_Sort=SQL2012PN_Sort,");
-			strSql.Append("Remark=SQL2012Remark,");
-			strSql.Append("POSITION_X=SQL2012POSITION_X,");
-			strSql.Append("POSITION_Y=SQL2012POSITION_Y");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append("NodeName=@NodeName,");
+			strSql.Append("NodeCode=@NodeCode,");
+			strSql.Append("FlowID=@FlowID,");
+			strSql.Append("PreviousNode=@PreviousNode,");
+			strSql.Append("NextNode=@NextNode,");
+			strSql.Append("JumpNode=@JumpNode,");
+			strSql.Append("DeterMine=@DeterMine,");
+			strSql.Append("IsModel=@IsModel,");
+			strSql.Append("PN_Flag=@PN_Flag,");
+			strSql.Append("PN_Sort=@PN_Sort,");
+			strSql.Append("Remark=@Remark,");
+			strSql.Append("POSITION_X=@POSITION_X,");
+			strSql.Append("POSITION_Y=@POSITION_Y");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012NodeName", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012NodeCode", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012FlowID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012PreviousNode", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012NextNode", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012JumpNode", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012DeterMine", SqlDbType.Bit,1),
-					new SqlParameter("SQL2012IsModel", SqlDbType.Bit,1),
-					new SqlParameter("SQL2012PN_Flag", SqlDbType.Bit,1),
-					new SqlParameter("SQL2012PN_Sort", SqlDbType.Int,4),
-					new SqlParameter("SQL2012Remark", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012POSITION_X", SqlDbType.Decimal,9),
-					new SqlParameter("SQL2012POSITION_Y", SqlDbType.Decimal,9),
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)};
+					new SqlParameter("@NodeName", SqlDbType.VarChar,32),
+					new SqlParameter("@NodeCode", SqlDbType.VarChar,32),
+					new SqlParameter("@FlowID", SqlDbType.VarChar,32),
+					new SqlParameter("@PreviousNode", SqlDbType.VarChar,32),
+					new SqlParameter("@NextNode", SqlDbType.VarChar,32),
+					new SqlParameter("@JumpNode", SqlDbType.VarChar,32),
+					new SqlParameter("@DeterMine", SqlDbType.Bit,1),
+					new SqlParameter("@IsModel", SqlDbType.Bit,1),
+					new SqlParameter("@PN_Flag", SqlDbType.Bit,1),
+					new SqlParameter("@PN_Sort", SqlDbType.Int,4),
+					new SqlParameter("@Remark", SqlDbType.VarChar,50),
+					new SqlParameter("@POSITION_X", SqlDbType.Decimal,9),
+					new SqlParameter("@POSITION_Y", SqlDbType.Decimal,9),
+					new SqlParameter("@ID", SqlDbType.VarChar,32)};
 			parameters[0].Value = model.NodeName;
 			parameters[1].Value = model.NodeCode;
 			parameters[2].Value = model.FlowID;
@@ -167,9 +167,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("delete from WF_ProcessNode ");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
@@ -210,9 +210,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select  top 1 ID,NodeName,NodeCode,FlowID,PreviousNode,NextNode,JumpNode,DeterMine,IsModel,PN_Flag,PN_Sort,Remark,POSITION_X,POSITION_Y from WF_ProcessNode ");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			Parking.Core.Model.WF_ProcessNode model=new Parking.Core.Model.WF_ProcessNode();
@@ -407,13 +407,13 @@ namespace Parking.DBService.DAL
 		public DataSet GetList(int PageSize,int PageIndex,string strWhere)
 		{
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012tblName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012fldName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012PageSize", SqlDbType.Int),
-					new SqlParameter("SQL2012PageIndex", SqlDbType.Int),
-					new SqlParameter("SQL2012IsReCount", SqlDbType.Bit),
-					new SqlParameter("SQL2012OrderType", SqlDbType.Bit),
-					new SqlParameter("SQL2012strWhere", SqlDbType.VarChar,1000),
+					new SqlParameter("@tblName", SqlDbType.VarChar, 255),
+					new SqlParameter("@fldName", SqlDbType.VarChar, 255),
+					new SqlParameter("@PageSize", SqlDbType.Int),
+					new SqlParameter("@PageIndex", SqlDbType.Int),
+					new SqlParameter("@IsReCount", SqlDbType.Bit),
+					new SqlParameter("@OrderType", SqlDbType.Bit),
+					new SqlParameter("@strWhere", SqlDbType.VarChar,1000),
 					};
 			parameters[0].Value = "WF_ProcessNode";
 			parameters[1].Value = "ID";

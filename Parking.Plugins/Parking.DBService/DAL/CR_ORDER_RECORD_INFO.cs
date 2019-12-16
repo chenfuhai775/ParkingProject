@@ -38,9 +38,9 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select count(1) from CR_ORDER_RECORD_INFO");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			return DbHelperSQL.Exists(strSql.ToString(),parameters);
@@ -56,24 +56,24 @@ namespace Parking.DBService.DAL
 			strSql.Append("insert into CR_ORDER_RECORD_INFO(");
 			strSql.Append("ID,PARTITION_CODE,IN_CHANNEL_CODE,OUT_CHANNEL_CODE,INOUT_RECODE_ID,TOTAL_TIME,VEHICLE_NO,DUE_MONEY,CHARGE_MONEY,PER_MONEY,ALREADY_PAID,PAY_PLATFORM,PAY_TYPE,IS_PAY,FREE_TIME,CREATE_TIME)");
 			strSql.Append(" values (");
-			strSql.Append("SQL2012ID,SQL2012PARTITION_CODE,SQL2012IN_CHANNEL_CODE,SQL2012OUT_CHANNEL_CODE,SQL2012INOUT_RECODE_ID,SQL2012TOTAL_TIME,SQL2012VEHICLE_NO,SQL2012DUE_MONEY,SQL2012CHARGE_MONEY,SQL2012PER_MONEY,SQL2012ALREADY_PAID,SQL2012PAY_PLATFORM,SQL2012PAY_TYPE,SQL2012IS_PAY,SQL2012FREE_TIME,SQL2012CREATE_TIME)");
+			strSql.Append("@ID,@PARTITION_CODE,@IN_CHANNEL_CODE,@OUT_CHANNEL_CODE,@INOUT_RECODE_ID,@TOTAL_TIME,@VEHICLE_NO,@DUE_MONEY,@CHARGE_MONEY,@PER_MONEY,@ALREADY_PAID,@PAY_PLATFORM,@PAY_TYPE,@IS_PAY,@FREE_TIME,@CREATE_TIME)");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012PARTITION_CODE", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012IN_CHANNEL_CODE", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012OUT_CHANNEL_CODE", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012INOUT_RECODE_ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012TOTAL_TIME", SqlDbType.Int,4),
-					new SqlParameter("SQL2012VEHICLE_NO", SqlDbType.VarChar,20),
-					new SqlParameter("SQL2012DUE_MONEY", SqlDbType.Decimal,9),
-					new SqlParameter("SQL2012CHARGE_MONEY", SqlDbType.Decimal,9),
-					new SqlParameter("SQL2012PER_MONEY", SqlDbType.Decimal,9),
-					new SqlParameter("SQL2012ALREADY_PAID", SqlDbType.Decimal,9),
-					new SqlParameter("SQL2012PAY_PLATFORM", SqlDbType.Int,4),
-					new SqlParameter("SQL2012PAY_TYPE", SqlDbType.Int,4),
-					new SqlParameter("SQL2012IS_PAY", SqlDbType.Bit,1),
-					new SqlParameter("SQL2012FREE_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012CREATE_TIME", SqlDbType.DateTime)};
+					new SqlParameter("@ID", SqlDbType.VarChar,32),
+					new SqlParameter("@PARTITION_CODE", SqlDbType.VarChar,32),
+					new SqlParameter("@IN_CHANNEL_CODE", SqlDbType.VarChar,32),
+					new SqlParameter("@OUT_CHANNEL_CODE", SqlDbType.VarChar,32),
+					new SqlParameter("@INOUT_RECODE_ID", SqlDbType.VarChar,32),
+					new SqlParameter("@TOTAL_TIME", SqlDbType.Int,4),
+					new SqlParameter("@VEHICLE_NO", SqlDbType.VarChar,20),
+					new SqlParameter("@DUE_MONEY", SqlDbType.Decimal,9),
+					new SqlParameter("@CHARGE_MONEY", SqlDbType.Decimal,9),
+					new SqlParameter("@PER_MONEY", SqlDbType.Decimal,9),
+					new SqlParameter("@ALREADY_PAID", SqlDbType.Decimal,9),
+					new SqlParameter("@PAY_PLATFORM", SqlDbType.Int,4),
+					new SqlParameter("@PAY_TYPE", SqlDbType.Int,4),
+					new SqlParameter("@IS_PAY", SqlDbType.Bit,1),
+					new SqlParameter("@FREE_TIME", SqlDbType.DateTime),
+					new SqlParameter("@CREATE_TIME", SqlDbType.DateTime)};
 			parameters[0].Value = model.ID;
 			parameters[1].Value = model.PARTITION_CODE;
 			parameters[2].Value = model.IN_CHANNEL_CODE;
@@ -108,39 +108,39 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("update CR_ORDER_RECORD_INFO set ");
-			strSql.Append("PARTITION_CODE=SQL2012PARTITION_CODE,");
-			strSql.Append("IN_CHANNEL_CODE=SQL2012IN_CHANNEL_CODE,");
-			strSql.Append("OUT_CHANNEL_CODE=SQL2012OUT_CHANNEL_CODE,");
-			strSql.Append("INOUT_RECODE_ID=SQL2012INOUT_RECODE_ID,");
-			strSql.Append("TOTAL_TIME=SQL2012TOTAL_TIME,");
-			strSql.Append("VEHICLE_NO=SQL2012VEHICLE_NO,");
-			strSql.Append("DUE_MONEY=SQL2012DUE_MONEY,");
-			strSql.Append("CHARGE_MONEY=SQL2012CHARGE_MONEY,");
-			strSql.Append("PER_MONEY=SQL2012PER_MONEY,");
-			strSql.Append("ALREADY_PAID=SQL2012ALREADY_PAID,");
-			strSql.Append("PAY_PLATFORM=SQL2012PAY_PLATFORM,");
-			strSql.Append("PAY_TYPE=SQL2012PAY_TYPE,");
-			strSql.Append("IS_PAY=SQL2012IS_PAY,");
-			strSql.Append("FREE_TIME=SQL2012FREE_TIME,");
-			strSql.Append("CREATE_TIME=SQL2012CREATE_TIME");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append("PARTITION_CODE=@PARTITION_CODE,");
+			strSql.Append("IN_CHANNEL_CODE=@IN_CHANNEL_CODE,");
+			strSql.Append("OUT_CHANNEL_CODE=@OUT_CHANNEL_CODE,");
+			strSql.Append("INOUT_RECODE_ID=@INOUT_RECODE_ID,");
+			strSql.Append("TOTAL_TIME=@TOTAL_TIME,");
+			strSql.Append("VEHICLE_NO=@VEHICLE_NO,");
+			strSql.Append("DUE_MONEY=@DUE_MONEY,");
+			strSql.Append("CHARGE_MONEY=@CHARGE_MONEY,");
+			strSql.Append("PER_MONEY=@PER_MONEY,");
+			strSql.Append("ALREADY_PAID=@ALREADY_PAID,");
+			strSql.Append("PAY_PLATFORM=@PAY_PLATFORM,");
+			strSql.Append("PAY_TYPE=@PAY_TYPE,");
+			strSql.Append("IS_PAY=@IS_PAY,");
+			strSql.Append("FREE_TIME=@FREE_TIME,");
+			strSql.Append("CREATE_TIME=@CREATE_TIME");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012PARTITION_CODE", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012IN_CHANNEL_CODE", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012OUT_CHANNEL_CODE", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012INOUT_RECODE_ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012TOTAL_TIME", SqlDbType.Int,4),
-					new SqlParameter("SQL2012VEHICLE_NO", SqlDbType.VarChar,20),
-					new SqlParameter("SQL2012DUE_MONEY", SqlDbType.Decimal,9),
-					new SqlParameter("SQL2012CHARGE_MONEY", SqlDbType.Decimal,9),
-					new SqlParameter("SQL2012PER_MONEY", SqlDbType.Decimal,9),
-					new SqlParameter("SQL2012ALREADY_PAID", SqlDbType.Decimal,9),
-					new SqlParameter("SQL2012PAY_PLATFORM", SqlDbType.Int,4),
-					new SqlParameter("SQL2012PAY_TYPE", SqlDbType.Int,4),
-					new SqlParameter("SQL2012IS_PAY", SqlDbType.Bit,1),
-					new SqlParameter("SQL2012FREE_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012CREATE_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)};
+					new SqlParameter("@PARTITION_CODE", SqlDbType.VarChar,32),
+					new SqlParameter("@IN_CHANNEL_CODE", SqlDbType.VarChar,32),
+					new SqlParameter("@OUT_CHANNEL_CODE", SqlDbType.VarChar,32),
+					new SqlParameter("@INOUT_RECODE_ID", SqlDbType.VarChar,32),
+					new SqlParameter("@TOTAL_TIME", SqlDbType.Int,4),
+					new SqlParameter("@VEHICLE_NO", SqlDbType.VarChar,20),
+					new SqlParameter("@DUE_MONEY", SqlDbType.Decimal,9),
+					new SqlParameter("@CHARGE_MONEY", SqlDbType.Decimal,9),
+					new SqlParameter("@PER_MONEY", SqlDbType.Decimal,9),
+					new SqlParameter("@ALREADY_PAID", SqlDbType.Decimal,9),
+					new SqlParameter("@PAY_PLATFORM", SqlDbType.Int,4),
+					new SqlParameter("@PAY_TYPE", SqlDbType.Int,4),
+					new SqlParameter("@IS_PAY", SqlDbType.Bit,1),
+					new SqlParameter("@FREE_TIME", SqlDbType.DateTime),
+					new SqlParameter("@CREATE_TIME", SqlDbType.DateTime),
+					new SqlParameter("@ID", SqlDbType.VarChar,32)};
 			parameters[0].Value = model.PARTITION_CODE;
 			parameters[1].Value = model.IN_CHANNEL_CODE;
 			parameters[2].Value = model.OUT_CHANNEL_CODE;
@@ -177,9 +177,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("delete from CR_ORDER_RECORD_INFO ");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
@@ -220,9 +220,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select  top 1 ID,PARTITION_CODE,IN_CHANNEL_CODE,OUT_CHANNEL_CODE,INOUT_RECODE_ID,TOTAL_TIME,VEHICLE_NO,DUE_MONEY,CHARGE_MONEY,PER_MONEY,ALREADY_PAID,PAY_PLATFORM,PAY_TYPE,IS_PAY,FREE_TIME,CREATE_TIME from CR_ORDER_RECORD_INFO ");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			Parking.Core.Model.CR_ORDER_RECORD_INFO model=new Parking.Core.Model.CR_ORDER_RECORD_INFO();
@@ -411,13 +411,13 @@ namespace Parking.DBService.DAL
 		public DataSet GetList(int PageSize,int PageIndex,string strWhere)
 		{
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012tblName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012fldName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012PageSize", SqlDbType.Int),
-					new SqlParameter("SQL2012PageIndex", SqlDbType.Int),
-					new SqlParameter("SQL2012IsReCount", SqlDbType.Bit),
-					new SqlParameter("SQL2012OrderType", SqlDbType.Bit),
-					new SqlParameter("SQL2012strWhere", SqlDbType.VarChar,1000),
+					new SqlParameter("@tblName", SqlDbType.VarChar, 255),
+					new SqlParameter("@fldName", SqlDbType.VarChar, 255),
+					new SqlParameter("@PageSize", SqlDbType.Int),
+					new SqlParameter("@PageIndex", SqlDbType.Int),
+					new SqlParameter("@IsReCount", SqlDbType.Bit),
+					new SqlParameter("@OrderType", SqlDbType.Bit),
+					new SqlParameter("@strWhere", SqlDbType.VarChar,1000),
 					};
 			parameters[0].Value = "CR_ORDER_RECORD_INFO";
 			parameters[1].Value = "ID";

@@ -80,8 +80,8 @@ namespace Parking.ControlPanel
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
-            this.Dispose();
-            GC.Collect();
+            //this.Dispose();
+            //GC.Collect();
         }
         private void CentralPaymentForm_FormClosed(object sender, FormClosedEventArgs e)
         {

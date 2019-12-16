@@ -37,9 +37,9 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select count(1) from COMMON_MODULE_SORT");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			return DbHelperSQL.Exists(strSql.ToString(),parameters);
@@ -55,17 +55,17 @@ namespace Parking.DBService.DAL
 			strSql.Append("insert into COMMON_MODULE_SORT(");
 			strSql.Append("ID,USER_ID,MODULE_ID,USE_COUNT,LAST_TIME,MANUAL_SORT,ACCESS_DEVICE,ACCESS_AGENT,FLAG_IMPORT)");
 			strSql.Append(" values (");
-			strSql.Append("SQL2012ID,SQL2012USER_ID,SQL2012MODULE_ID,SQL2012USE_COUNT,SQL2012LAST_TIME,SQL2012MANUAL_SORT,SQL2012ACCESS_DEVICE,SQL2012ACCESS_AGENT,SQL2012FLAG_IMPORT)");
+			strSql.Append("@ID,@USER_ID,@MODULE_ID,@USE_COUNT,@LAST_TIME,@MANUAL_SORT,@ACCESS_DEVICE,@ACCESS_AGENT,@FLAG_IMPORT)");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012USER_ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012MODULE_ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012USE_COUNT", SqlDbType.Int,4),
-					new SqlParameter("SQL2012LAST_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012MANUAL_SORT", SqlDbType.Int,4),
-					new SqlParameter("SQL2012ACCESS_DEVICE", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012ACCESS_AGENT", SqlDbType.VarChar,500),
-					new SqlParameter("SQL2012FLAG_IMPORT", SqlDbType.Int,4)};
+					new SqlParameter("@ID", SqlDbType.VarChar,32),
+					new SqlParameter("@USER_ID", SqlDbType.VarChar,32),
+					new SqlParameter("@MODULE_ID", SqlDbType.VarChar,32),
+					new SqlParameter("@USE_COUNT", SqlDbType.Int,4),
+					new SqlParameter("@LAST_TIME", SqlDbType.DateTime),
+					new SqlParameter("@MANUAL_SORT", SqlDbType.Int,4),
+					new SqlParameter("@ACCESS_DEVICE", SqlDbType.VarChar,50),
+					new SqlParameter("@ACCESS_AGENT", SqlDbType.VarChar,500),
+					new SqlParameter("@FLAG_IMPORT", SqlDbType.Int,4)};
 			parameters[0].Value = model.ID;
 			parameters[1].Value = model.USER_ID;
 			parameters[2].Value = model.MODULE_ID;
@@ -93,25 +93,25 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("update COMMON_MODULE_SORT set ");
-			strSql.Append("USER_ID=SQL2012USER_ID,");
-			strSql.Append("MODULE_ID=SQL2012MODULE_ID,");
-			strSql.Append("USE_COUNT=SQL2012USE_COUNT,");
-			strSql.Append("LAST_TIME=SQL2012LAST_TIME,");
-			strSql.Append("MANUAL_SORT=SQL2012MANUAL_SORT,");
-			strSql.Append("ACCESS_DEVICE=SQL2012ACCESS_DEVICE,");
-			strSql.Append("ACCESS_AGENT=SQL2012ACCESS_AGENT,");
-			strSql.Append("FLAG_IMPORT=SQL2012FLAG_IMPORT");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append("USER_ID=@USER_ID,");
+			strSql.Append("MODULE_ID=@MODULE_ID,");
+			strSql.Append("USE_COUNT=@USE_COUNT,");
+			strSql.Append("LAST_TIME=@LAST_TIME,");
+			strSql.Append("MANUAL_SORT=@MANUAL_SORT,");
+			strSql.Append("ACCESS_DEVICE=@ACCESS_DEVICE,");
+			strSql.Append("ACCESS_AGENT=@ACCESS_AGENT,");
+			strSql.Append("FLAG_IMPORT=@FLAG_IMPORT");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012USER_ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012MODULE_ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012USE_COUNT", SqlDbType.Int,4),
-					new SqlParameter("SQL2012LAST_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012MANUAL_SORT", SqlDbType.Int,4),
-					new SqlParameter("SQL2012ACCESS_DEVICE", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012ACCESS_AGENT", SqlDbType.VarChar,500),
-					new SqlParameter("SQL2012FLAG_IMPORT", SqlDbType.Int,4),
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)};
+					new SqlParameter("@USER_ID", SqlDbType.VarChar,32),
+					new SqlParameter("@MODULE_ID", SqlDbType.VarChar,32),
+					new SqlParameter("@USE_COUNT", SqlDbType.Int,4),
+					new SqlParameter("@LAST_TIME", SqlDbType.DateTime),
+					new SqlParameter("@MANUAL_SORT", SqlDbType.Int,4),
+					new SqlParameter("@ACCESS_DEVICE", SqlDbType.VarChar,50),
+					new SqlParameter("@ACCESS_AGENT", SqlDbType.VarChar,500),
+					new SqlParameter("@FLAG_IMPORT", SqlDbType.Int,4),
+					new SqlParameter("@ID", SqlDbType.VarChar,32)};
 			parameters[0].Value = model.USER_ID;
 			parameters[1].Value = model.MODULE_ID;
 			parameters[2].Value = model.USE_COUNT;
@@ -141,9 +141,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("delete from COMMON_MODULE_SORT ");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
@@ -184,9 +184,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select  top 1 ID,USER_ID,MODULE_ID,USE_COUNT,LAST_TIME,MANUAL_SORT,ACCESS_DEVICE,ACCESS_AGENT,FLAG_IMPORT from COMMON_MODULE_SORT ");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			Parking.Core.Model.COMMON_MODULE_SORT model=new Parking.Core.Model.COMMON_MODULE_SORT();
@@ -340,13 +340,13 @@ namespace Parking.DBService.DAL
 		public DataSet GetList(int PageSize,int PageIndex,string strWhere)
 		{
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012tblName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012fldName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012PageSize", SqlDbType.Int),
-					new SqlParameter("SQL2012PageIndex", SqlDbType.Int),
-					new SqlParameter("SQL2012IsReCount", SqlDbType.Bit),
-					new SqlParameter("SQL2012OrderType", SqlDbType.Bit),
-					new SqlParameter("SQL2012strWhere", SqlDbType.VarChar,1000),
+					new SqlParameter("@tblName", SqlDbType.VarChar, 255),
+					new SqlParameter("@fldName", SqlDbType.VarChar, 255),
+					new SqlParameter("@PageSize", SqlDbType.Int),
+					new SqlParameter("@PageIndex", SqlDbType.Int),
+					new SqlParameter("@IsReCount", SqlDbType.Bit),
+					new SqlParameter("@OrderType", SqlDbType.Bit),
+					new SqlParameter("@strWhere", SqlDbType.VarChar,1000),
 					};
 			parameters[0].Value = "COMMON_MODULE_SORT";
 			parameters[1].Value = "ID";

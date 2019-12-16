@@ -37,9 +37,9 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select count(1) from CR_BUSINESS_OPERATION_LOG");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			return DbHelperSQL.Exists(strSql.ToString(),parameters);
@@ -55,17 +55,17 @@ namespace Parking.DBService.DAL
 			strSql.Append("insert into CR_BUSINESS_OPERATION_LOG(");
 			strSql.Append("ID,MODULE_CODE,OPERATING_IP,OPERATING_TIME,OPERATION_BEHAVIOR,RECORD_ID,REMARK,USER_ACCOUNT,USER_NAME)");
 			strSql.Append(" values (");
-			strSql.Append("SQL2012ID,SQL2012MODULE_CODE,SQL2012OPERATING_IP,SQL2012OPERATING_TIME,SQL2012OPERATION_BEHAVIOR,SQL2012RECORD_ID,SQL2012REMARK,SQL2012USER_ACCOUNT,SQL2012USER_NAME)");
+			strSql.Append("@ID,@MODULE_CODE,@OPERATING_IP,@OPERATING_TIME,@OPERATION_BEHAVIOR,@RECORD_ID,@REMARK,@USER_ACCOUNT,@USER_NAME)");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012MODULE_CODE", SqlDbType.Int,4),
-					new SqlParameter("SQL2012OPERATING_IP", SqlDbType.VarChar,40),
-					new SqlParameter("SQL2012OPERATING_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012OPERATION_BEHAVIOR", SqlDbType.Int,4),
-					new SqlParameter("SQL2012RECORD_ID", SqlDbType.VarChar,2000),
-					new SqlParameter("SQL2012REMARK", SqlDbType.VarChar,4000),
-					new SqlParameter("SQL2012USER_ACCOUNT", SqlDbType.VarChar,40),
-					new SqlParameter("SQL2012USER_NAME", SqlDbType.VarChar,40)};
+					new SqlParameter("@ID", SqlDbType.VarChar,32),
+					new SqlParameter("@MODULE_CODE", SqlDbType.Int,4),
+					new SqlParameter("@OPERATING_IP", SqlDbType.VarChar,40),
+					new SqlParameter("@OPERATING_TIME", SqlDbType.DateTime),
+					new SqlParameter("@OPERATION_BEHAVIOR", SqlDbType.Int,4),
+					new SqlParameter("@RECORD_ID", SqlDbType.VarChar,2000),
+					new SqlParameter("@REMARK", SqlDbType.VarChar,4000),
+					new SqlParameter("@USER_ACCOUNT", SqlDbType.VarChar,40),
+					new SqlParameter("@USER_NAME", SqlDbType.VarChar,40)};
 			parameters[0].Value = model.ID;
 			parameters[1].Value = model.MODULE_CODE;
 			parameters[2].Value = model.OPERATING_IP;
@@ -93,25 +93,25 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("update CR_BUSINESS_OPERATION_LOG set ");
-			strSql.Append("MODULE_CODE=SQL2012MODULE_CODE,");
-			strSql.Append("OPERATING_IP=SQL2012OPERATING_IP,");
-			strSql.Append("OPERATING_TIME=SQL2012OPERATING_TIME,");
-			strSql.Append("OPERATION_BEHAVIOR=SQL2012OPERATION_BEHAVIOR,");
-			strSql.Append("RECORD_ID=SQL2012RECORD_ID,");
-			strSql.Append("REMARK=SQL2012REMARK,");
-			strSql.Append("USER_ACCOUNT=SQL2012USER_ACCOUNT,");
-			strSql.Append("USER_NAME=SQL2012USER_NAME");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append("MODULE_CODE=@MODULE_CODE,");
+			strSql.Append("OPERATING_IP=@OPERATING_IP,");
+			strSql.Append("OPERATING_TIME=@OPERATING_TIME,");
+			strSql.Append("OPERATION_BEHAVIOR=@OPERATION_BEHAVIOR,");
+			strSql.Append("RECORD_ID=@RECORD_ID,");
+			strSql.Append("REMARK=@REMARK,");
+			strSql.Append("USER_ACCOUNT=@USER_ACCOUNT,");
+			strSql.Append("USER_NAME=@USER_NAME");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012MODULE_CODE", SqlDbType.Int,4),
-					new SqlParameter("SQL2012OPERATING_IP", SqlDbType.VarChar,40),
-					new SqlParameter("SQL2012OPERATING_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012OPERATION_BEHAVIOR", SqlDbType.Int,4),
-					new SqlParameter("SQL2012RECORD_ID", SqlDbType.VarChar,2000),
-					new SqlParameter("SQL2012REMARK", SqlDbType.VarChar,4000),
-					new SqlParameter("SQL2012USER_ACCOUNT", SqlDbType.VarChar,40),
-					new SqlParameter("SQL2012USER_NAME", SqlDbType.VarChar,40),
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)};
+					new SqlParameter("@MODULE_CODE", SqlDbType.Int,4),
+					new SqlParameter("@OPERATING_IP", SqlDbType.VarChar,40),
+					new SqlParameter("@OPERATING_TIME", SqlDbType.DateTime),
+					new SqlParameter("@OPERATION_BEHAVIOR", SqlDbType.Int,4),
+					new SqlParameter("@RECORD_ID", SqlDbType.VarChar,2000),
+					new SqlParameter("@REMARK", SqlDbType.VarChar,4000),
+					new SqlParameter("@USER_ACCOUNT", SqlDbType.VarChar,40),
+					new SqlParameter("@USER_NAME", SqlDbType.VarChar,40),
+					new SqlParameter("@ID", SqlDbType.VarChar,32)};
 			parameters[0].Value = model.MODULE_CODE;
 			parameters[1].Value = model.OPERATING_IP;
 			parameters[2].Value = model.OPERATING_TIME;
@@ -141,9 +141,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("delete from CR_BUSINESS_OPERATION_LOG ");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
@@ -184,9 +184,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select  top 1 ID,MODULE_CODE,OPERATING_IP,OPERATING_TIME,OPERATION_BEHAVIOR,RECORD_ID,REMARK,USER_ACCOUNT,USER_NAME from CR_BUSINESS_OPERATION_LOG ");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			Parking.Core.Model.CR_BUSINESS_OPERATION_LOG model=new Parking.Core.Model.CR_BUSINESS_OPERATION_LOG();
@@ -340,13 +340,13 @@ namespace Parking.DBService.DAL
 		public DataSet GetList(int PageSize,int PageIndex,string strWhere)
 		{
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012tblName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012fldName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012PageSize", SqlDbType.Int),
-					new SqlParameter("SQL2012PageIndex", SqlDbType.Int),
-					new SqlParameter("SQL2012IsReCount", SqlDbType.Bit),
-					new SqlParameter("SQL2012OrderType", SqlDbType.Bit),
-					new SqlParameter("SQL2012strWhere", SqlDbType.VarChar,1000),
+					new SqlParameter("@tblName", SqlDbType.VarChar, 255),
+					new SqlParameter("@fldName", SqlDbType.VarChar, 255),
+					new SqlParameter("@PageSize", SqlDbType.Int),
+					new SqlParameter("@PageIndex", SqlDbType.Int),
+					new SqlParameter("@IsReCount", SqlDbType.Bit),
+					new SqlParameter("@OrderType", SqlDbType.Bit),
+					new SqlParameter("@strWhere", SqlDbType.VarChar,1000),
 					};
 			parameters[0].Value = "CR_BUSINESS_OPERATION_LOG";
 			parameters[1].Value = "ID";

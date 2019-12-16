@@ -37,9 +37,9 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select count(1) from PBA_DEVICE_MANAGER");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			return DbHelperSQL.Exists(strSql.ToString(),parameters);
@@ -55,16 +55,16 @@ namespace Parking.DBService.DAL
 			strSql.Append("insert into PBA_DEVICE_MANAGER(");
 			strSql.Append("ID,DEVICE_NAME,DEVICE_TYPE,DEVICE_IMG,DEVICE_CATEGORIES,SINGLE_FLAG,MASTER_FLAG,VIDEO_FLAG)");
 			strSql.Append(" values (");
-			strSql.Append("SQL2012ID,SQL2012DEVICE_NAME,SQL2012DEVICE_TYPE,SQL2012DEVICE_IMG,SQL2012DEVICE_CATEGORIES,SQL2012SINGLE_FLAG,SQL2012MASTER_FLAG,SQL2012VIDEO_FLAG)");
+			strSql.Append("@ID,@DEVICE_NAME,@DEVICE_TYPE,@DEVICE_IMG,@DEVICE_CATEGORIES,@SINGLE_FLAG,@MASTER_FLAG,@VIDEO_FLAG)");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012DEVICE_NAME", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012DEVICE_TYPE", SqlDbType.Int,4),
-					new SqlParameter("SQL2012DEVICE_IMG", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012DEVICE_CATEGORIES", SqlDbType.Int,4),
-					new SqlParameter("SQL2012SINGLE_FLAG", SqlDbType.Int,4),
-					new SqlParameter("SQL2012MASTER_FLAG", SqlDbType.Int,4),
-					new SqlParameter("SQL2012VIDEO_FLAG", SqlDbType.Int,4)};
+					new SqlParameter("@ID", SqlDbType.VarChar,32),
+					new SqlParameter("@DEVICE_NAME", SqlDbType.VarChar,50),
+					new SqlParameter("@DEVICE_TYPE", SqlDbType.Int,4),
+					new SqlParameter("@DEVICE_IMG", SqlDbType.VarChar,50),
+					new SqlParameter("@DEVICE_CATEGORIES", SqlDbType.Int,4),
+					new SqlParameter("@SINGLE_FLAG", SqlDbType.Int,4),
+					new SqlParameter("@MASTER_FLAG", SqlDbType.Int,4),
+					new SqlParameter("@VIDEO_FLAG", SqlDbType.Int,4)};
 			parameters[0].Value = model.ID;
 			parameters[1].Value = model.DEVICE_NAME;
 			parameters[2].Value = model.DEVICE_TYPE;
@@ -91,23 +91,23 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("update PBA_DEVICE_MANAGER set ");
-			strSql.Append("DEVICE_NAME=SQL2012DEVICE_NAME,");
-			strSql.Append("DEVICE_TYPE=SQL2012DEVICE_TYPE,");
-			strSql.Append("DEVICE_IMG=SQL2012DEVICE_IMG,");
-			strSql.Append("DEVICE_CATEGORIES=SQL2012DEVICE_CATEGORIES,");
-			strSql.Append("SINGLE_FLAG=SQL2012SINGLE_FLAG,");
-			strSql.Append("MASTER_FLAG=SQL2012MASTER_FLAG,");
-			strSql.Append("VIDEO_FLAG=SQL2012VIDEO_FLAG");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append("DEVICE_NAME=@DEVICE_NAME,");
+			strSql.Append("DEVICE_TYPE=@DEVICE_TYPE,");
+			strSql.Append("DEVICE_IMG=@DEVICE_IMG,");
+			strSql.Append("DEVICE_CATEGORIES=@DEVICE_CATEGORIES,");
+			strSql.Append("SINGLE_FLAG=@SINGLE_FLAG,");
+			strSql.Append("MASTER_FLAG=@MASTER_FLAG,");
+			strSql.Append("VIDEO_FLAG=@VIDEO_FLAG");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012DEVICE_NAME", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012DEVICE_TYPE", SqlDbType.Int,4),
-					new SqlParameter("SQL2012DEVICE_IMG", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012DEVICE_CATEGORIES", SqlDbType.Int,4),
-					new SqlParameter("SQL2012SINGLE_FLAG", SqlDbType.Int,4),
-					new SqlParameter("SQL2012MASTER_FLAG", SqlDbType.Int,4),
-					new SqlParameter("SQL2012VIDEO_FLAG", SqlDbType.Int,4),
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)};
+					new SqlParameter("@DEVICE_NAME", SqlDbType.VarChar,50),
+					new SqlParameter("@DEVICE_TYPE", SqlDbType.Int,4),
+					new SqlParameter("@DEVICE_IMG", SqlDbType.VarChar,50),
+					new SqlParameter("@DEVICE_CATEGORIES", SqlDbType.Int,4),
+					new SqlParameter("@SINGLE_FLAG", SqlDbType.Int,4),
+					new SqlParameter("@MASTER_FLAG", SqlDbType.Int,4),
+					new SqlParameter("@VIDEO_FLAG", SqlDbType.Int,4),
+					new SqlParameter("@ID", SqlDbType.VarChar,32)};
 			parameters[0].Value = model.DEVICE_NAME;
 			parameters[1].Value = model.DEVICE_TYPE;
 			parameters[2].Value = model.DEVICE_IMG;
@@ -136,9 +136,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("delete from PBA_DEVICE_MANAGER ");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
@@ -179,9 +179,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select  top 1 ID,DEVICE_NAME,DEVICE_TYPE,DEVICE_IMG,DEVICE_CATEGORIES,SINGLE_FLAG,MASTER_FLAG,VIDEO_FLAG from PBA_DEVICE_MANAGER ");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			Parking.Core.Model.PBA_DEVICE_MANAGER model=new Parking.Core.Model.PBA_DEVICE_MANAGER();
@@ -331,13 +331,13 @@ namespace Parking.DBService.DAL
 		public DataSet GetList(int PageSize,int PageIndex,string strWhere)
 		{
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012tblName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012fldName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012PageSize", SqlDbType.Int),
-					new SqlParameter("SQL2012PageIndex", SqlDbType.Int),
-					new SqlParameter("SQL2012IsReCount", SqlDbType.Bit),
-					new SqlParameter("SQL2012OrderType", SqlDbType.Bit),
-					new SqlParameter("SQL2012strWhere", SqlDbType.VarChar,1000),
+					new SqlParameter("@tblName", SqlDbType.VarChar, 255),
+					new SqlParameter("@fldName", SqlDbType.VarChar, 255),
+					new SqlParameter("@PageSize", SqlDbType.Int),
+					new SqlParameter("@PageIndex", SqlDbType.Int),
+					new SqlParameter("@IsReCount", SqlDbType.Bit),
+					new SqlParameter("@OrderType", SqlDbType.Bit),
+					new SqlParameter("@strWhere", SqlDbType.VarChar,1000),
 					};
 			parameters[0].Value = "PBA_DEVICE_MANAGER";
 			parameters[1].Value = "ID";

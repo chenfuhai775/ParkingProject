@@ -37,9 +37,9 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select count(1) from UP_MSG_TYPE_DICT_INFO");
-			strSql.Append(" where MSG_TYPE=SQL2012MSG_TYPE ");
+			strSql.Append(" where MSG_TYPE=@MSG_TYPE ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012MSG_TYPE", SqlDbType.VarChar,10)			};
+					new SqlParameter("@MSG_TYPE", SqlDbType.VarChar,10)			};
 			parameters[0].Value = MSG_TYPE;
 
 			return DbHelperSQL.Exists(strSql.ToString(),parameters);
@@ -55,13 +55,13 @@ namespace Parking.DBService.DAL
 			strSql.Append("insert into UP_MSG_TYPE_DICT_INFO(");
 			strSql.Append("MSG_TYPE,MSG_NAME,MSG_REMARK,REISSUE_COUNT,REISSUE_INTERVAL)");
 			strSql.Append(" values (");
-			strSql.Append("SQL2012MSG_TYPE,SQL2012MSG_NAME,SQL2012MSG_REMARK,SQL2012REISSUE_COUNT,SQL2012REISSUE_INTERVAL)");
+			strSql.Append("@MSG_TYPE,@MSG_NAME,@MSG_REMARK,@REISSUE_COUNT,@REISSUE_INTERVAL)");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012MSG_TYPE", SqlDbType.VarChar,10),
-					new SqlParameter("SQL2012MSG_NAME", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012MSG_REMARK", SqlDbType.VarChar,1000),
-					new SqlParameter("SQL2012REISSUE_COUNT", SqlDbType.Int,4),
-					new SqlParameter("SQL2012REISSUE_INTERVAL", SqlDbType.Int,4)};
+					new SqlParameter("@MSG_TYPE", SqlDbType.VarChar,10),
+					new SqlParameter("@MSG_NAME", SqlDbType.VarChar,50),
+					new SqlParameter("@MSG_REMARK", SqlDbType.VarChar,1000),
+					new SqlParameter("@REISSUE_COUNT", SqlDbType.Int,4),
+					new SqlParameter("@REISSUE_INTERVAL", SqlDbType.Int,4)};
 			parameters[0].Value = model.MSG_TYPE;
 			parameters[1].Value = model.MSG_NAME;
 			parameters[2].Value = model.MSG_REMARK;
@@ -85,17 +85,17 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("update UP_MSG_TYPE_DICT_INFO set ");
-			strSql.Append("MSG_NAME=SQL2012MSG_NAME,");
-			strSql.Append("MSG_REMARK=SQL2012MSG_REMARK,");
-			strSql.Append("REISSUE_COUNT=SQL2012REISSUE_COUNT,");
-			strSql.Append("REISSUE_INTERVAL=SQL2012REISSUE_INTERVAL");
-			strSql.Append(" where MSG_TYPE=SQL2012MSG_TYPE ");
+			strSql.Append("MSG_NAME=@MSG_NAME,");
+			strSql.Append("MSG_REMARK=@MSG_REMARK,");
+			strSql.Append("REISSUE_COUNT=@REISSUE_COUNT,");
+			strSql.Append("REISSUE_INTERVAL=@REISSUE_INTERVAL");
+			strSql.Append(" where MSG_TYPE=@MSG_TYPE ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012MSG_NAME", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012MSG_REMARK", SqlDbType.VarChar,1000),
-					new SqlParameter("SQL2012REISSUE_COUNT", SqlDbType.Int,4),
-					new SqlParameter("SQL2012REISSUE_INTERVAL", SqlDbType.Int,4),
-					new SqlParameter("SQL2012MSG_TYPE", SqlDbType.VarChar,10)};
+					new SqlParameter("@MSG_NAME", SqlDbType.VarChar,50),
+					new SqlParameter("@MSG_REMARK", SqlDbType.VarChar,1000),
+					new SqlParameter("@REISSUE_COUNT", SqlDbType.Int,4),
+					new SqlParameter("@REISSUE_INTERVAL", SqlDbType.Int,4),
+					new SqlParameter("@MSG_TYPE", SqlDbType.VarChar,10)};
 			parameters[0].Value = model.MSG_NAME;
 			parameters[1].Value = model.MSG_REMARK;
 			parameters[2].Value = model.REISSUE_COUNT;
@@ -121,9 +121,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("delete from UP_MSG_TYPE_DICT_INFO ");
-			strSql.Append(" where MSG_TYPE=SQL2012MSG_TYPE ");
+			strSql.Append(" where MSG_TYPE=@MSG_TYPE ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012MSG_TYPE", SqlDbType.VarChar,10)			};
+					new SqlParameter("@MSG_TYPE", SqlDbType.VarChar,10)			};
 			parameters[0].Value = MSG_TYPE;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
@@ -164,9 +164,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select  top 1 MSG_TYPE,MSG_NAME,MSG_REMARK,REISSUE_COUNT,REISSUE_INTERVAL from UP_MSG_TYPE_DICT_INFO ");
-			strSql.Append(" where MSG_TYPE=SQL2012MSG_TYPE ");
+			strSql.Append(" where MSG_TYPE=@MSG_TYPE ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012MSG_TYPE", SqlDbType.VarChar,10)			};
+					new SqlParameter("@MSG_TYPE", SqlDbType.VarChar,10)			};
 			parameters[0].Value = MSG_TYPE;
 
 			Parking.Core.Model.UP_MSG_TYPE_DICT_INFO model=new Parking.Core.Model.UP_MSG_TYPE_DICT_INFO();
@@ -304,13 +304,13 @@ namespace Parking.DBService.DAL
 		public DataSet GetList(int PageSize,int PageIndex,string strWhere)
 		{
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012tblName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012fldName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012PageSize", SqlDbType.Int),
-					new SqlParameter("SQL2012PageIndex", SqlDbType.Int),
-					new SqlParameter("SQL2012IsReCount", SqlDbType.Bit),
-					new SqlParameter("SQL2012OrderType", SqlDbType.Bit),
-					new SqlParameter("SQL2012strWhere", SqlDbType.VarChar,1000),
+					new SqlParameter("@tblName", SqlDbType.VarChar, 255),
+					new SqlParameter("@fldName", SqlDbType.VarChar, 255),
+					new SqlParameter("@PageSize", SqlDbType.Int),
+					new SqlParameter("@PageIndex", SqlDbType.Int),
+					new SqlParameter("@IsReCount", SqlDbType.Bit),
+					new SqlParameter("@OrderType", SqlDbType.Bit),
+					new SqlParameter("@strWhere", SqlDbType.VarChar,1000),
 					};
 			parameters[0].Value = "UP_MSG_TYPE_DICT_INFO";
 			parameters[1].Value = "MSG_TYPE";

@@ -37,9 +37,9 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select count(1) from PBA_MERCHANT_INFO");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			return DbHelperSQL.Exists(strSql.ToString(),parameters);
@@ -55,28 +55,28 @@ namespace Parking.DBService.DAL
 			strSql.Append("insert into PBA_MERCHANT_INFO(");
 			strSql.Append("ID,MERCHANT_NAME,MERCHANT_CORPORATION,MERCHANT_CERTIFICATE_NO,MERCHANT_LOGO,MERCHANT_ADDRESS,MERCHANT_TEL,MERCHANT_CONTACTS,MERCHANT_QQ,MERCHANT_WECHART,MERCHANT_PHONE,MERCHANT_ID_CARD,MERCHANT_TYPE,MERCHANT_NATURE,MERCHANT_REPUTATION_LEVEL,MERCHANT_ENABLE,MERCHANT_CREATE_USER_NAME,MERCHANT_CREATE_TIME,MERCHANT_IS_BOND,MERCHANT_BOND)");
 			strSql.Append(" values (");
-			strSql.Append("SQL2012ID,SQL2012MERCHANT_NAME,SQL2012MERCHANT_CORPORATION,SQL2012MERCHANT_CERTIFICATE_NO,SQL2012MERCHANT_LOGO,SQL2012MERCHANT_ADDRESS,SQL2012MERCHANT_TEL,SQL2012MERCHANT_CONTACTS,SQL2012MERCHANT_QQ,SQL2012MERCHANT_WECHART,SQL2012MERCHANT_PHONE,SQL2012MERCHANT_ID_CARD,SQL2012MERCHANT_TYPE,SQL2012MERCHANT_NATURE,SQL2012MERCHANT_REPUTATION_LEVEL,SQL2012MERCHANT_ENABLE,SQL2012MERCHANT_CREATE_USER_NAME,SQL2012MERCHANT_CREATE_TIME,SQL2012MERCHANT_IS_BOND,SQL2012MERCHANT_BOND)");
+			strSql.Append("@ID,@MERCHANT_NAME,@MERCHANT_CORPORATION,@MERCHANT_CERTIFICATE_NO,@MERCHANT_LOGO,@MERCHANT_ADDRESS,@MERCHANT_TEL,@MERCHANT_CONTACTS,@MERCHANT_QQ,@MERCHANT_WECHART,@MERCHANT_PHONE,@MERCHANT_ID_CARD,@MERCHANT_TYPE,@MERCHANT_NATURE,@MERCHANT_REPUTATION_LEVEL,@MERCHANT_ENABLE,@MERCHANT_CREATE_USER_NAME,@MERCHANT_CREATE_TIME,@MERCHANT_IS_BOND,@MERCHANT_BOND)");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012MERCHANT_NAME", SqlDbType.VarChar,100),
-					new SqlParameter("SQL2012MERCHANT_CORPORATION", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012MERCHANT_CERTIFICATE_NO", SqlDbType.VarChar,100),
-					new SqlParameter("SQL2012MERCHANT_LOGO", SqlDbType.VarChar,500),
-					new SqlParameter("SQL2012MERCHANT_ADDRESS", SqlDbType.VarChar,300),
-					new SqlParameter("SQL2012MERCHANT_TEL", SqlDbType.VarChar,30),
-					new SqlParameter("SQL2012MERCHANT_CONTACTS", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012MERCHANT_QQ", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012MERCHANT_WECHART", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012MERCHANT_PHONE", SqlDbType.VarChar,20),
-					new SqlParameter("SQL2012MERCHANT_ID_CARD", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012MERCHANT_TYPE", SqlDbType.Int,4),
-					new SqlParameter("SQL2012MERCHANT_NATURE", SqlDbType.Int,4),
-					new SqlParameter("SQL2012MERCHANT_REPUTATION_LEVEL", SqlDbType.Int,4),
-					new SqlParameter("SQL2012MERCHANT_ENABLE", SqlDbType.Int,4),
-					new SqlParameter("SQL2012MERCHANT_CREATE_USER_NAME", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012MERCHANT_CREATE_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012MERCHANT_IS_BOND", SqlDbType.Int,4),
-					new SqlParameter("SQL2012MERCHANT_BOND", SqlDbType.Decimal,9)};
+					new SqlParameter("@ID", SqlDbType.VarChar,32),
+					new SqlParameter("@MERCHANT_NAME", SqlDbType.VarChar,100),
+					new SqlParameter("@MERCHANT_CORPORATION", SqlDbType.VarChar,50),
+					new SqlParameter("@MERCHANT_CERTIFICATE_NO", SqlDbType.VarChar,100),
+					new SqlParameter("@MERCHANT_LOGO", SqlDbType.VarChar,500),
+					new SqlParameter("@MERCHANT_ADDRESS", SqlDbType.VarChar,300),
+					new SqlParameter("@MERCHANT_TEL", SqlDbType.VarChar,30),
+					new SqlParameter("@MERCHANT_CONTACTS", SqlDbType.VarChar,50),
+					new SqlParameter("@MERCHANT_QQ", SqlDbType.VarChar,50),
+					new SqlParameter("@MERCHANT_WECHART", SqlDbType.VarChar,50),
+					new SqlParameter("@MERCHANT_PHONE", SqlDbType.VarChar,20),
+					new SqlParameter("@MERCHANT_ID_CARD", SqlDbType.VarChar,50),
+					new SqlParameter("@MERCHANT_TYPE", SqlDbType.Int,4),
+					new SqlParameter("@MERCHANT_NATURE", SqlDbType.Int,4),
+					new SqlParameter("@MERCHANT_REPUTATION_LEVEL", SqlDbType.Int,4),
+					new SqlParameter("@MERCHANT_ENABLE", SqlDbType.Int,4),
+					new SqlParameter("@MERCHANT_CREATE_USER_NAME", SqlDbType.VarChar,50),
+					new SqlParameter("@MERCHANT_CREATE_TIME", SqlDbType.DateTime),
+					new SqlParameter("@MERCHANT_IS_BOND", SqlDbType.Int,4),
+					new SqlParameter("@MERCHANT_BOND", SqlDbType.Decimal,9)};
 			parameters[0].Value = model.ID;
 			parameters[1].Value = model.MERCHANT_NAME;
 			parameters[2].Value = model.MERCHANT_CORPORATION;
@@ -115,47 +115,47 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("update PBA_MERCHANT_INFO set ");
-			strSql.Append("MERCHANT_NAME=SQL2012MERCHANT_NAME,");
-			strSql.Append("MERCHANT_CORPORATION=SQL2012MERCHANT_CORPORATION,");
-			strSql.Append("MERCHANT_CERTIFICATE_NO=SQL2012MERCHANT_CERTIFICATE_NO,");
-			strSql.Append("MERCHANT_LOGO=SQL2012MERCHANT_LOGO,");
-			strSql.Append("MERCHANT_ADDRESS=SQL2012MERCHANT_ADDRESS,");
-			strSql.Append("MERCHANT_TEL=SQL2012MERCHANT_TEL,");
-			strSql.Append("MERCHANT_CONTACTS=SQL2012MERCHANT_CONTACTS,");
-			strSql.Append("MERCHANT_QQ=SQL2012MERCHANT_QQ,");
-			strSql.Append("MERCHANT_WECHART=SQL2012MERCHANT_WECHART,");
-			strSql.Append("MERCHANT_PHONE=SQL2012MERCHANT_PHONE,");
-			strSql.Append("MERCHANT_ID_CARD=SQL2012MERCHANT_ID_CARD,");
-			strSql.Append("MERCHANT_TYPE=SQL2012MERCHANT_TYPE,");
-			strSql.Append("MERCHANT_NATURE=SQL2012MERCHANT_NATURE,");
-			strSql.Append("MERCHANT_REPUTATION_LEVEL=SQL2012MERCHANT_REPUTATION_LEVEL,");
-			strSql.Append("MERCHANT_ENABLE=SQL2012MERCHANT_ENABLE,");
-			strSql.Append("MERCHANT_CREATE_USER_NAME=SQL2012MERCHANT_CREATE_USER_NAME,");
-			strSql.Append("MERCHANT_CREATE_TIME=SQL2012MERCHANT_CREATE_TIME,");
-			strSql.Append("MERCHANT_IS_BOND=SQL2012MERCHANT_IS_BOND,");
-			strSql.Append("MERCHANT_BOND=SQL2012MERCHANT_BOND");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append("MERCHANT_NAME=@MERCHANT_NAME,");
+			strSql.Append("MERCHANT_CORPORATION=@MERCHANT_CORPORATION,");
+			strSql.Append("MERCHANT_CERTIFICATE_NO=@MERCHANT_CERTIFICATE_NO,");
+			strSql.Append("MERCHANT_LOGO=@MERCHANT_LOGO,");
+			strSql.Append("MERCHANT_ADDRESS=@MERCHANT_ADDRESS,");
+			strSql.Append("MERCHANT_TEL=@MERCHANT_TEL,");
+			strSql.Append("MERCHANT_CONTACTS=@MERCHANT_CONTACTS,");
+			strSql.Append("MERCHANT_QQ=@MERCHANT_QQ,");
+			strSql.Append("MERCHANT_WECHART=@MERCHANT_WECHART,");
+			strSql.Append("MERCHANT_PHONE=@MERCHANT_PHONE,");
+			strSql.Append("MERCHANT_ID_CARD=@MERCHANT_ID_CARD,");
+			strSql.Append("MERCHANT_TYPE=@MERCHANT_TYPE,");
+			strSql.Append("MERCHANT_NATURE=@MERCHANT_NATURE,");
+			strSql.Append("MERCHANT_REPUTATION_LEVEL=@MERCHANT_REPUTATION_LEVEL,");
+			strSql.Append("MERCHANT_ENABLE=@MERCHANT_ENABLE,");
+			strSql.Append("MERCHANT_CREATE_USER_NAME=@MERCHANT_CREATE_USER_NAME,");
+			strSql.Append("MERCHANT_CREATE_TIME=@MERCHANT_CREATE_TIME,");
+			strSql.Append("MERCHANT_IS_BOND=@MERCHANT_IS_BOND,");
+			strSql.Append("MERCHANT_BOND=@MERCHANT_BOND");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012MERCHANT_NAME", SqlDbType.VarChar,100),
-					new SqlParameter("SQL2012MERCHANT_CORPORATION", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012MERCHANT_CERTIFICATE_NO", SqlDbType.VarChar,100),
-					new SqlParameter("SQL2012MERCHANT_LOGO", SqlDbType.VarChar,500),
-					new SqlParameter("SQL2012MERCHANT_ADDRESS", SqlDbType.VarChar,300),
-					new SqlParameter("SQL2012MERCHANT_TEL", SqlDbType.VarChar,30),
-					new SqlParameter("SQL2012MERCHANT_CONTACTS", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012MERCHANT_QQ", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012MERCHANT_WECHART", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012MERCHANT_PHONE", SqlDbType.VarChar,20),
-					new SqlParameter("SQL2012MERCHANT_ID_CARD", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012MERCHANT_TYPE", SqlDbType.Int,4),
-					new SqlParameter("SQL2012MERCHANT_NATURE", SqlDbType.Int,4),
-					new SqlParameter("SQL2012MERCHANT_REPUTATION_LEVEL", SqlDbType.Int,4),
-					new SqlParameter("SQL2012MERCHANT_ENABLE", SqlDbType.Int,4),
-					new SqlParameter("SQL2012MERCHANT_CREATE_USER_NAME", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012MERCHANT_CREATE_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012MERCHANT_IS_BOND", SqlDbType.Int,4),
-					new SqlParameter("SQL2012MERCHANT_BOND", SqlDbType.Decimal,9),
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)};
+					new SqlParameter("@MERCHANT_NAME", SqlDbType.VarChar,100),
+					new SqlParameter("@MERCHANT_CORPORATION", SqlDbType.VarChar,50),
+					new SqlParameter("@MERCHANT_CERTIFICATE_NO", SqlDbType.VarChar,100),
+					new SqlParameter("@MERCHANT_LOGO", SqlDbType.VarChar,500),
+					new SqlParameter("@MERCHANT_ADDRESS", SqlDbType.VarChar,300),
+					new SqlParameter("@MERCHANT_TEL", SqlDbType.VarChar,30),
+					new SqlParameter("@MERCHANT_CONTACTS", SqlDbType.VarChar,50),
+					new SqlParameter("@MERCHANT_QQ", SqlDbType.VarChar,50),
+					new SqlParameter("@MERCHANT_WECHART", SqlDbType.VarChar,50),
+					new SqlParameter("@MERCHANT_PHONE", SqlDbType.VarChar,20),
+					new SqlParameter("@MERCHANT_ID_CARD", SqlDbType.VarChar,50),
+					new SqlParameter("@MERCHANT_TYPE", SqlDbType.Int,4),
+					new SqlParameter("@MERCHANT_NATURE", SqlDbType.Int,4),
+					new SqlParameter("@MERCHANT_REPUTATION_LEVEL", SqlDbType.Int,4),
+					new SqlParameter("@MERCHANT_ENABLE", SqlDbType.Int,4),
+					new SqlParameter("@MERCHANT_CREATE_USER_NAME", SqlDbType.VarChar,50),
+					new SqlParameter("@MERCHANT_CREATE_TIME", SqlDbType.DateTime),
+					new SqlParameter("@MERCHANT_IS_BOND", SqlDbType.Int,4),
+					new SqlParameter("@MERCHANT_BOND", SqlDbType.Decimal,9),
+					new SqlParameter("@ID", SqlDbType.VarChar,32)};
 			parameters[0].Value = model.MERCHANT_NAME;
 			parameters[1].Value = model.MERCHANT_CORPORATION;
 			parameters[2].Value = model.MERCHANT_CERTIFICATE_NO;
@@ -196,9 +196,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("delete from PBA_MERCHANT_INFO ");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
@@ -239,9 +239,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select  top 1 ID,MERCHANT_NAME,MERCHANT_CORPORATION,MERCHANT_CERTIFICATE_NO,MERCHANT_LOGO,MERCHANT_ADDRESS,MERCHANT_TEL,MERCHANT_CONTACTS,MERCHANT_QQ,MERCHANT_WECHART,MERCHANT_PHONE,MERCHANT_ID_CARD,MERCHANT_TYPE,MERCHANT_NATURE,MERCHANT_REPUTATION_LEVEL,MERCHANT_ENABLE,MERCHANT_CREATE_USER_NAME,MERCHANT_CREATE_TIME,MERCHANT_IS_BOND,MERCHANT_BOND from PBA_MERCHANT_INFO ");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			Parking.Core.Model.PBA_MERCHANT_INFO model=new Parking.Core.Model.PBA_MERCHANT_INFO();
@@ -439,13 +439,13 @@ namespace Parking.DBService.DAL
 		public DataSet GetList(int PageSize,int PageIndex,string strWhere)
 		{
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012tblName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012fldName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012PageSize", SqlDbType.Int),
-					new SqlParameter("SQL2012PageIndex", SqlDbType.Int),
-					new SqlParameter("SQL2012IsReCount", SqlDbType.Bit),
-					new SqlParameter("SQL2012OrderType", SqlDbType.Bit),
-					new SqlParameter("SQL2012strWhere", SqlDbType.VarChar,1000),
+					new SqlParameter("@tblName", SqlDbType.VarChar, 255),
+					new SqlParameter("@fldName", SqlDbType.VarChar, 255),
+					new SqlParameter("@PageSize", SqlDbType.Int),
+					new SqlParameter("@PageIndex", SqlDbType.Int),
+					new SqlParameter("@IsReCount", SqlDbType.Bit),
+					new SqlParameter("@OrderType", SqlDbType.Bit),
+					new SqlParameter("@strWhere", SqlDbType.VarChar,1000),
 					};
 			parameters[0].Value = "PBA_MERCHANT_INFO";
 			parameters[1].Value = "ID";

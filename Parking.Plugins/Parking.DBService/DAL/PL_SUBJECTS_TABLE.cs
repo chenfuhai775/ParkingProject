@@ -37,9 +37,9 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select count(1) from PL_SUBJECTS_TABLE");
-			strSql.Append(" where SUBJECT_CODE=SQL2012SUBJECT_CODE ");
+			strSql.Append(" where SUBJECT_CODE=@SUBJECT_CODE ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012SUBJECT_CODE", SqlDbType.VarChar,200)			};
+					new SqlParameter("@SUBJECT_CODE", SqlDbType.VarChar,200)			};
 			parameters[0].Value = SUBJECT_CODE;
 
 			return DbHelperSQL.Exists(strSql.ToString(),parameters);
@@ -55,13 +55,13 @@ namespace Parking.DBService.DAL
 			strSql.Append("insert into PL_SUBJECTS_TABLE(");
 			strSql.Append("SUBJECT_CODE,SUBJECT_NAME,SUBJECT_TYPE,CREATE_TIME,CREATE_USERID)");
 			strSql.Append(" values (");
-			strSql.Append("SQL2012SUBJECT_CODE,SQL2012SUBJECT_NAME,SQL2012SUBJECT_TYPE,SQL2012CREATE_TIME,SQL2012CREATE_USERID)");
+			strSql.Append("@SUBJECT_CODE,@SUBJECT_NAME,@SUBJECT_TYPE,@CREATE_TIME,@CREATE_USERID)");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012SUBJECT_CODE", SqlDbType.VarChar,200),
-					new SqlParameter("SQL2012SUBJECT_NAME", SqlDbType.VarChar,200),
-					new SqlParameter("SQL2012SUBJECT_TYPE", SqlDbType.Int,4),
-					new SqlParameter("SQL2012CREATE_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012CREATE_USERID", SqlDbType.VarChar,50)};
+					new SqlParameter("@SUBJECT_CODE", SqlDbType.VarChar,200),
+					new SqlParameter("@SUBJECT_NAME", SqlDbType.VarChar,200),
+					new SqlParameter("@SUBJECT_TYPE", SqlDbType.Int,4),
+					new SqlParameter("@CREATE_TIME", SqlDbType.DateTime),
+					new SqlParameter("@CREATE_USERID", SqlDbType.VarChar,50)};
 			parameters[0].Value = model.SUBJECT_CODE;
 			parameters[1].Value = model.SUBJECT_NAME;
 			parameters[2].Value = model.SUBJECT_TYPE;
@@ -85,17 +85,17 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("update PL_SUBJECTS_TABLE set ");
-			strSql.Append("SUBJECT_NAME=SQL2012SUBJECT_NAME,");
-			strSql.Append("SUBJECT_TYPE=SQL2012SUBJECT_TYPE,");
-			strSql.Append("CREATE_TIME=SQL2012CREATE_TIME,");
-			strSql.Append("CREATE_USERID=SQL2012CREATE_USERID");
-			strSql.Append(" where SUBJECT_CODE=SQL2012SUBJECT_CODE ");
+			strSql.Append("SUBJECT_NAME=@SUBJECT_NAME,");
+			strSql.Append("SUBJECT_TYPE=@SUBJECT_TYPE,");
+			strSql.Append("CREATE_TIME=@CREATE_TIME,");
+			strSql.Append("CREATE_USERID=@CREATE_USERID");
+			strSql.Append(" where SUBJECT_CODE=@SUBJECT_CODE ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012SUBJECT_NAME", SqlDbType.VarChar,200),
-					new SqlParameter("SQL2012SUBJECT_TYPE", SqlDbType.Int,4),
-					new SqlParameter("SQL2012CREATE_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012CREATE_USERID", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012SUBJECT_CODE", SqlDbType.VarChar,200)};
+					new SqlParameter("@SUBJECT_NAME", SqlDbType.VarChar,200),
+					new SqlParameter("@SUBJECT_TYPE", SqlDbType.Int,4),
+					new SqlParameter("@CREATE_TIME", SqlDbType.DateTime),
+					new SqlParameter("@CREATE_USERID", SqlDbType.VarChar,50),
+					new SqlParameter("@SUBJECT_CODE", SqlDbType.VarChar,200)};
 			parameters[0].Value = model.SUBJECT_NAME;
 			parameters[1].Value = model.SUBJECT_TYPE;
 			parameters[2].Value = model.CREATE_TIME;
@@ -121,9 +121,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("delete from PL_SUBJECTS_TABLE ");
-			strSql.Append(" where SUBJECT_CODE=SQL2012SUBJECT_CODE ");
+			strSql.Append(" where SUBJECT_CODE=@SUBJECT_CODE ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012SUBJECT_CODE", SqlDbType.VarChar,200)			};
+					new SqlParameter("@SUBJECT_CODE", SqlDbType.VarChar,200)			};
 			parameters[0].Value = SUBJECT_CODE;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
@@ -164,9 +164,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select  top 1 SUBJECT_CODE,SUBJECT_NAME,SUBJECT_TYPE,CREATE_TIME,CREATE_USERID from PL_SUBJECTS_TABLE ");
-			strSql.Append(" where SUBJECT_CODE=SQL2012SUBJECT_CODE ");
+			strSql.Append(" where SUBJECT_CODE=@SUBJECT_CODE ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012SUBJECT_CODE", SqlDbType.VarChar,200)			};
+					new SqlParameter("@SUBJECT_CODE", SqlDbType.VarChar,200)			};
 			parameters[0].Value = SUBJECT_CODE;
 
 			Parking.Core.Model.PL_SUBJECTS_TABLE model=new Parking.Core.Model.PL_SUBJECTS_TABLE();
@@ -304,13 +304,13 @@ namespace Parking.DBService.DAL
 		public DataSet GetList(int PageSize,int PageIndex,string strWhere)
 		{
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012tblName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012fldName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012PageSize", SqlDbType.Int),
-					new SqlParameter("SQL2012PageIndex", SqlDbType.Int),
-					new SqlParameter("SQL2012IsReCount", SqlDbType.Bit),
-					new SqlParameter("SQL2012OrderType", SqlDbType.Bit),
-					new SqlParameter("SQL2012strWhere", SqlDbType.VarChar,1000),
+					new SqlParameter("@tblName", SqlDbType.VarChar, 255),
+					new SqlParameter("@fldName", SqlDbType.VarChar, 255),
+					new SqlParameter("@PageSize", SqlDbType.Int),
+					new SqlParameter("@PageIndex", SqlDbType.Int),
+					new SqlParameter("@IsReCount", SqlDbType.Bit),
+					new SqlParameter("@OrderType", SqlDbType.Bit),
+					new SqlParameter("@strWhere", SqlDbType.VarChar,1000),
 					};
 			parameters[0].Value = "PL_SUBJECTS_TABLE";
 			parameters[1].Value = "SUBJECT_CODE";

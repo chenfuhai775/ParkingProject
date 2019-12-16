@@ -37,9 +37,9 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select count(1) from BAS_SYSTEM_DATA_DICT");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			return DbHelperSQL.Exists(strSql.ToString(),parameters);
@@ -55,20 +55,20 @@ namespace Parking.DBService.DAL
 			strSql.Append("insert into BAS_SYSTEM_DATA_DICT(");
 			strSql.Append("ID,BOTT_LEVEL,CREATE_BY,CREATE_TIME,LAST_UPDATE_BY,LAST_UPDATE_TIME,MODEL_KEY,MODEL_NAME,MODEL_VALUE,PARENT_MODEL_KEY,REMARK,SORT_NO)");
 			strSql.Append(" values (");
-			strSql.Append("SQL2012ID,SQL2012BOTT_LEVEL,SQL2012CREATE_BY,SQL2012CREATE_TIME,SQL2012LAST_UPDATE_BY,SQL2012LAST_UPDATE_TIME,SQL2012MODEL_KEY,SQL2012MODEL_NAME,SQL2012MODEL_VALUE,SQL2012PARENT_MODEL_KEY,SQL2012REMARK,SQL2012SORT_NO)");
+			strSql.Append("@ID,@BOTT_LEVEL,@CREATE_BY,@CREATE_TIME,@LAST_UPDATE_BY,@LAST_UPDATE_TIME,@MODEL_KEY,@MODEL_NAME,@MODEL_VALUE,@PARENT_MODEL_KEY,@REMARK,@SORT_NO)");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012BOTT_LEVEL", SqlDbType.Int,4),
-					new SqlParameter("SQL2012CREATE_BY", SqlDbType.VarChar,255),
-					new SqlParameter("SQL2012CREATE_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012LAST_UPDATE_BY", SqlDbType.VarChar,255),
-					new SqlParameter("SQL2012LAST_UPDATE_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012MODEL_KEY", SqlDbType.VarChar,255),
-					new SqlParameter("SQL2012MODEL_NAME", SqlDbType.VarChar,255),
-					new SqlParameter("SQL2012MODEL_VALUE", SqlDbType.VarChar,255),
-					new SqlParameter("SQL2012PARENT_MODEL_KEY", SqlDbType.VarChar,255),
-					new SqlParameter("SQL2012REMARK", SqlDbType.VarChar,255),
-					new SqlParameter("SQL2012SORT_NO", SqlDbType.Int,4)};
+					new SqlParameter("@ID", SqlDbType.VarChar,32),
+					new SqlParameter("@BOTT_LEVEL", SqlDbType.Int,4),
+					new SqlParameter("@CREATE_BY", SqlDbType.VarChar,255),
+					new SqlParameter("@CREATE_TIME", SqlDbType.DateTime),
+					new SqlParameter("@LAST_UPDATE_BY", SqlDbType.VarChar,255),
+					new SqlParameter("@LAST_UPDATE_TIME", SqlDbType.DateTime),
+					new SqlParameter("@MODEL_KEY", SqlDbType.VarChar,255),
+					new SqlParameter("@MODEL_NAME", SqlDbType.VarChar,255),
+					new SqlParameter("@MODEL_VALUE", SqlDbType.VarChar,255),
+					new SqlParameter("@PARENT_MODEL_KEY", SqlDbType.VarChar,255),
+					new SqlParameter("@REMARK", SqlDbType.VarChar,255),
+					new SqlParameter("@SORT_NO", SqlDbType.Int,4)};
 			parameters[0].Value = model.ID;
 			parameters[1].Value = model.BOTT_LEVEL;
 			parameters[2].Value = model.CREATE_BY;
@@ -99,31 +99,31 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("update BAS_SYSTEM_DATA_DICT set ");
-			strSql.Append("BOTT_LEVEL=SQL2012BOTT_LEVEL,");
-			strSql.Append("CREATE_BY=SQL2012CREATE_BY,");
-			strSql.Append("CREATE_TIME=SQL2012CREATE_TIME,");
-			strSql.Append("LAST_UPDATE_BY=SQL2012LAST_UPDATE_BY,");
-			strSql.Append("LAST_UPDATE_TIME=SQL2012LAST_UPDATE_TIME,");
-			strSql.Append("MODEL_KEY=SQL2012MODEL_KEY,");
-			strSql.Append("MODEL_NAME=SQL2012MODEL_NAME,");
-			strSql.Append("MODEL_VALUE=SQL2012MODEL_VALUE,");
-			strSql.Append("PARENT_MODEL_KEY=SQL2012PARENT_MODEL_KEY,");
-			strSql.Append("REMARK=SQL2012REMARK,");
-			strSql.Append("SORT_NO=SQL2012SORT_NO");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append("BOTT_LEVEL=@BOTT_LEVEL,");
+			strSql.Append("CREATE_BY=@CREATE_BY,");
+			strSql.Append("CREATE_TIME=@CREATE_TIME,");
+			strSql.Append("LAST_UPDATE_BY=@LAST_UPDATE_BY,");
+			strSql.Append("LAST_UPDATE_TIME=@LAST_UPDATE_TIME,");
+			strSql.Append("MODEL_KEY=@MODEL_KEY,");
+			strSql.Append("MODEL_NAME=@MODEL_NAME,");
+			strSql.Append("MODEL_VALUE=@MODEL_VALUE,");
+			strSql.Append("PARENT_MODEL_KEY=@PARENT_MODEL_KEY,");
+			strSql.Append("REMARK=@REMARK,");
+			strSql.Append("SORT_NO=@SORT_NO");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012BOTT_LEVEL", SqlDbType.Int,4),
-					new SqlParameter("SQL2012CREATE_BY", SqlDbType.VarChar,255),
-					new SqlParameter("SQL2012CREATE_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012LAST_UPDATE_BY", SqlDbType.VarChar,255),
-					new SqlParameter("SQL2012LAST_UPDATE_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012MODEL_KEY", SqlDbType.VarChar,255),
-					new SqlParameter("SQL2012MODEL_NAME", SqlDbType.VarChar,255),
-					new SqlParameter("SQL2012MODEL_VALUE", SqlDbType.VarChar,255),
-					new SqlParameter("SQL2012PARENT_MODEL_KEY", SqlDbType.VarChar,255),
-					new SqlParameter("SQL2012REMARK", SqlDbType.VarChar,255),
-					new SqlParameter("SQL2012SORT_NO", SqlDbType.Int,4),
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)};
+					new SqlParameter("@BOTT_LEVEL", SqlDbType.Int,4),
+					new SqlParameter("@CREATE_BY", SqlDbType.VarChar,255),
+					new SqlParameter("@CREATE_TIME", SqlDbType.DateTime),
+					new SqlParameter("@LAST_UPDATE_BY", SqlDbType.VarChar,255),
+					new SqlParameter("@LAST_UPDATE_TIME", SqlDbType.DateTime),
+					new SqlParameter("@MODEL_KEY", SqlDbType.VarChar,255),
+					new SqlParameter("@MODEL_NAME", SqlDbType.VarChar,255),
+					new SqlParameter("@MODEL_VALUE", SqlDbType.VarChar,255),
+					new SqlParameter("@PARENT_MODEL_KEY", SqlDbType.VarChar,255),
+					new SqlParameter("@REMARK", SqlDbType.VarChar,255),
+					new SqlParameter("@SORT_NO", SqlDbType.Int,4),
+					new SqlParameter("@ID", SqlDbType.VarChar,32)};
 			parameters[0].Value = model.BOTT_LEVEL;
 			parameters[1].Value = model.CREATE_BY;
 			parameters[2].Value = model.CREATE_TIME;
@@ -156,9 +156,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("delete from BAS_SYSTEM_DATA_DICT ");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
@@ -199,9 +199,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select  top 1 ID,BOTT_LEVEL,CREATE_BY,CREATE_TIME,LAST_UPDATE_BY,LAST_UPDATE_TIME,MODEL_KEY,MODEL_NAME,MODEL_VALUE,PARENT_MODEL_KEY,REMARK,SORT_NO from BAS_SYSTEM_DATA_DICT ");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			Parking.Core.Model.BAS_SYSTEM_DATA_DICT model=new Parking.Core.Model.BAS_SYSTEM_DATA_DICT();
@@ -367,13 +367,13 @@ namespace Parking.DBService.DAL
 		public DataSet GetList(int PageSize,int PageIndex,string strWhere)
 		{
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012tblName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012fldName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012PageSize", SqlDbType.Int),
-					new SqlParameter("SQL2012PageIndex", SqlDbType.Int),
-					new SqlParameter("SQL2012IsReCount", SqlDbType.Bit),
-					new SqlParameter("SQL2012OrderType", SqlDbType.Bit),
-					new SqlParameter("SQL2012strWhere", SqlDbType.VarChar,1000),
+					new SqlParameter("@tblName", SqlDbType.VarChar, 255),
+					new SqlParameter("@fldName", SqlDbType.VarChar, 255),
+					new SqlParameter("@PageSize", SqlDbType.Int),
+					new SqlParameter("@PageIndex", SqlDbType.Int),
+					new SqlParameter("@IsReCount", SqlDbType.Bit),
+					new SqlParameter("@OrderType", SqlDbType.Bit),
+					new SqlParameter("@strWhere", SqlDbType.VarChar,1000),
 					};
 			parameters[0].Value = "BAS_SYSTEM_DATA_DICT";
 			parameters[1].Value = "ID";

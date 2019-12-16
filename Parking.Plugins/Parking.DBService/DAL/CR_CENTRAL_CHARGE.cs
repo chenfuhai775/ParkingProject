@@ -37,9 +37,9 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select count(1) from CR_CENTRAL_CHARGE");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			return DbHelperSQL.Exists(strSql.ToString(),parameters);
@@ -55,18 +55,18 @@ namespace Parking.DBService.DAL
 			strSql.Append("insert into CR_CENTRAL_CHARGE(");
 			strSql.Append("ID,INOUT_RECODE_ID,CHARGE_TIME,OPERATOR_ID,BEGIN_TIME,END_TIME,PAY_METHOD,BILLING_ADDRESS,ADVANCE_MONEY,PAY_TYPE)");
 			strSql.Append(" values (");
-			strSql.Append("SQL2012ID,SQL2012INOUT_RECODE_ID,SQL2012CHARGE_TIME,SQL2012OPERATOR_ID,SQL2012BEGIN_TIME,SQL2012END_TIME,SQL2012PAY_METHOD,SQL2012BILLING_ADDRESS,SQL2012ADVANCE_MONEY,SQL2012PAY_TYPE)");
+			strSql.Append("@ID,@INOUT_RECODE_ID,@CHARGE_TIME,@OPERATOR_ID,@BEGIN_TIME,@END_TIME,@PAY_METHOD,@BILLING_ADDRESS,@ADVANCE_MONEY,@PAY_TYPE)");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012INOUT_RECODE_ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012CHARGE_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012OPERATOR_ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012BEGIN_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012END_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012PAY_METHOD", SqlDbType.Int,4),
-					new SqlParameter("SQL2012BILLING_ADDRESS", SqlDbType.VarChar,500),
-					new SqlParameter("SQL2012ADVANCE_MONEY", SqlDbType.Decimal,9),
-					new SqlParameter("SQL2012PAY_TYPE", SqlDbType.Int,4)};
+					new SqlParameter("@ID", SqlDbType.VarChar,32),
+					new SqlParameter("@INOUT_RECODE_ID", SqlDbType.VarChar,32),
+					new SqlParameter("@CHARGE_TIME", SqlDbType.DateTime),
+					new SqlParameter("@OPERATOR_ID", SqlDbType.VarChar,32),
+					new SqlParameter("@BEGIN_TIME", SqlDbType.DateTime),
+					new SqlParameter("@END_TIME", SqlDbType.DateTime),
+					new SqlParameter("@PAY_METHOD", SqlDbType.Int,4),
+					new SqlParameter("@BILLING_ADDRESS", SqlDbType.VarChar,500),
+					new SqlParameter("@ADVANCE_MONEY", SqlDbType.Decimal,9),
+					new SqlParameter("@PAY_TYPE", SqlDbType.Int,4)};
 			parameters[0].Value = model.ID;
 			parameters[1].Value = model.INOUT_RECODE_ID;
 			parameters[2].Value = model.CHARGE_TIME;
@@ -95,27 +95,27 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("update CR_CENTRAL_CHARGE set ");
-			strSql.Append("INOUT_RECODE_ID=SQL2012INOUT_RECODE_ID,");
-			strSql.Append("CHARGE_TIME=SQL2012CHARGE_TIME,");
-			strSql.Append("OPERATOR_ID=SQL2012OPERATOR_ID,");
-			strSql.Append("BEGIN_TIME=SQL2012BEGIN_TIME,");
-			strSql.Append("END_TIME=SQL2012END_TIME,");
-			strSql.Append("PAY_METHOD=SQL2012PAY_METHOD,");
-			strSql.Append("BILLING_ADDRESS=SQL2012BILLING_ADDRESS,");
-			strSql.Append("ADVANCE_MONEY=SQL2012ADVANCE_MONEY,");
-			strSql.Append("PAY_TYPE=SQL2012PAY_TYPE");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append("INOUT_RECODE_ID=@INOUT_RECODE_ID,");
+			strSql.Append("CHARGE_TIME=@CHARGE_TIME,");
+			strSql.Append("OPERATOR_ID=@OPERATOR_ID,");
+			strSql.Append("BEGIN_TIME=@BEGIN_TIME,");
+			strSql.Append("END_TIME=@END_TIME,");
+			strSql.Append("PAY_METHOD=@PAY_METHOD,");
+			strSql.Append("BILLING_ADDRESS=@BILLING_ADDRESS,");
+			strSql.Append("ADVANCE_MONEY=@ADVANCE_MONEY,");
+			strSql.Append("PAY_TYPE=@PAY_TYPE");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012INOUT_RECODE_ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012CHARGE_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012OPERATOR_ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012BEGIN_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012END_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012PAY_METHOD", SqlDbType.Int,4),
-					new SqlParameter("SQL2012BILLING_ADDRESS", SqlDbType.VarChar,500),
-					new SqlParameter("SQL2012ADVANCE_MONEY", SqlDbType.Decimal,9),
-					new SqlParameter("SQL2012PAY_TYPE", SqlDbType.Int,4),
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)};
+					new SqlParameter("@INOUT_RECODE_ID", SqlDbType.VarChar,32),
+					new SqlParameter("@CHARGE_TIME", SqlDbType.DateTime),
+					new SqlParameter("@OPERATOR_ID", SqlDbType.VarChar,32),
+					new SqlParameter("@BEGIN_TIME", SqlDbType.DateTime),
+					new SqlParameter("@END_TIME", SqlDbType.DateTime),
+					new SqlParameter("@PAY_METHOD", SqlDbType.Int,4),
+					new SqlParameter("@BILLING_ADDRESS", SqlDbType.VarChar,500),
+					new SqlParameter("@ADVANCE_MONEY", SqlDbType.Decimal,9),
+					new SqlParameter("@PAY_TYPE", SqlDbType.Int,4),
+					new SqlParameter("@ID", SqlDbType.VarChar,32)};
 			parameters[0].Value = model.INOUT_RECODE_ID;
 			parameters[1].Value = model.CHARGE_TIME;
 			parameters[2].Value = model.OPERATOR_ID;
@@ -146,9 +146,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("delete from CR_CENTRAL_CHARGE ");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
@@ -189,9 +189,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select  top 1 ID,INOUT_RECODE_ID,CHARGE_TIME,OPERATOR_ID,BEGIN_TIME,END_TIME,PAY_METHOD,BILLING_ADDRESS,ADVANCE_MONEY,PAY_TYPE from CR_CENTRAL_CHARGE ");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			Parking.Core.Model.CR_CENTRAL_CHARGE model=new Parking.Core.Model.CR_CENTRAL_CHARGE();
@@ -349,13 +349,13 @@ namespace Parking.DBService.DAL
 		public DataSet GetList(int PageSize,int PageIndex,string strWhere)
 		{
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012tblName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012fldName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012PageSize", SqlDbType.Int),
-					new SqlParameter("SQL2012PageIndex", SqlDbType.Int),
-					new SqlParameter("SQL2012IsReCount", SqlDbType.Bit),
-					new SqlParameter("SQL2012OrderType", SqlDbType.Bit),
-					new SqlParameter("SQL2012strWhere", SqlDbType.VarChar,1000),
+					new SqlParameter("@tblName", SqlDbType.VarChar, 255),
+					new SqlParameter("@fldName", SqlDbType.VarChar, 255),
+					new SqlParameter("@PageSize", SqlDbType.Int),
+					new SqlParameter("@PageIndex", SqlDbType.Int),
+					new SqlParameter("@IsReCount", SqlDbType.Bit),
+					new SqlParameter("@OrderType", SqlDbType.Bit),
+					new SqlParameter("@strWhere", SqlDbType.VarChar,1000),
 					};
 			parameters[0].Value = "CR_CENTRAL_CHARGE";
 			parameters[1].Value = "ID";

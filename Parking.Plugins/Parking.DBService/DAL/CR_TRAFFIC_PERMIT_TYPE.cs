@@ -37,9 +37,9 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select count(1) from CR_TRAFFIC_PERMIT_TYPE");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			return DbHelperSQL.Exists(strSql.ToString(),parameters);
@@ -55,21 +55,21 @@ namespace Parking.DBService.DAL
 			strSql.Append("insert into CR_TRAFFIC_PERMIT_TYPE(");
 			strSql.Append("ID,ACCESS_CHANNEL_CODE,ACCESS_PERMISSIONS,CHARGE_TYPE_CODE,CREATE_TIME,CREATE_USERID,IDENTITY_NAME,IS_ENABLE,PAY_MONEY,TRAFFIC_PERMIT_NAME,TRAFFIC_PERMIT_TYPE,UPDATE_TIME,UPDATE_USERID)");
 			strSql.Append(" values (");
-			strSql.Append("SQL2012ID,SQL2012ACCESS_CHANNEL_CODE,SQL2012ACCESS_PERMISSIONS,SQL2012CHARGE_TYPE_CODE,SQL2012CREATE_TIME,SQL2012CREATE_USERID,SQL2012IDENTITY_NAME,SQL2012IS_ENABLE,SQL2012PAY_MONEY,SQL2012TRAFFIC_PERMIT_NAME,SQL2012TRAFFIC_PERMIT_TYPE,SQL2012UPDATE_TIME,SQL2012UPDATE_USERID)");
+			strSql.Append("@ID,@ACCESS_CHANNEL_CODE,@ACCESS_PERMISSIONS,@CHARGE_TYPE_CODE,@CREATE_TIME,@CREATE_USERID,@IDENTITY_NAME,@IS_ENABLE,@PAY_MONEY,@TRAFFIC_PERMIT_NAME,@TRAFFIC_PERMIT_TYPE,@UPDATE_TIME,@UPDATE_USERID)");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012ACCESS_CHANNEL_CODE", SqlDbType.VarChar,500),
-					new SqlParameter("SQL2012ACCESS_PERMISSIONS", SqlDbType.VarChar,128),
-					new SqlParameter("SQL2012CHARGE_TYPE_CODE", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012CREATE_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012CREATE_USERID", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012IDENTITY_NAME", SqlDbType.VarChar,20),
-					new SqlParameter("SQL2012IS_ENABLE", SqlDbType.Int,4),
-					new SqlParameter("SQL2012PAY_MONEY", SqlDbType.Float,8),
-					new SqlParameter("SQL2012TRAFFIC_PERMIT_NAME", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012TRAFFIC_PERMIT_TYPE", SqlDbType.Int,4),
-					new SqlParameter("SQL2012UPDATE_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012UPDATE_USERID", SqlDbType.VarChar,50)};
+					new SqlParameter("@ID", SqlDbType.VarChar,32),
+					new SqlParameter("@ACCESS_CHANNEL_CODE", SqlDbType.VarChar,500),
+					new SqlParameter("@ACCESS_PERMISSIONS", SqlDbType.VarChar,128),
+					new SqlParameter("@CHARGE_TYPE_CODE", SqlDbType.VarChar,50),
+					new SqlParameter("@CREATE_TIME", SqlDbType.DateTime),
+					new SqlParameter("@CREATE_USERID", SqlDbType.VarChar,50),
+					new SqlParameter("@IDENTITY_NAME", SqlDbType.VarChar,20),
+					new SqlParameter("@IS_ENABLE", SqlDbType.Int,4),
+					new SqlParameter("@PAY_MONEY", SqlDbType.Float,8),
+					new SqlParameter("@TRAFFIC_PERMIT_NAME", SqlDbType.VarChar,50),
+					new SqlParameter("@TRAFFIC_PERMIT_TYPE", SqlDbType.Int,4),
+					new SqlParameter("@UPDATE_TIME", SqlDbType.DateTime),
+					new SqlParameter("@UPDATE_USERID", SqlDbType.VarChar,50)};
 			parameters[0].Value = model.ID;
 			parameters[1].Value = model.ACCESS_CHANNEL_CODE;
 			parameters[2].Value = model.ACCESS_PERMISSIONS;
@@ -101,33 +101,33 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("update CR_TRAFFIC_PERMIT_TYPE set ");
-			strSql.Append("ACCESS_CHANNEL_CODE=SQL2012ACCESS_CHANNEL_CODE,");
-			strSql.Append("ACCESS_PERMISSIONS=SQL2012ACCESS_PERMISSIONS,");
-			strSql.Append("CHARGE_TYPE_CODE=SQL2012CHARGE_TYPE_CODE,");
-			strSql.Append("CREATE_TIME=SQL2012CREATE_TIME,");
-			strSql.Append("CREATE_USERID=SQL2012CREATE_USERID,");
-			strSql.Append("IDENTITY_NAME=SQL2012IDENTITY_NAME,");
-			strSql.Append("IS_ENABLE=SQL2012IS_ENABLE,");
-			strSql.Append("PAY_MONEY=SQL2012PAY_MONEY,");
-			strSql.Append("TRAFFIC_PERMIT_NAME=SQL2012TRAFFIC_PERMIT_NAME,");
-			strSql.Append("TRAFFIC_PERMIT_TYPE=SQL2012TRAFFIC_PERMIT_TYPE,");
-			strSql.Append("UPDATE_TIME=SQL2012UPDATE_TIME,");
-			strSql.Append("UPDATE_USERID=SQL2012UPDATE_USERID");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append("ACCESS_CHANNEL_CODE=@ACCESS_CHANNEL_CODE,");
+			strSql.Append("ACCESS_PERMISSIONS=@ACCESS_PERMISSIONS,");
+			strSql.Append("CHARGE_TYPE_CODE=@CHARGE_TYPE_CODE,");
+			strSql.Append("CREATE_TIME=@CREATE_TIME,");
+			strSql.Append("CREATE_USERID=@CREATE_USERID,");
+			strSql.Append("IDENTITY_NAME=@IDENTITY_NAME,");
+			strSql.Append("IS_ENABLE=@IS_ENABLE,");
+			strSql.Append("PAY_MONEY=@PAY_MONEY,");
+			strSql.Append("TRAFFIC_PERMIT_NAME=@TRAFFIC_PERMIT_NAME,");
+			strSql.Append("TRAFFIC_PERMIT_TYPE=@TRAFFIC_PERMIT_TYPE,");
+			strSql.Append("UPDATE_TIME=@UPDATE_TIME,");
+			strSql.Append("UPDATE_USERID=@UPDATE_USERID");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ACCESS_CHANNEL_CODE", SqlDbType.VarChar,500),
-					new SqlParameter("SQL2012ACCESS_PERMISSIONS", SqlDbType.VarChar,128),
-					new SqlParameter("SQL2012CHARGE_TYPE_CODE", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012CREATE_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012CREATE_USERID", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012IDENTITY_NAME", SqlDbType.VarChar,20),
-					new SqlParameter("SQL2012IS_ENABLE", SqlDbType.Int,4),
-					new SqlParameter("SQL2012PAY_MONEY", SqlDbType.Float,8),
-					new SqlParameter("SQL2012TRAFFIC_PERMIT_NAME", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012TRAFFIC_PERMIT_TYPE", SqlDbType.Int,4),
-					new SqlParameter("SQL2012UPDATE_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012UPDATE_USERID", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)};
+					new SqlParameter("@ACCESS_CHANNEL_CODE", SqlDbType.VarChar,500),
+					new SqlParameter("@ACCESS_PERMISSIONS", SqlDbType.VarChar,128),
+					new SqlParameter("@CHARGE_TYPE_CODE", SqlDbType.VarChar,50),
+					new SqlParameter("@CREATE_TIME", SqlDbType.DateTime),
+					new SqlParameter("@CREATE_USERID", SqlDbType.VarChar,50),
+					new SqlParameter("@IDENTITY_NAME", SqlDbType.VarChar,20),
+					new SqlParameter("@IS_ENABLE", SqlDbType.Int,4),
+					new SqlParameter("@PAY_MONEY", SqlDbType.Float,8),
+					new SqlParameter("@TRAFFIC_PERMIT_NAME", SqlDbType.VarChar,50),
+					new SqlParameter("@TRAFFIC_PERMIT_TYPE", SqlDbType.Int,4),
+					new SqlParameter("@UPDATE_TIME", SqlDbType.DateTime),
+					new SqlParameter("@UPDATE_USERID", SqlDbType.VarChar,50),
+					new SqlParameter("@ID", SqlDbType.VarChar,32)};
 			parameters[0].Value = model.ACCESS_CHANNEL_CODE;
 			parameters[1].Value = model.ACCESS_PERMISSIONS;
 			parameters[2].Value = model.CHARGE_TYPE_CODE;
@@ -161,9 +161,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("delete from CR_TRAFFIC_PERMIT_TYPE ");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
@@ -204,9 +204,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select  top 1 ID,ACCESS_CHANNEL_CODE,ACCESS_PERMISSIONS,CHARGE_TYPE_CODE,CREATE_TIME,CREATE_USERID,IDENTITY_NAME,IS_ENABLE,PAY_MONEY,TRAFFIC_PERMIT_NAME,TRAFFIC_PERMIT_TYPE,UPDATE_TIME,UPDATE_USERID from CR_TRAFFIC_PERMIT_TYPE ");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			Parking.Core.Model.CR_TRAFFIC_PERMIT_TYPE model=new Parking.Core.Model.CR_TRAFFIC_PERMIT_TYPE();
@@ -376,13 +376,13 @@ namespace Parking.DBService.DAL
 		public DataSet GetList(int PageSize,int PageIndex,string strWhere)
 		{
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012tblName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012fldName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012PageSize", SqlDbType.Int),
-					new SqlParameter("SQL2012PageIndex", SqlDbType.Int),
-					new SqlParameter("SQL2012IsReCount", SqlDbType.Bit),
-					new SqlParameter("SQL2012OrderType", SqlDbType.Bit),
-					new SqlParameter("SQL2012strWhere", SqlDbType.VarChar,1000),
+					new SqlParameter("@tblName", SqlDbType.VarChar, 255),
+					new SqlParameter("@fldName", SqlDbType.VarChar, 255),
+					new SqlParameter("@PageSize", SqlDbType.Int),
+					new SqlParameter("@PageIndex", SqlDbType.Int),
+					new SqlParameter("@IsReCount", SqlDbType.Bit),
+					new SqlParameter("@OrderType", SqlDbType.Bit),
+					new SqlParameter("@strWhere", SqlDbType.VarChar,1000),
 					};
 			parameters[0].Value = "CR_TRAFFIC_PERMIT_TYPE";
 			parameters[1].Value = "ID";

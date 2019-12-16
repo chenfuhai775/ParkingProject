@@ -37,9 +37,9 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select count(1) from PBA_SUB_ORDER_INFO");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			return DbHelperSQL.Exists(strSql.ToString(),parameters);
@@ -55,21 +55,21 @@ namespace Parking.DBService.DAL
 			strSql.Append("insert into PBA_SUB_ORDER_INFO(");
 			strSql.Append("ID,SUBSCRIBE_CODE,USER_NAME,SYSTEM_CODE,SYSTEM_NAME,BEGIN_TIME,END_TIME,CHARGE_MONEY,SPACECODE,VEHICLE_NO,SUBSCRIBE_STATUS,REMARK,UNIQUE_IDENTIFIER)");
 			strSql.Append(" values (");
-			strSql.Append("SQL2012ID,SQL2012SUBSCRIBE_CODE,SQL2012USER_NAME,SQL2012SYSTEM_CODE,SQL2012SYSTEM_NAME,SQL2012BEGIN_TIME,SQL2012END_TIME,SQL2012CHARGE_MONEY,SQL2012SPACECODE,SQL2012VEHICLE_NO,SQL2012SUBSCRIBE_STATUS,SQL2012REMARK,SQL2012UNIQUE_IDENTIFIER)");
+			strSql.Append("@ID,@SUBSCRIBE_CODE,@USER_NAME,@SYSTEM_CODE,@SYSTEM_NAME,@BEGIN_TIME,@END_TIME,@CHARGE_MONEY,@SPACECODE,@VEHICLE_NO,@SUBSCRIBE_STATUS,@REMARK,@UNIQUE_IDENTIFIER)");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012SUBSCRIBE_CODE", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012USER_NAME", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012SYSTEM_CODE", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012SYSTEM_NAME", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012BEGIN_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012END_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012CHARGE_MONEY", SqlDbType.Decimal,9),
-					new SqlParameter("SQL2012SPACECODE", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012VEHICLE_NO", SqlDbType.VarChar,20),
-					new SqlParameter("SQL2012SUBSCRIBE_STATUS", SqlDbType.Int,4),
-					new SqlParameter("SQL2012REMARK", SqlDbType.VarChar,2000),
-					new SqlParameter("SQL2012UNIQUE_IDENTIFIER", SqlDbType.VarChar,100)};
+					new SqlParameter("@ID", SqlDbType.VarChar,32),
+					new SqlParameter("@SUBSCRIBE_CODE", SqlDbType.VarChar,50),
+					new SqlParameter("@USER_NAME", SqlDbType.VarChar,50),
+					new SqlParameter("@SYSTEM_CODE", SqlDbType.VarChar,50),
+					new SqlParameter("@SYSTEM_NAME", SqlDbType.VarChar,50),
+					new SqlParameter("@BEGIN_TIME", SqlDbType.DateTime),
+					new SqlParameter("@END_TIME", SqlDbType.DateTime),
+					new SqlParameter("@CHARGE_MONEY", SqlDbType.Decimal,9),
+					new SqlParameter("@SPACECODE", SqlDbType.VarChar,50),
+					new SqlParameter("@VEHICLE_NO", SqlDbType.VarChar,20),
+					new SqlParameter("@SUBSCRIBE_STATUS", SqlDbType.Int,4),
+					new SqlParameter("@REMARK", SqlDbType.VarChar,2000),
+					new SqlParameter("@UNIQUE_IDENTIFIER", SqlDbType.VarChar,100)};
 			parameters[0].Value = model.ID;
 			parameters[1].Value = model.SUBSCRIBE_CODE;
 			parameters[2].Value = model.USER_NAME;
@@ -101,33 +101,33 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("update PBA_SUB_ORDER_INFO set ");
-			strSql.Append("SUBSCRIBE_CODE=SQL2012SUBSCRIBE_CODE,");
-			strSql.Append("USER_NAME=SQL2012USER_NAME,");
-			strSql.Append("SYSTEM_CODE=SQL2012SYSTEM_CODE,");
-			strSql.Append("SYSTEM_NAME=SQL2012SYSTEM_NAME,");
-			strSql.Append("BEGIN_TIME=SQL2012BEGIN_TIME,");
-			strSql.Append("END_TIME=SQL2012END_TIME,");
-			strSql.Append("CHARGE_MONEY=SQL2012CHARGE_MONEY,");
-			strSql.Append("SPACECODE=SQL2012SPACECODE,");
-			strSql.Append("VEHICLE_NO=SQL2012VEHICLE_NO,");
-			strSql.Append("SUBSCRIBE_STATUS=SQL2012SUBSCRIBE_STATUS,");
-			strSql.Append("REMARK=SQL2012REMARK,");
-			strSql.Append("UNIQUE_IDENTIFIER=SQL2012UNIQUE_IDENTIFIER");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append("SUBSCRIBE_CODE=@SUBSCRIBE_CODE,");
+			strSql.Append("USER_NAME=@USER_NAME,");
+			strSql.Append("SYSTEM_CODE=@SYSTEM_CODE,");
+			strSql.Append("SYSTEM_NAME=@SYSTEM_NAME,");
+			strSql.Append("BEGIN_TIME=@BEGIN_TIME,");
+			strSql.Append("END_TIME=@END_TIME,");
+			strSql.Append("CHARGE_MONEY=@CHARGE_MONEY,");
+			strSql.Append("SPACECODE=@SPACECODE,");
+			strSql.Append("VEHICLE_NO=@VEHICLE_NO,");
+			strSql.Append("SUBSCRIBE_STATUS=@SUBSCRIBE_STATUS,");
+			strSql.Append("REMARK=@REMARK,");
+			strSql.Append("UNIQUE_IDENTIFIER=@UNIQUE_IDENTIFIER");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012SUBSCRIBE_CODE", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012USER_NAME", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012SYSTEM_CODE", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012SYSTEM_NAME", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012BEGIN_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012END_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012CHARGE_MONEY", SqlDbType.Decimal,9),
-					new SqlParameter("SQL2012SPACECODE", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012VEHICLE_NO", SqlDbType.VarChar,20),
-					new SqlParameter("SQL2012SUBSCRIBE_STATUS", SqlDbType.Int,4),
-					new SqlParameter("SQL2012REMARK", SqlDbType.VarChar,2000),
-					new SqlParameter("SQL2012UNIQUE_IDENTIFIER", SqlDbType.VarChar,100),
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)};
+					new SqlParameter("@SUBSCRIBE_CODE", SqlDbType.VarChar,50),
+					new SqlParameter("@USER_NAME", SqlDbType.VarChar,50),
+					new SqlParameter("@SYSTEM_CODE", SqlDbType.VarChar,50),
+					new SqlParameter("@SYSTEM_NAME", SqlDbType.VarChar,50),
+					new SqlParameter("@BEGIN_TIME", SqlDbType.DateTime),
+					new SqlParameter("@END_TIME", SqlDbType.DateTime),
+					new SqlParameter("@CHARGE_MONEY", SqlDbType.Decimal,9),
+					new SqlParameter("@SPACECODE", SqlDbType.VarChar,50),
+					new SqlParameter("@VEHICLE_NO", SqlDbType.VarChar,20),
+					new SqlParameter("@SUBSCRIBE_STATUS", SqlDbType.Int,4),
+					new SqlParameter("@REMARK", SqlDbType.VarChar,2000),
+					new SqlParameter("@UNIQUE_IDENTIFIER", SqlDbType.VarChar,100),
+					new SqlParameter("@ID", SqlDbType.VarChar,32)};
 			parameters[0].Value = model.SUBSCRIBE_CODE;
 			parameters[1].Value = model.USER_NAME;
 			parameters[2].Value = model.SYSTEM_CODE;
@@ -161,9 +161,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("delete from PBA_SUB_ORDER_INFO ");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
@@ -204,9 +204,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select  top 1 ID,SUBSCRIBE_CODE,USER_NAME,SYSTEM_CODE,SYSTEM_NAME,BEGIN_TIME,END_TIME,CHARGE_MONEY,SPACECODE,VEHICLE_NO,SUBSCRIBE_STATUS,REMARK,UNIQUE_IDENTIFIER from PBA_SUB_ORDER_INFO ");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			Parking.Core.Model.PBA_SUB_ORDER_INFO model=new Parking.Core.Model.PBA_SUB_ORDER_INFO();
@@ -376,13 +376,13 @@ namespace Parking.DBService.DAL
 		public DataSet GetList(int PageSize,int PageIndex,string strWhere)
 		{
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012tblName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012fldName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012PageSize", SqlDbType.Int),
-					new SqlParameter("SQL2012PageIndex", SqlDbType.Int),
-					new SqlParameter("SQL2012IsReCount", SqlDbType.Bit),
-					new SqlParameter("SQL2012OrderType", SqlDbType.Bit),
-					new SqlParameter("SQL2012strWhere", SqlDbType.VarChar,1000),
+					new SqlParameter("@tblName", SqlDbType.VarChar, 255),
+					new SqlParameter("@fldName", SqlDbType.VarChar, 255),
+					new SqlParameter("@PageSize", SqlDbType.Int),
+					new SqlParameter("@PageIndex", SqlDbType.Int),
+					new SqlParameter("@IsReCount", SqlDbType.Bit),
+					new SqlParameter("@OrderType", SqlDbType.Bit),
+					new SqlParameter("@strWhere", SqlDbType.VarChar,1000),
 					};
 			parameters[0].Value = "PBA_SUB_ORDER_INFO";
 			parameters[1].Value = "ID";

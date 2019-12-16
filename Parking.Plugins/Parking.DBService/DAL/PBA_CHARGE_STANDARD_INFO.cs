@@ -37,9 +37,9 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select count(1) from PBA_CHARGE_STANDARD_INFO");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			return DbHelperSQL.Exists(strSql.ToString(),parameters);
@@ -55,17 +55,17 @@ namespace Parking.DBService.DAL
 			strSql.Append("insert into PBA_CHARGE_STANDARD_INFO(");
 			strSql.Append("ID,DISPLAY_KEY,DISPLAY_VALUE,STANDARD_GROUPING,GROUPING_CODE,UPDATE_TIME,UPDATE_USERID,GROUP_LEVEL,CHARGE_TYPE_CODE)");
 			strSql.Append(" values (");
-			strSql.Append("SQL2012ID,SQL2012DISPLAY_KEY,SQL2012DISPLAY_VALUE,SQL2012STANDARD_GROUPING,SQL2012GROUPING_CODE,SQL2012UPDATE_TIME,SQL2012UPDATE_USERID,SQL2012GROUP_LEVEL,SQL2012CHARGE_TYPE_CODE)");
+			strSql.Append("@ID,@DISPLAY_KEY,@DISPLAY_VALUE,@STANDARD_GROUPING,@GROUPING_CODE,@UPDATE_TIME,@UPDATE_USERID,@GROUP_LEVEL,@CHARGE_TYPE_CODE)");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012DISPLAY_KEY", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012DISPLAY_VALUE", SqlDbType.VarChar,4000),
-					new SqlParameter("SQL2012STANDARD_GROUPING", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012GROUPING_CODE", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012UPDATE_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012UPDATE_USERID", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012GROUP_LEVEL", SqlDbType.Int,4),
-					new SqlParameter("SQL2012CHARGE_TYPE_CODE", SqlDbType.VarChar,50)};
+					new SqlParameter("@ID", SqlDbType.VarChar,32),
+					new SqlParameter("@DISPLAY_KEY", SqlDbType.VarChar,50),
+					new SqlParameter("@DISPLAY_VALUE", SqlDbType.VarChar,4000),
+					new SqlParameter("@STANDARD_GROUPING", SqlDbType.VarChar,50),
+					new SqlParameter("@GROUPING_CODE", SqlDbType.VarChar,50),
+					new SqlParameter("@UPDATE_TIME", SqlDbType.DateTime),
+					new SqlParameter("@UPDATE_USERID", SqlDbType.VarChar,50),
+					new SqlParameter("@GROUP_LEVEL", SqlDbType.Int,4),
+					new SqlParameter("@CHARGE_TYPE_CODE", SqlDbType.VarChar,50)};
 			parameters[0].Value = model.ID;
 			parameters[1].Value = model.DISPLAY_KEY;
 			parameters[2].Value = model.DISPLAY_VALUE;
@@ -93,25 +93,25 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("update PBA_CHARGE_STANDARD_INFO set ");
-			strSql.Append("DISPLAY_KEY=SQL2012DISPLAY_KEY,");
-			strSql.Append("DISPLAY_VALUE=SQL2012DISPLAY_VALUE,");
-			strSql.Append("STANDARD_GROUPING=SQL2012STANDARD_GROUPING,");
-			strSql.Append("GROUPING_CODE=SQL2012GROUPING_CODE,");
-			strSql.Append("UPDATE_TIME=SQL2012UPDATE_TIME,");
-			strSql.Append("UPDATE_USERID=SQL2012UPDATE_USERID,");
-			strSql.Append("GROUP_LEVEL=SQL2012GROUP_LEVEL,");
-			strSql.Append("CHARGE_TYPE_CODE=SQL2012CHARGE_TYPE_CODE");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append("DISPLAY_KEY=@DISPLAY_KEY,");
+			strSql.Append("DISPLAY_VALUE=@DISPLAY_VALUE,");
+			strSql.Append("STANDARD_GROUPING=@STANDARD_GROUPING,");
+			strSql.Append("GROUPING_CODE=@GROUPING_CODE,");
+			strSql.Append("UPDATE_TIME=@UPDATE_TIME,");
+			strSql.Append("UPDATE_USERID=@UPDATE_USERID,");
+			strSql.Append("GROUP_LEVEL=@GROUP_LEVEL,");
+			strSql.Append("CHARGE_TYPE_CODE=@CHARGE_TYPE_CODE");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012DISPLAY_KEY", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012DISPLAY_VALUE", SqlDbType.VarChar,4000),
-					new SqlParameter("SQL2012STANDARD_GROUPING", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012GROUPING_CODE", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012UPDATE_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012UPDATE_USERID", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012GROUP_LEVEL", SqlDbType.Int,4),
-					new SqlParameter("SQL2012CHARGE_TYPE_CODE", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)};
+					new SqlParameter("@DISPLAY_KEY", SqlDbType.VarChar,50),
+					new SqlParameter("@DISPLAY_VALUE", SqlDbType.VarChar,4000),
+					new SqlParameter("@STANDARD_GROUPING", SqlDbType.VarChar,50),
+					new SqlParameter("@GROUPING_CODE", SqlDbType.VarChar,50),
+					new SqlParameter("@UPDATE_TIME", SqlDbType.DateTime),
+					new SqlParameter("@UPDATE_USERID", SqlDbType.VarChar,50),
+					new SqlParameter("@GROUP_LEVEL", SqlDbType.Int,4),
+					new SqlParameter("@CHARGE_TYPE_CODE", SqlDbType.VarChar,50),
+					new SqlParameter("@ID", SqlDbType.VarChar,32)};
 			parameters[0].Value = model.DISPLAY_KEY;
 			parameters[1].Value = model.DISPLAY_VALUE;
 			parameters[2].Value = model.STANDARD_GROUPING;
@@ -141,9 +141,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("delete from PBA_CHARGE_STANDARD_INFO ");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
@@ -184,9 +184,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select  top 1 ID,DISPLAY_KEY,DISPLAY_VALUE,STANDARD_GROUPING,GROUPING_CODE,UPDATE_TIME,UPDATE_USERID,GROUP_LEVEL,CHARGE_TYPE_CODE from PBA_CHARGE_STANDARD_INFO ");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			Parking.Core.Model.PBA_CHARGE_STANDARD_INFO model=new Parking.Core.Model.PBA_CHARGE_STANDARD_INFO();
@@ -340,13 +340,13 @@ namespace Parking.DBService.DAL
 		public DataSet GetList(int PageSize,int PageIndex,string strWhere)
 		{
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012tblName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012fldName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012PageSize", SqlDbType.Int),
-					new SqlParameter("SQL2012PageIndex", SqlDbType.Int),
-					new SqlParameter("SQL2012IsReCount", SqlDbType.Bit),
-					new SqlParameter("SQL2012OrderType", SqlDbType.Bit),
-					new SqlParameter("SQL2012strWhere", SqlDbType.VarChar,1000),
+					new SqlParameter("@tblName", SqlDbType.VarChar, 255),
+					new SqlParameter("@fldName", SqlDbType.VarChar, 255),
+					new SqlParameter("@PageSize", SqlDbType.Int),
+					new SqlParameter("@PageIndex", SqlDbType.Int),
+					new SqlParameter("@IsReCount", SqlDbType.Bit),
+					new SqlParameter("@OrderType", SqlDbType.Bit),
+					new SqlParameter("@strWhere", SqlDbType.VarChar,1000),
 					};
 			parameters[0].Value = "PBA_CHARGE_STANDARD_INFO";
 			parameters[1].Value = "ID";

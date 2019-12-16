@@ -37,9 +37,9 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select count(1) from PBA_VOICE_TEMPLATE");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			return DbHelperSQL.Exists(strSql.ToString(),parameters);
@@ -55,18 +55,18 @@ namespace Parking.DBService.DAL
 			strSql.Append("insert into PBA_VOICE_TEMPLATE(");
 			strSql.Append("ID,CREATE_USER,CREATE_TIME,CUSTOM_MODEL,DEFAULT_INFO,MODEL_TYPE,REMARK,UNIT_TYPE,MODEL_TYPE_KEY,UNIT_TYPE_KEY)");
 			strSql.Append(" values (");
-			strSql.Append("SQL2012ID,SQL2012CREATE_USER,SQL2012CREATE_TIME,SQL2012CUSTOM_MODEL,SQL2012DEFAULT_INFO,SQL2012MODEL_TYPE,SQL2012REMARK,SQL2012UNIT_TYPE,SQL2012MODEL_TYPE_KEY,SQL2012UNIT_TYPE_KEY)");
+			strSql.Append("@ID,@CREATE_USER,@CREATE_TIME,@CUSTOM_MODEL,@DEFAULT_INFO,@MODEL_TYPE,@REMARK,@UNIT_TYPE,@MODEL_TYPE_KEY,@UNIT_TYPE_KEY)");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012CREATE_USER", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012CREATE_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012CUSTOM_MODEL", SqlDbType.VarChar,500),
-					new SqlParameter("SQL2012DEFAULT_INFO", SqlDbType.VarChar,500),
-					new SqlParameter("SQL2012MODEL_TYPE", SqlDbType.Int,4),
-					new SqlParameter("SQL2012REMARK", SqlDbType.VarChar,1000),
-					new SqlParameter("SQL2012UNIT_TYPE", SqlDbType.Int,4),
-					new SqlParameter("SQL2012MODEL_TYPE_KEY", SqlDbType.VarChar,100),
-					new SqlParameter("SQL2012UNIT_TYPE_KEY", SqlDbType.VarChar,100)};
+					new SqlParameter("@ID", SqlDbType.VarChar,32),
+					new SqlParameter("@CREATE_USER", SqlDbType.VarChar,50),
+					new SqlParameter("@CREATE_TIME", SqlDbType.DateTime),
+					new SqlParameter("@CUSTOM_MODEL", SqlDbType.VarChar,500),
+					new SqlParameter("@DEFAULT_INFO", SqlDbType.VarChar,500),
+					new SqlParameter("@MODEL_TYPE", SqlDbType.Int,4),
+					new SqlParameter("@REMARK", SqlDbType.VarChar,1000),
+					new SqlParameter("@UNIT_TYPE", SqlDbType.Int,4),
+					new SqlParameter("@MODEL_TYPE_KEY", SqlDbType.VarChar,100),
+					new SqlParameter("@UNIT_TYPE_KEY", SqlDbType.VarChar,100)};
 			parameters[0].Value = model.ID;
 			parameters[1].Value = model.CREATE_USER;
 			parameters[2].Value = model.CREATE_TIME;
@@ -95,27 +95,27 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("update PBA_VOICE_TEMPLATE set ");
-			strSql.Append("CREATE_USER=SQL2012CREATE_USER,");
-			strSql.Append("CREATE_TIME=SQL2012CREATE_TIME,");
-			strSql.Append("CUSTOM_MODEL=SQL2012CUSTOM_MODEL,");
-			strSql.Append("DEFAULT_INFO=SQL2012DEFAULT_INFO,");
-			strSql.Append("MODEL_TYPE=SQL2012MODEL_TYPE,");
-			strSql.Append("REMARK=SQL2012REMARK,");
-			strSql.Append("UNIT_TYPE=SQL2012UNIT_TYPE,");
-			strSql.Append("MODEL_TYPE_KEY=SQL2012MODEL_TYPE_KEY,");
-			strSql.Append("UNIT_TYPE_KEY=SQL2012UNIT_TYPE_KEY");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append("CREATE_USER=@CREATE_USER,");
+			strSql.Append("CREATE_TIME=@CREATE_TIME,");
+			strSql.Append("CUSTOM_MODEL=@CUSTOM_MODEL,");
+			strSql.Append("DEFAULT_INFO=@DEFAULT_INFO,");
+			strSql.Append("MODEL_TYPE=@MODEL_TYPE,");
+			strSql.Append("REMARK=@REMARK,");
+			strSql.Append("UNIT_TYPE=@UNIT_TYPE,");
+			strSql.Append("MODEL_TYPE_KEY=@MODEL_TYPE_KEY,");
+			strSql.Append("UNIT_TYPE_KEY=@UNIT_TYPE_KEY");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012CREATE_USER", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012CREATE_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012CUSTOM_MODEL", SqlDbType.VarChar,500),
-					new SqlParameter("SQL2012DEFAULT_INFO", SqlDbType.VarChar,500),
-					new SqlParameter("SQL2012MODEL_TYPE", SqlDbType.Int,4),
-					new SqlParameter("SQL2012REMARK", SqlDbType.VarChar,1000),
-					new SqlParameter("SQL2012UNIT_TYPE", SqlDbType.Int,4),
-					new SqlParameter("SQL2012MODEL_TYPE_KEY", SqlDbType.VarChar,100),
-					new SqlParameter("SQL2012UNIT_TYPE_KEY", SqlDbType.VarChar,100),
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)};
+					new SqlParameter("@CREATE_USER", SqlDbType.VarChar,50),
+					new SqlParameter("@CREATE_TIME", SqlDbType.DateTime),
+					new SqlParameter("@CUSTOM_MODEL", SqlDbType.VarChar,500),
+					new SqlParameter("@DEFAULT_INFO", SqlDbType.VarChar,500),
+					new SqlParameter("@MODEL_TYPE", SqlDbType.Int,4),
+					new SqlParameter("@REMARK", SqlDbType.VarChar,1000),
+					new SqlParameter("@UNIT_TYPE", SqlDbType.Int,4),
+					new SqlParameter("@MODEL_TYPE_KEY", SqlDbType.VarChar,100),
+					new SqlParameter("@UNIT_TYPE_KEY", SqlDbType.VarChar,100),
+					new SqlParameter("@ID", SqlDbType.VarChar,32)};
 			parameters[0].Value = model.CREATE_USER;
 			parameters[1].Value = model.CREATE_TIME;
 			parameters[2].Value = model.CUSTOM_MODEL;
@@ -146,9 +146,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("delete from PBA_VOICE_TEMPLATE ");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
@@ -189,9 +189,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select  top 1 ID,CREATE_USER,CREATE_TIME,CUSTOM_MODEL,DEFAULT_INFO,MODEL_TYPE,REMARK,UNIT_TYPE,MODEL_TYPE_KEY,UNIT_TYPE_KEY from PBA_VOICE_TEMPLATE ");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			Parking.Core.Model.PBA_VOICE_TEMPLATE model=new Parking.Core.Model.PBA_VOICE_TEMPLATE();
@@ -349,13 +349,13 @@ namespace Parking.DBService.DAL
 		public DataSet GetList(int PageSize,int PageIndex,string strWhere)
 		{
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012tblName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012fldName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012PageSize", SqlDbType.Int),
-					new SqlParameter("SQL2012PageIndex", SqlDbType.Int),
-					new SqlParameter("SQL2012IsReCount", SqlDbType.Bit),
-					new SqlParameter("SQL2012OrderType", SqlDbType.Bit),
-					new SqlParameter("SQL2012strWhere", SqlDbType.VarChar,1000),
+					new SqlParameter("@tblName", SqlDbType.VarChar, 255),
+					new SqlParameter("@fldName", SqlDbType.VarChar, 255),
+					new SqlParameter("@PageSize", SqlDbType.Int),
+					new SqlParameter("@PageIndex", SqlDbType.Int),
+					new SqlParameter("@IsReCount", SqlDbType.Bit),
+					new SqlParameter("@OrderType", SqlDbType.Bit),
+					new SqlParameter("@strWhere", SqlDbType.VarChar,1000),
 					};
 			parameters[0].Value = "PBA_VOICE_TEMPLATE";
 			parameters[1].Value = "ID";

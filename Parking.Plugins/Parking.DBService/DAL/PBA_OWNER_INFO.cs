@@ -40,9 +40,9 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select count(1) from PBA_OWNER_INFO");
-			strSql.Append(" where OWNER_CODE=SQL2012OWNER_CODE ");
+			strSql.Append(" where OWNER_CODE=@OWNER_CODE ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012OWNER_CODE", SqlDbType.VarChar,50)			};
+					new SqlParameter("@OWNER_CODE", SqlDbType.VarChar,50)			};
 			parameters[0].Value = OWNER_CODE;
 
 			return DbHelperSQL.Exists(strSql.ToString(),parameters);
@@ -58,22 +58,22 @@ namespace Parking.DBService.DAL
 			strSql.Append("insert into PBA_OWNER_INFO(");
 			strSql.Append("OWNER_CODE,OWNER_NAME,OWNER_PHONE,OWNER_ADDRESS,OWNER_PICTURE,OWNER_STATUS,ORGANIZATION_CODE,REMARK,CREATE_TIME,CREATE_USERNAME,UPDATE_TIME,UPDATE_USERNAME,PERMISSION_CODES,DIY_STR)");
 			strSql.Append(" values (");
-			strSql.Append("SQL2012OWNER_CODE,SQL2012OWNER_NAME,SQL2012OWNER_PHONE,SQL2012OWNER_ADDRESS,SQL2012OWNER_PICTURE,SQL2012OWNER_STATUS,SQL2012ORGANIZATION_CODE,SQL2012REMARK,SQL2012CREATE_TIME,SQL2012CREATE_USERNAME,SQL2012UPDATE_TIME,SQL2012UPDATE_USERNAME,SQL2012PERMISSION_CODES,SQL2012DIY_STR)");
+			strSql.Append("@OWNER_CODE,@OWNER_NAME,@OWNER_PHONE,@OWNER_ADDRESS,@OWNER_PICTURE,@OWNER_STATUS,@ORGANIZATION_CODE,@REMARK,@CREATE_TIME,@CREATE_USERNAME,@UPDATE_TIME,@UPDATE_USERNAME,@PERMISSION_CODES,@DIY_STR)");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012OWNER_CODE", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012OWNER_NAME", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012OWNER_PHONE", SqlDbType.VarChar,20),
-					new SqlParameter("SQL2012OWNER_ADDRESS", SqlDbType.VarChar,200),
-					new SqlParameter("SQL2012OWNER_PICTURE", SqlDbType.VarChar,200),
-					new SqlParameter("SQL2012OWNER_STATUS", SqlDbType.Int,4),
-					new SqlParameter("SQL2012ORGANIZATION_CODE", SqlDbType.VarChar,200),
-					new SqlParameter("SQL2012REMARK", SqlDbType.VarChar,200),
-					new SqlParameter("SQL2012CREATE_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012CREATE_USERNAME", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012UPDATE_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012UPDATE_USERNAME", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012PERMISSION_CODES", SqlDbType.Text),
-					new SqlParameter("SQL2012DIY_STR", SqlDbType.VarChar,50)};
+					new SqlParameter("@OWNER_CODE", SqlDbType.VarChar,50),
+					new SqlParameter("@OWNER_NAME", SqlDbType.VarChar,50),
+					new SqlParameter("@OWNER_PHONE", SqlDbType.VarChar,20),
+					new SqlParameter("@OWNER_ADDRESS", SqlDbType.VarChar,200),
+					new SqlParameter("@OWNER_PICTURE", SqlDbType.VarChar,200),
+					new SqlParameter("@OWNER_STATUS", SqlDbType.Int,4),
+					new SqlParameter("@ORGANIZATION_CODE", SqlDbType.VarChar,200),
+					new SqlParameter("@REMARK", SqlDbType.VarChar,200),
+					new SqlParameter("@CREATE_TIME", SqlDbType.DateTime),
+					new SqlParameter("@CREATE_USERNAME", SqlDbType.VarChar,50),
+					new SqlParameter("@UPDATE_TIME", SqlDbType.DateTime),
+					new SqlParameter("@UPDATE_USERNAME", SqlDbType.VarChar,50),
+					new SqlParameter("@PERMISSION_CODES", SqlDbType.Text),
+					new SqlParameter("@DIY_STR", SqlDbType.VarChar,50)};
 			parameters[0].Value = model.OWNER_CODE;
 			parameters[1].Value = model.OWNER_NAME;
 			parameters[2].Value = model.OWNER_PHONE;
@@ -106,35 +106,35 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("update PBA_OWNER_INFO set ");
-			strSql.Append("OWNER_NAME=SQL2012OWNER_NAME,");
-			strSql.Append("OWNER_PHONE=SQL2012OWNER_PHONE,");
-			strSql.Append("OWNER_ADDRESS=SQL2012OWNER_ADDRESS,");
-			strSql.Append("OWNER_PICTURE=SQL2012OWNER_PICTURE,");
-			strSql.Append("OWNER_STATUS=SQL2012OWNER_STATUS,");
-			strSql.Append("ORGANIZATION_CODE=SQL2012ORGANIZATION_CODE,");
-			strSql.Append("REMARK=SQL2012REMARK,");
-			strSql.Append("CREATE_TIME=SQL2012CREATE_TIME,");
-			strSql.Append("CREATE_USERNAME=SQL2012CREATE_USERNAME,");
-			strSql.Append("UPDATE_TIME=SQL2012UPDATE_TIME,");
-			strSql.Append("UPDATE_USERNAME=SQL2012UPDATE_USERNAME,");
-			strSql.Append("PERMISSION_CODES=SQL2012PERMISSION_CODES,");
-			strSql.Append("DIY_STR=SQL2012DIY_STR");
-			strSql.Append(" where OWNER_CODE=SQL2012OWNER_CODE ");
+			strSql.Append("OWNER_NAME=@OWNER_NAME,");
+			strSql.Append("OWNER_PHONE=@OWNER_PHONE,");
+			strSql.Append("OWNER_ADDRESS=@OWNER_ADDRESS,");
+			strSql.Append("OWNER_PICTURE=@OWNER_PICTURE,");
+			strSql.Append("OWNER_STATUS=@OWNER_STATUS,");
+			strSql.Append("ORGANIZATION_CODE=@ORGANIZATION_CODE,");
+			strSql.Append("REMARK=@REMARK,");
+			strSql.Append("CREATE_TIME=@CREATE_TIME,");
+			strSql.Append("CREATE_USERNAME=@CREATE_USERNAME,");
+			strSql.Append("UPDATE_TIME=@UPDATE_TIME,");
+			strSql.Append("UPDATE_USERNAME=@UPDATE_USERNAME,");
+			strSql.Append("PERMISSION_CODES=@PERMISSION_CODES,");
+			strSql.Append("DIY_STR=@DIY_STR");
+			strSql.Append(" where OWNER_CODE=@OWNER_CODE ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012OWNER_NAME", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012OWNER_PHONE", SqlDbType.VarChar,20),
-					new SqlParameter("SQL2012OWNER_ADDRESS", SqlDbType.VarChar,200),
-					new SqlParameter("SQL2012OWNER_PICTURE", SqlDbType.VarChar,200),
-					new SqlParameter("SQL2012OWNER_STATUS", SqlDbType.Int,4),
-					new SqlParameter("SQL2012ORGANIZATION_CODE", SqlDbType.VarChar,200),
-					new SqlParameter("SQL2012REMARK", SqlDbType.VarChar,200),
-					new SqlParameter("SQL2012CREATE_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012CREATE_USERNAME", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012UPDATE_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012UPDATE_USERNAME", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012PERMISSION_CODES", SqlDbType.Text),
-					new SqlParameter("SQL2012DIY_STR", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012OWNER_CODE", SqlDbType.VarChar,50)};
+					new SqlParameter("@OWNER_NAME", SqlDbType.VarChar,50),
+					new SqlParameter("@OWNER_PHONE", SqlDbType.VarChar,20),
+					new SqlParameter("@OWNER_ADDRESS", SqlDbType.VarChar,200),
+					new SqlParameter("@OWNER_PICTURE", SqlDbType.VarChar,200),
+					new SqlParameter("@OWNER_STATUS", SqlDbType.Int,4),
+					new SqlParameter("@ORGANIZATION_CODE", SqlDbType.VarChar,200),
+					new SqlParameter("@REMARK", SqlDbType.VarChar,200),
+					new SqlParameter("@CREATE_TIME", SqlDbType.DateTime),
+					new SqlParameter("@CREATE_USERNAME", SqlDbType.VarChar,50),
+					new SqlParameter("@UPDATE_TIME", SqlDbType.DateTime),
+					new SqlParameter("@UPDATE_USERNAME", SqlDbType.VarChar,50),
+					new SqlParameter("@PERMISSION_CODES", SqlDbType.Text),
+					new SqlParameter("@DIY_STR", SqlDbType.VarChar,50),
+					new SqlParameter("@OWNER_CODE", SqlDbType.VarChar,50)};
 			parameters[0].Value = model.OWNER_NAME;
 			parameters[1].Value = model.OWNER_PHONE;
 			parameters[2].Value = model.OWNER_ADDRESS;
@@ -169,9 +169,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("delete from PBA_OWNER_INFO ");
-			strSql.Append(" where OWNER_CODE=SQL2012OWNER_CODE ");
+			strSql.Append(" where OWNER_CODE=@OWNER_CODE ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012OWNER_CODE", SqlDbType.VarChar,50)			};
+					new SqlParameter("@OWNER_CODE", SqlDbType.VarChar,50)			};
 			parameters[0].Value = OWNER_CODE;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
@@ -212,9 +212,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select  top 1 OWNER_CODE,OWNER_NAME,OWNER_PHONE,OWNER_ADDRESS,OWNER_PICTURE,OWNER_STATUS,ORGANIZATION_CODE,REMARK,CREATE_TIME,CREATE_USERNAME,UPDATE_TIME,UPDATE_USERNAME,PERMISSION_CODES,DIY_STR from PBA_OWNER_INFO ");
-			strSql.Append(" where OWNER_CODE=SQL2012OWNER_CODE ");
+			strSql.Append(" where OWNER_CODE=@OWNER_CODE ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012OWNER_CODE", SqlDbType.VarChar,50)			};
+					new SqlParameter("@OWNER_CODE", SqlDbType.VarChar,50)			};
 			parameters[0].Value = OWNER_CODE;
 
 			Parking.Core.Model.PBA_OWNER_INFO model=new Parking.Core.Model.PBA_OWNER_INFO();
@@ -388,13 +388,13 @@ namespace Parking.DBService.DAL
 		public DataSet GetList(int PageSize,int PageIndex,string strWhere)
 		{
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012tblName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012fldName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012PageSize", SqlDbType.Int),
-					new SqlParameter("SQL2012PageIndex", SqlDbType.Int),
-					new SqlParameter("SQL2012IsReCount", SqlDbType.Bit),
-					new SqlParameter("SQL2012OrderType", SqlDbType.Bit),
-					new SqlParameter("SQL2012strWhere", SqlDbType.VarChar,1000),
+					new SqlParameter("@tblName", SqlDbType.VarChar, 255),
+					new SqlParameter("@fldName", SqlDbType.VarChar, 255),
+					new SqlParameter("@PageSize", SqlDbType.Int),
+					new SqlParameter("@PageIndex", SqlDbType.Int),
+					new SqlParameter("@IsReCount", SqlDbType.Bit),
+					new SqlParameter("@OrderType", SqlDbType.Bit),
+					new SqlParameter("@strWhere", SqlDbType.VarChar,1000),
 					};
 			parameters[0].Value = "PBA_OWNER_INFO";
 			parameters[1].Value = "OWNER_CODE";

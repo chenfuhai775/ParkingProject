@@ -37,9 +37,9 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select count(1) from FN_LAYOUT_PARAM_CONFIG");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			return DbHelperSQL.Exists(strSql.ToString(),parameters);
@@ -55,17 +55,17 @@ namespace Parking.DBService.DAL
 			strSql.Append("insert into FN_LAYOUT_PARAM_CONFIG(");
 			strSql.Append("ID,WORKSTATION_ID,MODEL_CODE,INITIAL_WIDTH,INITIAL_HEIGHT,INITIAL_LEFT_WIDTH,INITIAL_TOP_HEIGHT,CREATE_TIME,CREATE_USERID)");
 			strSql.Append(" values (");
-			strSql.Append("SQL2012ID,SQL2012WORKSTATION_ID,SQL2012MODEL_CODE,SQL2012INITIAL_WIDTH,SQL2012INITIAL_HEIGHT,SQL2012INITIAL_LEFT_WIDTH,SQL2012INITIAL_TOP_HEIGHT,SQL2012CREATE_TIME,SQL2012CREATE_USERID)");
+			strSql.Append("@ID,@WORKSTATION_ID,@MODEL_CODE,@INITIAL_WIDTH,@INITIAL_HEIGHT,@INITIAL_LEFT_WIDTH,@INITIAL_TOP_HEIGHT,@CREATE_TIME,@CREATE_USERID)");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012WORKSTATION_ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012MODEL_CODE", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012INITIAL_WIDTH", SqlDbType.Int,4),
-					new SqlParameter("SQL2012INITIAL_HEIGHT", SqlDbType.Int,4),
-					new SqlParameter("SQL2012INITIAL_LEFT_WIDTH", SqlDbType.Int,4),
-					new SqlParameter("SQL2012INITIAL_TOP_HEIGHT", SqlDbType.Int,4),
-					new SqlParameter("SQL2012CREATE_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012CREATE_USERID", SqlDbType.VarChar,50)};
+					new SqlParameter("@ID", SqlDbType.VarChar,32),
+					new SqlParameter("@WORKSTATION_ID", SqlDbType.VarChar,32),
+					new SqlParameter("@MODEL_CODE", SqlDbType.VarChar,32),
+					new SqlParameter("@INITIAL_WIDTH", SqlDbType.Int,4),
+					new SqlParameter("@INITIAL_HEIGHT", SqlDbType.Int,4),
+					new SqlParameter("@INITIAL_LEFT_WIDTH", SqlDbType.Int,4),
+					new SqlParameter("@INITIAL_TOP_HEIGHT", SqlDbType.Int,4),
+					new SqlParameter("@CREATE_TIME", SqlDbType.DateTime),
+					new SqlParameter("@CREATE_USERID", SqlDbType.VarChar,50)};
 			parameters[0].Value = model.ID;
 			parameters[1].Value = model.WORKSTATION_ID;
 			parameters[2].Value = model.MODEL_CODE;
@@ -93,25 +93,25 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("update FN_LAYOUT_PARAM_CONFIG set ");
-			strSql.Append("WORKSTATION_ID=SQL2012WORKSTATION_ID,");
-			strSql.Append("MODEL_CODE=SQL2012MODEL_CODE,");
-			strSql.Append("INITIAL_WIDTH=SQL2012INITIAL_WIDTH,");
-			strSql.Append("INITIAL_HEIGHT=SQL2012INITIAL_HEIGHT,");
-			strSql.Append("INITIAL_LEFT_WIDTH=SQL2012INITIAL_LEFT_WIDTH,");
-			strSql.Append("INITIAL_TOP_HEIGHT=SQL2012INITIAL_TOP_HEIGHT,");
-			strSql.Append("CREATE_TIME=SQL2012CREATE_TIME,");
-			strSql.Append("CREATE_USERID=SQL2012CREATE_USERID");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append("WORKSTATION_ID=@WORKSTATION_ID,");
+			strSql.Append("MODEL_CODE=@MODEL_CODE,");
+			strSql.Append("INITIAL_WIDTH=@INITIAL_WIDTH,");
+			strSql.Append("INITIAL_HEIGHT=@INITIAL_HEIGHT,");
+			strSql.Append("INITIAL_LEFT_WIDTH=@INITIAL_LEFT_WIDTH,");
+			strSql.Append("INITIAL_TOP_HEIGHT=@INITIAL_TOP_HEIGHT,");
+			strSql.Append("CREATE_TIME=@CREATE_TIME,");
+			strSql.Append("CREATE_USERID=@CREATE_USERID");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012WORKSTATION_ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012MODEL_CODE", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012INITIAL_WIDTH", SqlDbType.Int,4),
-					new SqlParameter("SQL2012INITIAL_HEIGHT", SqlDbType.Int,4),
-					new SqlParameter("SQL2012INITIAL_LEFT_WIDTH", SqlDbType.Int,4),
-					new SqlParameter("SQL2012INITIAL_TOP_HEIGHT", SqlDbType.Int,4),
-					new SqlParameter("SQL2012CREATE_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012CREATE_USERID", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)};
+					new SqlParameter("@WORKSTATION_ID", SqlDbType.VarChar,32),
+					new SqlParameter("@MODEL_CODE", SqlDbType.VarChar,32),
+					new SqlParameter("@INITIAL_WIDTH", SqlDbType.Int,4),
+					new SqlParameter("@INITIAL_HEIGHT", SqlDbType.Int,4),
+					new SqlParameter("@INITIAL_LEFT_WIDTH", SqlDbType.Int,4),
+					new SqlParameter("@INITIAL_TOP_HEIGHT", SqlDbType.Int,4),
+					new SqlParameter("@CREATE_TIME", SqlDbType.DateTime),
+					new SqlParameter("@CREATE_USERID", SqlDbType.VarChar,50),
+					new SqlParameter("@ID", SqlDbType.VarChar,32)};
 			parameters[0].Value = model.WORKSTATION_ID;
 			parameters[1].Value = model.MODEL_CODE;
 			parameters[2].Value = model.INITIAL_WIDTH;
@@ -141,9 +141,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("delete from FN_LAYOUT_PARAM_CONFIG ");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
@@ -184,9 +184,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select  top 1 ID,WORKSTATION_ID,MODEL_CODE,INITIAL_WIDTH,INITIAL_HEIGHT,INITIAL_LEFT_WIDTH,INITIAL_TOP_HEIGHT,CREATE_TIME,CREATE_USERID from FN_LAYOUT_PARAM_CONFIG ");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			Parking.Core.Model.FN_LAYOUT_PARAM_CONFIG model=new Parking.Core.Model.FN_LAYOUT_PARAM_CONFIG();
@@ -340,13 +340,13 @@ namespace Parking.DBService.DAL
 		public DataSet GetList(int PageSize,int PageIndex,string strWhere)
 		{
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012tblName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012fldName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012PageSize", SqlDbType.Int),
-					new SqlParameter("SQL2012PageIndex", SqlDbType.Int),
-					new SqlParameter("SQL2012IsReCount", SqlDbType.Bit),
-					new SqlParameter("SQL2012OrderType", SqlDbType.Bit),
-					new SqlParameter("SQL2012strWhere", SqlDbType.VarChar,1000),
+					new SqlParameter("@tblName", SqlDbType.VarChar, 255),
+					new SqlParameter("@fldName", SqlDbType.VarChar, 255),
+					new SqlParameter("@PageSize", SqlDbType.Int),
+					new SqlParameter("@PageIndex", SqlDbType.Int),
+					new SqlParameter("@IsReCount", SqlDbType.Bit),
+					new SqlParameter("@OrderType", SqlDbType.Bit),
+					new SqlParameter("@strWhere", SqlDbType.VarChar,1000),
 					};
 			parameters[0].Value = "FN_LAYOUT_PARAM_CONFIG";
 			parameters[1].Value = "ID";

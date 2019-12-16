@@ -37,9 +37,9 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select count(1) from PBA_PARKING_SPACE_MANAGER");
-			strSql.Append(" where SPACE_CODE=SQL2012SPACE_CODE ");
+			strSql.Append(" where SPACE_CODE=@SPACE_CODE ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012SPACE_CODE", SqlDbType.VarChar,50)			};
+					new SqlParameter("@SPACE_CODE", SqlDbType.VarChar,50)			};
 			parameters[0].Value = SPACE_CODE;
 
 			return DbHelperSQL.Exists(strSql.ToString(),parameters);
@@ -55,20 +55,20 @@ namespace Parking.DBService.DAL
 			strSql.Append("insert into PBA_PARKING_SPACE_MANAGER(");
 			strSql.Append("SPACE_CODE,INOUT_RECORD_ID,SPACE_STATUS,PARTITION_CODE,SPACE_TYPE,CREATE_TIME,CREATE_USERNAME,UPDATE_TIME,UPDATE_USERNAME,REMARK,BEGIN_TIME,END_TIME)");
 			strSql.Append(" values (");
-			strSql.Append("SQL2012SPACE_CODE,SQL2012INOUT_RECORD_ID,SQL2012SPACE_STATUS,SQL2012PARTITION_CODE,SQL2012SPACE_TYPE,SQL2012CREATE_TIME,SQL2012CREATE_USERNAME,SQL2012UPDATE_TIME,SQL2012UPDATE_USERNAME,SQL2012REMARK,SQL2012BEGIN_TIME,SQL2012END_TIME)");
+			strSql.Append("@SPACE_CODE,@INOUT_RECORD_ID,@SPACE_STATUS,@PARTITION_CODE,@SPACE_TYPE,@CREATE_TIME,@CREATE_USERNAME,@UPDATE_TIME,@UPDATE_USERNAME,@REMARK,@BEGIN_TIME,@END_TIME)");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012SPACE_CODE", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012INOUT_RECORD_ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012SPACE_STATUS", SqlDbType.Int,4),
-					new SqlParameter("SQL2012PARTITION_CODE", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012SPACE_TYPE", SqlDbType.Int,4),
-					new SqlParameter("SQL2012CREATE_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012CREATE_USERNAME", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012UPDATE_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012UPDATE_USERNAME", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012REMARK", SqlDbType.VarChar,200),
-					new SqlParameter("SQL2012BEGIN_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012END_TIME", SqlDbType.DateTime)};
+					new SqlParameter("@SPACE_CODE", SqlDbType.VarChar,50),
+					new SqlParameter("@INOUT_RECORD_ID", SqlDbType.VarChar,32),
+					new SqlParameter("@SPACE_STATUS", SqlDbType.Int,4),
+					new SqlParameter("@PARTITION_CODE", SqlDbType.VarChar,50),
+					new SqlParameter("@SPACE_TYPE", SqlDbType.Int,4),
+					new SqlParameter("@CREATE_TIME", SqlDbType.DateTime),
+					new SqlParameter("@CREATE_USERNAME", SqlDbType.VarChar,50),
+					new SqlParameter("@UPDATE_TIME", SqlDbType.DateTime),
+					new SqlParameter("@UPDATE_USERNAME", SqlDbType.VarChar,50),
+					new SqlParameter("@REMARK", SqlDbType.VarChar,200),
+					new SqlParameter("@BEGIN_TIME", SqlDbType.DateTime),
+					new SqlParameter("@END_TIME", SqlDbType.DateTime)};
 			parameters[0].Value = model.SPACE_CODE;
 			parameters[1].Value = model.INOUT_RECORD_ID;
 			parameters[2].Value = model.SPACE_STATUS;
@@ -99,31 +99,31 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("update PBA_PARKING_SPACE_MANAGER set ");
-			strSql.Append("INOUT_RECORD_ID=SQL2012INOUT_RECORD_ID,");
-			strSql.Append("SPACE_STATUS=SQL2012SPACE_STATUS,");
-			strSql.Append("PARTITION_CODE=SQL2012PARTITION_CODE,");
-			strSql.Append("SPACE_TYPE=SQL2012SPACE_TYPE,");
-			strSql.Append("CREATE_TIME=SQL2012CREATE_TIME,");
-			strSql.Append("CREATE_USERNAME=SQL2012CREATE_USERNAME,");
-			strSql.Append("UPDATE_TIME=SQL2012UPDATE_TIME,");
-			strSql.Append("UPDATE_USERNAME=SQL2012UPDATE_USERNAME,");
-			strSql.Append("REMARK=SQL2012REMARK,");
-			strSql.Append("BEGIN_TIME=SQL2012BEGIN_TIME,");
-			strSql.Append("END_TIME=SQL2012END_TIME");
-			strSql.Append(" where SPACE_CODE=SQL2012SPACE_CODE ");
+			strSql.Append("INOUT_RECORD_ID=@INOUT_RECORD_ID,");
+			strSql.Append("SPACE_STATUS=@SPACE_STATUS,");
+			strSql.Append("PARTITION_CODE=@PARTITION_CODE,");
+			strSql.Append("SPACE_TYPE=@SPACE_TYPE,");
+			strSql.Append("CREATE_TIME=@CREATE_TIME,");
+			strSql.Append("CREATE_USERNAME=@CREATE_USERNAME,");
+			strSql.Append("UPDATE_TIME=@UPDATE_TIME,");
+			strSql.Append("UPDATE_USERNAME=@UPDATE_USERNAME,");
+			strSql.Append("REMARK=@REMARK,");
+			strSql.Append("BEGIN_TIME=@BEGIN_TIME,");
+			strSql.Append("END_TIME=@END_TIME");
+			strSql.Append(" where SPACE_CODE=@SPACE_CODE ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012INOUT_RECORD_ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012SPACE_STATUS", SqlDbType.Int,4),
-					new SqlParameter("SQL2012PARTITION_CODE", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012SPACE_TYPE", SqlDbType.Int,4),
-					new SqlParameter("SQL2012CREATE_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012CREATE_USERNAME", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012UPDATE_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012UPDATE_USERNAME", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012REMARK", SqlDbType.VarChar,200),
-					new SqlParameter("SQL2012BEGIN_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012END_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012SPACE_CODE", SqlDbType.VarChar,50)};
+					new SqlParameter("@INOUT_RECORD_ID", SqlDbType.VarChar,32),
+					new SqlParameter("@SPACE_STATUS", SqlDbType.Int,4),
+					new SqlParameter("@PARTITION_CODE", SqlDbType.VarChar,50),
+					new SqlParameter("@SPACE_TYPE", SqlDbType.Int,4),
+					new SqlParameter("@CREATE_TIME", SqlDbType.DateTime),
+					new SqlParameter("@CREATE_USERNAME", SqlDbType.VarChar,50),
+					new SqlParameter("@UPDATE_TIME", SqlDbType.DateTime),
+					new SqlParameter("@UPDATE_USERNAME", SqlDbType.VarChar,50),
+					new SqlParameter("@REMARK", SqlDbType.VarChar,200),
+					new SqlParameter("@BEGIN_TIME", SqlDbType.DateTime),
+					new SqlParameter("@END_TIME", SqlDbType.DateTime),
+					new SqlParameter("@SPACE_CODE", SqlDbType.VarChar,50)};
 			parameters[0].Value = model.INOUT_RECORD_ID;
 			parameters[1].Value = model.SPACE_STATUS;
 			parameters[2].Value = model.PARTITION_CODE;
@@ -156,9 +156,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("delete from PBA_PARKING_SPACE_MANAGER ");
-			strSql.Append(" where SPACE_CODE=SQL2012SPACE_CODE ");
+			strSql.Append(" where SPACE_CODE=@SPACE_CODE ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012SPACE_CODE", SqlDbType.VarChar,50)			};
+					new SqlParameter("@SPACE_CODE", SqlDbType.VarChar,50)			};
 			parameters[0].Value = SPACE_CODE;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
@@ -199,9 +199,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select  top 1 SPACE_CODE,INOUT_RECORD_ID,SPACE_STATUS,PARTITION_CODE,SPACE_TYPE,CREATE_TIME,CREATE_USERNAME,UPDATE_TIME,UPDATE_USERNAME,REMARK,BEGIN_TIME,END_TIME from PBA_PARKING_SPACE_MANAGER ");
-			strSql.Append(" where SPACE_CODE=SQL2012SPACE_CODE ");
+			strSql.Append(" where SPACE_CODE=@SPACE_CODE ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012SPACE_CODE", SqlDbType.VarChar,50)			};
+					new SqlParameter("@SPACE_CODE", SqlDbType.VarChar,50)			};
 			parameters[0].Value = SPACE_CODE;
 
 			Parking.Core.Model.PBA_PARKING_SPACE_MANAGER model=new Parking.Core.Model.PBA_PARKING_SPACE_MANAGER();
@@ -367,13 +367,13 @@ namespace Parking.DBService.DAL
 		public DataSet GetList(int PageSize,int PageIndex,string strWhere)
 		{
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012tblName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012fldName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012PageSize", SqlDbType.Int),
-					new SqlParameter("SQL2012PageIndex", SqlDbType.Int),
-					new SqlParameter("SQL2012IsReCount", SqlDbType.Bit),
-					new SqlParameter("SQL2012OrderType", SqlDbType.Bit),
-					new SqlParameter("SQL2012strWhere", SqlDbType.VarChar,1000),
+					new SqlParameter("@tblName", SqlDbType.VarChar, 255),
+					new SqlParameter("@fldName", SqlDbType.VarChar, 255),
+					new SqlParameter("@PageSize", SqlDbType.Int),
+					new SqlParameter("@PageIndex", SqlDbType.Int),
+					new SqlParameter("@IsReCount", SqlDbType.Bit),
+					new SqlParameter("@OrderType", SqlDbType.Bit),
+					new SqlParameter("@strWhere", SqlDbType.VarChar,1000),
 					};
 			parameters[0].Value = "PBA_PARKING_SPACE_MANAGER";
 			parameters[1].Value = "SPACE_CODE";

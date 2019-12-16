@@ -37,9 +37,9 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select count(1) from PBA_OWNER_ORGANIZATION");
-			strSql.Append(" where ORGANIZATION_CODE=SQL2012ORGANIZATION_CODE ");
+			strSql.Append(" where ORGANIZATION_CODE=@ORGANIZATION_CODE ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ORGANIZATION_CODE", SqlDbType.VarChar,200)			};
+					new SqlParameter("@ORGANIZATION_CODE", SqlDbType.VarChar,200)			};
 			parameters[0].Value = ORGANIZATION_CODE;
 
 			return DbHelperSQL.Exists(strSql.ToString(),parameters);
@@ -55,16 +55,16 @@ namespace Parking.DBService.DAL
 			strSql.Append("insert into PBA_OWNER_ORGANIZATION(");
 			strSql.Append("ORGANIZATION_CODE,ORGANIZATION_NAME,REMARK,CREATE_TIME,CREATE_USERNAME,UPDATE_TIME,UPDATE_USERNAME,ORGANIZATION_LEVEL)");
 			strSql.Append(" values (");
-			strSql.Append("SQL2012ORGANIZATION_CODE,SQL2012ORGANIZATION_NAME,SQL2012REMARK,SQL2012CREATE_TIME,SQL2012CREATE_USERNAME,SQL2012UPDATE_TIME,SQL2012UPDATE_USERNAME,SQL2012ORGANIZATION_LEVEL)");
+			strSql.Append("@ORGANIZATION_CODE,@ORGANIZATION_NAME,@REMARK,@CREATE_TIME,@CREATE_USERNAME,@UPDATE_TIME,@UPDATE_USERNAME,@ORGANIZATION_LEVEL)");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ORGANIZATION_CODE", SqlDbType.VarChar,200),
-					new SqlParameter("SQL2012ORGANIZATION_NAME", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012REMARK", SqlDbType.VarChar,200),
-					new SqlParameter("SQL2012CREATE_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012CREATE_USERNAME", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012UPDATE_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012UPDATE_USERNAME", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012ORGANIZATION_LEVEL", SqlDbType.Int,4)};
+					new SqlParameter("@ORGANIZATION_CODE", SqlDbType.VarChar,200),
+					new SqlParameter("@ORGANIZATION_NAME", SqlDbType.VarChar,50),
+					new SqlParameter("@REMARK", SqlDbType.VarChar,200),
+					new SqlParameter("@CREATE_TIME", SqlDbType.DateTime),
+					new SqlParameter("@CREATE_USERNAME", SqlDbType.VarChar,50),
+					new SqlParameter("@UPDATE_TIME", SqlDbType.DateTime),
+					new SqlParameter("@UPDATE_USERNAME", SqlDbType.VarChar,50),
+					new SqlParameter("@ORGANIZATION_LEVEL", SqlDbType.Int,4)};
 			parameters[0].Value = model.ORGANIZATION_CODE;
 			parameters[1].Value = model.ORGANIZATION_NAME;
 			parameters[2].Value = model.REMARK;
@@ -91,23 +91,23 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("update PBA_OWNER_ORGANIZATION set ");
-			strSql.Append("ORGANIZATION_NAME=SQL2012ORGANIZATION_NAME,");
-			strSql.Append("REMARK=SQL2012REMARK,");
-			strSql.Append("CREATE_TIME=SQL2012CREATE_TIME,");
-			strSql.Append("CREATE_USERNAME=SQL2012CREATE_USERNAME,");
-			strSql.Append("UPDATE_TIME=SQL2012UPDATE_TIME,");
-			strSql.Append("UPDATE_USERNAME=SQL2012UPDATE_USERNAME,");
-			strSql.Append("ORGANIZATION_LEVEL=SQL2012ORGANIZATION_LEVEL");
-			strSql.Append(" where ORGANIZATION_CODE=SQL2012ORGANIZATION_CODE ");
+			strSql.Append("ORGANIZATION_NAME=@ORGANIZATION_NAME,");
+			strSql.Append("REMARK=@REMARK,");
+			strSql.Append("CREATE_TIME=@CREATE_TIME,");
+			strSql.Append("CREATE_USERNAME=@CREATE_USERNAME,");
+			strSql.Append("UPDATE_TIME=@UPDATE_TIME,");
+			strSql.Append("UPDATE_USERNAME=@UPDATE_USERNAME,");
+			strSql.Append("ORGANIZATION_LEVEL=@ORGANIZATION_LEVEL");
+			strSql.Append(" where ORGANIZATION_CODE=@ORGANIZATION_CODE ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ORGANIZATION_NAME", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012REMARK", SqlDbType.VarChar,200),
-					new SqlParameter("SQL2012CREATE_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012CREATE_USERNAME", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012UPDATE_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012UPDATE_USERNAME", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012ORGANIZATION_LEVEL", SqlDbType.Int,4),
-					new SqlParameter("SQL2012ORGANIZATION_CODE", SqlDbType.VarChar,200)};
+					new SqlParameter("@ORGANIZATION_NAME", SqlDbType.VarChar,50),
+					new SqlParameter("@REMARK", SqlDbType.VarChar,200),
+					new SqlParameter("@CREATE_TIME", SqlDbType.DateTime),
+					new SqlParameter("@CREATE_USERNAME", SqlDbType.VarChar,50),
+					new SqlParameter("@UPDATE_TIME", SqlDbType.DateTime),
+					new SqlParameter("@UPDATE_USERNAME", SqlDbType.VarChar,50),
+					new SqlParameter("@ORGANIZATION_LEVEL", SqlDbType.Int,4),
+					new SqlParameter("@ORGANIZATION_CODE", SqlDbType.VarChar,200)};
 			parameters[0].Value = model.ORGANIZATION_NAME;
 			parameters[1].Value = model.REMARK;
 			parameters[2].Value = model.CREATE_TIME;
@@ -136,9 +136,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("delete from PBA_OWNER_ORGANIZATION ");
-			strSql.Append(" where ORGANIZATION_CODE=SQL2012ORGANIZATION_CODE ");
+			strSql.Append(" where ORGANIZATION_CODE=@ORGANIZATION_CODE ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ORGANIZATION_CODE", SqlDbType.VarChar,200)			};
+					new SqlParameter("@ORGANIZATION_CODE", SqlDbType.VarChar,200)			};
 			parameters[0].Value = ORGANIZATION_CODE;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
@@ -179,9 +179,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select  top 1 ORGANIZATION_CODE,ORGANIZATION_NAME,REMARK,CREATE_TIME,CREATE_USERNAME,UPDATE_TIME,UPDATE_USERNAME,ORGANIZATION_LEVEL from PBA_OWNER_ORGANIZATION ");
-			strSql.Append(" where ORGANIZATION_CODE=SQL2012ORGANIZATION_CODE ");
+			strSql.Append(" where ORGANIZATION_CODE=@ORGANIZATION_CODE ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ORGANIZATION_CODE", SqlDbType.VarChar,200)			};
+					new SqlParameter("@ORGANIZATION_CODE", SqlDbType.VarChar,200)			};
 			parameters[0].Value = ORGANIZATION_CODE;
 
 			Parking.Core.Model.PBA_OWNER_ORGANIZATION model=new Parking.Core.Model.PBA_OWNER_ORGANIZATION();
@@ -331,13 +331,13 @@ namespace Parking.DBService.DAL
 		public DataSet GetList(int PageSize,int PageIndex,string strWhere)
 		{
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012tblName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012fldName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012PageSize", SqlDbType.Int),
-					new SqlParameter("SQL2012PageIndex", SqlDbType.Int),
-					new SqlParameter("SQL2012IsReCount", SqlDbType.Bit),
-					new SqlParameter("SQL2012OrderType", SqlDbType.Bit),
-					new SqlParameter("SQL2012strWhere", SqlDbType.VarChar,1000),
+					new SqlParameter("@tblName", SqlDbType.VarChar, 255),
+					new SqlParameter("@fldName", SqlDbType.VarChar, 255),
+					new SqlParameter("@PageSize", SqlDbType.Int),
+					new SqlParameter("@PageIndex", SqlDbType.Int),
+					new SqlParameter("@IsReCount", SqlDbType.Bit),
+					new SqlParameter("@OrderType", SqlDbType.Bit),
+					new SqlParameter("@strWhere", SqlDbType.VarChar,1000),
 					};
 			parameters[0].Value = "PBA_OWNER_ORGANIZATION";
 			parameters[1].Value = "ORGANIZATION_CODE";

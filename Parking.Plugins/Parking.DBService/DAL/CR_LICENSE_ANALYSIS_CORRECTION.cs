@@ -41,17 +41,17 @@ namespace Parking.DBService.DAL
 			strSql.Append("insert into CR_LICENSE_ANALYSIS_CORRECTION(");
 			strSql.Append("ID,VEH_NO_ERROR,VEH_NO_CORRECT,PASSAGE_COUNT,ERROR_COUNT,CORRECT_FLAG,CREATE_TIME,UPDATE_TIME,UPDATE_USERNAME)");
 			strSql.Append(" values (");
-			strSql.Append("SQL2012ID,SQL2012VEH_NO_ERROR,SQL2012VEH_NO_CORRECT,SQL2012PASSAGE_COUNT,SQL2012ERROR_COUNT,SQL2012CORRECT_FLAG,SQL2012CREATE_TIME,SQL2012UPDATE_TIME,SQL2012UPDATE_USERNAME)");
+			strSql.Append("@ID,@VEH_NO_ERROR,@VEH_NO_CORRECT,@PASSAGE_COUNT,@ERROR_COUNT,@CORRECT_FLAG,@CREATE_TIME,@UPDATE_TIME,@UPDATE_USERNAME)");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012VEH_NO_ERROR", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012VEH_NO_CORRECT", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012PASSAGE_COUNT", SqlDbType.Int,4),
-					new SqlParameter("SQL2012ERROR_COUNT", SqlDbType.Int,4),
-					new SqlParameter("SQL2012CORRECT_FLAG", SqlDbType.Int,4),
-					new SqlParameter("SQL2012CREATE_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012UPDATE_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012UPDATE_USERNAME", SqlDbType.VarChar,50)};
+					new SqlParameter("@ID", SqlDbType.VarChar,32),
+					new SqlParameter("@VEH_NO_ERROR", SqlDbType.VarChar,50),
+					new SqlParameter("@VEH_NO_CORRECT", SqlDbType.VarChar,50),
+					new SqlParameter("@PASSAGE_COUNT", SqlDbType.Int,4),
+					new SqlParameter("@ERROR_COUNT", SqlDbType.Int,4),
+					new SqlParameter("@CORRECT_FLAG", SqlDbType.Int,4),
+					new SqlParameter("@CREATE_TIME", SqlDbType.DateTime),
+					new SqlParameter("@UPDATE_TIME", SqlDbType.DateTime),
+					new SqlParameter("@UPDATE_USERNAME", SqlDbType.VarChar,50)};
 			parameters[0].Value = model.ID;
 			parameters[1].Value = model.VEH_NO_ERROR;
 			parameters[2].Value = model.VEH_NO_CORRECT;
@@ -79,26 +79,26 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("update CR_LICENSE_ANALYSIS_CORRECTION set ");
-			strSql.Append("ID=SQL2012ID,");
-			strSql.Append("VEH_NO_ERROR=SQL2012VEH_NO_ERROR,");
-			strSql.Append("VEH_NO_CORRECT=SQL2012VEH_NO_CORRECT,");
-			strSql.Append("PASSAGE_COUNT=SQL2012PASSAGE_COUNT,");
-			strSql.Append("ERROR_COUNT=SQL2012ERROR_COUNT,");
-			strSql.Append("CORRECT_FLAG=SQL2012CORRECT_FLAG,");
-			strSql.Append("CREATE_TIME=SQL2012CREATE_TIME,");
-			strSql.Append("UPDATE_TIME=SQL2012UPDATE_TIME,");
-			strSql.Append("UPDATE_USERNAME=SQL2012UPDATE_USERNAME");
+			strSql.Append("ID=@ID,");
+			strSql.Append("VEH_NO_ERROR=@VEH_NO_ERROR,");
+			strSql.Append("VEH_NO_CORRECT=@VEH_NO_CORRECT,");
+			strSql.Append("PASSAGE_COUNT=@PASSAGE_COUNT,");
+			strSql.Append("ERROR_COUNT=@ERROR_COUNT,");
+			strSql.Append("CORRECT_FLAG=@CORRECT_FLAG,");
+			strSql.Append("CREATE_TIME=@CREATE_TIME,");
+			strSql.Append("UPDATE_TIME=@UPDATE_TIME,");
+			strSql.Append("UPDATE_USERNAME=@UPDATE_USERNAME");
 			strSql.Append(" where ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012VEH_NO_ERROR", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012VEH_NO_CORRECT", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012PASSAGE_COUNT", SqlDbType.Int,4),
-					new SqlParameter("SQL2012ERROR_COUNT", SqlDbType.Int,4),
-					new SqlParameter("SQL2012CORRECT_FLAG", SqlDbType.Int,4),
-					new SqlParameter("SQL2012CREATE_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012UPDATE_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012UPDATE_USERNAME", SqlDbType.VarChar,50)};
+					new SqlParameter("@ID", SqlDbType.VarChar,32),
+					new SqlParameter("@VEH_NO_ERROR", SqlDbType.VarChar,50),
+					new SqlParameter("@VEH_NO_CORRECT", SqlDbType.VarChar,50),
+					new SqlParameter("@PASSAGE_COUNT", SqlDbType.Int,4),
+					new SqlParameter("@ERROR_COUNT", SqlDbType.Int,4),
+					new SqlParameter("@CORRECT_FLAG", SqlDbType.Int,4),
+					new SqlParameter("@CREATE_TIME", SqlDbType.DateTime),
+					new SqlParameter("@UPDATE_TIME", SqlDbType.DateTime),
+					new SqlParameter("@UPDATE_USERNAME", SqlDbType.VarChar,50)};
 			parameters[0].Value = model.ID;
 			parameters[1].Value = model.VEH_NO_ERROR;
 			parameters[2].Value = model.VEH_NO_CORRECT;
@@ -307,13 +307,13 @@ namespace Parking.DBService.DAL
 		public DataSet GetList(int PageSize,int PageIndex,string strWhere)
 		{
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012tblName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012fldName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012PageSize", SqlDbType.Int),
-					new SqlParameter("SQL2012PageIndex", SqlDbType.Int),
-					new SqlParameter("SQL2012IsReCount", SqlDbType.Bit),
-					new SqlParameter("SQL2012OrderType", SqlDbType.Bit),
-					new SqlParameter("SQL2012strWhere", SqlDbType.VarChar,1000),
+					new SqlParameter("@tblName", SqlDbType.VarChar, 255),
+					new SqlParameter("@fldName", SqlDbType.VarChar, 255),
+					new SqlParameter("@PageSize", SqlDbType.Int),
+					new SqlParameter("@PageIndex", SqlDbType.Int),
+					new SqlParameter("@IsReCount", SqlDbType.Bit),
+					new SqlParameter("@OrderType", SqlDbType.Bit),
+					new SqlParameter("@strWhere", SqlDbType.VarChar,1000),
 					};
 			parameters[0].Value = "CR_LICENSE_ANALYSIS_CORRECTION";
 			parameters[1].Value = "ID";

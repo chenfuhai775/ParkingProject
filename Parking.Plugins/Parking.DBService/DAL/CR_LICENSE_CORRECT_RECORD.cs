@@ -46,17 +46,17 @@ namespace Parking.DBService.DAL
 			strSql.Append("insert into CR_LICENSE_CORRECT_RECORD(");
 			strSql.Append("ID,BEFORECHANGE_VEHNO,AFTERCHANGE_VEHNO,INOUT_RECODE_ID,DEVICEID,CHANNEL_CODE,CHANGE_TIME,CHANGE_NAME,REMARK)");
 			strSql.Append(" values (");
-			strSql.Append("SQL2012ID,SQL2012BEFORECHANGE_VEHNO,SQL2012AFTERCHANGE_VEHNO,SQL2012INOUT_RECODE_ID,SQL2012DEVICEID,SQL2012CHANNEL_CODE,SQL2012CHANGE_TIME,SQL2012CHANGE_NAME,SQL2012REMARK)");
+			strSql.Append("@ID,@BEFORECHANGE_VEHNO,@AFTERCHANGE_VEHNO,@INOUT_RECODE_ID,@DEVICEID,@CHANNEL_CODE,@CHANGE_TIME,@CHANGE_NAME,@REMARK)");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012BEFORECHANGE_VEHNO", SqlDbType.VarChar,20),
-					new SqlParameter("SQL2012AFTERCHANGE_VEHNO", SqlDbType.VarChar,20),
-					new SqlParameter("SQL2012INOUT_RECODE_ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012DEVICEID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012CHANNEL_CODE", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012CHANGE_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012CHANGE_NAME", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012REMARK", SqlDbType.VarChar,500)};
+					new SqlParameter("@ID", SqlDbType.VarChar,32),
+					new SqlParameter("@BEFORECHANGE_VEHNO", SqlDbType.VarChar,20),
+					new SqlParameter("@AFTERCHANGE_VEHNO", SqlDbType.VarChar,20),
+					new SqlParameter("@INOUT_RECODE_ID", SqlDbType.VarChar,32),
+					new SqlParameter("@DEVICEID", SqlDbType.VarChar,32),
+					new SqlParameter("@CHANNEL_CODE", SqlDbType.VarChar,32),
+					new SqlParameter("@CHANGE_TIME", SqlDbType.DateTime),
+					new SqlParameter("@CHANGE_NAME", SqlDbType.VarChar,50),
+					new SqlParameter("@REMARK", SqlDbType.VarChar,500)};
 			parameters[0].Value = model.ID;
 			parameters[1].Value = model.BEFORECHANGE_VEHNO;
 			parameters[2].Value = model.AFTERCHANGE_VEHNO;
@@ -84,26 +84,26 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("update CR_LICENSE_CORRECT_RECORD set ");
-			strSql.Append("ID=SQL2012ID,");
-			strSql.Append("BEFORECHANGE_VEHNO=SQL2012BEFORECHANGE_VEHNO,");
-			strSql.Append("AFTERCHANGE_VEHNO=SQL2012AFTERCHANGE_VEHNO,");
-			strSql.Append("INOUT_RECODE_ID=SQL2012INOUT_RECODE_ID,");
-			strSql.Append("DEVICEID=SQL2012DEVICEID,");
-			strSql.Append("CHANNEL_CODE=SQL2012CHANNEL_CODE,");
-			strSql.Append("CHANGE_TIME=SQL2012CHANGE_TIME,");
-			strSql.Append("CHANGE_NAME=SQL2012CHANGE_NAME,");
-			strSql.Append("REMARK=SQL2012REMARK");
+			strSql.Append("ID=@ID,");
+			strSql.Append("BEFORECHANGE_VEHNO=@BEFORECHANGE_VEHNO,");
+			strSql.Append("AFTERCHANGE_VEHNO=@AFTERCHANGE_VEHNO,");
+			strSql.Append("INOUT_RECODE_ID=@INOUT_RECODE_ID,");
+			strSql.Append("DEVICEID=@DEVICEID,");
+			strSql.Append("CHANNEL_CODE=@CHANNEL_CODE,");
+			strSql.Append("CHANGE_TIME=@CHANGE_TIME,");
+			strSql.Append("CHANGE_NAME=@CHANGE_NAME,");
+			strSql.Append("REMARK=@REMARK");
 			strSql.Append(" where ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012BEFORECHANGE_VEHNO", SqlDbType.VarChar,20),
-					new SqlParameter("SQL2012AFTERCHANGE_VEHNO", SqlDbType.VarChar,20),
-					new SqlParameter("SQL2012INOUT_RECODE_ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012DEVICEID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012CHANNEL_CODE", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012CHANGE_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012CHANGE_NAME", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012REMARK", SqlDbType.VarChar,500)};
+					new SqlParameter("@ID", SqlDbType.VarChar,32),
+					new SqlParameter("@BEFORECHANGE_VEHNO", SqlDbType.VarChar,20),
+					new SqlParameter("@AFTERCHANGE_VEHNO", SqlDbType.VarChar,20),
+					new SqlParameter("@INOUT_RECODE_ID", SqlDbType.VarChar,32),
+					new SqlParameter("@DEVICEID", SqlDbType.VarChar,32),
+					new SqlParameter("@CHANNEL_CODE", SqlDbType.VarChar,32),
+					new SqlParameter("@CHANGE_TIME", SqlDbType.DateTime),
+					new SqlParameter("@CHANGE_NAME", SqlDbType.VarChar,50),
+					new SqlParameter("@REMARK", SqlDbType.VarChar,500)};
 			parameters[0].Value = model.ID;
 			parameters[1].Value = model.BEFORECHANGE_VEHNO;
 			parameters[2].Value = model.AFTERCHANGE_VEHNO;
@@ -312,13 +312,13 @@ namespace Parking.DBService.DAL
 		public DataSet GetList(int PageSize,int PageIndex,string strWhere)
 		{
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012tblName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012fldName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012PageSize", SqlDbType.Int),
-					new SqlParameter("SQL2012PageIndex", SqlDbType.Int),
-					new SqlParameter("SQL2012IsReCount", SqlDbType.Bit),
-					new SqlParameter("SQL2012OrderType", SqlDbType.Bit),
-					new SqlParameter("SQL2012strWhere", SqlDbType.VarChar,1000),
+					new SqlParameter("@tblName", SqlDbType.VarChar, 255),
+					new SqlParameter("@fldName", SqlDbType.VarChar, 255),
+					new SqlParameter("@PageSize", SqlDbType.Int),
+					new SqlParameter("@PageIndex", SqlDbType.Int),
+					new SqlParameter("@IsReCount", SqlDbType.Bit),
+					new SqlParameter("@OrderType", SqlDbType.Bit),
+					new SqlParameter("@strWhere", SqlDbType.VarChar,1000),
 					};
 			parameters[0].Value = "CR_LICENSE_CORRECT_RECORD";
 			parameters[1].Value = "ID";

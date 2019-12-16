@@ -37,9 +37,9 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select count(1) from CR_PREFERENTIAL_PHYSICAL");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			return DbHelperSQL.Exists(strSql.ToString(),parameters);
@@ -55,16 +55,16 @@ namespace Parking.DBService.DAL
 			strSql.Append("insert into CR_PREFERENTIAL_PHYSICAL(");
 			strSql.Append("ID,PREFERENTIAL_CODE,PREFERENTIA_IDENT,CR_PREFERENTIAL_TYPE,EMPLOY_TYPE,EMPLOY_TIME,CREATE_TIME,CREATE_USER_ID)");
 			strSql.Append(" values (");
-			strSql.Append("SQL2012ID,SQL2012PREFERENTIAL_CODE,SQL2012PREFERENTIA_IDENT,SQL2012CR_PREFERENTIAL_TYPE,SQL2012EMPLOY_TYPE,SQL2012EMPLOY_TIME,SQL2012CREATE_TIME,SQL2012CREATE_USER_ID)");
+			strSql.Append("@ID,@PREFERENTIAL_CODE,@PREFERENTIA_IDENT,@CR_PREFERENTIAL_TYPE,@EMPLOY_TYPE,@EMPLOY_TIME,@CREATE_TIME,@CREATE_USER_ID)");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012PREFERENTIAL_CODE", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012PREFERENTIA_IDENT", SqlDbType.VarChar,200),
-					new SqlParameter("SQL2012CR_PREFERENTIAL_TYPE", SqlDbType.Int,4),
-					new SqlParameter("SQL2012EMPLOY_TYPE", SqlDbType.Int,4),
-					new SqlParameter("SQL2012EMPLOY_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012CREATE_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012CREATE_USER_ID", SqlDbType.VarChar,50)};
+					new SqlParameter("@ID", SqlDbType.VarChar,32),
+					new SqlParameter("@PREFERENTIAL_CODE", SqlDbType.VarChar,50),
+					new SqlParameter("@PREFERENTIA_IDENT", SqlDbType.VarChar,200),
+					new SqlParameter("@CR_PREFERENTIAL_TYPE", SqlDbType.Int,4),
+					new SqlParameter("@EMPLOY_TYPE", SqlDbType.Int,4),
+					new SqlParameter("@EMPLOY_TIME", SqlDbType.DateTime),
+					new SqlParameter("@CREATE_TIME", SqlDbType.DateTime),
+					new SqlParameter("@CREATE_USER_ID", SqlDbType.VarChar,50)};
 			parameters[0].Value = model.ID;
 			parameters[1].Value = model.PREFERENTIAL_CODE;
 			parameters[2].Value = model.PREFERENTIA_IDENT;
@@ -91,23 +91,23 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("update CR_PREFERENTIAL_PHYSICAL set ");
-			strSql.Append("PREFERENTIAL_CODE=SQL2012PREFERENTIAL_CODE,");
-			strSql.Append("PREFERENTIA_IDENT=SQL2012PREFERENTIA_IDENT,");
-			strSql.Append("CR_PREFERENTIAL_TYPE=SQL2012CR_PREFERENTIAL_TYPE,");
-			strSql.Append("EMPLOY_TYPE=SQL2012EMPLOY_TYPE,");
-			strSql.Append("EMPLOY_TIME=SQL2012EMPLOY_TIME,");
-			strSql.Append("CREATE_TIME=SQL2012CREATE_TIME,");
-			strSql.Append("CREATE_USER_ID=SQL2012CREATE_USER_ID");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append("PREFERENTIAL_CODE=@PREFERENTIAL_CODE,");
+			strSql.Append("PREFERENTIA_IDENT=@PREFERENTIA_IDENT,");
+			strSql.Append("CR_PREFERENTIAL_TYPE=@CR_PREFERENTIAL_TYPE,");
+			strSql.Append("EMPLOY_TYPE=@EMPLOY_TYPE,");
+			strSql.Append("EMPLOY_TIME=@EMPLOY_TIME,");
+			strSql.Append("CREATE_TIME=@CREATE_TIME,");
+			strSql.Append("CREATE_USER_ID=@CREATE_USER_ID");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012PREFERENTIAL_CODE", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012PREFERENTIA_IDENT", SqlDbType.VarChar,200),
-					new SqlParameter("SQL2012CR_PREFERENTIAL_TYPE", SqlDbType.Int,4),
-					new SqlParameter("SQL2012EMPLOY_TYPE", SqlDbType.Int,4),
-					new SqlParameter("SQL2012EMPLOY_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012CREATE_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012CREATE_USER_ID", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)};
+					new SqlParameter("@PREFERENTIAL_CODE", SqlDbType.VarChar,50),
+					new SqlParameter("@PREFERENTIA_IDENT", SqlDbType.VarChar,200),
+					new SqlParameter("@CR_PREFERENTIAL_TYPE", SqlDbType.Int,4),
+					new SqlParameter("@EMPLOY_TYPE", SqlDbType.Int,4),
+					new SqlParameter("@EMPLOY_TIME", SqlDbType.DateTime),
+					new SqlParameter("@CREATE_TIME", SqlDbType.DateTime),
+					new SqlParameter("@CREATE_USER_ID", SqlDbType.VarChar,50),
+					new SqlParameter("@ID", SqlDbType.VarChar,32)};
 			parameters[0].Value = model.PREFERENTIAL_CODE;
 			parameters[1].Value = model.PREFERENTIA_IDENT;
 			parameters[2].Value = model.CR_PREFERENTIAL_TYPE;
@@ -136,9 +136,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("delete from CR_PREFERENTIAL_PHYSICAL ");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
@@ -179,9 +179,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select  top 1 ID,PREFERENTIAL_CODE,PREFERENTIA_IDENT,CR_PREFERENTIAL_TYPE,EMPLOY_TYPE,EMPLOY_TIME,CREATE_TIME,CREATE_USER_ID from CR_PREFERENTIAL_PHYSICAL ");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			Parking.Core.Model.CR_PREFERENTIAL_PHYSICAL model=new Parking.Core.Model.CR_PREFERENTIAL_PHYSICAL();
@@ -331,13 +331,13 @@ namespace Parking.DBService.DAL
 		public DataSet GetList(int PageSize,int PageIndex,string strWhere)
 		{
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012tblName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012fldName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012PageSize", SqlDbType.Int),
-					new SqlParameter("SQL2012PageIndex", SqlDbType.Int),
-					new SqlParameter("SQL2012IsReCount", SqlDbType.Bit),
-					new SqlParameter("SQL2012OrderType", SqlDbType.Bit),
-					new SqlParameter("SQL2012strWhere", SqlDbType.VarChar,1000),
+					new SqlParameter("@tblName", SqlDbType.VarChar, 255),
+					new SqlParameter("@fldName", SqlDbType.VarChar, 255),
+					new SqlParameter("@PageSize", SqlDbType.Int),
+					new SqlParameter("@PageIndex", SqlDbType.Int),
+					new SqlParameter("@IsReCount", SqlDbType.Bit),
+					new SqlParameter("@OrderType", SqlDbType.Bit),
+					new SqlParameter("@strWhere", SqlDbType.VarChar,1000),
 					};
 			parameters[0].Value = "CR_PREFERENTIAL_PHYSICAL";
 			parameters[1].Value = "ID";

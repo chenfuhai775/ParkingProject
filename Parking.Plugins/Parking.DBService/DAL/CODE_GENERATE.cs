@@ -45,9 +45,9 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select count(1) from CODE_GENERATE");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.Int,4)			};
+					new SqlParameter("@ID", SqlDbType.Int,4)			};
 			parameters[0].Value = ID;
 
 			return DbHelperSQL.Exists(strSql.ToString(),parameters);
@@ -63,14 +63,14 @@ namespace Parking.DBService.DAL
 			strSql.Append("insert into CODE_GENERATE(");
 			strSql.Append("ID,PREF_NAME,MODULAR_NAME,MAX_STREAM_NUMBER,FORMAT,SPLIT)");
 			strSql.Append(" values (");
-			strSql.Append("SQL2012ID,SQL2012PREF_NAME,SQL2012MODULAR_NAME,SQL2012MAX_STREAM_NUMBER,SQL2012FORMAT,SQL2012SPLIT)");
+			strSql.Append("@ID,@PREF_NAME,@MODULAR_NAME,@MAX_STREAM_NUMBER,@FORMAT,@SPLIT)");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.Int,4),
-					new SqlParameter("SQL2012PREF_NAME", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012MODULAR_NAME", SqlDbType.VarChar,100),
-					new SqlParameter("SQL2012MAX_STREAM_NUMBER", SqlDbType.Int,4),
-					new SqlParameter("SQL2012FORMAT", SqlDbType.VarChar,300),
-					new SqlParameter("SQL2012SPLIT", SqlDbType.VarChar,30)};
+					new SqlParameter("@ID", SqlDbType.Int,4),
+					new SqlParameter("@PREF_NAME", SqlDbType.VarChar,50),
+					new SqlParameter("@MODULAR_NAME", SqlDbType.VarChar,100),
+					new SqlParameter("@MAX_STREAM_NUMBER", SqlDbType.Int,4),
+					new SqlParameter("@FORMAT", SqlDbType.VarChar,300),
+					new SqlParameter("@SPLIT", SqlDbType.VarChar,30)};
 			parameters[0].Value = model.ID;
 			parameters[1].Value = model.PREF_NAME;
 			parameters[2].Value = model.MODULAR_NAME;
@@ -95,19 +95,19 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("update CODE_GENERATE set ");
-			strSql.Append("PREF_NAME=SQL2012PREF_NAME,");
-			strSql.Append("MODULAR_NAME=SQL2012MODULAR_NAME,");
-			strSql.Append("MAX_STREAM_NUMBER=SQL2012MAX_STREAM_NUMBER,");
-			strSql.Append("FORMAT=SQL2012FORMAT,");
-			strSql.Append("SPLIT=SQL2012SPLIT");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append("PREF_NAME=@PREF_NAME,");
+			strSql.Append("MODULAR_NAME=@MODULAR_NAME,");
+			strSql.Append("MAX_STREAM_NUMBER=@MAX_STREAM_NUMBER,");
+			strSql.Append("FORMAT=@FORMAT,");
+			strSql.Append("SPLIT=@SPLIT");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012PREF_NAME", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012MODULAR_NAME", SqlDbType.VarChar,100),
-					new SqlParameter("SQL2012MAX_STREAM_NUMBER", SqlDbType.Int,4),
-					new SqlParameter("SQL2012FORMAT", SqlDbType.VarChar,300),
-					new SqlParameter("SQL2012SPLIT", SqlDbType.VarChar,30),
-					new SqlParameter("SQL2012ID", SqlDbType.Int,4)};
+					new SqlParameter("@PREF_NAME", SqlDbType.VarChar,50),
+					new SqlParameter("@MODULAR_NAME", SqlDbType.VarChar,100),
+					new SqlParameter("@MAX_STREAM_NUMBER", SqlDbType.Int,4),
+					new SqlParameter("@FORMAT", SqlDbType.VarChar,300),
+					new SqlParameter("@SPLIT", SqlDbType.VarChar,30),
+					new SqlParameter("@ID", SqlDbType.Int,4)};
 			parameters[0].Value = model.PREF_NAME;
 			parameters[1].Value = model.MODULAR_NAME;
 			parameters[2].Value = model.MAX_STREAM_NUMBER;
@@ -134,9 +134,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("delete from CODE_GENERATE ");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.Int,4)			};
+					new SqlParameter("@ID", SqlDbType.Int,4)			};
 			parameters[0].Value = ID;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
@@ -177,9 +177,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select  top 1 ID,PREF_NAME,MODULAR_NAME,MAX_STREAM_NUMBER,FORMAT,SPLIT from CODE_GENERATE ");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.Int,4)			};
+					new SqlParameter("@ID", SqlDbType.Int,4)			};
 			parameters[0].Value = ID;
 
 			Parking.Core.Model.CODE_GENERATE model=new Parking.Core.Model.CODE_GENERATE();
@@ -321,13 +321,13 @@ namespace Parking.DBService.DAL
 		public DataSet GetList(int PageSize,int PageIndex,string strWhere)
 		{
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012tblName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012fldName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012PageSize", SqlDbType.Int),
-					new SqlParameter("SQL2012PageIndex", SqlDbType.Int),
-					new SqlParameter("SQL2012IsReCount", SqlDbType.Bit),
-					new SqlParameter("SQL2012OrderType", SqlDbType.Bit),
-					new SqlParameter("SQL2012strWhere", SqlDbType.VarChar,1000),
+					new SqlParameter("@tblName", SqlDbType.VarChar, 255),
+					new SqlParameter("@fldName", SqlDbType.VarChar, 255),
+					new SqlParameter("@PageSize", SqlDbType.Int),
+					new SqlParameter("@PageIndex", SqlDbType.Int),
+					new SqlParameter("@IsReCount", SqlDbType.Bit),
+					new SqlParameter("@OrderType", SqlDbType.Bit),
+					new SqlParameter("@strWhere", SqlDbType.VarChar,1000),
 					};
 			parameters[0].Value = "CODE_GENERATE";
 			parameters[1].Value = "ID";

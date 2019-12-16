@@ -37,9 +37,9 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select count(1) from UP_DATA_INTERACTION_PERMISSIONS");
-			strSql.Append(" where SERVICE_CODE=SQL2012SERVICE_CODE ");
+			strSql.Append(" where SERVICE_CODE=@SERVICE_CODE ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012SERVICE_CODE", SqlDbType.VarChar,50)			};
+					new SqlParameter("@SERVICE_CODE", SqlDbType.VarChar,50)			};
 			parameters[0].Value = SERVICE_CODE;
 
 			return DbHelperSQL.Exists(strSql.ToString(),parameters);
@@ -55,15 +55,15 @@ namespace Parking.DBService.DAL
 			strSql.Append("insert into UP_DATA_INTERACTION_PERMISSIONS(");
 			strSql.Append("SERVICE_CODE,SERVICE_NAME,AUTHENTICATION_CODE,SERVICE_REMARK,SEND_TYPE_COLLECTION,SERVICE_STATUS,START_FLAG)");
 			strSql.Append(" values (");
-			strSql.Append("SQL2012SERVICE_CODE,SQL2012SERVICE_NAME,SQL2012AUTHENTICATION_CODE,SQL2012SERVICE_REMARK,SQL2012SEND_TYPE_COLLECTION,SQL2012SERVICE_STATUS,SQL2012START_FLAG)");
+			strSql.Append("@SERVICE_CODE,@SERVICE_NAME,@AUTHENTICATION_CODE,@SERVICE_REMARK,@SEND_TYPE_COLLECTION,@SERVICE_STATUS,@START_FLAG)");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012SERVICE_CODE", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012SERVICE_NAME", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012AUTHENTICATION_CODE", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012SERVICE_REMARK", SqlDbType.VarChar,1000),
-					new SqlParameter("SQL2012SEND_TYPE_COLLECTION", SqlDbType.VarChar,1000),
-					new SqlParameter("SQL2012SERVICE_STATUS", SqlDbType.Int,4),
-					new SqlParameter("SQL2012START_FLAG", SqlDbType.Int,4)};
+					new SqlParameter("@SERVICE_CODE", SqlDbType.VarChar,50),
+					new SqlParameter("@SERVICE_NAME", SqlDbType.VarChar,50),
+					new SqlParameter("@AUTHENTICATION_CODE", SqlDbType.VarChar,50),
+					new SqlParameter("@SERVICE_REMARK", SqlDbType.VarChar,1000),
+					new SqlParameter("@SEND_TYPE_COLLECTION", SqlDbType.VarChar,1000),
+					new SqlParameter("@SERVICE_STATUS", SqlDbType.Int,4),
+					new SqlParameter("@START_FLAG", SqlDbType.Int,4)};
 			parameters[0].Value = model.SERVICE_CODE;
 			parameters[1].Value = model.SERVICE_NAME;
 			parameters[2].Value = model.AUTHENTICATION_CODE;
@@ -89,21 +89,21 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("update UP_DATA_INTERACTION_PERMISSIONS set ");
-			strSql.Append("SERVICE_NAME=SQL2012SERVICE_NAME,");
-			strSql.Append("AUTHENTICATION_CODE=SQL2012AUTHENTICATION_CODE,");
-			strSql.Append("SERVICE_REMARK=SQL2012SERVICE_REMARK,");
-			strSql.Append("SEND_TYPE_COLLECTION=SQL2012SEND_TYPE_COLLECTION,");
-			strSql.Append("SERVICE_STATUS=SQL2012SERVICE_STATUS,");
-			strSql.Append("START_FLAG=SQL2012START_FLAG");
-			strSql.Append(" where SERVICE_CODE=SQL2012SERVICE_CODE ");
+			strSql.Append("SERVICE_NAME=@SERVICE_NAME,");
+			strSql.Append("AUTHENTICATION_CODE=@AUTHENTICATION_CODE,");
+			strSql.Append("SERVICE_REMARK=@SERVICE_REMARK,");
+			strSql.Append("SEND_TYPE_COLLECTION=@SEND_TYPE_COLLECTION,");
+			strSql.Append("SERVICE_STATUS=@SERVICE_STATUS,");
+			strSql.Append("START_FLAG=@START_FLAG");
+			strSql.Append(" where SERVICE_CODE=@SERVICE_CODE ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012SERVICE_NAME", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012AUTHENTICATION_CODE", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012SERVICE_REMARK", SqlDbType.VarChar,1000),
-					new SqlParameter("SQL2012SEND_TYPE_COLLECTION", SqlDbType.VarChar,1000),
-					new SqlParameter("SQL2012SERVICE_STATUS", SqlDbType.Int,4),
-					new SqlParameter("SQL2012START_FLAG", SqlDbType.Int,4),
-					new SqlParameter("SQL2012SERVICE_CODE", SqlDbType.VarChar,50)};
+					new SqlParameter("@SERVICE_NAME", SqlDbType.VarChar,50),
+					new SqlParameter("@AUTHENTICATION_CODE", SqlDbType.VarChar,50),
+					new SqlParameter("@SERVICE_REMARK", SqlDbType.VarChar,1000),
+					new SqlParameter("@SEND_TYPE_COLLECTION", SqlDbType.VarChar,1000),
+					new SqlParameter("@SERVICE_STATUS", SqlDbType.Int,4),
+					new SqlParameter("@START_FLAG", SqlDbType.Int,4),
+					new SqlParameter("@SERVICE_CODE", SqlDbType.VarChar,50)};
 			parameters[0].Value = model.SERVICE_NAME;
 			parameters[1].Value = model.AUTHENTICATION_CODE;
 			parameters[2].Value = model.SERVICE_REMARK;
@@ -131,9 +131,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("delete from UP_DATA_INTERACTION_PERMISSIONS ");
-			strSql.Append(" where SERVICE_CODE=SQL2012SERVICE_CODE ");
+			strSql.Append(" where SERVICE_CODE=@SERVICE_CODE ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012SERVICE_CODE", SqlDbType.VarChar,50)			};
+					new SqlParameter("@SERVICE_CODE", SqlDbType.VarChar,50)			};
 			parameters[0].Value = SERVICE_CODE;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
@@ -174,9 +174,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select  top 1 SERVICE_CODE,SERVICE_NAME,AUTHENTICATION_CODE,SERVICE_REMARK,SEND_TYPE_COLLECTION,SERVICE_STATUS,START_FLAG from UP_DATA_INTERACTION_PERMISSIONS ");
-			strSql.Append(" where SERVICE_CODE=SQL2012SERVICE_CODE ");
+			strSql.Append(" where SERVICE_CODE=@SERVICE_CODE ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012SERVICE_CODE", SqlDbType.VarChar,50)			};
+					new SqlParameter("@SERVICE_CODE", SqlDbType.VarChar,50)			};
 			parameters[0].Value = SERVICE_CODE;
 
 			Parking.Core.Model.UP_DATA_INTERACTION_PERMISSIONS model=new Parking.Core.Model.UP_DATA_INTERACTION_PERMISSIONS();
@@ -322,13 +322,13 @@ namespace Parking.DBService.DAL
 		public DataSet GetList(int PageSize,int PageIndex,string strWhere)
 		{
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012tblName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012fldName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012PageSize", SqlDbType.Int),
-					new SqlParameter("SQL2012PageIndex", SqlDbType.Int),
-					new SqlParameter("SQL2012IsReCount", SqlDbType.Bit),
-					new SqlParameter("SQL2012OrderType", SqlDbType.Bit),
-					new SqlParameter("SQL2012strWhere", SqlDbType.VarChar,1000),
+					new SqlParameter("@tblName", SqlDbType.VarChar, 255),
+					new SqlParameter("@fldName", SqlDbType.VarChar, 255),
+					new SqlParameter("@PageSize", SqlDbType.Int),
+					new SqlParameter("@PageIndex", SqlDbType.Int),
+					new SqlParameter("@IsReCount", SqlDbType.Bit),
+					new SqlParameter("@OrderType", SqlDbType.Bit),
+					new SqlParameter("@strWhere", SqlDbType.VarChar,1000),
 					};
 			parameters[0].Value = "UP_DATA_INTERACTION_PERMISSIONS";
 			parameters[1].Value = "SERVICE_CODE";

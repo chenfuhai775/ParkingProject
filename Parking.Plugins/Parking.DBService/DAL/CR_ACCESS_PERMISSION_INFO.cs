@@ -38,9 +38,9 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select count(1) from CR_ACCESS_PERMISSION_INFO");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			return DbHelperSQL.Exists(strSql.ToString(),parameters);
@@ -56,18 +56,18 @@ namespace Parking.DBService.DAL
 			strSql.Append("insert into CR_ACCESS_PERMISSION_INFO(");
 			strSql.Append("ID,ACCESS_NAME,ACCESS_CODE,IS_ENABLE,ACCESS_PERMISSIONS,ACCESS_CHANNEL_CODE,CREATE_TIME,CREATE_USERID,UPDATE_TIME,UPDATE_USERID)");
 			strSql.Append(" values (");
-			strSql.Append("SQL2012ID,SQL2012ACCESS_NAME,SQL2012ACCESS_CODE,SQL2012IS_ENABLE,SQL2012ACCESS_PERMISSIONS,SQL2012ACCESS_CHANNEL_CODE,SQL2012CREATE_TIME,SQL2012CREATE_USERID,SQL2012UPDATE_TIME,SQL2012UPDATE_USERID)");
+			strSql.Append("@ID,@ACCESS_NAME,@ACCESS_CODE,@IS_ENABLE,@ACCESS_PERMISSIONS,@ACCESS_CHANNEL_CODE,@CREATE_TIME,@CREATE_USERID,@UPDATE_TIME,@UPDATE_USERID)");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012ACCESS_NAME", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012ACCESS_CODE", SqlDbType.VarChar,20),
-					new SqlParameter("SQL2012IS_ENABLE", SqlDbType.Int,4),
-					new SqlParameter("SQL2012ACCESS_PERMISSIONS", SqlDbType.VarChar,128),
-					new SqlParameter("SQL2012ACCESS_CHANNEL_CODE", SqlDbType.VarChar,500),
-					new SqlParameter("SQL2012CREATE_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012CREATE_USERID", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012UPDATE_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012UPDATE_USERID", SqlDbType.VarChar,50)};
+					new SqlParameter("@ID", SqlDbType.VarChar,32),
+					new SqlParameter("@ACCESS_NAME", SqlDbType.VarChar,50),
+					new SqlParameter("@ACCESS_CODE", SqlDbType.VarChar,20),
+					new SqlParameter("@IS_ENABLE", SqlDbType.Int,4),
+					new SqlParameter("@ACCESS_PERMISSIONS", SqlDbType.VarChar,128),
+					new SqlParameter("@ACCESS_CHANNEL_CODE", SqlDbType.VarChar,500),
+					new SqlParameter("@CREATE_TIME", SqlDbType.DateTime),
+					new SqlParameter("@CREATE_USERID", SqlDbType.VarChar,50),
+					new SqlParameter("@UPDATE_TIME", SqlDbType.DateTime),
+					new SqlParameter("@UPDATE_USERID", SqlDbType.VarChar,50)};
 			parameters[0].Value = model.ID;
 			parameters[1].Value = model.ACCESS_NAME;
 			parameters[2].Value = model.ACCESS_CODE;
@@ -96,27 +96,27 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("update CR_ACCESS_PERMISSION_INFO set ");
-			strSql.Append("ACCESS_NAME=SQL2012ACCESS_NAME,");
-			strSql.Append("ACCESS_CODE=SQL2012ACCESS_CODE,");
-			strSql.Append("IS_ENABLE=SQL2012IS_ENABLE,");
-			strSql.Append("ACCESS_PERMISSIONS=SQL2012ACCESS_PERMISSIONS,");
-			strSql.Append("ACCESS_CHANNEL_CODE=SQL2012ACCESS_CHANNEL_CODE,");
-			strSql.Append("CREATE_TIME=SQL2012CREATE_TIME,");
-			strSql.Append("CREATE_USERID=SQL2012CREATE_USERID,");
-			strSql.Append("UPDATE_TIME=SQL2012UPDATE_TIME,");
-			strSql.Append("UPDATE_USERID=SQL2012UPDATE_USERID");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append("ACCESS_NAME=@ACCESS_NAME,");
+			strSql.Append("ACCESS_CODE=@ACCESS_CODE,");
+			strSql.Append("IS_ENABLE=@IS_ENABLE,");
+			strSql.Append("ACCESS_PERMISSIONS=@ACCESS_PERMISSIONS,");
+			strSql.Append("ACCESS_CHANNEL_CODE=@ACCESS_CHANNEL_CODE,");
+			strSql.Append("CREATE_TIME=@CREATE_TIME,");
+			strSql.Append("CREATE_USERID=@CREATE_USERID,");
+			strSql.Append("UPDATE_TIME=@UPDATE_TIME,");
+			strSql.Append("UPDATE_USERID=@UPDATE_USERID");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ACCESS_NAME", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012ACCESS_CODE", SqlDbType.VarChar,20),
-					new SqlParameter("SQL2012IS_ENABLE", SqlDbType.Int,4),
-					new SqlParameter("SQL2012ACCESS_PERMISSIONS", SqlDbType.VarChar,128),
-					new SqlParameter("SQL2012ACCESS_CHANNEL_CODE", SqlDbType.VarChar,500),
-					new SqlParameter("SQL2012CREATE_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012CREATE_USERID", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012UPDATE_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012UPDATE_USERID", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)};
+					new SqlParameter("@ACCESS_NAME", SqlDbType.VarChar,50),
+					new SqlParameter("@ACCESS_CODE", SqlDbType.VarChar,20),
+					new SqlParameter("@IS_ENABLE", SqlDbType.Int,4),
+					new SqlParameter("@ACCESS_PERMISSIONS", SqlDbType.VarChar,128),
+					new SqlParameter("@ACCESS_CHANNEL_CODE", SqlDbType.VarChar,500),
+					new SqlParameter("@CREATE_TIME", SqlDbType.DateTime),
+					new SqlParameter("@CREATE_USERID", SqlDbType.VarChar,50),
+					new SqlParameter("@UPDATE_TIME", SqlDbType.DateTime),
+					new SqlParameter("@UPDATE_USERID", SqlDbType.VarChar,50),
+					new SqlParameter("@ID", SqlDbType.VarChar,32)};
 			parameters[0].Value = model.ACCESS_NAME;
 			parameters[1].Value = model.ACCESS_CODE;
 			parameters[2].Value = model.IS_ENABLE;
@@ -147,9 +147,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("delete from CR_ACCESS_PERMISSION_INFO ");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
@@ -190,9 +190,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select  top 1 ID,ACCESS_NAME,ACCESS_CODE,IS_ENABLE,ACCESS_PERMISSIONS,ACCESS_CHANNEL_CODE,CREATE_TIME,CREATE_USERID,UPDATE_TIME,UPDATE_USERID from CR_ACCESS_PERMISSION_INFO ");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			Parking.Core.Model.CR_ACCESS_PERMISSION_INFO model=new Parking.Core.Model.CR_ACCESS_PERMISSION_INFO();
@@ -350,13 +350,13 @@ namespace Parking.DBService.DAL
 		public DataSet GetList(int PageSize,int PageIndex,string strWhere)
 		{
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012tblName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012fldName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012PageSize", SqlDbType.Int),
-					new SqlParameter("SQL2012PageIndex", SqlDbType.Int),
-					new SqlParameter("SQL2012IsReCount", SqlDbType.Bit),
-					new SqlParameter("SQL2012OrderType", SqlDbType.Bit),
-					new SqlParameter("SQL2012strWhere", SqlDbType.VarChar,1000),
+					new SqlParameter("@tblName", SqlDbType.VarChar, 255),
+					new SqlParameter("@fldName", SqlDbType.VarChar, 255),
+					new SqlParameter("@PageSize", SqlDbType.Int),
+					new SqlParameter("@PageIndex", SqlDbType.Int),
+					new SqlParameter("@IsReCount", SqlDbType.Bit),
+					new SqlParameter("@OrderType", SqlDbType.Bit),
+					new SqlParameter("@strWhere", SqlDbType.VarChar,1000),
 					};
 			parameters[0].Value = "CR_ACCESS_PERMISSION_INFO";
 			parameters[1].Value = "ID";

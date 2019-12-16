@@ -37,9 +37,9 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select count(1) from PBA_OWNER_VEHICLE_INFO");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			return DbHelperSQL.Exists(strSql.ToString(),parameters);
@@ -55,19 +55,19 @@ namespace Parking.DBService.DAL
 			strSql.Append("insert into PBA_OWNER_VEHICLE_INFO(");
 			strSql.Append("ID,OWNER_CODE,VEHICLE_NO,VEHICLE_COLOR,VEHICLE_TYPE,VEHICLE_CATEGORY,VEHICLE_LOGO,CREATE_TIME,CREATE_USERNAME,UPDATE_TIME,UPDATE_USERNAME)");
 			strSql.Append(" values (");
-			strSql.Append("SQL2012ID,SQL2012OWNER_CODE,SQL2012VEHICLE_NO,SQL2012VEHICLE_COLOR,SQL2012VEHICLE_TYPE,SQL2012VEHICLE_CATEGORY,SQL2012VEHICLE_LOGO,SQL2012CREATE_TIME,SQL2012CREATE_USERNAME,SQL2012UPDATE_TIME,SQL2012UPDATE_USERNAME)");
+			strSql.Append("@ID,@OWNER_CODE,@VEHICLE_NO,@VEHICLE_COLOR,@VEHICLE_TYPE,@VEHICLE_CATEGORY,@VEHICLE_LOGO,@CREATE_TIME,@CREATE_USERNAME,@UPDATE_TIME,@UPDATE_USERNAME)");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012OWNER_CODE", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012VEHICLE_NO", SqlDbType.VarChar,20),
-					new SqlParameter("SQL2012VEHICLE_COLOR", SqlDbType.VarChar,20),
-					new SqlParameter("SQL2012VEHICLE_TYPE", SqlDbType.Int,4),
-					new SqlParameter("SQL2012VEHICLE_CATEGORY", SqlDbType.VarChar,20),
-					new SqlParameter("SQL2012VEHICLE_LOGO", SqlDbType.VarChar,200),
-					new SqlParameter("SQL2012CREATE_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012CREATE_USERNAME", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012UPDATE_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012UPDATE_USERNAME", SqlDbType.VarChar,50)};
+					new SqlParameter("@ID", SqlDbType.VarChar,32),
+					new SqlParameter("@OWNER_CODE", SqlDbType.VarChar,50),
+					new SqlParameter("@VEHICLE_NO", SqlDbType.VarChar,20),
+					new SqlParameter("@VEHICLE_COLOR", SqlDbType.VarChar,20),
+					new SqlParameter("@VEHICLE_TYPE", SqlDbType.Int,4),
+					new SqlParameter("@VEHICLE_CATEGORY", SqlDbType.VarChar,20),
+					new SqlParameter("@VEHICLE_LOGO", SqlDbType.VarChar,200),
+					new SqlParameter("@CREATE_TIME", SqlDbType.DateTime),
+					new SqlParameter("@CREATE_USERNAME", SqlDbType.VarChar,50),
+					new SqlParameter("@UPDATE_TIME", SqlDbType.DateTime),
+					new SqlParameter("@UPDATE_USERNAME", SqlDbType.VarChar,50)};
 			parameters[0].Value = model.ID;
 			parameters[1].Value = model.OWNER_CODE;
 			parameters[2].Value = model.VEHICLE_NO;
@@ -97,29 +97,29 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("update PBA_OWNER_VEHICLE_INFO set ");
-			strSql.Append("OWNER_CODE=SQL2012OWNER_CODE,");
-			strSql.Append("VEHICLE_NO=SQL2012VEHICLE_NO,");
-			strSql.Append("VEHICLE_COLOR=SQL2012VEHICLE_COLOR,");
-			strSql.Append("VEHICLE_TYPE=SQL2012VEHICLE_TYPE,");
-			strSql.Append("VEHICLE_CATEGORY=SQL2012VEHICLE_CATEGORY,");
-			strSql.Append("VEHICLE_LOGO=SQL2012VEHICLE_LOGO,");
-			strSql.Append("CREATE_TIME=SQL2012CREATE_TIME,");
-			strSql.Append("CREATE_USERNAME=SQL2012CREATE_USERNAME,");
-			strSql.Append("UPDATE_TIME=SQL2012UPDATE_TIME,");
-			strSql.Append("UPDATE_USERNAME=SQL2012UPDATE_USERNAME");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append("OWNER_CODE=@OWNER_CODE,");
+			strSql.Append("VEHICLE_NO=@VEHICLE_NO,");
+			strSql.Append("VEHICLE_COLOR=@VEHICLE_COLOR,");
+			strSql.Append("VEHICLE_TYPE=@VEHICLE_TYPE,");
+			strSql.Append("VEHICLE_CATEGORY=@VEHICLE_CATEGORY,");
+			strSql.Append("VEHICLE_LOGO=@VEHICLE_LOGO,");
+			strSql.Append("CREATE_TIME=@CREATE_TIME,");
+			strSql.Append("CREATE_USERNAME=@CREATE_USERNAME,");
+			strSql.Append("UPDATE_TIME=@UPDATE_TIME,");
+			strSql.Append("UPDATE_USERNAME=@UPDATE_USERNAME");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012OWNER_CODE", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012VEHICLE_NO", SqlDbType.VarChar,20),
-					new SqlParameter("SQL2012VEHICLE_COLOR", SqlDbType.VarChar,20),
-					new SqlParameter("SQL2012VEHICLE_TYPE", SqlDbType.Int,4),
-					new SqlParameter("SQL2012VEHICLE_CATEGORY", SqlDbType.VarChar,20),
-					new SqlParameter("SQL2012VEHICLE_LOGO", SqlDbType.VarChar,200),
-					new SqlParameter("SQL2012CREATE_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012CREATE_USERNAME", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012UPDATE_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012UPDATE_USERNAME", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)};
+					new SqlParameter("@OWNER_CODE", SqlDbType.VarChar,50),
+					new SqlParameter("@VEHICLE_NO", SqlDbType.VarChar,20),
+					new SqlParameter("@VEHICLE_COLOR", SqlDbType.VarChar,20),
+					new SqlParameter("@VEHICLE_TYPE", SqlDbType.Int,4),
+					new SqlParameter("@VEHICLE_CATEGORY", SqlDbType.VarChar,20),
+					new SqlParameter("@VEHICLE_LOGO", SqlDbType.VarChar,200),
+					new SqlParameter("@CREATE_TIME", SqlDbType.DateTime),
+					new SqlParameter("@CREATE_USERNAME", SqlDbType.VarChar,50),
+					new SqlParameter("@UPDATE_TIME", SqlDbType.DateTime),
+					new SqlParameter("@UPDATE_USERNAME", SqlDbType.VarChar,50),
+					new SqlParameter("@ID", SqlDbType.VarChar,32)};
 			parameters[0].Value = model.OWNER_CODE;
 			parameters[1].Value = model.VEHICLE_NO;
 			parameters[2].Value = model.VEHICLE_COLOR;
@@ -151,9 +151,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("delete from PBA_OWNER_VEHICLE_INFO ");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
@@ -194,9 +194,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select  top 1 ID,OWNER_CODE,VEHICLE_NO,VEHICLE_COLOR,VEHICLE_TYPE,VEHICLE_CATEGORY,VEHICLE_LOGO,CREATE_TIME,CREATE_USERNAME,UPDATE_TIME,UPDATE_USERNAME from PBA_OWNER_VEHICLE_INFO ");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			Parking.Core.Model.PBA_OWNER_VEHICLE_INFO model=new Parking.Core.Model.PBA_OWNER_VEHICLE_INFO();
@@ -358,13 +358,13 @@ namespace Parking.DBService.DAL
 		public DataSet GetList(int PageSize,int PageIndex,string strWhere)
 		{
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012tblName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012fldName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012PageSize", SqlDbType.Int),
-					new SqlParameter("SQL2012PageIndex", SqlDbType.Int),
-					new SqlParameter("SQL2012IsReCount", SqlDbType.Bit),
-					new SqlParameter("SQL2012OrderType", SqlDbType.Bit),
-					new SqlParameter("SQL2012strWhere", SqlDbType.VarChar,1000),
+					new SqlParameter("@tblName", SqlDbType.VarChar, 255),
+					new SqlParameter("@fldName", SqlDbType.VarChar, 255),
+					new SqlParameter("@PageSize", SqlDbType.Int),
+					new SqlParameter("@PageIndex", SqlDbType.Int),
+					new SqlParameter("@IsReCount", SqlDbType.Bit),
+					new SqlParameter("@OrderType", SqlDbType.Bit),
+					new SqlParameter("@strWhere", SqlDbType.VarChar,1000),
 					};
 			parameters[0].Value = "PBA_OWNER_VEHICLE_INFO";
 			parameters[1].Value = "ID";

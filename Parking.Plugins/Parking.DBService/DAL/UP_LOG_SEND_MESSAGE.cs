@@ -41,20 +41,20 @@ namespace Parking.DBService.DAL
 			strSql.Append("insert into UP_LOG_SEND_MESSAGE(");
 			strSql.Append("ID,MSG_TYPE,MSG_STR,CREATE_DATE,MSG_DATE,MSG_SEND_TYPE,MSG_SEQ,RECEIPT_MSG_DATE,RECEIPT_SEQ,RECEIPT_MSG_STR,MSG_STATUS,REMARK)");
 			strSql.Append(" values (");
-			strSql.Append("SQL2012ID,SQL2012MSG_TYPE,SQL2012MSG_STR,SQL2012CREATE_DATE,SQL2012MSG_DATE,SQL2012MSG_SEND_TYPE,SQL2012MSG_SEQ,SQL2012RECEIPT_MSG_DATE,SQL2012RECEIPT_SEQ,SQL2012RECEIPT_MSG_STR,SQL2012MSG_STATUS,SQL2012REMARK)");
+			strSql.Append("@ID,@MSG_TYPE,@MSG_STR,@CREATE_DATE,@MSG_DATE,@MSG_SEND_TYPE,@MSG_SEQ,@RECEIPT_MSG_DATE,@RECEIPT_SEQ,@RECEIPT_MSG_STR,@MSG_STATUS,@REMARK)");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012MSG_TYPE", SqlDbType.VarChar,10),
-					new SqlParameter("SQL2012MSG_STR", SqlDbType.VarChar,4000),
-					new SqlParameter("SQL2012CREATE_DATE", SqlDbType.DateTime),
-					new SqlParameter("SQL2012MSG_DATE", SqlDbType.DateTime),
-					new SqlParameter("SQL2012MSG_SEND_TYPE", SqlDbType.VarChar,500),
-					new SqlParameter("SQL2012MSG_SEQ", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012RECEIPT_MSG_DATE", SqlDbType.DateTime),
-					new SqlParameter("SQL2012RECEIPT_SEQ", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012RECEIPT_MSG_STR", SqlDbType.VarChar,4000),
-					new SqlParameter("SQL2012MSG_STATUS", SqlDbType.Int,4),
-					new SqlParameter("SQL2012REMARK", SqlDbType.VarChar,200)};
+					new SqlParameter("@ID", SqlDbType.VarChar,32),
+					new SqlParameter("@MSG_TYPE", SqlDbType.VarChar,10),
+					new SqlParameter("@MSG_STR", SqlDbType.VarChar,4000),
+					new SqlParameter("@CREATE_DATE", SqlDbType.DateTime),
+					new SqlParameter("@MSG_DATE", SqlDbType.DateTime),
+					new SqlParameter("@MSG_SEND_TYPE", SqlDbType.VarChar,500),
+					new SqlParameter("@MSG_SEQ", SqlDbType.VarChar,50),
+					new SqlParameter("@RECEIPT_MSG_DATE", SqlDbType.DateTime),
+					new SqlParameter("@RECEIPT_SEQ", SqlDbType.VarChar,50),
+					new SqlParameter("@RECEIPT_MSG_STR", SqlDbType.VarChar,4000),
+					new SqlParameter("@MSG_STATUS", SqlDbType.Int,4),
+					new SqlParameter("@REMARK", SqlDbType.VarChar,200)};
 			parameters[0].Value = model.ID;
 			parameters[1].Value = model.MSG_TYPE;
 			parameters[2].Value = model.MSG_STR;
@@ -85,32 +85,32 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("update UP_LOG_SEND_MESSAGE set ");
-			strSql.Append("ID=SQL2012ID,");
-			strSql.Append("MSG_TYPE=SQL2012MSG_TYPE,");
-			strSql.Append("MSG_STR=SQL2012MSG_STR,");
-			strSql.Append("CREATE_DATE=SQL2012CREATE_DATE,");
-			strSql.Append("MSG_DATE=SQL2012MSG_DATE,");
-			strSql.Append("MSG_SEND_TYPE=SQL2012MSG_SEND_TYPE,");
-			strSql.Append("MSG_SEQ=SQL2012MSG_SEQ,");
-			strSql.Append("RECEIPT_MSG_DATE=SQL2012RECEIPT_MSG_DATE,");
-			strSql.Append("RECEIPT_SEQ=SQL2012RECEIPT_SEQ,");
-			strSql.Append("RECEIPT_MSG_STR=SQL2012RECEIPT_MSG_STR,");
-			strSql.Append("MSG_STATUS=SQL2012MSG_STATUS,");
-			strSql.Append("REMARK=SQL2012REMARK");
+			strSql.Append("ID=@ID,");
+			strSql.Append("MSG_TYPE=@MSG_TYPE,");
+			strSql.Append("MSG_STR=@MSG_STR,");
+			strSql.Append("CREATE_DATE=@CREATE_DATE,");
+			strSql.Append("MSG_DATE=@MSG_DATE,");
+			strSql.Append("MSG_SEND_TYPE=@MSG_SEND_TYPE,");
+			strSql.Append("MSG_SEQ=@MSG_SEQ,");
+			strSql.Append("RECEIPT_MSG_DATE=@RECEIPT_MSG_DATE,");
+			strSql.Append("RECEIPT_SEQ=@RECEIPT_SEQ,");
+			strSql.Append("RECEIPT_MSG_STR=@RECEIPT_MSG_STR,");
+			strSql.Append("MSG_STATUS=@MSG_STATUS,");
+			strSql.Append("REMARK=@REMARK");
 			strSql.Append(" where ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012MSG_TYPE", SqlDbType.VarChar,10),
-					new SqlParameter("SQL2012MSG_STR", SqlDbType.VarChar,4000),
-					new SqlParameter("SQL2012CREATE_DATE", SqlDbType.DateTime),
-					new SqlParameter("SQL2012MSG_DATE", SqlDbType.DateTime),
-					new SqlParameter("SQL2012MSG_SEND_TYPE", SqlDbType.VarChar,500),
-					new SqlParameter("SQL2012MSG_SEQ", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012RECEIPT_MSG_DATE", SqlDbType.DateTime),
-					new SqlParameter("SQL2012RECEIPT_SEQ", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012RECEIPT_MSG_STR", SqlDbType.VarChar,4000),
-					new SqlParameter("SQL2012MSG_STATUS", SqlDbType.Int,4),
-					new SqlParameter("SQL2012REMARK", SqlDbType.VarChar,200)};
+					new SqlParameter("@ID", SqlDbType.VarChar,32),
+					new SqlParameter("@MSG_TYPE", SqlDbType.VarChar,10),
+					new SqlParameter("@MSG_STR", SqlDbType.VarChar,4000),
+					new SqlParameter("@CREATE_DATE", SqlDbType.DateTime),
+					new SqlParameter("@MSG_DATE", SqlDbType.DateTime),
+					new SqlParameter("@MSG_SEND_TYPE", SqlDbType.VarChar,500),
+					new SqlParameter("@MSG_SEQ", SqlDbType.VarChar,50),
+					new SqlParameter("@RECEIPT_MSG_DATE", SqlDbType.DateTime),
+					new SqlParameter("@RECEIPT_SEQ", SqlDbType.VarChar,50),
+					new SqlParameter("@RECEIPT_MSG_STR", SqlDbType.VarChar,4000),
+					new SqlParameter("@MSG_STATUS", SqlDbType.Int,4),
+					new SqlParameter("@REMARK", SqlDbType.VarChar,200)};
 			parameters[0].Value = model.ID;
 			parameters[1].Value = model.MSG_TYPE;
 			parameters[2].Value = model.MSG_STR;
@@ -334,13 +334,13 @@ namespace Parking.DBService.DAL
 		public DataSet GetList(int PageSize,int PageIndex,string strWhere)
 		{
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012tblName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012fldName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012PageSize", SqlDbType.Int),
-					new SqlParameter("SQL2012PageIndex", SqlDbType.Int),
-					new SqlParameter("SQL2012IsReCount", SqlDbType.Bit),
-					new SqlParameter("SQL2012OrderType", SqlDbType.Bit),
-					new SqlParameter("SQL2012strWhere", SqlDbType.VarChar,1000),
+					new SqlParameter("@tblName", SqlDbType.VarChar, 255),
+					new SqlParameter("@fldName", SqlDbType.VarChar, 255),
+					new SqlParameter("@PageSize", SqlDbType.Int),
+					new SqlParameter("@PageIndex", SqlDbType.Int),
+					new SqlParameter("@IsReCount", SqlDbType.Bit),
+					new SqlParameter("@OrderType", SqlDbType.Bit),
+					new SqlParameter("@strWhere", SqlDbType.VarChar,1000),
 					};
 			parameters[0].Value = "UP_LOG_SEND_MESSAGE";
 			parameters[1].Value = "ID";

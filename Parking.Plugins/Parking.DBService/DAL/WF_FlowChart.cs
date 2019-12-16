@@ -37,9 +37,9 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select count(1) from WF_FlowChart");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			return DbHelperSQL.Exists(strSql.ToString(),parameters);
@@ -55,14 +55,14 @@ namespace Parking.DBService.DAL
 			strSql.Append("insert into WF_FlowChart(");
 			strSql.Append("ID,FlowName,FlowType,ReMark,CreateUserID,CreateTime)");
 			strSql.Append(" values (");
-			strSql.Append("SQL2012ID,SQL2012FlowName,SQL2012FlowType,SQL2012ReMark,SQL2012CreateUserID,SQL2012CreateTime)");
+			strSql.Append("@ID,@FlowName,@FlowType,@ReMark,@CreateUserID,@CreateTime)");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012FlowName", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012FlowType", SqlDbType.Int,4),
-					new SqlParameter("SQL2012ReMark", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012CreateUserID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012CreateTime", SqlDbType.DateTime)};
+					new SqlParameter("@ID", SqlDbType.VarChar,32),
+					new SqlParameter("@FlowName", SqlDbType.VarChar,32),
+					new SqlParameter("@FlowType", SqlDbType.Int,4),
+					new SqlParameter("@ReMark", SqlDbType.VarChar,32),
+					new SqlParameter("@CreateUserID", SqlDbType.VarChar,32),
+					new SqlParameter("@CreateTime", SqlDbType.DateTime)};
 			parameters[0].Value = model.ID;
 			parameters[1].Value = model.FlowName;
 			parameters[2].Value = model.FlowType;
@@ -87,19 +87,19 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("update WF_FlowChart set ");
-			strSql.Append("FlowName=SQL2012FlowName,");
-			strSql.Append("FlowType=SQL2012FlowType,");
-			strSql.Append("ReMark=SQL2012ReMark,");
-			strSql.Append("CreateUserID=SQL2012CreateUserID,");
-			strSql.Append("CreateTime=SQL2012CreateTime");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append("FlowName=@FlowName,");
+			strSql.Append("FlowType=@FlowType,");
+			strSql.Append("ReMark=@ReMark,");
+			strSql.Append("CreateUserID=@CreateUserID,");
+			strSql.Append("CreateTime=@CreateTime");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012FlowName", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012FlowType", SqlDbType.Int,4),
-					new SqlParameter("SQL2012ReMark", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012CreateUserID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012CreateTime", SqlDbType.DateTime),
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)};
+					new SqlParameter("@FlowName", SqlDbType.VarChar,32),
+					new SqlParameter("@FlowType", SqlDbType.Int,4),
+					new SqlParameter("@ReMark", SqlDbType.VarChar,32),
+					new SqlParameter("@CreateUserID", SqlDbType.VarChar,32),
+					new SqlParameter("@CreateTime", SqlDbType.DateTime),
+					new SqlParameter("@ID", SqlDbType.VarChar,32)};
 			parameters[0].Value = model.FlowName;
 			parameters[1].Value = model.FlowType;
 			parameters[2].Value = model.ReMark;
@@ -126,9 +126,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("delete from WF_FlowChart ");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
@@ -169,9 +169,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select  top 1 ID,FlowName,FlowType,ReMark,CreateUserID,CreateTime from WF_FlowChart ");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			Parking.Core.Model.WF_FlowChart model=new Parking.Core.Model.WF_FlowChart();
@@ -313,13 +313,13 @@ namespace Parking.DBService.DAL
 		public DataSet GetList(int PageSize,int PageIndex,string strWhere)
 		{
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012tblName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012fldName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012PageSize", SqlDbType.Int),
-					new SqlParameter("SQL2012PageIndex", SqlDbType.Int),
-					new SqlParameter("SQL2012IsReCount", SqlDbType.Bit),
-					new SqlParameter("SQL2012OrderType", SqlDbType.Bit),
-					new SqlParameter("SQL2012strWhere", SqlDbType.VarChar,1000),
+					new SqlParameter("@tblName", SqlDbType.VarChar, 255),
+					new SqlParameter("@fldName", SqlDbType.VarChar, 255),
+					new SqlParameter("@PageSize", SqlDbType.Int),
+					new SqlParameter("@PageIndex", SqlDbType.Int),
+					new SqlParameter("@IsReCount", SqlDbType.Bit),
+					new SqlParameter("@OrderType", SqlDbType.Bit),
+					new SqlParameter("@strWhere", SqlDbType.VarChar,1000),
 					};
 			parameters[0].Value = "WF_FlowChart";
 			parameters[1].Value = "ID";

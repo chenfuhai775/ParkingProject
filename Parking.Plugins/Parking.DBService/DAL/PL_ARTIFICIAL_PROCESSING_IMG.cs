@@ -37,9 +37,9 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select count(1) from PL_ARTIFICIAL_PROCESSING_IMG");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			return DbHelperSQL.Exists(strSql.ToString(),parameters);
@@ -55,15 +55,15 @@ namespace Parking.DBService.DAL
 			strSql.Append("insert into PL_ARTIFICIAL_PROCESSING_IMG(");
 			strSql.Append("ID,ARTIFICIAL_PROCESSING_ID,DEV_ID,IMG_URL,IMG_TYPE,CREATE_TIME,Column_7)");
 			strSql.Append(" values (");
-			strSql.Append("SQL2012ID,SQL2012ARTIFICIAL_PROCESSING_ID,SQL2012DEV_ID,SQL2012IMG_URL,SQL2012IMG_TYPE,SQL2012CREATE_TIME,SQL2012Column_7)");
+			strSql.Append("@ID,@ARTIFICIAL_PROCESSING_ID,@DEV_ID,@IMG_URL,@IMG_TYPE,@CREATE_TIME,@Column_7)");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012ARTIFICIAL_PROCESSING_ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012DEV_ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012IMG_URL", SqlDbType.VarChar,200),
-					new SqlParameter("SQL2012IMG_TYPE", SqlDbType.Int,4),
-					new SqlParameter("SQL2012CREATE_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012Column_7", SqlDbType.Char,10)};
+					new SqlParameter("@ID", SqlDbType.VarChar,32),
+					new SqlParameter("@ARTIFICIAL_PROCESSING_ID", SqlDbType.VarChar,32),
+					new SqlParameter("@DEV_ID", SqlDbType.VarChar,32),
+					new SqlParameter("@IMG_URL", SqlDbType.VarChar,200),
+					new SqlParameter("@IMG_TYPE", SqlDbType.Int,4),
+					new SqlParameter("@CREATE_TIME", SqlDbType.DateTime),
+					new SqlParameter("@Column_7", SqlDbType.Char,10)};
 			parameters[0].Value = model.ID;
 			parameters[1].Value = model.ARTIFICIAL_PROCESSING_ID;
 			parameters[2].Value = model.DEV_ID;
@@ -89,21 +89,21 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("update PL_ARTIFICIAL_PROCESSING_IMG set ");
-			strSql.Append("ARTIFICIAL_PROCESSING_ID=SQL2012ARTIFICIAL_PROCESSING_ID,");
-			strSql.Append("DEV_ID=SQL2012DEV_ID,");
-			strSql.Append("IMG_URL=SQL2012IMG_URL,");
-			strSql.Append("IMG_TYPE=SQL2012IMG_TYPE,");
-			strSql.Append("CREATE_TIME=SQL2012CREATE_TIME,");
-			strSql.Append("Column_7=SQL2012Column_7");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append("ARTIFICIAL_PROCESSING_ID=@ARTIFICIAL_PROCESSING_ID,");
+			strSql.Append("DEV_ID=@DEV_ID,");
+			strSql.Append("IMG_URL=@IMG_URL,");
+			strSql.Append("IMG_TYPE=@IMG_TYPE,");
+			strSql.Append("CREATE_TIME=@CREATE_TIME,");
+			strSql.Append("Column_7=@Column_7");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ARTIFICIAL_PROCESSING_ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012DEV_ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012IMG_URL", SqlDbType.VarChar,200),
-					new SqlParameter("SQL2012IMG_TYPE", SqlDbType.Int,4),
-					new SqlParameter("SQL2012CREATE_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012Column_7", SqlDbType.Char,10),
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)};
+					new SqlParameter("@ARTIFICIAL_PROCESSING_ID", SqlDbType.VarChar,32),
+					new SqlParameter("@DEV_ID", SqlDbType.VarChar,32),
+					new SqlParameter("@IMG_URL", SqlDbType.VarChar,200),
+					new SqlParameter("@IMG_TYPE", SqlDbType.Int,4),
+					new SqlParameter("@CREATE_TIME", SqlDbType.DateTime),
+					new SqlParameter("@Column_7", SqlDbType.Char,10),
+					new SqlParameter("@ID", SqlDbType.VarChar,32)};
 			parameters[0].Value = model.ARTIFICIAL_PROCESSING_ID;
 			parameters[1].Value = model.DEV_ID;
 			parameters[2].Value = model.IMG_URL;
@@ -131,9 +131,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("delete from PL_ARTIFICIAL_PROCESSING_IMG ");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
@@ -174,9 +174,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select  top 1 ID,ARTIFICIAL_PROCESSING_ID,DEV_ID,IMG_URL,IMG_TYPE,CREATE_TIME,Column_7 from PL_ARTIFICIAL_PROCESSING_IMG ");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			Parking.Core.Model.PL_ARTIFICIAL_PROCESSING_IMG model=new Parking.Core.Model.PL_ARTIFICIAL_PROCESSING_IMG();
@@ -322,13 +322,13 @@ namespace Parking.DBService.DAL
 		public DataSet GetList(int PageSize,int PageIndex,string strWhere)
 		{
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012tblName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012fldName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012PageSize", SqlDbType.Int),
-					new SqlParameter("SQL2012PageIndex", SqlDbType.Int),
-					new SqlParameter("SQL2012IsReCount", SqlDbType.Bit),
-					new SqlParameter("SQL2012OrderType", SqlDbType.Bit),
-					new SqlParameter("SQL2012strWhere", SqlDbType.VarChar,1000),
+					new SqlParameter("@tblName", SqlDbType.VarChar, 255),
+					new SqlParameter("@fldName", SqlDbType.VarChar, 255),
+					new SqlParameter("@PageSize", SqlDbType.Int),
+					new SqlParameter("@PageIndex", SqlDbType.Int),
+					new SqlParameter("@IsReCount", SqlDbType.Bit),
+					new SqlParameter("@OrderType", SqlDbType.Bit),
+					new SqlParameter("@strWhere", SqlDbType.VarChar,1000),
 					};
 			parameters[0].Value = "PL_ARTIFICIAL_PROCESSING_IMG";
 			parameters[1].Value = "ID";

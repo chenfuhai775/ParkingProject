@@ -97,82 +97,92 @@
             // 
             // cmbCardType
             // 
+            this.cmbCardType.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.cmbCardType.FormattingEnabled = true;
             this.cmbCardType.Location = new System.Drawing.Point(83, 77);
             this.cmbCardType.Name = "cmbCardType";
-            this.cmbCardType.Size = new System.Drawing.Size(121, 20);
+            this.cmbCardType.Size = new System.Drawing.Size(121, 29);
             this.cmbCardType.TabIndex = 9;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(25, 77);
+            this.label5.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.label5.Location = new System.Drawing.Point(10, 77);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(41, 12);
+            this.label5.Size = new System.Drawing.Size(58, 21);
             this.label5.TabIndex = 8;
             this.label5.Text = "卡类型";
             // 
             // dtOutTime
             // 
-            this.dtOutTime.Location = new System.Drawing.Point(605, 31);
+            this.dtOutTime.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.dtOutTime.Location = new System.Drawing.Point(656, 30);
             this.dtOutTime.Name = "dtOutTime";
-            this.dtOutTime.Size = new System.Drawing.Size(119, 21);
+            this.dtOutTime.Size = new System.Drawing.Size(144, 29);
             this.dtOutTime.TabIndex = 7;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(565, 37);
+            this.label4.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.label4.Location = new System.Drawing.Point(620, 34);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(17, 12);
+            this.label4.Size = new System.Drawing.Size(26, 21);
             this.label4.TabIndex = 6;
             this.label4.Text = "至";
             // 
             // dtInTime
             // 
-            this.dtInTime.Location = new System.Drawing.Point(431, 31);
+            this.dtInTime.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.dtInTime.Location = new System.Drawing.Point(462, 30);
             this.dtInTime.Name = "dtInTime";
-            this.dtInTime.Size = new System.Drawing.Size(118, 21);
+            this.dtInTime.Size = new System.Drawing.Size(153, 29);
             this.dtInTime.TabIndex = 5;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(361, 31);
+            this.label3.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.label3.Location = new System.Drawing.Point(375, 34);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(53, 12);
+            this.label3.Size = new System.Drawing.Size(74, 21);
             this.label3.TabIndex = 4;
             this.label3.Text = "入场时间";
             // 
             // tbCardNum
             // 
-            this.tbCardNum.Location = new System.Drawing.Point(255, 31);
+            this.tbCardNum.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.tbCardNum.Location = new System.Drawing.Point(257, 30);
             this.tbCardNum.Name = "tbCardNum";
-            this.tbCardNum.Size = new System.Drawing.Size(100, 21);
+            this.tbCardNum.Size = new System.Drawing.Size(100, 29);
             this.tbCardNum.TabIndex = 3;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(220, 34);
+            this.label2.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.label2.Location = new System.Drawing.Point(209, 34);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(29, 12);
+            this.label2.Size = new System.Drawing.Size(42, 21);
             this.label2.TabIndex = 2;
             this.label2.Text = "卡号";
             // 
             // tbCarNo
             // 
-            this.tbCarNo.Location = new System.Drawing.Point(83, 34);
+            this.tbCarNo.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.tbCarNo.Location = new System.Drawing.Point(83, 30);
             this.tbCarNo.Name = "tbCarNo";
-            this.tbCarNo.Size = new System.Drawing.Size(100, 21);
+            this.tbCarNo.Size = new System.Drawing.Size(120, 29);
             this.tbCarNo.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(23, 34);
+            this.label1.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.label1.Location = new System.Drawing.Point(8, 34);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 12);
+            this.label1.Size = new System.Drawing.Size(74, 21);
             this.label1.TabIndex = 0;
             this.label1.Text = "车牌号码";
             // 

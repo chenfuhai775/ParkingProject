@@ -37,9 +37,9 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select count(1) from CR_PREFERENTIAL_RECORD");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			return DbHelperSQL.Exists(strSql.ToString(),parameters);
@@ -55,19 +55,19 @@ namespace Parking.DBService.DAL
 			strSql.Append("insert into CR_PREFERENTIAL_RECORD(");
 			strSql.Append("ID,INOUT_RECORD_CODE,PREFERENTIAL_TYPE,PREFERENTIAL_CONTENT,CHARGE_MONEY,PREFERENTIAL_MONEY,PREFERENTIA_IDENT,CHARGE_ID,UNIQUE_IDENTIFIER,PREFERENTIAL_NAME,ORDER_CODE)");
 			strSql.Append(" values (");
-			strSql.Append("SQL2012ID,SQL2012INOUT_RECORD_CODE,SQL2012PREFERENTIAL_TYPE,SQL2012PREFERENTIAL_CONTENT,SQL2012CHARGE_MONEY,SQL2012PREFERENTIAL_MONEY,SQL2012PREFERENTIA_IDENT,SQL2012CHARGE_ID,SQL2012UNIQUE_IDENTIFIER,SQL2012PREFERENTIAL_NAME,SQL2012ORDER_CODE)");
+			strSql.Append("@ID,@INOUT_RECORD_CODE,@PREFERENTIAL_TYPE,@PREFERENTIAL_CONTENT,@CHARGE_MONEY,@PREFERENTIAL_MONEY,@PREFERENTIA_IDENT,@CHARGE_ID,@UNIQUE_IDENTIFIER,@PREFERENTIAL_NAME,@ORDER_CODE)");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012INOUT_RECORD_CODE", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012PREFERENTIAL_TYPE", SqlDbType.Int,4),
-					new SqlParameter("SQL2012PREFERENTIAL_CONTENT", SqlDbType.VarChar,2000),
-					new SqlParameter("SQL2012CHARGE_MONEY", SqlDbType.Decimal,9),
-					new SqlParameter("SQL2012PREFERENTIAL_MONEY", SqlDbType.Decimal,9),
-					new SqlParameter("SQL2012PREFERENTIA_IDENT", SqlDbType.VarChar,200),
-					new SqlParameter("SQL2012CHARGE_ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012UNIQUE_IDENTIFIER", SqlDbType.VarChar,100),
-					new SqlParameter("SQL2012PREFERENTIAL_NAME", SqlDbType.VarChar,255),
-					new SqlParameter("SQL2012ORDER_CODE", SqlDbType.VarChar,32)};
+					new SqlParameter("@ID", SqlDbType.VarChar,32),
+					new SqlParameter("@INOUT_RECORD_CODE", SqlDbType.VarChar,32),
+					new SqlParameter("@PREFERENTIAL_TYPE", SqlDbType.Int,4),
+					new SqlParameter("@PREFERENTIAL_CONTENT", SqlDbType.VarChar,2000),
+					new SqlParameter("@CHARGE_MONEY", SqlDbType.Decimal,9),
+					new SqlParameter("@PREFERENTIAL_MONEY", SqlDbType.Decimal,9),
+					new SqlParameter("@PREFERENTIA_IDENT", SqlDbType.VarChar,200),
+					new SqlParameter("@CHARGE_ID", SqlDbType.VarChar,32),
+					new SqlParameter("@UNIQUE_IDENTIFIER", SqlDbType.VarChar,100),
+					new SqlParameter("@PREFERENTIAL_NAME", SqlDbType.VarChar,255),
+					new SqlParameter("@ORDER_CODE", SqlDbType.VarChar,32)};
 			parameters[0].Value = model.ID;
 			parameters[1].Value = model.INOUT_RECORD_CODE;
 			parameters[2].Value = model.PREFERENTIAL_TYPE;
@@ -97,29 +97,29 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("update CR_PREFERENTIAL_RECORD set ");
-			strSql.Append("INOUT_RECORD_CODE=SQL2012INOUT_RECORD_CODE,");
-			strSql.Append("PREFERENTIAL_TYPE=SQL2012PREFERENTIAL_TYPE,");
-			strSql.Append("PREFERENTIAL_CONTENT=SQL2012PREFERENTIAL_CONTENT,");
-			strSql.Append("CHARGE_MONEY=SQL2012CHARGE_MONEY,");
-			strSql.Append("PREFERENTIAL_MONEY=SQL2012PREFERENTIAL_MONEY,");
-			strSql.Append("PREFERENTIA_IDENT=SQL2012PREFERENTIA_IDENT,");
-			strSql.Append("CHARGE_ID=SQL2012CHARGE_ID,");
-			strSql.Append("UNIQUE_IDENTIFIER=SQL2012UNIQUE_IDENTIFIER,");
-			strSql.Append("PREFERENTIAL_NAME=SQL2012PREFERENTIAL_NAME,");
-			strSql.Append("ORDER_CODE=SQL2012ORDER_CODE");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append("INOUT_RECORD_CODE=@INOUT_RECORD_CODE,");
+			strSql.Append("PREFERENTIAL_TYPE=@PREFERENTIAL_TYPE,");
+			strSql.Append("PREFERENTIAL_CONTENT=@PREFERENTIAL_CONTENT,");
+			strSql.Append("CHARGE_MONEY=@CHARGE_MONEY,");
+			strSql.Append("PREFERENTIAL_MONEY=@PREFERENTIAL_MONEY,");
+			strSql.Append("PREFERENTIA_IDENT=@PREFERENTIA_IDENT,");
+			strSql.Append("CHARGE_ID=@CHARGE_ID,");
+			strSql.Append("UNIQUE_IDENTIFIER=@UNIQUE_IDENTIFIER,");
+			strSql.Append("PREFERENTIAL_NAME=@PREFERENTIAL_NAME,");
+			strSql.Append("ORDER_CODE=@ORDER_CODE");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012INOUT_RECORD_CODE", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012PREFERENTIAL_TYPE", SqlDbType.Int,4),
-					new SqlParameter("SQL2012PREFERENTIAL_CONTENT", SqlDbType.VarChar,2000),
-					new SqlParameter("SQL2012CHARGE_MONEY", SqlDbType.Decimal,9),
-					new SqlParameter("SQL2012PREFERENTIAL_MONEY", SqlDbType.Decimal,9),
-					new SqlParameter("SQL2012PREFERENTIA_IDENT", SqlDbType.VarChar,200),
-					new SqlParameter("SQL2012CHARGE_ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012UNIQUE_IDENTIFIER", SqlDbType.VarChar,100),
-					new SqlParameter("SQL2012PREFERENTIAL_NAME", SqlDbType.VarChar,255),
-					new SqlParameter("SQL2012ORDER_CODE", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)};
+					new SqlParameter("@INOUT_RECORD_CODE", SqlDbType.VarChar,32),
+					new SqlParameter("@PREFERENTIAL_TYPE", SqlDbType.Int,4),
+					new SqlParameter("@PREFERENTIAL_CONTENT", SqlDbType.VarChar,2000),
+					new SqlParameter("@CHARGE_MONEY", SqlDbType.Decimal,9),
+					new SqlParameter("@PREFERENTIAL_MONEY", SqlDbType.Decimal,9),
+					new SqlParameter("@PREFERENTIA_IDENT", SqlDbType.VarChar,200),
+					new SqlParameter("@CHARGE_ID", SqlDbType.VarChar,32),
+					new SqlParameter("@UNIQUE_IDENTIFIER", SqlDbType.VarChar,100),
+					new SqlParameter("@PREFERENTIAL_NAME", SqlDbType.VarChar,255),
+					new SqlParameter("@ORDER_CODE", SqlDbType.VarChar,32),
+					new SqlParameter("@ID", SqlDbType.VarChar,32)};
 			parameters[0].Value = model.INOUT_RECORD_CODE;
 			parameters[1].Value = model.PREFERENTIAL_TYPE;
 			parameters[2].Value = model.PREFERENTIAL_CONTENT;
@@ -151,9 +151,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("delete from CR_PREFERENTIAL_RECORD ");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
@@ -194,9 +194,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select  top 1 ID,INOUT_RECORD_CODE,PREFERENTIAL_TYPE,PREFERENTIAL_CONTENT,CHARGE_MONEY,PREFERENTIAL_MONEY,PREFERENTIA_IDENT,CHARGE_ID,UNIQUE_IDENTIFIER,PREFERENTIAL_NAME,ORDER_CODE from CR_PREFERENTIAL_RECORD ");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			Parking.Core.Model.CR_PREFERENTIAL_RECORD model=new Parking.Core.Model.CR_PREFERENTIAL_RECORD();
@@ -358,13 +358,13 @@ namespace Parking.DBService.DAL
 		public DataSet GetList(int PageSize,int PageIndex,string strWhere)
 		{
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012tblName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012fldName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012PageSize", SqlDbType.Int),
-					new SqlParameter("SQL2012PageIndex", SqlDbType.Int),
-					new SqlParameter("SQL2012IsReCount", SqlDbType.Bit),
-					new SqlParameter("SQL2012OrderType", SqlDbType.Bit),
-					new SqlParameter("SQL2012strWhere", SqlDbType.VarChar,1000),
+					new SqlParameter("@tblName", SqlDbType.VarChar, 255),
+					new SqlParameter("@fldName", SqlDbType.VarChar, 255),
+					new SqlParameter("@PageSize", SqlDbType.Int),
+					new SqlParameter("@PageIndex", SqlDbType.Int),
+					new SqlParameter("@IsReCount", SqlDbType.Bit),
+					new SqlParameter("@OrderType", SqlDbType.Bit),
+					new SqlParameter("@strWhere", SqlDbType.VarChar,1000),
 					};
 			parameters[0].Value = "CR_PREFERENTIAL_RECORD";
 			parameters[1].Value = "ID";

@@ -42,14 +42,14 @@ namespace Parking.WorkBench
             CheckForIllegalCrossThreadCalls = false;
             orderRecord = EngineContext.Current.Resolve<ICR_ORDER_RECORD_INFO>();
             order = recordInfo.ListOrder;//orderRecord.GetOrders(recordInfo.INOUT_RECODE.ID, );
-            base.Title = record.CHANNEL_TYPE == enumChannelType.centerPayment ? "中D央?缴¨|费¤?框¨°" : "出?口¨2收o?费¤?框¨°";
+            base.Title = record.CHANNEL_TYPE == enumChannelType.centerPayment ? "中央缴费框" : "出口收费框";
             Initialize();
         }
         #endregion
 
         #region __页面初始化__
         /// <summary>
-        /// 初?始o?化?￥界?面?信?息?é 
+        /// 初始化界面信息
         /// </summary>
         private void Initialize()
         {
@@ -66,8 +66,8 @@ namespace Parking.WorkBench
             TimeSpan tsIn = new TimeSpan(recordInfo.INOUT_RECODE.IN_TIME.Ticks);
             TimeSpan tsOut = new TimeSpan(recordInfo.INOUT_RECODE.OUT_TIME.Ticks);
             TimeSpan tsTotal = tsOut.Subtract(tsIn).Duration();
-            //停a?ê车|ì时o?à长?è
-            string parkingTime = tsTotal.Days + " 天 " + tsTotal.Hours + " 小?时 " + tsTotal.Minutes + " 分 " + tsTotal.Seconds + " 秒? ";
+            //停车时长
+            string parkingTime = tsTotal.Days + " 天 " + tsTotal.Hours + " 小时 " + tsTotal.Minutes + " 分 " + tsTotal.Seconds + " 秒";
             this.lbTotalTime.Text = parkingTime;
             //var physicalTemp = EngineContext.Current.Resolve<ICR_PREFERENTIAL_PHYSICAL>();
             //var preDetails = physicalTemp.GetPhysicalByVehicleNo(recordInfo.INOUT_RECODE.VEHICLE_NO).FirstOrDefault();
@@ -84,7 +84,7 @@ namespace Parking.WorkBench
             //}
         }
         /// <summary>
-        /// 打?¨°开a页°3面?立￠?é刻¨?报à?§语??音°? CHARGE_METHOD  VEHICLE_TYPE
+        /// 打开页面立刻报语音 CHARGE_METHOD  VEHICLE_TYPE
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -120,7 +120,7 @@ namespace Parking.WorkBench
             recordInfo.INOUT_RECODE.PRE_MONEY = PreMoney;
         }
         /// <summary>
-        /// 确¨?¤定?§按???钮￡¤
+        /// 确定按钮
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -129,7 +129,7 @@ namespace Parking.WorkBench
             OpenGate();
         }
         /// <summary>
-        /// 开a闸?é
+        /// 开闸
         /// </summary>
         private void OpenGate()
         {
@@ -139,7 +139,7 @@ namespace Parking.WorkBench
             this.Close();
         }
         /// <summary>
-        /// 取¨?消?按???钮￡¤
+        /// 取消按钮
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -152,7 +152,7 @@ namespace Parking.WorkBench
             this.Close();
         }
         /// <summary>
-        /// 播￡¤语??音°?
+        /// 播语音
         /// </summary>
         private void Sound()
         {
@@ -174,12 +174,12 @@ namespace Parking.WorkBench
                     Parking.Core.Common.CommHelper.Sound(recordInfo, strArr.ToArray());
                 }
             }
-            ///////////////////////////////////显?示o?屏¨￠信?息?é///////////////////////////////
+            ///////////////////////////////////显示屏信息///////////////////////////////
             var checkPointBase = EngineContext.Current.Resolve<CheckPointBase>();
             checkPointBase.ShowLED(recordInfo);
         }
         /// <summary>
-        /// 重?报à?§语??音°?
+        /// 重报语音
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -188,7 +188,7 @@ namespace Parking.WorkBench
             Sound();
         }
         /// <summary>
-        /// 免a费¤?放¤?行D
+        /// 免费放行
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -205,17 +205,17 @@ namespace Parking.WorkBench
 
         #region __扫码支付__
         /// <summary>
-        /// 手o?工?è优??惠Y
+        /// 手工优惠
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void tbPreMoney_KeyUp(object sender, KeyEventArgs e)
         {
-            //重?新?计?算?优??惠Y值|ì
+            //重新计算优惠值
             ReDiscount();
         }
         /// <summary>
-        /// 扫|?§描¨¨二t维?码?
+        /// 扫描二维码
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -226,7 +226,7 @@ namespace Parking.WorkBench
                 this.lbMessage.Text = string.Empty;
                 if (!string.IsNullOrEmpty(tbQRcode.Text))
                 {
-                    //优??惠Y打?¨°折?
+                    //优惠打折
                     if ("0" == this.cbPayType.SelectedValue.ToString())
                     {
                         var physicalTemp = EngineContext.Current.Resolve<ICR_PREFERENTIAL_PHYSICAL>();
@@ -236,11 +236,11 @@ namespace Parking.WorkBench
                             var discount = EngineContext.Current.Resolve<IDiscount>(preDetails.PREFERENTIAL_TYPE.ToString());
                             var first = ListDiscount.FirstOrDefault();
                             if (null == first)
-                                /////////////////如¨?果?是o?第ì¨2一°?个?优??惠Y项?目?直?à接¨?添?¨a加¨?进?去¨￡¤///////////
+                                /////////////////如果是第一个优惠项目直接添加进去///////////
                                 ListDiscount.Add(preDetails);
                             else
                             {
-                                ////////////////组á¨|合?优??惠Y券¨?￥///////////////////
+                                ////////////////组合优惠券///////////////////
                                 if (0 == first.IS_COMBINATION)
                                 {
                                     bool isExist = 0 == ListDiscount.Where(x => x.PREFERENTIAL_CODE == preDetails.PREFERENTIAL_CODE).Count() ? false : true;
@@ -305,7 +305,7 @@ namespace Parking.WorkBench
         {
             #region _____统a3计?优??惠Y信?息?é_____
             decimal totalperMoney = 0;
-            /////////////////手o?工?è优??惠Y//////////////////////////
+            /////////////////手工优惠//////////////////////////
             decimal perMoney = 0;
             string Pident = "manual-0001";
             decimal.TryParse(this.tbPreMoney.Text, out perMoney);
@@ -314,8 +314,8 @@ namespace Parking.WorkBench
             if (perMoney > 0 && perMoney <= tbChargeMoney)
             {
                 CRPreferentialDetails details = new CRPreferentialDetails();
-                details.PREFERENTIAL_NAME = "手o?工?è优??惠Y";
-                details.MODEL_NAME = "现?金e优??惠Y";
+                details.PREFERENTIAL_NAME = "手工优惠";
+                details.MODEL_NAME = "现金优惠";
                 details.PREFERENTIA_IDENT = Pident;
                 details.PREFERENTIAL_CONTENT = perMoney;
                 details.PREFERENTIAL_MONEY = perMoney;
@@ -336,7 +336,7 @@ namespace Parking.WorkBench
             #endregion
 
             #region ___优??惠Y打?¨°折?后¨?放¤?行D_____
-            //优??惠Y后¨?需¨¨要°a缴¨|纳¨|的ì?费¤?用??小?于?¨2零￠?，ê?直?à接¨?放¤?行D
+            //优惠后需要缴纳的费用小于零，直接放行
             //if (recordInfo.INOUT_RECODE.CHARGE_MONEY <= 0)
             //{
             //    recordInfo.OpenGate = true;
@@ -349,12 +349,12 @@ namespace Parking.WorkBench
             recordInfo.INOUT_RECODE.PRE_MONEY = decimal.Parse(this.lbPreMoney.Text.Trim());
             recordInfo.INOUT_RECODE.PRE_MONEY = recordInfo.INOUT_RECODE.PRE_MONEY > recordInfo.INOUT_RECODE.DUE_MONEY ? recordInfo.INOUT_RECODE.DUE_MONEY : recordInfo.INOUT_RECODE.PRE_MONEY;
             this.tbQRcode.Text = string.Empty;
-            ////////////////免a费¤?放¤?行D//////////////
+            ////////////////免费放行//////////////
             if (recordInfo.IsFree)
             {
                 CRPreferentialDetails details = new CRPreferentialDetails();
-                details.PREFERENTIAL_NAME = "手o?工?è全¨?免a";
-                details.MODEL_NAME = "现?金e优??惠Y";
+                details.PREFERENTIAL_NAME = "手工全免";
+                details.MODEL_NAME = "现金优惠";
                 details.PREFERENTIA_IDENT = Pident;
                 details.PREFERENTIAL_CONTENT = recordInfo.INOUT_RECODE.DUE_MONEY;
                 details.PREFERENTIAL_MONEY = recordInfo.INOUT_RECODE.DUE_MONEY;
@@ -392,7 +392,7 @@ namespace Parking.WorkBench
 
             recordInfo.CarType = (enumCarType)(Convert.ToInt32(this.cbCarType.SelectedValue.ToString()));
             var recodeTemp = EngineContext.Current.Resolve<ICR_INOUT_RECODE>();
-            //获?取¨?收o?费¤?标à¨o准á?
+            //获取收费标准
             var temp = GlobalEnvironment.ListOragnization.Where(x => x.ORGANIZATION_CODE == recordInfo.PARTITION_CODE).FirstOrDefault();
             var carTypeCharge = temp.ListChargMap.Where(x => x.carType == Convert.ToInt32(this.cbCarType.SelectedValue.ToString())).FirstOrDefault();
             var orderThis = order.Where(x => x.INOUT_RECODE_ID == recordInfo.INOUT_RECODE.ID).FirstOrDefault();
@@ -410,7 +410,7 @@ namespace Parking.WorkBench
                         if (null != carType)
                         {
                             string ChargeNo = string.Empty;
-                            //启?用??日¨?历¤¨2
+                            //启用日历
                             if (tempCharg.calTypeFlag)
                                 ChargeNo = CommHelper.getWorkingDaysVal() ? carType.holiday : carType.working;
                             else
@@ -424,13 +424,13 @@ namespace Parking.WorkBench
                             decimal money = chargeStandard.Charge(tempOrderDetails);
                             tempOrderDetails.DUE_MONEY = money;
                             orderDetailsBll.Update(tempOrderDetails);
-                            ////////////////更¨1新?订?单ì￡¤信?息?é//////////////
+                            ////////////////更新订单信息//////////////
                             orderThis.DUE_MONEY += money;
                             recordInfo.CurrNeedPay = orderThis.DUE_MONEY - orderThis.ALREADY_PAID - orderThis.PER_MONEY;
                         }
                     }
                 }
-                /////////////////修T改?订?单ì￡¤收o?费¤?金e额?/////////////////
+                /////////////////修改订单收费金额/////////////////
                 orderRecord.Update(orderThis);
                 order = recordInfo.ListOrder;
                 this.totalMoney = 0;
@@ -443,7 +443,7 @@ namespace Parking.WorkBench
                 this.lbChargeMoney.Text = this.chargeMoney.ToString();
                 this.lbAlreadyPaid.Text = this.alReadyPaid.ToString();
                 this.tbPreMoney.Text = "";
-                //////////////////优??惠Y打?¨°折?//////////////////////
+                //////////////////优惠打折//////////////////////
                 ListDiscount.Clear();
                 ReDiscount();
             }
@@ -452,7 +452,7 @@ namespace Parking.WorkBench
 
         #region ___取消优惠___
         /// <summary>
-        /// 删|?除y优??惠Y券¨?￥
+        /// 删除优惠券
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

@@ -37,9 +37,9 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select count(1) from PL_ACCESS_RIGHTS_MANAGERS");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			return DbHelperSQL.Exists(strSql.ToString(),parameters);
@@ -55,24 +55,24 @@ namespace Parking.DBService.DAL
 			strSql.Append("insert into PL_ACCESS_RIGHTS_MANAGERS(");
 			strSql.Append("ID,VEHICLE_NO,BEGIN_TIME,END_TIME,ACCREDIT_NUMBER,ACCREDIT_REMARK,ACCREDIT_TYPE,SPEECH_CONTENT,LED_CONTENT,CREATE_TIME,CREATE_USERID,UPDATE_TIME,UPDATE_USERID,TIMEOUT_BILING,ACCESS_PERMISSIONS,ACCESS_CHANNEL_CODE)");
 			strSql.Append(" values (");
-			strSql.Append("SQL2012ID,SQL2012VEHICLE_NO,SQL2012BEGIN_TIME,SQL2012END_TIME,SQL2012ACCREDIT_NUMBER,SQL2012ACCREDIT_REMARK,SQL2012ACCREDIT_TYPE,SQL2012SPEECH_CONTENT,SQL2012LED_CONTENT,SQL2012CREATE_TIME,SQL2012CREATE_USERID,SQL2012UPDATE_TIME,SQL2012UPDATE_USERID,SQL2012TIMEOUT_BILING,SQL2012ACCESS_PERMISSIONS,SQL2012ACCESS_CHANNEL_CODE)");
+			strSql.Append("@ID,@VEHICLE_NO,@BEGIN_TIME,@END_TIME,@ACCREDIT_NUMBER,@ACCREDIT_REMARK,@ACCREDIT_TYPE,@SPEECH_CONTENT,@LED_CONTENT,@CREATE_TIME,@CREATE_USERID,@UPDATE_TIME,@UPDATE_USERID,@TIMEOUT_BILING,@ACCESS_PERMISSIONS,@ACCESS_CHANNEL_CODE)");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012VEHICLE_NO", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012BEGIN_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012END_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012ACCREDIT_NUMBER", SqlDbType.Int,4),
-					new SqlParameter("SQL2012ACCREDIT_REMARK", SqlDbType.VarChar,2000),
-					new SqlParameter("SQL2012ACCREDIT_TYPE", SqlDbType.Int,4),
-					new SqlParameter("SQL2012SPEECH_CONTENT", SqlDbType.VarChar,500),
-					new SqlParameter("SQL2012LED_CONTENT", SqlDbType.VarChar,500),
-					new SqlParameter("SQL2012CREATE_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012CREATE_USERID", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012UPDATE_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012UPDATE_USERID", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012TIMEOUT_BILING", SqlDbType.Int,4),
-					new SqlParameter("SQL2012ACCESS_PERMISSIONS", SqlDbType.VarChar,128),
-					new SqlParameter("SQL2012ACCESS_CHANNEL_CODE", SqlDbType.VarChar,500)};
+					new SqlParameter("@ID", SqlDbType.VarChar,32),
+					new SqlParameter("@VEHICLE_NO", SqlDbType.VarChar,50),
+					new SqlParameter("@BEGIN_TIME", SqlDbType.DateTime),
+					new SqlParameter("@END_TIME", SqlDbType.DateTime),
+					new SqlParameter("@ACCREDIT_NUMBER", SqlDbType.Int,4),
+					new SqlParameter("@ACCREDIT_REMARK", SqlDbType.VarChar,2000),
+					new SqlParameter("@ACCREDIT_TYPE", SqlDbType.Int,4),
+					new SqlParameter("@SPEECH_CONTENT", SqlDbType.VarChar,500),
+					new SqlParameter("@LED_CONTENT", SqlDbType.VarChar,500),
+					new SqlParameter("@CREATE_TIME", SqlDbType.DateTime),
+					new SqlParameter("@CREATE_USERID", SqlDbType.VarChar,50),
+					new SqlParameter("@UPDATE_TIME", SqlDbType.DateTime),
+					new SqlParameter("@UPDATE_USERID", SqlDbType.VarChar,50),
+					new SqlParameter("@TIMEOUT_BILING", SqlDbType.Int,4),
+					new SqlParameter("@ACCESS_PERMISSIONS", SqlDbType.VarChar,128),
+					new SqlParameter("@ACCESS_CHANNEL_CODE", SqlDbType.VarChar,500)};
 			parameters[0].Value = model.ID;
 			parameters[1].Value = model.VEHICLE_NO;
 			parameters[2].Value = model.BEGIN_TIME;
@@ -107,39 +107,39 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("update PL_ACCESS_RIGHTS_MANAGERS set ");
-			strSql.Append("VEHICLE_NO=SQL2012VEHICLE_NO,");
-			strSql.Append("BEGIN_TIME=SQL2012BEGIN_TIME,");
-			strSql.Append("END_TIME=SQL2012END_TIME,");
-			strSql.Append("ACCREDIT_NUMBER=SQL2012ACCREDIT_NUMBER,");
-			strSql.Append("ACCREDIT_REMARK=SQL2012ACCREDIT_REMARK,");
-			strSql.Append("ACCREDIT_TYPE=SQL2012ACCREDIT_TYPE,");
-			strSql.Append("SPEECH_CONTENT=SQL2012SPEECH_CONTENT,");
-			strSql.Append("LED_CONTENT=SQL2012LED_CONTENT,");
-			strSql.Append("CREATE_TIME=SQL2012CREATE_TIME,");
-			strSql.Append("CREATE_USERID=SQL2012CREATE_USERID,");
-			strSql.Append("UPDATE_TIME=SQL2012UPDATE_TIME,");
-			strSql.Append("UPDATE_USERID=SQL2012UPDATE_USERID,");
-			strSql.Append("TIMEOUT_BILING=SQL2012TIMEOUT_BILING,");
-			strSql.Append("ACCESS_PERMISSIONS=SQL2012ACCESS_PERMISSIONS,");
-			strSql.Append("ACCESS_CHANNEL_CODE=SQL2012ACCESS_CHANNEL_CODE");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append("VEHICLE_NO=@VEHICLE_NO,");
+			strSql.Append("BEGIN_TIME=@BEGIN_TIME,");
+			strSql.Append("END_TIME=@END_TIME,");
+			strSql.Append("ACCREDIT_NUMBER=@ACCREDIT_NUMBER,");
+			strSql.Append("ACCREDIT_REMARK=@ACCREDIT_REMARK,");
+			strSql.Append("ACCREDIT_TYPE=@ACCREDIT_TYPE,");
+			strSql.Append("SPEECH_CONTENT=@SPEECH_CONTENT,");
+			strSql.Append("LED_CONTENT=@LED_CONTENT,");
+			strSql.Append("CREATE_TIME=@CREATE_TIME,");
+			strSql.Append("CREATE_USERID=@CREATE_USERID,");
+			strSql.Append("UPDATE_TIME=@UPDATE_TIME,");
+			strSql.Append("UPDATE_USERID=@UPDATE_USERID,");
+			strSql.Append("TIMEOUT_BILING=@TIMEOUT_BILING,");
+			strSql.Append("ACCESS_PERMISSIONS=@ACCESS_PERMISSIONS,");
+			strSql.Append("ACCESS_CHANNEL_CODE=@ACCESS_CHANNEL_CODE");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012VEHICLE_NO", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012BEGIN_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012END_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012ACCREDIT_NUMBER", SqlDbType.Int,4),
-					new SqlParameter("SQL2012ACCREDIT_REMARK", SqlDbType.VarChar,2000),
-					new SqlParameter("SQL2012ACCREDIT_TYPE", SqlDbType.Int,4),
-					new SqlParameter("SQL2012SPEECH_CONTENT", SqlDbType.VarChar,500),
-					new SqlParameter("SQL2012LED_CONTENT", SqlDbType.VarChar,500),
-					new SqlParameter("SQL2012CREATE_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012CREATE_USERID", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012UPDATE_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012UPDATE_USERID", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012TIMEOUT_BILING", SqlDbType.Int,4),
-					new SqlParameter("SQL2012ACCESS_PERMISSIONS", SqlDbType.VarChar,128),
-					new SqlParameter("SQL2012ACCESS_CHANNEL_CODE", SqlDbType.VarChar,500),
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)};
+					new SqlParameter("@VEHICLE_NO", SqlDbType.VarChar,50),
+					new SqlParameter("@BEGIN_TIME", SqlDbType.DateTime),
+					new SqlParameter("@END_TIME", SqlDbType.DateTime),
+					new SqlParameter("@ACCREDIT_NUMBER", SqlDbType.Int,4),
+					new SqlParameter("@ACCREDIT_REMARK", SqlDbType.VarChar,2000),
+					new SqlParameter("@ACCREDIT_TYPE", SqlDbType.Int,4),
+					new SqlParameter("@SPEECH_CONTENT", SqlDbType.VarChar,500),
+					new SqlParameter("@LED_CONTENT", SqlDbType.VarChar,500),
+					new SqlParameter("@CREATE_TIME", SqlDbType.DateTime),
+					new SqlParameter("@CREATE_USERID", SqlDbType.VarChar,50),
+					new SqlParameter("@UPDATE_TIME", SqlDbType.DateTime),
+					new SqlParameter("@UPDATE_USERID", SqlDbType.VarChar,50),
+					new SqlParameter("@TIMEOUT_BILING", SqlDbType.Int,4),
+					new SqlParameter("@ACCESS_PERMISSIONS", SqlDbType.VarChar,128),
+					new SqlParameter("@ACCESS_CHANNEL_CODE", SqlDbType.VarChar,500),
+					new SqlParameter("@ID", SqlDbType.VarChar,32)};
 			parameters[0].Value = model.VEHICLE_NO;
 			parameters[1].Value = model.BEGIN_TIME;
 			parameters[2].Value = model.END_TIME;
@@ -176,9 +176,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("delete from PL_ACCESS_RIGHTS_MANAGERS ");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
@@ -219,9 +219,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select  top 1 ID,VEHICLE_NO,BEGIN_TIME,END_TIME,ACCREDIT_NUMBER,ACCREDIT_REMARK,ACCREDIT_TYPE,SPEECH_CONTENT,LED_CONTENT,CREATE_TIME,CREATE_USERID,UPDATE_TIME,UPDATE_USERID,TIMEOUT_BILING,ACCESS_PERMISSIONS,ACCESS_CHANNEL_CODE from PL_ACCESS_RIGHTS_MANAGERS ");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			Parking.Core.Model.PL_ACCESS_RIGHTS_MANAGERS model=new Parking.Core.Model.PL_ACCESS_RIGHTS_MANAGERS();
@@ -403,13 +403,13 @@ namespace Parking.DBService.DAL
 		public DataSet GetList(int PageSize,int PageIndex,string strWhere)
 		{
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012tblName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012fldName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012PageSize", SqlDbType.Int),
-					new SqlParameter("SQL2012PageIndex", SqlDbType.Int),
-					new SqlParameter("SQL2012IsReCount", SqlDbType.Bit),
-					new SqlParameter("SQL2012OrderType", SqlDbType.Bit),
-					new SqlParameter("SQL2012strWhere", SqlDbType.VarChar,1000),
+					new SqlParameter("@tblName", SqlDbType.VarChar, 255),
+					new SqlParameter("@fldName", SqlDbType.VarChar, 255),
+					new SqlParameter("@PageSize", SqlDbType.Int),
+					new SqlParameter("@PageIndex", SqlDbType.Int),
+					new SqlParameter("@IsReCount", SqlDbType.Bit),
+					new SqlParameter("@OrderType", SqlDbType.Bit),
+					new SqlParameter("@strWhere", SqlDbType.VarChar,1000),
 					};
 			parameters[0].Value = "PL_ACCESS_RIGHTS_MANAGERS";
 			parameters[1].Value = "ID";

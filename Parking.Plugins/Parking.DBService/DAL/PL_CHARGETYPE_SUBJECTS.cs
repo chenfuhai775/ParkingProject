@@ -37,9 +37,9 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select count(1) from PL_CHARGETYPE_SUBJECTS");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			return DbHelperSQL.Exists(strSql.ToString(),parameters);
@@ -55,11 +55,11 @@ namespace Parking.DBService.DAL
 			strSql.Append("insert into PL_CHARGETYPE_SUBJECTS(");
 			strSql.Append("ID,SUBJECT_CODE,PAY_TYPE)");
 			strSql.Append(" values (");
-			strSql.Append("SQL2012ID,SQL2012SUBJECT_CODE,SQL2012PAY_TYPE)");
+			strSql.Append("@ID,@SUBJECT_CODE,@PAY_TYPE)");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012SUBJECT_CODE", SqlDbType.VarChar,200),
-					new SqlParameter("SQL2012PAY_TYPE", SqlDbType.Int,4)};
+					new SqlParameter("@ID", SqlDbType.VarChar,32),
+					new SqlParameter("@SUBJECT_CODE", SqlDbType.VarChar,200),
+					new SqlParameter("@PAY_TYPE", SqlDbType.Int,4)};
 			parameters[0].Value = model.ID;
 			parameters[1].Value = model.SUBJECT_CODE;
 			parameters[2].Value = model.PAY_TYPE;
@@ -81,13 +81,13 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("update PL_CHARGETYPE_SUBJECTS set ");
-			strSql.Append("SUBJECT_CODE=SQL2012SUBJECT_CODE,");
-			strSql.Append("PAY_TYPE=SQL2012PAY_TYPE");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append("SUBJECT_CODE=@SUBJECT_CODE,");
+			strSql.Append("PAY_TYPE=@PAY_TYPE");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012SUBJECT_CODE", SqlDbType.VarChar,200),
-					new SqlParameter("SQL2012PAY_TYPE", SqlDbType.Int,4),
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)};
+					new SqlParameter("@SUBJECT_CODE", SqlDbType.VarChar,200),
+					new SqlParameter("@PAY_TYPE", SqlDbType.Int,4),
+					new SqlParameter("@ID", SqlDbType.VarChar,32)};
 			parameters[0].Value = model.SUBJECT_CODE;
 			parameters[1].Value = model.PAY_TYPE;
 			parameters[2].Value = model.ID;
@@ -111,9 +111,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("delete from PL_CHARGETYPE_SUBJECTS ");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
@@ -154,9 +154,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select  top 1 ID,SUBJECT_CODE,PAY_TYPE from PL_CHARGETYPE_SUBJECTS ");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			Parking.Core.Model.PL_CHARGETYPE_SUBJECTS model=new Parking.Core.Model.PL_CHARGETYPE_SUBJECTS();
@@ -286,13 +286,13 @@ namespace Parking.DBService.DAL
 		public DataSet GetList(int PageSize,int PageIndex,string strWhere)
 		{
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012tblName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012fldName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012PageSize", SqlDbType.Int),
-					new SqlParameter("SQL2012PageIndex", SqlDbType.Int),
-					new SqlParameter("SQL2012IsReCount", SqlDbType.Bit),
-					new SqlParameter("SQL2012OrderType", SqlDbType.Bit),
-					new SqlParameter("SQL2012strWhere", SqlDbType.VarChar,1000),
+					new SqlParameter("@tblName", SqlDbType.VarChar, 255),
+					new SqlParameter("@fldName", SqlDbType.VarChar, 255),
+					new SqlParameter("@PageSize", SqlDbType.Int),
+					new SqlParameter("@PageIndex", SqlDbType.Int),
+					new SqlParameter("@IsReCount", SqlDbType.Bit),
+					new SqlParameter("@OrderType", SqlDbType.Bit),
+					new SqlParameter("@strWhere", SqlDbType.VarChar,1000),
 					};
 			parameters[0].Value = "PL_CHARGETYPE_SUBJECTS";
 			parameters[1].Value = "ID";

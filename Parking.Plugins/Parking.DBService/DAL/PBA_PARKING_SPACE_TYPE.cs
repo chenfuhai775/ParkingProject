@@ -45,9 +45,9 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select count(1) from PBA_PARKING_SPACE_TYPE");
-			strSql.Append(" where SPACE_TYPE=SQL2012SPACE_TYPE ");
+			strSql.Append(" where SPACE_TYPE=@SPACE_TYPE ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012SPACE_TYPE", SqlDbType.Int,4)			};
+					new SqlParameter("@SPACE_TYPE", SqlDbType.Int,4)			};
 			parameters[0].Value = SPACE_TYPE;
 
 			return DbHelperSQL.Exists(strSql.ToString(),parameters);
@@ -63,12 +63,12 @@ namespace Parking.DBService.DAL
 			strSql.Append("insert into PBA_PARKING_SPACE_TYPE(");
 			strSql.Append("ID,SPACE_TYPE,SPACE_TYPE_NAME,CHARGE_CODE)");
 			strSql.Append(" values (");
-			strSql.Append("SQL2012ID,SQL2012SPACE_TYPE,SQL2012SPACE_TYPE_NAME,SQL2012CHARGE_CODE)");
+			strSql.Append("@ID,@SPACE_TYPE,@SPACE_TYPE_NAME,@CHARGE_CODE)");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012SPACE_TYPE", SqlDbType.Int,4),
-					new SqlParameter("SQL2012SPACE_TYPE_NAME", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012CHARGE_CODE", SqlDbType.VarChar,50)};
+					new SqlParameter("@ID", SqlDbType.VarChar,32),
+					new SqlParameter("@SPACE_TYPE", SqlDbType.Int,4),
+					new SqlParameter("@SPACE_TYPE_NAME", SqlDbType.VarChar,50),
+					new SqlParameter("@CHARGE_CODE", SqlDbType.VarChar,50)};
 			parameters[0].Value = model.ID;
 			parameters[1].Value = model.SPACE_TYPE;
 			parameters[2].Value = model.SPACE_TYPE_NAME;
@@ -91,15 +91,15 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("update PBA_PARKING_SPACE_TYPE set ");
-			strSql.Append("ID=SQL2012ID,");
-			strSql.Append("SPACE_TYPE_NAME=SQL2012SPACE_TYPE_NAME,");
-			strSql.Append("CHARGE_CODE=SQL2012CHARGE_CODE");
-			strSql.Append(" where SPACE_TYPE=SQL2012SPACE_TYPE ");
+			strSql.Append("ID=@ID,");
+			strSql.Append("SPACE_TYPE_NAME=@SPACE_TYPE_NAME,");
+			strSql.Append("CHARGE_CODE=@CHARGE_CODE");
+			strSql.Append(" where SPACE_TYPE=@SPACE_TYPE ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012SPACE_TYPE_NAME", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012CHARGE_CODE", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012SPACE_TYPE", SqlDbType.Int,4)};
+					new SqlParameter("@ID", SqlDbType.VarChar,32),
+					new SqlParameter("@SPACE_TYPE_NAME", SqlDbType.VarChar,50),
+					new SqlParameter("@CHARGE_CODE", SqlDbType.VarChar,50),
+					new SqlParameter("@SPACE_TYPE", SqlDbType.Int,4)};
 			parameters[0].Value = model.ID;
 			parameters[1].Value = model.SPACE_TYPE_NAME;
 			parameters[2].Value = model.CHARGE_CODE;
@@ -124,9 +124,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("delete from PBA_PARKING_SPACE_TYPE ");
-			strSql.Append(" where SPACE_TYPE=SQL2012SPACE_TYPE ");
+			strSql.Append(" where SPACE_TYPE=@SPACE_TYPE ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012SPACE_TYPE", SqlDbType.Int,4)			};
+					new SqlParameter("@SPACE_TYPE", SqlDbType.Int,4)			};
 			parameters[0].Value = SPACE_TYPE;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
@@ -167,9 +167,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select  top 1 ID,SPACE_TYPE,SPACE_TYPE_NAME,CHARGE_CODE from PBA_PARKING_SPACE_TYPE ");
-			strSql.Append(" where SPACE_TYPE=SQL2012SPACE_TYPE ");
+			strSql.Append(" where SPACE_TYPE=@SPACE_TYPE ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012SPACE_TYPE", SqlDbType.Int,4)			};
+					new SqlParameter("@SPACE_TYPE", SqlDbType.Int,4)			};
 			parameters[0].Value = SPACE_TYPE;
 
 			Parking.Core.Model.PBA_PARKING_SPACE_TYPE model=new Parking.Core.Model.PBA_PARKING_SPACE_TYPE();
@@ -303,13 +303,13 @@ namespace Parking.DBService.DAL
 		public DataSet GetList(int PageSize,int PageIndex,string strWhere)
 		{
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012tblName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012fldName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012PageSize", SqlDbType.Int),
-					new SqlParameter("SQL2012PageIndex", SqlDbType.Int),
-					new SqlParameter("SQL2012IsReCount", SqlDbType.Bit),
-					new SqlParameter("SQL2012OrderType", SqlDbType.Bit),
-					new SqlParameter("SQL2012strWhere", SqlDbType.VarChar,1000),
+					new SqlParameter("@tblName", SqlDbType.VarChar, 255),
+					new SqlParameter("@fldName", SqlDbType.VarChar, 255),
+					new SqlParameter("@PageSize", SqlDbType.Int),
+					new SqlParameter("@PageIndex", SqlDbType.Int),
+					new SqlParameter("@IsReCount", SqlDbType.Bit),
+					new SqlParameter("@OrderType", SqlDbType.Bit),
+					new SqlParameter("@strWhere", SqlDbType.VarChar,1000),
 					};
 			parameters[0].Value = "PBA_PARKING_SPACE_TYPE";
 			parameters[1].Value = "SPACE_TYPE";

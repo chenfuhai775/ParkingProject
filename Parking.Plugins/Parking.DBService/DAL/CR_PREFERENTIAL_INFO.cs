@@ -37,9 +37,9 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select count(1) from CR_PREFERENTIAL_INFO");
-			strSql.Append(" where PREFERENTIAL_CODE=SQL2012PREFERENTIAL_CODE ");
+			strSql.Append(" where PREFERENTIAL_CODE=@PREFERENTIAL_CODE ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012PREFERENTIAL_CODE", SqlDbType.VarChar,50)			};
+					new SqlParameter("@PREFERENTIAL_CODE", SqlDbType.VarChar,50)			};
 			parameters[0].Value = PREFERENTIAL_CODE;
 
 			return DbHelperSQL.Exists(strSql.ToString(),parameters);
@@ -55,19 +55,19 @@ namespace Parking.DBService.DAL
 			strSql.Append("insert into CR_PREFERENTIAL_INFO(");
 			strSql.Append("PREFERENTIAL_CODE,PREFERENTIAL_NAME,PREFERENTIAL_TYPE,PREFERENTIAL_CONTENT,BEGIN_TIME,END_TIME,CREATE_TIME,CREATE_USER,POLICIES_OBJECT,REMARK,MERCHANT_ID)");
 			strSql.Append(" values (");
-			strSql.Append("SQL2012PREFERENTIAL_CODE,SQL2012PREFERENTIAL_NAME,SQL2012PREFERENTIAL_TYPE,SQL2012PREFERENTIAL_CONTENT,SQL2012BEGIN_TIME,SQL2012END_TIME,SQL2012CREATE_TIME,SQL2012CREATE_USER,SQL2012POLICIES_OBJECT,SQL2012REMARK,SQL2012MERCHANT_ID)");
+			strSql.Append("@PREFERENTIAL_CODE,@PREFERENTIAL_NAME,@PREFERENTIAL_TYPE,@PREFERENTIAL_CONTENT,@BEGIN_TIME,@END_TIME,@CREATE_TIME,@CREATE_USER,@POLICIES_OBJECT,@REMARK,@MERCHANT_ID)");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012PREFERENTIAL_CODE", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012PREFERENTIAL_NAME", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012PREFERENTIAL_TYPE", SqlDbType.Int,4),
-					new SqlParameter("SQL2012PREFERENTIAL_CONTENT", SqlDbType.Decimal,9),
-					new SqlParameter("SQL2012BEGIN_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012END_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012CREATE_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012CREATE_USER", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012POLICIES_OBJECT", SqlDbType.Int,4),
-					new SqlParameter("SQL2012REMARK", SqlDbType.VarChar,2000),
-					new SqlParameter("SQL2012MERCHANT_ID", SqlDbType.VarChar,32)};
+					new SqlParameter("@PREFERENTIAL_CODE", SqlDbType.VarChar,50),
+					new SqlParameter("@PREFERENTIAL_NAME", SqlDbType.VarChar,50),
+					new SqlParameter("@PREFERENTIAL_TYPE", SqlDbType.Int,4),
+					new SqlParameter("@PREFERENTIAL_CONTENT", SqlDbType.Decimal,9),
+					new SqlParameter("@BEGIN_TIME", SqlDbType.DateTime),
+					new SqlParameter("@END_TIME", SqlDbType.DateTime),
+					new SqlParameter("@CREATE_TIME", SqlDbType.DateTime),
+					new SqlParameter("@CREATE_USER", SqlDbType.VarChar,50),
+					new SqlParameter("@POLICIES_OBJECT", SqlDbType.Int,4),
+					new SqlParameter("@REMARK", SqlDbType.VarChar,2000),
+					new SqlParameter("@MERCHANT_ID", SqlDbType.VarChar,32)};
 			parameters[0].Value = model.PREFERENTIAL_CODE;
 			parameters[1].Value = model.PREFERENTIAL_NAME;
 			parameters[2].Value = model.PREFERENTIAL_TYPE;
@@ -97,29 +97,29 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("update CR_PREFERENTIAL_INFO set ");
-			strSql.Append("PREFERENTIAL_NAME=SQL2012PREFERENTIAL_NAME,");
-			strSql.Append("PREFERENTIAL_TYPE=SQL2012PREFERENTIAL_TYPE,");
-			strSql.Append("PREFERENTIAL_CONTENT=SQL2012PREFERENTIAL_CONTENT,");
-			strSql.Append("BEGIN_TIME=SQL2012BEGIN_TIME,");
-			strSql.Append("END_TIME=SQL2012END_TIME,");
-			strSql.Append("CREATE_TIME=SQL2012CREATE_TIME,");
-			strSql.Append("CREATE_USER=SQL2012CREATE_USER,");
-			strSql.Append("POLICIES_OBJECT=SQL2012POLICIES_OBJECT,");
-			strSql.Append("REMARK=SQL2012REMARK,");
-			strSql.Append("MERCHANT_ID=SQL2012MERCHANT_ID");
-			strSql.Append(" where PREFERENTIAL_CODE=SQL2012PREFERENTIAL_CODE ");
+			strSql.Append("PREFERENTIAL_NAME=@PREFERENTIAL_NAME,");
+			strSql.Append("PREFERENTIAL_TYPE=@PREFERENTIAL_TYPE,");
+			strSql.Append("PREFERENTIAL_CONTENT=@PREFERENTIAL_CONTENT,");
+			strSql.Append("BEGIN_TIME=@BEGIN_TIME,");
+			strSql.Append("END_TIME=@END_TIME,");
+			strSql.Append("CREATE_TIME=@CREATE_TIME,");
+			strSql.Append("CREATE_USER=@CREATE_USER,");
+			strSql.Append("POLICIES_OBJECT=@POLICIES_OBJECT,");
+			strSql.Append("REMARK=@REMARK,");
+			strSql.Append("MERCHANT_ID=@MERCHANT_ID");
+			strSql.Append(" where PREFERENTIAL_CODE=@PREFERENTIAL_CODE ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012PREFERENTIAL_NAME", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012PREFERENTIAL_TYPE", SqlDbType.Int,4),
-					new SqlParameter("SQL2012PREFERENTIAL_CONTENT", SqlDbType.Decimal,9),
-					new SqlParameter("SQL2012BEGIN_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012END_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012CREATE_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012CREATE_USER", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012POLICIES_OBJECT", SqlDbType.Int,4),
-					new SqlParameter("SQL2012REMARK", SqlDbType.VarChar,2000),
-					new SqlParameter("SQL2012MERCHANT_ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012PREFERENTIAL_CODE", SqlDbType.VarChar,50)};
+					new SqlParameter("@PREFERENTIAL_NAME", SqlDbType.VarChar,50),
+					new SqlParameter("@PREFERENTIAL_TYPE", SqlDbType.Int,4),
+					new SqlParameter("@PREFERENTIAL_CONTENT", SqlDbType.Decimal,9),
+					new SqlParameter("@BEGIN_TIME", SqlDbType.DateTime),
+					new SqlParameter("@END_TIME", SqlDbType.DateTime),
+					new SqlParameter("@CREATE_TIME", SqlDbType.DateTime),
+					new SqlParameter("@CREATE_USER", SqlDbType.VarChar,50),
+					new SqlParameter("@POLICIES_OBJECT", SqlDbType.Int,4),
+					new SqlParameter("@REMARK", SqlDbType.VarChar,2000),
+					new SqlParameter("@MERCHANT_ID", SqlDbType.VarChar,32),
+					new SqlParameter("@PREFERENTIAL_CODE", SqlDbType.VarChar,50)};
 			parameters[0].Value = model.PREFERENTIAL_NAME;
 			parameters[1].Value = model.PREFERENTIAL_TYPE;
 			parameters[2].Value = model.PREFERENTIAL_CONTENT;
@@ -151,9 +151,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("delete from CR_PREFERENTIAL_INFO ");
-			strSql.Append(" where PREFERENTIAL_CODE=SQL2012PREFERENTIAL_CODE ");
+			strSql.Append(" where PREFERENTIAL_CODE=@PREFERENTIAL_CODE ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012PREFERENTIAL_CODE", SqlDbType.VarChar,50)			};
+					new SqlParameter("@PREFERENTIAL_CODE", SqlDbType.VarChar,50)			};
 			parameters[0].Value = PREFERENTIAL_CODE;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
@@ -194,9 +194,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select  top 1 PREFERENTIAL_CODE,PREFERENTIAL_NAME,PREFERENTIAL_TYPE,PREFERENTIAL_CONTENT,BEGIN_TIME,END_TIME,CREATE_TIME,CREATE_USER,POLICIES_OBJECT,REMARK,MERCHANT_ID from CR_PREFERENTIAL_INFO ");
-			strSql.Append(" where PREFERENTIAL_CODE=SQL2012PREFERENTIAL_CODE ");
+			strSql.Append(" where PREFERENTIAL_CODE=@PREFERENTIAL_CODE ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012PREFERENTIAL_CODE", SqlDbType.VarChar,50)			};
+					new SqlParameter("@PREFERENTIAL_CODE", SqlDbType.VarChar,50)			};
 			parameters[0].Value = PREFERENTIAL_CODE;
 
 			Parking.Core.Model.CR_PREFERENTIAL_INFO model=new Parking.Core.Model.CR_PREFERENTIAL_INFO();
@@ -358,13 +358,13 @@ namespace Parking.DBService.DAL
 		public DataSet GetList(int PageSize,int PageIndex,string strWhere)
 		{
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012tblName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012fldName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012PageSize", SqlDbType.Int),
-					new SqlParameter("SQL2012PageIndex", SqlDbType.Int),
-					new SqlParameter("SQL2012IsReCount", SqlDbType.Bit),
-					new SqlParameter("SQL2012OrderType", SqlDbType.Bit),
-					new SqlParameter("SQL2012strWhere", SqlDbType.VarChar,1000),
+					new SqlParameter("@tblName", SqlDbType.VarChar, 255),
+					new SqlParameter("@fldName", SqlDbType.VarChar, 255),
+					new SqlParameter("@PageSize", SqlDbType.Int),
+					new SqlParameter("@PageIndex", SqlDbType.Int),
+					new SqlParameter("@IsReCount", SqlDbType.Bit),
+					new SqlParameter("@OrderType", SqlDbType.Bit),
+					new SqlParameter("@strWhere", SqlDbType.VarChar,1000),
 					};
 			parameters[0].Value = "CR_PREFERENTIAL_INFO";
 			parameters[1].Value = "PREFERENTIAL_CODE";

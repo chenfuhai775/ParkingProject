@@ -37,9 +37,9 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select count(1) from CR_INOUT_RECODE_ARCHIVE");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			return DbHelperSQL.Exists(strSql.ToString(),parameters);
@@ -55,47 +55,47 @@ namespace Parking.DBService.DAL
 			strSql.Append("insert into CR_INOUT_RECODE_ARCHIVE(");
 			strSql.Append("ID,UNIQUE_IDENTIFIER,VEHICLE_NO,CAR_COLOR,CAR_EC_NO,CREDENTIALS_TYPE,IN_FIELD_CODE,IN_CHANNEL_CODE,IN_TIME,IN_OPERATOR_ID,IN_PARTITION_CODE,IN_EQ_ID,IN_DEV_ID,IN_PARK_TYPE,OUT_DEV_ID,OUT_PARK_TYPE,OUT_TIME,OUT_FIELD_CODE,OUT_CHANNEL_CODE,OUT_OPERATOR_ID,OUT_PARTITION_CODE,TOTAL_TIME,CURR_PARTITION_CODE,DUE_MONEY,CHARGE_MONEY,PRE_MONEY,OVERTIMESFJE,ADVANCE_MONEY,PAY_METHOD,OUT_EQ_ID,PAY_PLATFORM,IN_IMG_TRUST,OUT_IMG_TRUST,RECODE_STATUS,IN_LED_INFO,OUT_LED_INFO,HAS_CORRECT,LOCK_FLAG,LOCK_TIME)");
 			strSql.Append(" values (");
-			strSql.Append("SQL2012ID,SQL2012UNIQUE_IDENTIFIER,SQL2012VEHICLE_NO,SQL2012CAR_COLOR,SQL2012CAR_EC_NO,SQL2012CREDENTIALS_TYPE,SQL2012IN_FIELD_CODE,SQL2012IN_CHANNEL_CODE,SQL2012IN_TIME,SQL2012IN_OPERATOR_ID,SQL2012IN_PARTITION_CODE,SQL2012IN_EQ_ID,SQL2012IN_DEV_ID,SQL2012IN_PARK_TYPE,SQL2012OUT_DEV_ID,SQL2012OUT_PARK_TYPE,SQL2012OUT_TIME,SQL2012OUT_FIELD_CODE,SQL2012OUT_CHANNEL_CODE,SQL2012OUT_OPERATOR_ID,SQL2012OUT_PARTITION_CODE,SQL2012TOTAL_TIME,SQL2012CURR_PARTITION_CODE,SQL2012DUE_MONEY,SQL2012CHARGE_MONEY,SQL2012PRE_MONEY,SQL2012OVERTIMESFJE,SQL2012ADVANCE_MONEY,SQL2012PAY_METHOD,SQL2012OUT_EQ_ID,SQL2012PAY_PLATFORM,SQL2012IN_IMG_TRUST,SQL2012OUT_IMG_TRUST,SQL2012RECODE_STATUS,SQL2012IN_LED_INFO,SQL2012OUT_LED_INFO,SQL2012HAS_CORRECT,SQL2012LOCK_FLAG,SQL2012LOCK_TIME)");
+			strSql.Append("@ID,@UNIQUE_IDENTIFIER,@VEHICLE_NO,@CAR_COLOR,@CAR_EC_NO,@CREDENTIALS_TYPE,@IN_FIELD_CODE,@IN_CHANNEL_CODE,@IN_TIME,@IN_OPERATOR_ID,@IN_PARTITION_CODE,@IN_EQ_ID,@IN_DEV_ID,@IN_PARK_TYPE,@OUT_DEV_ID,@OUT_PARK_TYPE,@OUT_TIME,@OUT_FIELD_CODE,@OUT_CHANNEL_CODE,@OUT_OPERATOR_ID,@OUT_PARTITION_CODE,@TOTAL_TIME,@CURR_PARTITION_CODE,@DUE_MONEY,@CHARGE_MONEY,@PRE_MONEY,@OVERTIMESFJE,@ADVANCE_MONEY,@PAY_METHOD,@OUT_EQ_ID,@PAY_PLATFORM,@IN_IMG_TRUST,@OUT_IMG_TRUST,@RECODE_STATUS,@IN_LED_INFO,@OUT_LED_INFO,@HAS_CORRECT,@LOCK_FLAG,@LOCK_TIME)");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012UNIQUE_IDENTIFIER", SqlDbType.VarChar,100),
-					new SqlParameter("SQL2012VEHICLE_NO", SqlDbType.VarChar,20),
-					new SqlParameter("SQL2012CAR_COLOR", SqlDbType.VarChar,10),
-					new SqlParameter("SQL2012CAR_EC_NO", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012CREDENTIALS_TYPE", SqlDbType.Int,4),
-					new SqlParameter("SQL2012IN_FIELD_CODE", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012IN_CHANNEL_CODE", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012IN_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012IN_OPERATOR_ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012IN_PARTITION_CODE", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012IN_EQ_ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012IN_DEV_ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012IN_PARK_TYPE", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012OUT_DEV_ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012OUT_PARK_TYPE", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012OUT_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012OUT_FIELD_CODE", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012OUT_CHANNEL_CODE", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012OUT_OPERATOR_ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012OUT_PARTITION_CODE", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012TOTAL_TIME", SqlDbType.Int,4),
-					new SqlParameter("SQL2012CURR_PARTITION_CODE", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012DUE_MONEY", SqlDbType.Decimal,9),
-					new SqlParameter("SQL2012CHARGE_MONEY", SqlDbType.Decimal,9),
-					new SqlParameter("SQL2012PRE_MONEY", SqlDbType.Decimal,9),
-					new SqlParameter("SQL2012OVERTIMESFJE", SqlDbType.Decimal,9),
-					new SqlParameter("SQL2012ADVANCE_MONEY", SqlDbType.Decimal,9),
-					new SqlParameter("SQL2012PAY_METHOD", SqlDbType.Int,4),
-					new SqlParameter("SQL2012OUT_EQ_ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012PAY_PLATFORM", SqlDbType.Int,4),
-					new SqlParameter("SQL2012IN_IMG_TRUST", SqlDbType.Decimal,5),
-					new SqlParameter("SQL2012OUT_IMG_TRUST", SqlDbType.Decimal,5),
-					new SqlParameter("SQL2012RECODE_STATUS", SqlDbType.Int,4),
-					new SqlParameter("SQL2012IN_LED_INFO", SqlDbType.VarChar,500),
-					new SqlParameter("SQL2012OUT_LED_INFO", SqlDbType.VarChar,500),
-					new SqlParameter("SQL2012HAS_CORRECT", SqlDbType.Int,4),
-					new SqlParameter("SQL2012LOCK_FLAG", SqlDbType.Int,4),
-					new SqlParameter("SQL2012LOCK_TIME", SqlDbType.DateTime)};
+					new SqlParameter("@ID", SqlDbType.VarChar,32),
+					new SqlParameter("@UNIQUE_IDENTIFIER", SqlDbType.VarChar,100),
+					new SqlParameter("@VEHICLE_NO", SqlDbType.VarChar,20),
+					new SqlParameter("@CAR_COLOR", SqlDbType.VarChar,10),
+					new SqlParameter("@CAR_EC_NO", SqlDbType.VarChar,50),
+					new SqlParameter("@CREDENTIALS_TYPE", SqlDbType.Int,4),
+					new SqlParameter("@IN_FIELD_CODE", SqlDbType.VarChar,32),
+					new SqlParameter("@IN_CHANNEL_CODE", SqlDbType.VarChar,32),
+					new SqlParameter("@IN_TIME", SqlDbType.DateTime),
+					new SqlParameter("@IN_OPERATOR_ID", SqlDbType.VarChar,32),
+					new SqlParameter("@IN_PARTITION_CODE", SqlDbType.VarChar,50),
+					new SqlParameter("@IN_EQ_ID", SqlDbType.VarChar,32),
+					new SqlParameter("@IN_DEV_ID", SqlDbType.VarChar,32),
+					new SqlParameter("@IN_PARK_TYPE", SqlDbType.VarChar,50),
+					new SqlParameter("@OUT_DEV_ID", SqlDbType.VarChar,32),
+					new SqlParameter("@OUT_PARK_TYPE", SqlDbType.VarChar,50),
+					new SqlParameter("@OUT_TIME", SqlDbType.DateTime),
+					new SqlParameter("@OUT_FIELD_CODE", SqlDbType.VarChar,32),
+					new SqlParameter("@OUT_CHANNEL_CODE", SqlDbType.VarChar,32),
+					new SqlParameter("@OUT_OPERATOR_ID", SqlDbType.VarChar,32),
+					new SqlParameter("@OUT_PARTITION_CODE", SqlDbType.VarChar,50),
+					new SqlParameter("@TOTAL_TIME", SqlDbType.Int,4),
+					new SqlParameter("@CURR_PARTITION_CODE", SqlDbType.VarChar,50),
+					new SqlParameter("@DUE_MONEY", SqlDbType.Decimal,9),
+					new SqlParameter("@CHARGE_MONEY", SqlDbType.Decimal,9),
+					new SqlParameter("@PRE_MONEY", SqlDbType.Decimal,9),
+					new SqlParameter("@OVERTIMESFJE", SqlDbType.Decimal,9),
+					new SqlParameter("@ADVANCE_MONEY", SqlDbType.Decimal,9),
+					new SqlParameter("@PAY_METHOD", SqlDbType.Int,4),
+					new SqlParameter("@OUT_EQ_ID", SqlDbType.VarChar,32),
+					new SqlParameter("@PAY_PLATFORM", SqlDbType.Int,4),
+					new SqlParameter("@IN_IMG_TRUST", SqlDbType.Decimal,5),
+					new SqlParameter("@OUT_IMG_TRUST", SqlDbType.Decimal,5),
+					new SqlParameter("@RECODE_STATUS", SqlDbType.Int,4),
+					new SqlParameter("@IN_LED_INFO", SqlDbType.VarChar,500),
+					new SqlParameter("@OUT_LED_INFO", SqlDbType.VarChar,500),
+					new SqlParameter("@HAS_CORRECT", SqlDbType.Int,4),
+					new SqlParameter("@LOCK_FLAG", SqlDbType.Int,4),
+					new SqlParameter("@LOCK_TIME", SqlDbType.DateTime)};
 			parameters[0].Value = model.ID;
 			parameters[1].Value = model.UNIQUE_IDENTIFIER;
 			parameters[2].Value = model.VEHICLE_NO;
@@ -153,85 +153,85 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("update CR_INOUT_RECODE_ARCHIVE set ");
-			strSql.Append("UNIQUE_IDENTIFIER=SQL2012UNIQUE_IDENTIFIER,");
-			strSql.Append("VEHICLE_NO=SQL2012VEHICLE_NO,");
-			strSql.Append("CAR_COLOR=SQL2012CAR_COLOR,");
-			strSql.Append("CAR_EC_NO=SQL2012CAR_EC_NO,");
-			strSql.Append("CREDENTIALS_TYPE=SQL2012CREDENTIALS_TYPE,");
-			strSql.Append("IN_FIELD_CODE=SQL2012IN_FIELD_CODE,");
-			strSql.Append("IN_CHANNEL_CODE=SQL2012IN_CHANNEL_CODE,");
-			strSql.Append("IN_TIME=SQL2012IN_TIME,");
-			strSql.Append("IN_OPERATOR_ID=SQL2012IN_OPERATOR_ID,");
-			strSql.Append("IN_PARTITION_CODE=SQL2012IN_PARTITION_CODE,");
-			strSql.Append("IN_EQ_ID=SQL2012IN_EQ_ID,");
-			strSql.Append("IN_DEV_ID=SQL2012IN_DEV_ID,");
-			strSql.Append("IN_PARK_TYPE=SQL2012IN_PARK_TYPE,");
-			strSql.Append("OUT_DEV_ID=SQL2012OUT_DEV_ID,");
-			strSql.Append("OUT_PARK_TYPE=SQL2012OUT_PARK_TYPE,");
-			strSql.Append("OUT_TIME=SQL2012OUT_TIME,");
-			strSql.Append("OUT_FIELD_CODE=SQL2012OUT_FIELD_CODE,");
-			strSql.Append("OUT_CHANNEL_CODE=SQL2012OUT_CHANNEL_CODE,");
-			strSql.Append("OUT_OPERATOR_ID=SQL2012OUT_OPERATOR_ID,");
-			strSql.Append("OUT_PARTITION_CODE=SQL2012OUT_PARTITION_CODE,");
-			strSql.Append("TOTAL_TIME=SQL2012TOTAL_TIME,");
-			strSql.Append("CURR_PARTITION_CODE=SQL2012CURR_PARTITION_CODE,");
-			strSql.Append("DUE_MONEY=SQL2012DUE_MONEY,");
-			strSql.Append("CHARGE_MONEY=SQL2012CHARGE_MONEY,");
-			strSql.Append("PRE_MONEY=SQL2012PRE_MONEY,");
-			strSql.Append("OVERTIMESFJE=SQL2012OVERTIMESFJE,");
-			strSql.Append("ADVANCE_MONEY=SQL2012ADVANCE_MONEY,");
-			strSql.Append("PAY_METHOD=SQL2012PAY_METHOD,");
-			strSql.Append("OUT_EQ_ID=SQL2012OUT_EQ_ID,");
-			strSql.Append("PAY_PLATFORM=SQL2012PAY_PLATFORM,");
-			strSql.Append("IN_IMG_TRUST=SQL2012IN_IMG_TRUST,");
-			strSql.Append("OUT_IMG_TRUST=SQL2012OUT_IMG_TRUST,");
-			strSql.Append("RECODE_STATUS=SQL2012RECODE_STATUS,");
-			strSql.Append("IN_LED_INFO=SQL2012IN_LED_INFO,");
-			strSql.Append("OUT_LED_INFO=SQL2012OUT_LED_INFO,");
-			strSql.Append("HAS_CORRECT=SQL2012HAS_CORRECT,");
-			strSql.Append("LOCK_FLAG=SQL2012LOCK_FLAG,");
-			strSql.Append("LOCK_TIME=SQL2012LOCK_TIME");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append("UNIQUE_IDENTIFIER=@UNIQUE_IDENTIFIER,");
+			strSql.Append("VEHICLE_NO=@VEHICLE_NO,");
+			strSql.Append("CAR_COLOR=@CAR_COLOR,");
+			strSql.Append("CAR_EC_NO=@CAR_EC_NO,");
+			strSql.Append("CREDENTIALS_TYPE=@CREDENTIALS_TYPE,");
+			strSql.Append("IN_FIELD_CODE=@IN_FIELD_CODE,");
+			strSql.Append("IN_CHANNEL_CODE=@IN_CHANNEL_CODE,");
+			strSql.Append("IN_TIME=@IN_TIME,");
+			strSql.Append("IN_OPERATOR_ID=@IN_OPERATOR_ID,");
+			strSql.Append("IN_PARTITION_CODE=@IN_PARTITION_CODE,");
+			strSql.Append("IN_EQ_ID=@IN_EQ_ID,");
+			strSql.Append("IN_DEV_ID=@IN_DEV_ID,");
+			strSql.Append("IN_PARK_TYPE=@IN_PARK_TYPE,");
+			strSql.Append("OUT_DEV_ID=@OUT_DEV_ID,");
+			strSql.Append("OUT_PARK_TYPE=@OUT_PARK_TYPE,");
+			strSql.Append("OUT_TIME=@OUT_TIME,");
+			strSql.Append("OUT_FIELD_CODE=@OUT_FIELD_CODE,");
+			strSql.Append("OUT_CHANNEL_CODE=@OUT_CHANNEL_CODE,");
+			strSql.Append("OUT_OPERATOR_ID=@OUT_OPERATOR_ID,");
+			strSql.Append("OUT_PARTITION_CODE=@OUT_PARTITION_CODE,");
+			strSql.Append("TOTAL_TIME=@TOTAL_TIME,");
+			strSql.Append("CURR_PARTITION_CODE=@CURR_PARTITION_CODE,");
+			strSql.Append("DUE_MONEY=@DUE_MONEY,");
+			strSql.Append("CHARGE_MONEY=@CHARGE_MONEY,");
+			strSql.Append("PRE_MONEY=@PRE_MONEY,");
+			strSql.Append("OVERTIMESFJE=@OVERTIMESFJE,");
+			strSql.Append("ADVANCE_MONEY=@ADVANCE_MONEY,");
+			strSql.Append("PAY_METHOD=@PAY_METHOD,");
+			strSql.Append("OUT_EQ_ID=@OUT_EQ_ID,");
+			strSql.Append("PAY_PLATFORM=@PAY_PLATFORM,");
+			strSql.Append("IN_IMG_TRUST=@IN_IMG_TRUST,");
+			strSql.Append("OUT_IMG_TRUST=@OUT_IMG_TRUST,");
+			strSql.Append("RECODE_STATUS=@RECODE_STATUS,");
+			strSql.Append("IN_LED_INFO=@IN_LED_INFO,");
+			strSql.Append("OUT_LED_INFO=@OUT_LED_INFO,");
+			strSql.Append("HAS_CORRECT=@HAS_CORRECT,");
+			strSql.Append("LOCK_FLAG=@LOCK_FLAG,");
+			strSql.Append("LOCK_TIME=@LOCK_TIME");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012UNIQUE_IDENTIFIER", SqlDbType.VarChar,100),
-					new SqlParameter("SQL2012VEHICLE_NO", SqlDbType.VarChar,20),
-					new SqlParameter("SQL2012CAR_COLOR", SqlDbType.VarChar,10),
-					new SqlParameter("SQL2012CAR_EC_NO", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012CREDENTIALS_TYPE", SqlDbType.Int,4),
-					new SqlParameter("SQL2012IN_FIELD_CODE", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012IN_CHANNEL_CODE", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012IN_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012IN_OPERATOR_ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012IN_PARTITION_CODE", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012IN_EQ_ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012IN_DEV_ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012IN_PARK_TYPE", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012OUT_DEV_ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012OUT_PARK_TYPE", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012OUT_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012OUT_FIELD_CODE", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012OUT_CHANNEL_CODE", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012OUT_OPERATOR_ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012OUT_PARTITION_CODE", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012TOTAL_TIME", SqlDbType.Int,4),
-					new SqlParameter("SQL2012CURR_PARTITION_CODE", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012DUE_MONEY", SqlDbType.Decimal,9),
-					new SqlParameter("SQL2012CHARGE_MONEY", SqlDbType.Decimal,9),
-					new SqlParameter("SQL2012PRE_MONEY", SqlDbType.Decimal,9),
-					new SqlParameter("SQL2012OVERTIMESFJE", SqlDbType.Decimal,9),
-					new SqlParameter("SQL2012ADVANCE_MONEY", SqlDbType.Decimal,9),
-					new SqlParameter("SQL2012PAY_METHOD", SqlDbType.Int,4),
-					new SqlParameter("SQL2012OUT_EQ_ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012PAY_PLATFORM", SqlDbType.Int,4),
-					new SqlParameter("SQL2012IN_IMG_TRUST", SqlDbType.Decimal,5),
-					new SqlParameter("SQL2012OUT_IMG_TRUST", SqlDbType.Decimal,5),
-					new SqlParameter("SQL2012RECODE_STATUS", SqlDbType.Int,4),
-					new SqlParameter("SQL2012IN_LED_INFO", SqlDbType.VarChar,500),
-					new SqlParameter("SQL2012OUT_LED_INFO", SqlDbType.VarChar,500),
-					new SqlParameter("SQL2012HAS_CORRECT", SqlDbType.Int,4),
-					new SqlParameter("SQL2012LOCK_FLAG", SqlDbType.Int,4),
-					new SqlParameter("SQL2012LOCK_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)};
+					new SqlParameter("@UNIQUE_IDENTIFIER", SqlDbType.VarChar,100),
+					new SqlParameter("@VEHICLE_NO", SqlDbType.VarChar,20),
+					new SqlParameter("@CAR_COLOR", SqlDbType.VarChar,10),
+					new SqlParameter("@CAR_EC_NO", SqlDbType.VarChar,50),
+					new SqlParameter("@CREDENTIALS_TYPE", SqlDbType.Int,4),
+					new SqlParameter("@IN_FIELD_CODE", SqlDbType.VarChar,32),
+					new SqlParameter("@IN_CHANNEL_CODE", SqlDbType.VarChar,32),
+					new SqlParameter("@IN_TIME", SqlDbType.DateTime),
+					new SqlParameter("@IN_OPERATOR_ID", SqlDbType.VarChar,32),
+					new SqlParameter("@IN_PARTITION_CODE", SqlDbType.VarChar,50),
+					new SqlParameter("@IN_EQ_ID", SqlDbType.VarChar,32),
+					new SqlParameter("@IN_DEV_ID", SqlDbType.VarChar,32),
+					new SqlParameter("@IN_PARK_TYPE", SqlDbType.VarChar,50),
+					new SqlParameter("@OUT_DEV_ID", SqlDbType.VarChar,32),
+					new SqlParameter("@OUT_PARK_TYPE", SqlDbType.VarChar,50),
+					new SqlParameter("@OUT_TIME", SqlDbType.DateTime),
+					new SqlParameter("@OUT_FIELD_CODE", SqlDbType.VarChar,32),
+					new SqlParameter("@OUT_CHANNEL_CODE", SqlDbType.VarChar,32),
+					new SqlParameter("@OUT_OPERATOR_ID", SqlDbType.VarChar,32),
+					new SqlParameter("@OUT_PARTITION_CODE", SqlDbType.VarChar,50),
+					new SqlParameter("@TOTAL_TIME", SqlDbType.Int,4),
+					new SqlParameter("@CURR_PARTITION_CODE", SqlDbType.VarChar,50),
+					new SqlParameter("@DUE_MONEY", SqlDbType.Decimal,9),
+					new SqlParameter("@CHARGE_MONEY", SqlDbType.Decimal,9),
+					new SqlParameter("@PRE_MONEY", SqlDbType.Decimal,9),
+					new SqlParameter("@OVERTIMESFJE", SqlDbType.Decimal,9),
+					new SqlParameter("@ADVANCE_MONEY", SqlDbType.Decimal,9),
+					new SqlParameter("@PAY_METHOD", SqlDbType.Int,4),
+					new SqlParameter("@OUT_EQ_ID", SqlDbType.VarChar,32),
+					new SqlParameter("@PAY_PLATFORM", SqlDbType.Int,4),
+					new SqlParameter("@IN_IMG_TRUST", SqlDbType.Decimal,5),
+					new SqlParameter("@OUT_IMG_TRUST", SqlDbType.Decimal,5),
+					new SqlParameter("@RECODE_STATUS", SqlDbType.Int,4),
+					new SqlParameter("@IN_LED_INFO", SqlDbType.VarChar,500),
+					new SqlParameter("@OUT_LED_INFO", SqlDbType.VarChar,500),
+					new SqlParameter("@HAS_CORRECT", SqlDbType.Int,4),
+					new SqlParameter("@LOCK_FLAG", SqlDbType.Int,4),
+					new SqlParameter("@LOCK_TIME", SqlDbType.DateTime),
+					new SqlParameter("@ID", SqlDbType.VarChar,32)};
 			parameters[0].Value = model.UNIQUE_IDENTIFIER;
 			parameters[1].Value = model.VEHICLE_NO;
 			parameters[2].Value = model.CAR_COLOR;
@@ -291,9 +291,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("delete from CR_INOUT_RECODE_ARCHIVE ");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
@@ -334,9 +334,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select  top 1 ID,UNIQUE_IDENTIFIER,VEHICLE_NO,CAR_COLOR,CAR_EC_NO,CREDENTIALS_TYPE,IN_FIELD_CODE,IN_CHANNEL_CODE,IN_TIME,IN_OPERATOR_ID,IN_PARTITION_CODE,IN_EQ_ID,IN_DEV_ID,IN_PARK_TYPE,OUT_DEV_ID,OUT_PARK_TYPE,OUT_TIME,OUT_FIELD_CODE,OUT_CHANNEL_CODE,OUT_OPERATOR_ID,OUT_PARTITION_CODE,TOTAL_TIME,CURR_PARTITION_CODE,DUE_MONEY,CHARGE_MONEY,PRE_MONEY,OVERTIMESFJE,ADVANCE_MONEY,PAY_METHOD,OUT_EQ_ID,PAY_PLATFORM,IN_IMG_TRUST,OUT_IMG_TRUST,RECODE_STATUS,IN_LED_INFO,OUT_LED_INFO,HAS_CORRECT,LOCK_FLAG,LOCK_TIME from CR_INOUT_RECODE_ARCHIVE ");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			Parking.Core.Model.CR_INOUT_RECODE_ARCHIVE model=new Parking.Core.Model.CR_INOUT_RECODE_ARCHIVE();
@@ -610,13 +610,13 @@ namespace Parking.DBService.DAL
 		public DataSet GetList(int PageSize,int PageIndex,string strWhere)
 		{
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012tblName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012fldName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012PageSize", SqlDbType.Int),
-					new SqlParameter("SQL2012PageIndex", SqlDbType.Int),
-					new SqlParameter("SQL2012IsReCount", SqlDbType.Bit),
-					new SqlParameter("SQL2012OrderType", SqlDbType.Bit),
-					new SqlParameter("SQL2012strWhere", SqlDbType.VarChar,1000),
+					new SqlParameter("@tblName", SqlDbType.VarChar, 255),
+					new SqlParameter("@fldName", SqlDbType.VarChar, 255),
+					new SqlParameter("@PageSize", SqlDbType.Int),
+					new SqlParameter("@PageIndex", SqlDbType.Int),
+					new SqlParameter("@IsReCount", SqlDbType.Bit),
+					new SqlParameter("@OrderType", SqlDbType.Bit),
+					new SqlParameter("@strWhere", SqlDbType.VarChar,1000),
 					};
 			parameters[0].Value = "CR_INOUT_RECODE_ARCHIVE";
 			parameters[1].Value = "ID";

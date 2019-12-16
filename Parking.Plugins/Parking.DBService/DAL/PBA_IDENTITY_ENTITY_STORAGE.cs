@@ -37,9 +37,9 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select count(1) from PBA_IDENTITY_ENTITY_STORAGE");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			return DbHelperSQL.Exists(strSql.ToString(),parameters);
@@ -55,19 +55,19 @@ namespace Parking.DBService.DAL
 			strSql.Append("insert into PBA_IDENTITY_ENTITY_STORAGE(");
 			strSql.Append("ID,IDENTITY_ID,IDENTITY_REMARK,IDENTITY_VISUAL_ID,IDENTITY_TYPE,STATUS,REMARK,CREATE_USER_ID,CREATE_TIME,UPDATE_USER_ID,UPDATE_TIME)");
 			strSql.Append(" values (");
-			strSql.Append("SQL2012ID,SQL2012IDENTITY_ID,SQL2012IDENTITY_REMARK,SQL2012IDENTITY_VISUAL_ID,SQL2012IDENTITY_TYPE,SQL2012STATUS,SQL2012REMARK,SQL2012CREATE_USER_ID,SQL2012CREATE_TIME,SQL2012UPDATE_USER_ID,SQL2012UPDATE_TIME)");
+			strSql.Append("@ID,@IDENTITY_ID,@IDENTITY_REMARK,@IDENTITY_VISUAL_ID,@IDENTITY_TYPE,@STATUS,@REMARK,@CREATE_USER_ID,@CREATE_TIME,@UPDATE_USER_ID,@UPDATE_TIME)");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012IDENTITY_ID", SqlDbType.VarChar,256),
-					new SqlParameter("SQL2012IDENTITY_REMARK", SqlDbType.VarChar,500),
-					new SqlParameter("SQL2012IDENTITY_VISUAL_ID", SqlDbType.VarChar,256),
-					new SqlParameter("SQL2012IDENTITY_TYPE", SqlDbType.Int,4),
-					new SqlParameter("SQL2012STATUS", SqlDbType.Int,4),
-					new SqlParameter("SQL2012REMARK", SqlDbType.VarChar,500),
-					new SqlParameter("SQL2012CREATE_USER_ID", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012CREATE_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012UPDATE_USER_ID", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012UPDATE_TIME", SqlDbType.DateTime)};
+					new SqlParameter("@ID", SqlDbType.VarChar,32),
+					new SqlParameter("@IDENTITY_ID", SqlDbType.VarChar,256),
+					new SqlParameter("@IDENTITY_REMARK", SqlDbType.VarChar,500),
+					new SqlParameter("@IDENTITY_VISUAL_ID", SqlDbType.VarChar,256),
+					new SqlParameter("@IDENTITY_TYPE", SqlDbType.Int,4),
+					new SqlParameter("@STATUS", SqlDbType.Int,4),
+					new SqlParameter("@REMARK", SqlDbType.VarChar,500),
+					new SqlParameter("@CREATE_USER_ID", SqlDbType.VarChar,50),
+					new SqlParameter("@CREATE_TIME", SqlDbType.DateTime),
+					new SqlParameter("@UPDATE_USER_ID", SqlDbType.VarChar,50),
+					new SqlParameter("@UPDATE_TIME", SqlDbType.DateTime)};
 			parameters[0].Value = model.ID;
 			parameters[1].Value = model.IDENTITY_ID;
 			parameters[2].Value = model.IDENTITY_REMARK;
@@ -97,29 +97,29 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("update PBA_IDENTITY_ENTITY_STORAGE set ");
-			strSql.Append("IDENTITY_ID=SQL2012IDENTITY_ID,");
-			strSql.Append("IDENTITY_REMARK=SQL2012IDENTITY_REMARK,");
-			strSql.Append("IDENTITY_VISUAL_ID=SQL2012IDENTITY_VISUAL_ID,");
-			strSql.Append("IDENTITY_TYPE=SQL2012IDENTITY_TYPE,");
-			strSql.Append("STATUS=SQL2012STATUS,");
-			strSql.Append("REMARK=SQL2012REMARK,");
-			strSql.Append("CREATE_USER_ID=SQL2012CREATE_USER_ID,");
-			strSql.Append("CREATE_TIME=SQL2012CREATE_TIME,");
-			strSql.Append("UPDATE_USER_ID=SQL2012UPDATE_USER_ID,");
-			strSql.Append("UPDATE_TIME=SQL2012UPDATE_TIME");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append("IDENTITY_ID=@IDENTITY_ID,");
+			strSql.Append("IDENTITY_REMARK=@IDENTITY_REMARK,");
+			strSql.Append("IDENTITY_VISUAL_ID=@IDENTITY_VISUAL_ID,");
+			strSql.Append("IDENTITY_TYPE=@IDENTITY_TYPE,");
+			strSql.Append("STATUS=@STATUS,");
+			strSql.Append("REMARK=@REMARK,");
+			strSql.Append("CREATE_USER_ID=@CREATE_USER_ID,");
+			strSql.Append("CREATE_TIME=@CREATE_TIME,");
+			strSql.Append("UPDATE_USER_ID=@UPDATE_USER_ID,");
+			strSql.Append("UPDATE_TIME=@UPDATE_TIME");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012IDENTITY_ID", SqlDbType.VarChar,256),
-					new SqlParameter("SQL2012IDENTITY_REMARK", SqlDbType.VarChar,500),
-					new SqlParameter("SQL2012IDENTITY_VISUAL_ID", SqlDbType.VarChar,256),
-					new SqlParameter("SQL2012IDENTITY_TYPE", SqlDbType.Int,4),
-					new SqlParameter("SQL2012STATUS", SqlDbType.Int,4),
-					new SqlParameter("SQL2012REMARK", SqlDbType.VarChar,500),
-					new SqlParameter("SQL2012CREATE_USER_ID", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012CREATE_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012UPDATE_USER_ID", SqlDbType.VarChar,50),
-					new SqlParameter("SQL2012UPDATE_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)};
+					new SqlParameter("@IDENTITY_ID", SqlDbType.VarChar,256),
+					new SqlParameter("@IDENTITY_REMARK", SqlDbType.VarChar,500),
+					new SqlParameter("@IDENTITY_VISUAL_ID", SqlDbType.VarChar,256),
+					new SqlParameter("@IDENTITY_TYPE", SqlDbType.Int,4),
+					new SqlParameter("@STATUS", SqlDbType.Int,4),
+					new SqlParameter("@REMARK", SqlDbType.VarChar,500),
+					new SqlParameter("@CREATE_USER_ID", SqlDbType.VarChar,50),
+					new SqlParameter("@CREATE_TIME", SqlDbType.DateTime),
+					new SqlParameter("@UPDATE_USER_ID", SqlDbType.VarChar,50),
+					new SqlParameter("@UPDATE_TIME", SqlDbType.DateTime),
+					new SqlParameter("@ID", SqlDbType.VarChar,32)};
 			parameters[0].Value = model.IDENTITY_ID;
 			parameters[1].Value = model.IDENTITY_REMARK;
 			parameters[2].Value = model.IDENTITY_VISUAL_ID;
@@ -151,9 +151,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("delete from PBA_IDENTITY_ENTITY_STORAGE ");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
@@ -194,9 +194,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select  top 1 ID,IDENTITY_ID,IDENTITY_REMARK,IDENTITY_VISUAL_ID,IDENTITY_TYPE,STATUS,REMARK,CREATE_USER_ID,CREATE_TIME,UPDATE_USER_ID,UPDATE_TIME from PBA_IDENTITY_ENTITY_STORAGE ");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			Parking.Core.Model.PBA_IDENTITY_ENTITY_STORAGE model=new Parking.Core.Model.PBA_IDENTITY_ENTITY_STORAGE();
@@ -358,13 +358,13 @@ namespace Parking.DBService.DAL
 		public DataSet GetList(int PageSize,int PageIndex,string strWhere)
 		{
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012tblName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012fldName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012PageSize", SqlDbType.Int),
-					new SqlParameter("SQL2012PageIndex", SqlDbType.Int),
-					new SqlParameter("SQL2012IsReCount", SqlDbType.Bit),
-					new SqlParameter("SQL2012OrderType", SqlDbType.Bit),
-					new SqlParameter("SQL2012strWhere", SqlDbType.VarChar,1000),
+					new SqlParameter("@tblName", SqlDbType.VarChar, 255),
+					new SqlParameter("@fldName", SqlDbType.VarChar, 255),
+					new SqlParameter("@PageSize", SqlDbType.Int),
+					new SqlParameter("@PageIndex", SqlDbType.Int),
+					new SqlParameter("@IsReCount", SqlDbType.Bit),
+					new SqlParameter("@OrderType", SqlDbType.Bit),
+					new SqlParameter("@strWhere", SqlDbType.VarChar,1000),
 					};
 			parameters[0].Value = "PBA_IDENTITY_ENTITY_STORAGE";
 			parameters[1].Value = "ID";

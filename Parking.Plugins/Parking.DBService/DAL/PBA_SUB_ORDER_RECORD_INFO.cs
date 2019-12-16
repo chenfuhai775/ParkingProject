@@ -37,9 +37,9 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select count(1) from PBA_SUB_ORDER_RECORD_INFO");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			return DbHelperSQL.Exists(strSql.ToString(),parameters);
@@ -55,18 +55,18 @@ namespace Parking.DBService.DAL
 			strSql.Append("insert into PBA_SUB_ORDER_RECORD_INFO(");
 			strSql.Append("ID,SUB_ORDER_ID,BEGIN_TIME,END_TIME,CHARGE_MONEY,CHARGE_METHOD,PAY_TYPE,PAY_PLATFORM,REMARK,CREATE_TIME)");
 			strSql.Append(" values (");
-			strSql.Append("SQL2012ID,SQL2012SUB_ORDER_ID,SQL2012BEGIN_TIME,SQL2012END_TIME,SQL2012CHARGE_MONEY,SQL2012CHARGE_METHOD,SQL2012PAY_TYPE,SQL2012PAY_PLATFORM,SQL2012REMARK,SQL2012CREATE_TIME)");
+			strSql.Append("@ID,@SUB_ORDER_ID,@BEGIN_TIME,@END_TIME,@CHARGE_MONEY,@CHARGE_METHOD,@PAY_TYPE,@PAY_PLATFORM,@REMARK,@CREATE_TIME)");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012SUB_ORDER_ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012BEGIN_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012END_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012CHARGE_MONEY", SqlDbType.Decimal,9),
-					new SqlParameter("SQL2012CHARGE_METHOD", SqlDbType.Int,4),
-					new SqlParameter("SQL2012PAY_TYPE", SqlDbType.Int,4),
-					new SqlParameter("SQL2012PAY_PLATFORM", SqlDbType.Int,4),
-					new SqlParameter("SQL2012REMARK", SqlDbType.VarChar,2000),
-					new SqlParameter("SQL2012CREATE_TIME", SqlDbType.DateTime)};
+					new SqlParameter("@ID", SqlDbType.VarChar,32),
+					new SqlParameter("@SUB_ORDER_ID", SqlDbType.VarChar,32),
+					new SqlParameter("@BEGIN_TIME", SqlDbType.DateTime),
+					new SqlParameter("@END_TIME", SqlDbType.DateTime),
+					new SqlParameter("@CHARGE_MONEY", SqlDbType.Decimal,9),
+					new SqlParameter("@CHARGE_METHOD", SqlDbType.Int,4),
+					new SqlParameter("@PAY_TYPE", SqlDbType.Int,4),
+					new SqlParameter("@PAY_PLATFORM", SqlDbType.Int,4),
+					new SqlParameter("@REMARK", SqlDbType.VarChar,2000),
+					new SqlParameter("@CREATE_TIME", SqlDbType.DateTime)};
 			parameters[0].Value = model.ID;
 			parameters[1].Value = model.SUB_ORDER_ID;
 			parameters[2].Value = model.BEGIN_TIME;
@@ -95,27 +95,27 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("update PBA_SUB_ORDER_RECORD_INFO set ");
-			strSql.Append("SUB_ORDER_ID=SQL2012SUB_ORDER_ID,");
-			strSql.Append("BEGIN_TIME=SQL2012BEGIN_TIME,");
-			strSql.Append("END_TIME=SQL2012END_TIME,");
-			strSql.Append("CHARGE_MONEY=SQL2012CHARGE_MONEY,");
-			strSql.Append("CHARGE_METHOD=SQL2012CHARGE_METHOD,");
-			strSql.Append("PAY_TYPE=SQL2012PAY_TYPE,");
-			strSql.Append("PAY_PLATFORM=SQL2012PAY_PLATFORM,");
-			strSql.Append("REMARK=SQL2012REMARK,");
-			strSql.Append("CREATE_TIME=SQL2012CREATE_TIME");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append("SUB_ORDER_ID=@SUB_ORDER_ID,");
+			strSql.Append("BEGIN_TIME=@BEGIN_TIME,");
+			strSql.Append("END_TIME=@END_TIME,");
+			strSql.Append("CHARGE_MONEY=@CHARGE_MONEY,");
+			strSql.Append("CHARGE_METHOD=@CHARGE_METHOD,");
+			strSql.Append("PAY_TYPE=@PAY_TYPE,");
+			strSql.Append("PAY_PLATFORM=@PAY_PLATFORM,");
+			strSql.Append("REMARK=@REMARK,");
+			strSql.Append("CREATE_TIME=@CREATE_TIME");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012SUB_ORDER_ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012BEGIN_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012END_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012CHARGE_MONEY", SqlDbType.Decimal,9),
-					new SqlParameter("SQL2012CHARGE_METHOD", SqlDbType.Int,4),
-					new SqlParameter("SQL2012PAY_TYPE", SqlDbType.Int,4),
-					new SqlParameter("SQL2012PAY_PLATFORM", SqlDbType.Int,4),
-					new SqlParameter("SQL2012REMARK", SqlDbType.VarChar,2000),
-					new SqlParameter("SQL2012CREATE_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)};
+					new SqlParameter("@SUB_ORDER_ID", SqlDbType.VarChar,32),
+					new SqlParameter("@BEGIN_TIME", SqlDbType.DateTime),
+					new SqlParameter("@END_TIME", SqlDbType.DateTime),
+					new SqlParameter("@CHARGE_MONEY", SqlDbType.Decimal,9),
+					new SqlParameter("@CHARGE_METHOD", SqlDbType.Int,4),
+					new SqlParameter("@PAY_TYPE", SqlDbType.Int,4),
+					new SqlParameter("@PAY_PLATFORM", SqlDbType.Int,4),
+					new SqlParameter("@REMARK", SqlDbType.VarChar,2000),
+					new SqlParameter("@CREATE_TIME", SqlDbType.DateTime),
+					new SqlParameter("@ID", SqlDbType.VarChar,32)};
 			parameters[0].Value = model.SUB_ORDER_ID;
 			parameters[1].Value = model.BEGIN_TIME;
 			parameters[2].Value = model.END_TIME;
@@ -146,9 +146,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("delete from PBA_SUB_ORDER_RECORD_INFO ");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
@@ -189,9 +189,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select  top 1 ID,SUB_ORDER_ID,BEGIN_TIME,END_TIME,CHARGE_MONEY,CHARGE_METHOD,PAY_TYPE,PAY_PLATFORM,REMARK,CREATE_TIME from PBA_SUB_ORDER_RECORD_INFO ");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			Parking.Core.Model.PBA_SUB_ORDER_RECORD_INFO model=new Parking.Core.Model.PBA_SUB_ORDER_RECORD_INFO();
@@ -349,13 +349,13 @@ namespace Parking.DBService.DAL
 		public DataSet GetList(int PageSize,int PageIndex,string strWhere)
 		{
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012tblName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012fldName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012PageSize", SqlDbType.Int),
-					new SqlParameter("SQL2012PageIndex", SqlDbType.Int),
-					new SqlParameter("SQL2012IsReCount", SqlDbType.Bit),
-					new SqlParameter("SQL2012OrderType", SqlDbType.Bit),
-					new SqlParameter("SQL2012strWhere", SqlDbType.VarChar,1000),
+					new SqlParameter("@tblName", SqlDbType.VarChar, 255),
+					new SqlParameter("@fldName", SqlDbType.VarChar, 255),
+					new SqlParameter("@PageSize", SqlDbType.Int),
+					new SqlParameter("@PageIndex", SqlDbType.Int),
+					new SqlParameter("@IsReCount", SqlDbType.Bit),
+					new SqlParameter("@OrderType", SqlDbType.Bit),
+					new SqlParameter("@strWhere", SqlDbType.VarChar,1000),
 					};
 			parameters[0].Value = "PBA_SUB_ORDER_RECORD_INFO";
 			parameters[1].Value = "ID";

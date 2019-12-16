@@ -38,9 +38,9 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select count(1) from CR_ORDER_RECORD_DETAILS");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			return DbHelperSQL.Exists(strSql.ToString(),parameters);
@@ -56,18 +56,18 @@ namespace Parking.DBService.DAL
 			strSql.Append("insert into CR_ORDER_RECORD_DETAILS(");
 			strSql.Append("ID,ORDER_CODE,IN_CHANNEL_CODE,OUT_CHANNEL_CODE,IN_TIME,OUT_TIME,DUE_MONEY,CHARGE_MONEY,PER_MONEY,VEHICLE_NO)");
 			strSql.Append(" values (");
-			strSql.Append("SQL2012ID,SQL2012ORDER_CODE,SQL2012IN_CHANNEL_CODE,SQL2012OUT_CHANNEL_CODE,SQL2012IN_TIME,SQL2012OUT_TIME,SQL2012DUE_MONEY,SQL2012CHARGE_MONEY,SQL2012PER_MONEY,SQL2012VEHICLE_NO)");
+			strSql.Append("@ID,@ORDER_CODE,@IN_CHANNEL_CODE,@OUT_CHANNEL_CODE,@IN_TIME,@OUT_TIME,@DUE_MONEY,@CHARGE_MONEY,@PER_MONEY,@VEHICLE_NO)");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012ORDER_CODE", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012IN_CHANNEL_CODE", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012OUT_CHANNEL_CODE", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012IN_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012OUT_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012DUE_MONEY", SqlDbType.Decimal,9),
-					new SqlParameter("SQL2012CHARGE_MONEY", SqlDbType.Decimal,9),
-					new SqlParameter("SQL2012PER_MONEY", SqlDbType.Decimal,9),
-					new SqlParameter("SQL2012VEHICLE_NO", SqlDbType.VarChar,20)};
+					new SqlParameter("@ID", SqlDbType.VarChar,32),
+					new SqlParameter("@ORDER_CODE", SqlDbType.VarChar,32),
+					new SqlParameter("@IN_CHANNEL_CODE", SqlDbType.VarChar,32),
+					new SqlParameter("@OUT_CHANNEL_CODE", SqlDbType.VarChar,32),
+					new SqlParameter("@IN_TIME", SqlDbType.DateTime),
+					new SqlParameter("@OUT_TIME", SqlDbType.DateTime),
+					new SqlParameter("@DUE_MONEY", SqlDbType.Decimal,9),
+					new SqlParameter("@CHARGE_MONEY", SqlDbType.Decimal,9),
+					new SqlParameter("@PER_MONEY", SqlDbType.Decimal,9),
+					new SqlParameter("@VEHICLE_NO", SqlDbType.VarChar,20)};
 			parameters[0].Value = model.ID;
 			parameters[1].Value = model.ORDER_CODE;
 			parameters[2].Value = model.IN_CHANNEL_CODE;
@@ -96,27 +96,27 @@ namespace Parking.DBService.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("update CR_ORDER_RECORD_DETAILS set ");
-			strSql.Append("ORDER_CODE=SQL2012ORDER_CODE,");
-			strSql.Append("IN_CHANNEL_CODE=SQL2012IN_CHANNEL_CODE,");
-			strSql.Append("OUT_CHANNEL_CODE=SQL2012OUT_CHANNEL_CODE,");
-			strSql.Append("IN_TIME=SQL2012IN_TIME,");
-			strSql.Append("OUT_TIME=SQL2012OUT_TIME,");
-			strSql.Append("DUE_MONEY=SQL2012DUE_MONEY,");
-			strSql.Append("CHARGE_MONEY=SQL2012CHARGE_MONEY,");
-			strSql.Append("PER_MONEY=SQL2012PER_MONEY,");
-			strSql.Append("VEHICLE_NO=SQL2012VEHICLE_NO");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append("ORDER_CODE=@ORDER_CODE,");
+			strSql.Append("IN_CHANNEL_CODE=@IN_CHANNEL_CODE,");
+			strSql.Append("OUT_CHANNEL_CODE=@OUT_CHANNEL_CODE,");
+			strSql.Append("IN_TIME=@IN_TIME,");
+			strSql.Append("OUT_TIME=@OUT_TIME,");
+			strSql.Append("DUE_MONEY=@DUE_MONEY,");
+			strSql.Append("CHARGE_MONEY=@CHARGE_MONEY,");
+			strSql.Append("PER_MONEY=@PER_MONEY,");
+			strSql.Append("VEHICLE_NO=@VEHICLE_NO");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ORDER_CODE", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012IN_CHANNEL_CODE", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012OUT_CHANNEL_CODE", SqlDbType.VarChar,32),
-					new SqlParameter("SQL2012IN_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012OUT_TIME", SqlDbType.DateTime),
-					new SqlParameter("SQL2012DUE_MONEY", SqlDbType.Decimal,9),
-					new SqlParameter("SQL2012CHARGE_MONEY", SqlDbType.Decimal,9),
-					new SqlParameter("SQL2012PER_MONEY", SqlDbType.Decimal,9),
-					new SqlParameter("SQL2012VEHICLE_NO", SqlDbType.VarChar,20),
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)};
+					new SqlParameter("@ORDER_CODE", SqlDbType.VarChar,32),
+					new SqlParameter("@IN_CHANNEL_CODE", SqlDbType.VarChar,32),
+					new SqlParameter("@OUT_CHANNEL_CODE", SqlDbType.VarChar,32),
+					new SqlParameter("@IN_TIME", SqlDbType.DateTime),
+					new SqlParameter("@OUT_TIME", SqlDbType.DateTime),
+					new SqlParameter("@DUE_MONEY", SqlDbType.Decimal,9),
+					new SqlParameter("@CHARGE_MONEY", SqlDbType.Decimal,9),
+					new SqlParameter("@PER_MONEY", SqlDbType.Decimal,9),
+					new SqlParameter("@VEHICLE_NO", SqlDbType.VarChar,20),
+					new SqlParameter("@ID", SqlDbType.VarChar,32)};
 			parameters[0].Value = model.ORDER_CODE;
 			parameters[1].Value = model.IN_CHANNEL_CODE;
 			parameters[2].Value = model.OUT_CHANNEL_CODE;
@@ -147,9 +147,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("delete from CR_ORDER_RECORD_DETAILS ");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
@@ -190,9 +190,9 @@ namespace Parking.DBService.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select  top 1 ID,ORDER_CODE,IN_CHANNEL_CODE,OUT_CHANNEL_CODE,IN_TIME,OUT_TIME,DUE_MONEY,CHARGE_MONEY,PER_MONEY,VEHICLE_NO from CR_ORDER_RECORD_DETAILS ");
-			strSql.Append(" where ID=SQL2012ID ");
+			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012ID", SqlDbType.VarChar,32)			};
+					new SqlParameter("@ID", SqlDbType.VarChar,32)			};
 			parameters[0].Value = ID;
 
 			Parking.Core.Model.CR_ORDER_RECORD_DETAILS model=new Parking.Core.Model.CR_ORDER_RECORD_DETAILS();
@@ -350,13 +350,13 @@ namespace Parking.DBService.DAL
 		public DataSet GetList(int PageSize,int PageIndex,string strWhere)
 		{
 			SqlParameter[] parameters = {
-					new SqlParameter("SQL2012tblName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012fldName", SqlDbType.VarChar, 255),
-					new SqlParameter("SQL2012PageSize", SqlDbType.Int),
-					new SqlParameter("SQL2012PageIndex", SqlDbType.Int),
-					new SqlParameter("SQL2012IsReCount", SqlDbType.Bit),
-					new SqlParameter("SQL2012OrderType", SqlDbType.Bit),
-					new SqlParameter("SQL2012strWhere", SqlDbType.VarChar,1000),
+					new SqlParameter("@tblName", SqlDbType.VarChar, 255),
+					new SqlParameter("@fldName", SqlDbType.VarChar, 255),
+					new SqlParameter("@PageSize", SqlDbType.Int),
+					new SqlParameter("@PageIndex", SqlDbType.Int),
+					new SqlParameter("@IsReCount", SqlDbType.Bit),
+					new SqlParameter("@OrderType", SqlDbType.Bit),
+					new SqlParameter("@strWhere", SqlDbType.VarChar,1000),
 					};
 			parameters[0].Value = "CR_ORDER_RECORD_DETAILS";
 			parameters[1].Value = "ID";
